@@ -36,6 +36,12 @@
             <artifactId>jline</artifactId>
             <version>${jline.version}</version>
         </dependency>
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <!-- Never user or at least check the LATEST is stable -->
+            <version>LATEST</version>
+        </dependency>
     </dependencies>
 
     <build>
