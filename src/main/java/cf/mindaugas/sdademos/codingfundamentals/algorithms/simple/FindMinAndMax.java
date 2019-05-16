@@ -13,13 +13,16 @@ public class FindMinAndMax {
         // is bigger than the currently checked number
         // we know that we need to change the minimum
         // for that number
+
+
+        // caution: do not minitialize min to 0! Why?
+        // Because what if the real minimum is bigger than 0?
         int min = arr[0];
         for(int i = 0; i < arr.length; i++){
             if(arr[i] < min){
-               min = arr[i];
+                min = arr[i];
             }
         }
-
         return min;
     }
 
@@ -30,7 +33,6 @@ public class FindMinAndMax {
                 max = arr[i];
             }
         }
-
         return max;
     }
 }
