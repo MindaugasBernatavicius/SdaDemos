@@ -11,26 +11,28 @@ import java.sql.SQLException;
 public class RetrieveImageFromDB {
 
 	public static void main(String[] args) throws SQLException, IOException {
-		Connection conn = DBUtil.getConnection(DBType.ORADB);
-		
-		String sql = "Select Photo From NewEmployees Where Employee_Id = 500";
+		Connection conn = DBUtil.getConnection(DBType.MYSQLDB);
+
+		int id = 33;
+
+		String sql = "SELECT photo FROM Employee WHERE Id = ?";
 		PreparedStatement pstmt = conn.prepareStatement(sql);
-		
+        pstmt.setInt(1, id);
+
 		ResultSet rs = pstmt.executeQuery();
 		
-		if( rs.next()){
-			Blob imgBlob = rs.getBlob("Photo");
+		if(rs.next()){
+			Blob imgBlob = rs.getBlob("photo");
 			
-			FileOutputStream fos  = new FileOutputStream("D:/PluralSight Demos/Downloads/img500.jpg");
-			
+			FileOutputStream fos  = new FileOutputStream("C:\\Users\\bernam\\Desktop\\img.jpg");
+
 			fos.write(imgBlob.getBytes(1, (int)imgBlob.length()));
 			
 			fos.flush();
 			fos.close();
 			
-			System.out.println("Photo of Employee 500 has been Downloaded successfully");
-		}
-		else{
+			System.out.println("Photo of Employee " + id + " has been Downloaded successfully");
+		} else{
 			System.out.println("Employee Record Not Found.");
 		}
 		

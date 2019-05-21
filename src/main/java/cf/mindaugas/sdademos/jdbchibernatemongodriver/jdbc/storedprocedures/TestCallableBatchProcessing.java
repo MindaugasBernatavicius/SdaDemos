@@ -12,28 +12,34 @@ import java.sql.CallableStatement;
 
 public class TestCallableBatchProcessing {
 
-    // use jdbcdemo;
-    //
-    // CREATE TABLE Employee (
-    //     id INT NOT NULL,
-    //     emplName varchar(255),
-    //     emplEmail varchar(255),
-    //     hireDate DATE,
-    //     salary INT
-    // )ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_lithuanian_ci;
-    //
-    // DELIMITER //
-    // CREATE PROCEDURE AddNewEmployee (
-    //     IN id INT,
-    //     IN emplName VARCHAR(255),
-    //     IN emplEmail VARCHAR(255),
-    //     IN hireDate DATE,
-    //     IN salary INT)
-    // BEGIN
-    //     INSERT INTO Employee() VALUES (id, emplName, emplEmail, hireDate, salary);
-    // END //
-    // DELIMITER ;
-
+	// 	use jdbcdemo;
+	//
+	// 	CREATE TABLE Employee (
+	// 			id INT NOT NULL,
+	// 			emplName varchar(255),
+	// 	emplEmail varchar(255),
+	// 	hireDate DATE,
+	// 	salary INT,
+	// 	cv MEDIUMTEXT,
+	// 	photo BLOB
+	// )ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_lithuanian_ci;
+	// 	DROP TABLE Employee;
+	//
+	// 	INSERT INTO Employee() VALUES (33, 'Mindaugas', 'darbas.mindaugas@gmail.com', '2018-01-10', 455, null, null);
+	// 	SELECT * FROM Employee;
+	//
+	// 	DELIMITER //
+	// 	CREATE PROCEDURE AddNewEmployee (
+	// 		IN id INT,
+	// 		IN emplName VARCHAR(255),
+	// 		IN emplEmail VARCHAR(255),
+	// 		IN hireDate DATE,
+	// 		IN salary INT)
+	// 	BEGIN
+	// 	INSERT INTO Employee() VALUES (id, emplName, emplEmail, hireDate, salary, null, null);
+	// 	END //
+	// 	DELIMITER ;
+	// 	drop procedure AddNewEmployee;
 
 	public static void main(String[] args) {
 		try(
@@ -43,15 +49,15 @@ public class TestCallableBatchProcessing {
 			String option;
 			do {
 				Scanner scanner = new Scanner(System.in);
-				System.out.print("Enter Employee # : ");
+				System.out.print("Enter Employee Number: ");
 				int empno = Integer.parseInt(scanner.nextLine());
-				System.out.print("Enter Employee Name : ");
+				System.out.print("Enter Employee Name: ");
 				String ename = scanner.nextLine();
-				System.out.print("Enter Email ID :");
+				System.out.print("Enter Email: ");
 				String email = scanner.nextLine();
-				System.out.print("Enter Hiredate : ");
+				System.out.print("Enter Hiredate: ");
 				Date dob = Date.valueOf(scanner.nextLine());
-				System.out.print("Enter Salary :");
+				System.out.print("Enter Salary: ");
 				double salary = Double.parseDouble(scanner.nextLine());
 			
 				callableStatement.setInt(1, empno);
@@ -67,7 +73,7 @@ public class TestCallableBatchProcessing {
 			} while(option.equals("yes"));
 			
 			int[] updateCounts = callableStatement.executeBatch();
-			System.out.println("Total Records Inserted are : " + updateCounts.length  );
+			System.out.println("Total Records Inserted are : " + updateCounts.length);
 
 		} catch(SQLException ex){
 		    DBUtil.showErrorMessage(ex);

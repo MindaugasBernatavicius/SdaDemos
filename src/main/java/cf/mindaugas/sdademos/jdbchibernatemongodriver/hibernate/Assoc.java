@@ -1,6 +1,6 @@
-package cf.mindaugas.sdademos.jdbchibernatemongodriver.hibernate.crud;
+package cf.mindaugas.sdademos.jdbchibernatemongodriver.hibernate;
 
-import cf.mindaugas.sdademos.jdbchibernatemongodriver.hibernate.model.User;
+import cf.mindaugas.sdademos.jdbchibernatemongodriver.hibernate.model.*;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -9,7 +9,7 @@ import org.hibernate.boot.MetadataSources;
 import org.hibernate.boot.registry.StandardServiceRegistry;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 
-public class ReadAndUpdateEntity {
+public class Assoc {
 
     public static void runExample(){
         StandardServiceRegistry registry = new StandardServiceRegistryBuilder().configure().build(); // Create registry
@@ -18,12 +18,29 @@ public class ReadAndUpdateEntity {
 
         SessionFactory sessionFactory = metadata.getSessionFactoryBuilder().build(); // Create SessionFactory
         Session session = sessionFactory.openSession();
-        Transaction transaction = transaction = session.beginTransaction();
+        Transaction transaction = session.beginTransaction();
 
-        // UPDATE
-        User user = session.find(User.class, 1L); // NullPointerException if object is not found
-        user.setName("Robert C.");
+        // LibraryUser libraryUser = new LibraryUser();
+        // libraryUser.setId(1L);
+        // libraryUser.setName("Mindaugas");
+        // libraryUser.setBooks(new ArrayList(){{new Book(1L, "50 shades of grey");}});
+        // session.persist(libraryUser);
+        Post post = new Post("First post");
+
+        post.getComments().add(
+                new PostComment("My first review")
+        );
+        post.getComments().add(
+                new PostComment("My second review")
+        );
+        post.getComments().add(
+                new PostComment("My third review")
+        );
+
+        session.persist(post);
+
         transaction.commit();
         session.close();
     }
+
 }

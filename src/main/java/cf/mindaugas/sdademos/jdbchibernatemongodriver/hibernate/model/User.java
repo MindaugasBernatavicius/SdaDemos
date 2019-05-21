@@ -19,11 +19,15 @@ import java.time.LocalDate;
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    // @GeneratedValue(strategy = GenerationType.AUTO)      // no support in MySQL
+    // @GeneratedValue(strategy = GenerationType.SEQUENCE)  // no support in MySQL
+    // @GeneratedValue(strategy = GenerationType.TABLE)
     private Long id;
     private String name;
     private String surname;
     private LocalDate birthdate;
     private int height;
+    private int age;
 
     public User() {}
 

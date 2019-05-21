@@ -1,6 +1,8 @@
-package cf.mindaugas.sdademos.jdbchibernatemongodriver.hibernate.crud;
+package cf.mindaugas.sdademos.jdbchibernatemongodriver.hibernate.types.valuetypes;
 
-import cf.mindaugas.sdademos.jdbchibernatemongodriver.hibernate.model.User;
+import cf.mindaugas.sdademos.jdbchibernatemongodriver.hibernate.model.Contact;
+import cf.mindaugas.sdademos.jdbchibernatemongodriver.hibernate.model.Name;
+import cf.mindaugas.sdademos.jdbchibernatemongodriver.hibernate.model.UserWPhone;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -9,9 +11,14 @@ import org.hibernate.boot.MetadataSources;
 import org.hibernate.boot.registry.StandardServiceRegistry;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 
-public class CreateEntity {
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.sql.Connection;
+import java.util.ArrayList;
 
-    public static void runExample(){
+public class ValueTypes {
+
+    public static void runExampleWEmbedables() throws MalformedURLException {
         StandardServiceRegistry registry = new StandardServiceRegistryBuilder().configure().build(); // Create registry
         MetadataSources sources = new MetadataSources(registry); // Create MetadataSources
         Metadata metadata = sources.getMetadataBuilder().build(); // Create Metadata
@@ -21,24 +28,13 @@ public class CreateEntity {
         Transaction transaction = session.beginTransaction();
 
         // CREATE
-        User user = new User("Robert", "Martin");
-        session.persist(user);
-
-        // How can we check whether the entity is persisted
-        // durring the persist() call or durring the commit()?
-
-        // System.out.println("----- Check now -----");
-        // Thread.sleep(15000);
-
+        Contact contact = new Contact(2, new Name("Mindaugas", "", "Bernatavičius"), "Notes 1", new URL("http://www.abc.com"), true);
+        session.persist(contact);
         transaction.commit();
-
-        // System.out.println("----- Check now -----");
-        // Thread.sleep(15000);
-
         session.close();
     }
 
-    public static long runExampleReturningId(){
+    public static void runExampleWCollections() throws MalformedURLException {
         StandardServiceRegistry registry = new StandardServiceRegistryBuilder().configure().build(); // Create registry
         MetadataSources sources = new MetadataSources(registry); // Create MetadataSources
         Metadata metadata = sources.getMetadataBuilder().build(); // Create Metadata
@@ -47,12 +43,16 @@ public class CreateEntity {
         Session session = sessionFactory.openSession();
         Transaction transaction = session.beginTransaction();
 
+        ArrayList<String> phones = new ArrayList<>();
+        phones.add("+77 889 008033");
+        phones.add("+370 84 08977777");
+
         // CREATE
-        User user = new User("Robert", "Martin");
-        session.persist(user);
+        UserWPhone userWPhone = new UserWPhone("Alexardr", "Bell");
+        userWPhone.setPhones(phones);
+        session.persist(userWPhone);
+
         transaction.commit();
         session.close();
-
-        return user.getId();
     }
 }

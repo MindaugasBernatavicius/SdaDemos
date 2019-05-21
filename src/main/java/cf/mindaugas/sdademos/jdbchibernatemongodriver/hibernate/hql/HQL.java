@@ -1,5 +1,7 @@
-package cf.mindaugas.sdademos.jdbchibernatemongodriver.hibernate.crud;
+package cf.mindaugas.sdademos.jdbchibernatemongodriver.hibernate.hql;
 
+import cf.mindaugas.sdademos.jdbchibernatemongodriver.hibernate.model.Post;
+import cf.mindaugas.sdademos.jdbchibernatemongodriver.hibernate.model.PostComment;
 import cf.mindaugas.sdademos.jdbchibernatemongodriver.hibernate.model.User;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -9,7 +11,10 @@ import org.hibernate.boot.MetadataSources;
 import org.hibernate.boot.registry.StandardServiceRegistry;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 
-public class ReadAndUpdateEntity {
+import javax.persistence.Query;
+import java.util.List;
+
+public class HQL {
 
     public static void runExample(){
         StandardServiceRegistry registry = new StandardServiceRegistryBuilder().configure().build(); // Create registry
@@ -18,12 +23,20 @@ public class ReadAndUpdateEntity {
 
         SessionFactory sessionFactory = metadata.getSessionFactoryBuilder().build(); // Create SessionFactory
         Session session = sessionFactory.openSession();
-        Transaction transaction = transaction = session.beginTransaction();
+        // Transaction transaction = session.beginTransaction();
 
-        // UPDATE
-        User user = session.find(User.class, 1L); // NullPointerException if object is not found
-        user.setName("Robert C.");
-        transaction.commit();
+        String hql = "FROM User";
+        Query query = session.createQuery(hql);
+        List<User> results = query.getResultList();
+
+        System.out.println("------");
+        // System.out.println(results.size());
+
+        for (User user : results){
+            System.out.println(user.getId());
+        }
+
+        // transaction.commit();
         session.close();
     }
 }

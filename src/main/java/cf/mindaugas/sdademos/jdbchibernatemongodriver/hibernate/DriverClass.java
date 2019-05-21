@@ -1,33 +1,55 @@
 package cf.mindaugas.sdademos.jdbchibernatemongodriver.hibernate;
 
 import cf.mindaugas.sdademos.jdbchibernatemongodriver.hibernate.crud.CreateEntity;
-import cf.mindaugas.sdademos.jdbchibernatemongodriver.hibernate.crud.ReadAndDeleteEntity;
-import cf.mindaugas.sdademos.jdbchibernatemongodriver.hibernate.crud.ReadAndUpdateEntity;
-import cf.mindaugas.sdademos.jdbchibernatemongodriver.hibernate.model.User;
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.hibernate.Transaction;
-import org.hibernate.boot.Metadata;
-import org.hibernate.boot.MetadataSources;
-import org.hibernate.boot.registry.StandardServiceRegistry;
-import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
+import cf.mindaugas.sdademos.jdbchibernatemongodriver.hibernate.hql.HQL;
+import cf.mindaugas.sdademos.jdbchibernatemongodriver.hibernate.types.valuetypes.ValueTypes;
+import cf.mindaugas.sdademos.jdbchibernatemongodriver.hibernate.xmlbasedconfig.XmlBasedConfig;
+
+import java.net.MalformedURLException;
 
 public class DriverClass {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws MalformedURLException {
 
         // 0. - Creating simple entity: hello world level example for Hibernate
         // CreateEntity.runExample();
 
         // 1. - Lets improve the example by returning the Id of created object
-        System.out.println(CreateEntity.runExampleReturningId());
+        // System.out.println(CreateEntity.runExampleReturningId());
 
         // 2. - Other CRUD operations read and update
-        // ReadAndUpdateEntity.runExample();
+        // ReadAndUpdateEntity.runExampleWEmbedables();
 
         // 2. - Read and delete
-        // ReadAndDeleteEntity.runExample();
+        // ReadAndDeleteEntity.runExampleWEmbedables();
 
-        // 3.
+        // . - Basic Types
+        // Covered above w/ Create entity
+
+        // . - Value types - embedables
+        // ValueTypes.runExampleWEmbedables();
+
+        // . collections
+        // ValueTypes.runExampleWCollections();
+
+        // . - Entity types cf\mindaugas\sdademos
+
+        // . - Interceptors / callbacks
+        // HibernateOperations hibernateOperations = new HibernateOperations();
+        // // hibernateOperations.saveMovie();
+        // long id = hibernateOperations.saveMovieGiveId();
+        //
+        // Movie movie = hibernateOperations.getMovie(id);
+        //
+        // System.out.println(movie.getAge());
+
+        // . - assoc
+        // Assoc.runExampleWEmbedables();
+
+        // . - xml based config
+        XmlBasedConfig.runExample();
+
+        // . - HQL
+        // HQL.runExample();
 
     }
 }
