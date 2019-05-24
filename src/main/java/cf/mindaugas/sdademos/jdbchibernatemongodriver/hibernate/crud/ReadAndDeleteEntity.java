@@ -18,10 +18,10 @@ public class ReadAndDeleteEntity {
 
         SessionFactory sessionFactory = metadata.getSessionFactoryBuilder().build(); // Create SessionFactory
         Session session = sessionFactory.openSession();
-        Transaction transaction = transaction = session.beginTransaction();
+        Transaction transaction = session.beginTransaction();
 
         // DELETE
-        User user = session.find(User.class, 2L);
+        User user = session.find(User.class, 1L);
         session.delete(user);
         transaction.commit();
         session.close();

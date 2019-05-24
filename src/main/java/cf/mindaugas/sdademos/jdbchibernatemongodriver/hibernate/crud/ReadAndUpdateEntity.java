@@ -18,7 +18,7 @@ public class ReadAndUpdateEntity {
 
         SessionFactory sessionFactory = metadata.getSessionFactoryBuilder().build(); // Create SessionFactory
         Session session = sessionFactory.openSession();
-        Transaction transaction = transaction = session.beginTransaction();
+        Transaction transaction = session.beginTransaction();
 
         // UPDATE
         User user = session.find(User.class, 1L); // NullPointerException if object is not found

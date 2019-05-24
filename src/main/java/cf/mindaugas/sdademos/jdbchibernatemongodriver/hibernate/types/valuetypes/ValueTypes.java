@@ -34,7 +34,29 @@ public class ValueTypes {
         session.close();
     }
 
-    public static void runExampleWCollections() throws MalformedURLException {
+    public static void runExampleWCollectionsArrayLists() throws MalformedURLException {
+        StandardServiceRegistry registry = new StandardServiceRegistryBuilder().configure().build(); // Create registry
+        MetadataSources sources = new MetadataSources(registry); // Create MetadataSources
+        Metadata metadata = sources.getMetadataBuilder().build(); // Create Metadata
+
+        SessionFactory sessionFactory = metadata.getSessionFactoryBuilder().build(); // Create SessionFactory
+        Session session = sessionFactory.openSession();
+        Transaction transaction = session.beginTransaction();
+
+        ArrayList<String> phones = new ArrayList<>();
+        phones.add("+77 889 008033");
+        phones.add("+370 84 08977777");
+
+        // CREATE
+        UserWPhone userWPhone = new UserWPhone("Alexardr", "Bell");
+        userWPhone.setPhones(phones);
+        session.persist(userWPhone);
+
+        transaction.commit();
+        session.close();
+    }
+
+    public static void runExampleWCollectionsHashMaps() throws MalformedURLException {
         StandardServiceRegistry registry = new StandardServiceRegistryBuilder().configure().build(); // Create registry
         MetadataSources sources = new MetadataSources(registry); // Create MetadataSources
         Metadata metadata = sources.getMetadataBuilder().build(); // Create Metadata

@@ -1,9 +1,6 @@
 package cf.mindaugas.sdademos.jdbchibernatemongodriver.hibernate.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.time.LocalDate;
 
 // CREATE TABLE `user` (
@@ -15,6 +12,20 @@ import java.time.LocalDate;
 //     PRIMARY KEY (`id`)
 // ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
+
+// <query name="findEmployeeByName">
+// <![CDATA[from Employee e where e.name = :name]]>
+// </query>
+@NamedQueries({
+    @NamedQuery(
+        name = "get_user_by_name",
+        query = "select u from User u where name = :name"
+    ),
+    @NamedQuery(
+            name = "get_user_by_name_fuzzy",
+            query = "select u from User u where name like :name"
+    )
+})
 @Entity
 public class User {
     @Id
@@ -38,6 +49,10 @@ public class User {
 
     public long getId(){
         return this.id;
+    }
+
+    public String getName() {
+        return name;
     }
 
     public void setName(String name) {

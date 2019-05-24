@@ -1,14 +1,16 @@
 package cf.mindaugas.sdademos.jdbchibernatemongodriver.hibernate;
 
+import cf.mindaugas.sdademos.jdbchibernatemongodriver.hibernate.assoc.ManyToMany;
+import cf.mindaugas.sdademos.jdbchibernatemongodriver.hibernate.assoc.OneToMany;
+import cf.mindaugas.sdademos.jdbchibernatemongodriver.hibernate.assoc.OneToOne;
 import cf.mindaugas.sdademos.jdbchibernatemongodriver.hibernate.crud.CreateEntity;
+import cf.mindaugas.sdademos.jdbchibernatemongodriver.hibernate.crud.ReadAndUpdateEntity;
 import cf.mindaugas.sdademos.jdbchibernatemongodriver.hibernate.hql.HQL;
-import cf.mindaugas.sdademos.jdbchibernatemongodriver.hibernate.types.valuetypes.ValueTypes;
-import cf.mindaugas.sdademos.jdbchibernatemongodriver.hibernate.xmlbasedconfig.XmlBasedConfig;
 
 import java.net.MalformedURLException;
 
 public class DriverClass {
-    public static void main(String[] args) throws MalformedURLException {
+    public static void main(String[] args) throws MalformedURLException, InterruptedException {
 
         // 0. - Creating simple entity: hello world level example for Hibernate
         // CreateEntity.runExample();
@@ -17,39 +19,43 @@ public class DriverClass {
         // System.out.println(CreateEntity.runExampleReturningId());
 
         // 2. - Other CRUD operations read and update
-        // ReadAndUpdateEntity.runExampleWEmbedables();
+        // ReadAndUpdateEntity.runExample();
 
-        // 2. - Read and delete
-        // ReadAndDeleteEntity.runExampleWEmbedables();
+        // 3. - Read and delete
+        // ReadAndDeleteEntity.runExample();
 
-        // . - Basic Types
-        // Covered above w/ Create entity
+        // 4. - Basic Types
+        // Covered above w/ Create entity.
 
-        // . - Value types - embedables
+        // 5. - Value types - embedables
         // ValueTypes.runExampleWEmbedables();
 
-        // . collections
-        // ValueTypes.runExampleWCollections();
+        // 6. - Collections
+        // ValueTypes.runExampleWCollectionsArrayLists();
+        // ValueTypes.runExampleWCollectionsHashMaps(); // --> TODO
 
-        // . - Entity types cf\mindaugas\sdademos
+        // 7. - Entity types
+        // Covered above w/ Create entity.
 
-        // . - Interceptors / callbacks
+        // 8. - Interceptors / callbacks
         // HibernateOperations hibernateOperations = new HibernateOperations();
         // // hibernateOperations.saveMovie();
         // long id = hibernateOperations.saveMovieGiveId();
-        //
         // Movie movie = hibernateOperations.getMovie(id);
-        //
         // System.out.println(movie.getAge());
 
-        // . - assoc
-        // Assoc.runExampleWEmbedables();
+        // 9. - Associations
+        // System.out.println(OneToOne.runExamplePersist());
+        // OneToOne.runExampleQueryAndUpdate(1);
+        // OneToMany.runExamplePersist();
+        // ManyToMany.runExamplePersist();
+        // ManyToMany.runExampleBaeldung();
 
-        // . - xml based config
-        XmlBasedConfig.runExample();
+        // 10. - xml based config
+        // XmlBasedConfig.runExample();
 
-        // . - HQL
+        // 11. - HQL
         // HQL.runExample();
-
+        HQL.runExampleJoins();
     }
 }

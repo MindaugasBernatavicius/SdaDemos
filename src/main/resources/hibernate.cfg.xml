@@ -3,7 +3,9 @@
 <hibernate-configuration>
     <session-factory>
         <!-- MYSQL -->
-        <property name = "hibernate.dialect">org.hibernate.dialect.MariaDB103Dialect</property>
+        <!--<property name = "hibernate.dialect">org.hibernate.dialect.MariaDB103Dialect</property>-->
+        <property name = "hibernate.dialect">org.hibernate.dialect.MySQL8Dialect</property>
+
         <property name = "hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
         <property name = "hibernate.connection.url">jdbc:mysql://localhost/users</property>
         <property name = "hibernate.connection.username">root</property>
@@ -20,8 +22,8 @@
 
         <!-- CREATE: creates the schema necessary for your entities, destroying any previous data on startup -->
         <!-- UPDATE: update the schema to reflect the entities being persisted -->
+        <!-- CREATE-DROP: very important to have correct dialect for this DDL auto option -->
         <property name="hibernate.hbm2ddl.auto">create</property>
-        <!--<property name="hibernate.hbm2ddl.auto">update</property>-->
         <!--<property name="hibernate.hbm2ddl.auto">validate</property>-->
         <!--<property name="hibernate.hbm2ddl.auto">create-drop</property>-->
 
@@ -35,15 +37,28 @@
         <!--<property name="hibernate.temp.use_jdbc_metadata_defaults">false</property>-->
 
         <!-- Mappings or classes (annotation based) -->
-        <!--<mapping class="cf.mindaugas.sdademos.jdbchibernatemongodriver.hibernate.model.User"/>-->
-        <!--<mapping class="cf.mindaugas.sdademos.jdbchibernatemongodriver.hibernate.model.Contact"/>-->
+        <mapping class="cf.mindaugas.sdademos.jdbchibernatemongodriver.hibernate.model.User"/>
+        <mapping class="cf.mindaugas.sdademos.jdbchibernatemongodriver.hibernate.model.Contact"/>
         <!--<mapping class="cf.mindaugas.sdademos.jdbchibernatemongodriver.hibernate.model.UserWPhone"/>-->
         <!--<mapping class="cf.mindaugas.sdademos.jdbchibernatemongodriver.hibernate.model.LibraryUser"/>-->
         <!--<mapping class="cf.mindaugas.sdademos.jdbchibernatemongodriver.hibernate.model.Book"/>-->
-        <!--<mapping class="cf.mindaugas.sdademos.jdbchibernatemongodriver.hibernate.model.PostComment"/>-->
-        <!--<mapping class="cf.mindaugas.sdademos.jdbchibernatemongodriver.hibernate.model.Post"/>-->
+
+        <!--<mapping class="cf.mindaugas.sdademos.jdbchibernatemongodriver.hibernate.model.onetoone.UserOneToOne"/>-->
+        <!--<mapping class="cf.mindaugas.sdademos.jdbchibernatemongodriver.hibernate.model.onetoone.AddressOneToOne"/>-->
+
+        <!--<mapping class="cf.mindaugas.sdademos.jdbchibernatemongodriver.hibernate.model.onetomany.UserOneToMany"/>-->
+        <!--<mapping class="cf.mindaugas.sdademos.jdbchibernatemongodriver.hibernate.model.onetomany.BookOneToMany"/>-->
+
+        <!--<mapping class="cf.mindaugas.sdademos.jdbchibernatemongodriver.hibernate.model.manytomany.Book"/>-->
+        <!--<mapping class="cf.mindaugas.sdademos.jdbchibernatemongodriver.hibernate.model.manytomany.Author"/>-->
+        <!--<mapping class="cf.mindaugas.sdademos.jdbchibernatemongodriver.hibernate.model.manytomany.Employee"/>-->
+        <!--<mapping class="cf.mindaugas.sdademos.jdbchibernatemongodriver.hibernate.model.manytomany.Project"/>-->
+
+
+        <mapping class="cf.mindaugas.sdademos.jdbchibernatemongodriver.hibernate.model.hql.UserWPhoneObject"/>
+        <mapping class="cf.mindaugas.sdademos.jdbchibernatemongodriver.hibernate.model.hql.Phone"/>
 
         <!-- Mappings or files (XML based)  -->
-        <mapping resource = "cf\mindaugas\sdademos\jdbchibernatemongodriver\hibernate\model\AppUserParent.hbm.xml"/>
+        <!--<mapping resource = "cf\mindaugas\sdademos\jdbchibernatemongodriver\hibernate\model\AppUserParent.hbm.xml"/>-->
     </session-factory>
 </hibernate-configuration>
