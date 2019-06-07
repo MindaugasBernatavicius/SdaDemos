@@ -1,7 +1,5 @@
 package cf.mindaugas.sdademos.jdbchibernatemongodriver.hibernate.model.onetoone;
 
-import cf.mindaugas.sdademos.jdbchibernatemongodriver.hibernate.model.onetoone.AddressOneToOne;
-
 import javax.persistence.*;
 
 @Entity

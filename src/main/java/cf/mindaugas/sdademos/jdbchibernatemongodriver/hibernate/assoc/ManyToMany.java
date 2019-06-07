@@ -27,10 +27,10 @@ public class ManyToMany {
         Transaction transaction = session.beginTransaction();
 
         Author author1 = new Author("Jack", "Kerouac");
-        Author author2 = new Author("Mindaugas", "Bernatavicius");
-        Set<Author> authors = new HashSet();
-        authors.add(author1);
-        authors.add(author2);
+        // Author author2 = new Author("Mindaugas", "Bernatavicius");
+        // Set<Author> authors = new HashSet();
+        // authors.add(author1);
+        // authors.add(author2);
 
         Book book1 = new Book("On the Road ");
         Book book2 = new Book("Lonesome Traveler");
@@ -38,12 +38,11 @@ public class ManyToMany {
         books.add(book1);
         books.add(book2);
 
-        // author.setBooks(books);
-        // session.persist(author);
+        author1.setBooks(books);
+        session.persist(author1);
 
-        book1.setAuthors(authors);
-        session.persist(book1);
-
+        // book1.setAuthors(authors);
+        // session.persist(book1);
 
         transaction.commit();
         session.close();

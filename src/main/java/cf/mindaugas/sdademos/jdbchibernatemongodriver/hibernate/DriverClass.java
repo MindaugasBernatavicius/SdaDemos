@@ -3,9 +3,11 @@ package cf.mindaugas.sdademos.jdbchibernatemongodriver.hibernate;
 import cf.mindaugas.sdademos.jdbchibernatemongodriver.hibernate.assoc.ManyToMany;
 import cf.mindaugas.sdademos.jdbchibernatemongodriver.hibernate.assoc.OneToMany;
 import cf.mindaugas.sdademos.jdbchibernatemongodriver.hibernate.assoc.OneToOne;
+import cf.mindaugas.sdademos.jdbchibernatemongodriver.hibernate.callbacksandentitylisteners.HibernateOperations;
 import cf.mindaugas.sdademos.jdbchibernatemongodriver.hibernate.crud.CreateEntity;
 import cf.mindaugas.sdademos.jdbchibernatemongodriver.hibernate.crud.ReadAndUpdateEntity;
 import cf.mindaugas.sdademos.jdbchibernatemongodriver.hibernate.hql.HQL;
+import cf.mindaugas.sdademos.jdbchibernatemongodriver.hibernate.model.Movie;
 
 import java.net.MalformedURLException;
 
@@ -37,7 +39,7 @@ public class DriverClass {
         // 7. - Entity types
         // Covered above w/ Create entity.
 
-        // 8. - Interceptors / callbacks
+        // // 8. - Interceptors / callbacks
         // HibernateOperations hibernateOperations = new HibernateOperations();
         // // hibernateOperations.saveMovie();
         // long id = hibernateOperations.saveMovieGiveId();
@@ -47,6 +49,7 @@ public class DriverClass {
         // 9. - Associations
         // System.out.println(OneToOne.runExamplePersist());
         // OneToOne.runExampleQueryAndUpdate(1);
+
         // OneToMany.runExamplePersist();
         // ManyToMany.runExamplePersist();
         // ManyToMany.runExampleBaeldung();
@@ -56,6 +59,6 @@ public class DriverClass {
 
         // 11. - HQL
         // HQL.runExample();
-        HQL.runExampleJoins();
+        // HQL.runExampleJoins();
     }
 }

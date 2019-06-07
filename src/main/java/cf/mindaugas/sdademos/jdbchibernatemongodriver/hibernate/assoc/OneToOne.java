@@ -44,6 +44,7 @@ public class OneToOne {
 
         UserOneToOne userOneToOne = session.find(UserOneToOne.class, id);
         userOneToOne.setAddress(new AddressOneToOne("Germany", "Berlin", "BurgerShtraze"));
+
         transaction.commit();
         session.close();
     }

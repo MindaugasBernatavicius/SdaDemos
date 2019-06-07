@@ -30,16 +30,16 @@ public class HibernateOperations {
      */
     public void saveMovie() {
         EntityManager em = HibernateOperations.getEntityManager();
-        em.getTransaction()
-                .begin();
+        em.getTransaction().begin();
+
         Movie movie = new Movie();
         movie.setId(1L);
         movie.setMovieName("The Godfather");
         movie.setReleaseYear(1972);
         movie.setLanguage("English");
+
         em.persist(movie);
-        em.getTransaction()
-                .commit();
+        em.getTransaction().commit();
     }
 
     public long saveMovieGiveId() {
@@ -52,8 +52,7 @@ public class HibernateOperations {
         movie.setReleaseYear(1972);
         movie.setLanguage("English");
         em.persist(movie);
-        em.getTransaction()
-                .commit();
+        em.getTransaction().commit();
         return movie.getId();
     }
 

@@ -6,6 +6,7 @@
     <class name = "cf.mindaugas.sdademos.jdbchibernatemongodriver.hibernate.model.AppUserParent" table = "AppUserParent">
         <meta attribute = "class-description">This class contains the AppUserParent detail.</meta>
         <id name = "id" type = "long" column = "id">
+            <!-- GenerationType.IDENTITY -->
             <generator class="native"/>
         </id>
         <property name = "name" column = "first_name" type = "string"/>

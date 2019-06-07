@@ -42,52 +42,54 @@ public class HQL {
         Session session = sessionFactory.openSession();
         // Transaction transaction = session.beginTransaction();
 
-        // Select all users
+        // // Select all users
         String hql = "FROM User";
         Query query = session.createQuery(hql);
-        List<User> users = query.getResultList();
-        // System.out.println(users.size());
-        for (User user : users){
-            System.out.println("Id: " + user.getId() + ", name: " + user.getName());
-        }
+        // List<User> users = query.getResultList();
+        // // System.out.println(users.size());
+        // for (User user : users){
+        //     System.out.println("Id: " + user.getId() + ", name: " + user.getName());
+        // }
 
 
         // Select only names from Users for all users
-        hql = "SELECT U.name FROM User U";
-        query = session.createQuery(hql);
-        List<String> names = query.getResultList();
-        // System.out.println(names.size());
-        for (String name : names){
-            System.out.println("Name is: " + name);
-        }
+        // hql = "SELECT U.name FROM User U";
+        // query = session.createQuery(hql);
+        // List<String> names = query.getResultList();
+        // // System.out.println(names.size());
+        // for (String name : names){
+        //     System.out.println("Name is: " + name);
+        // }
+
+
+        // query = session.createQuery(
+        //     "select u from User u where name = :name"
+        // );
+        //
+        // query.setParameter("name", "Robert");
+        List<User> usersWName = query.getResultList();
+        // // System.out.println(usersWName.size());
+        // for (User userWName : usersWName){
+        //     System.out.println("Name is: " + userWName.getName());
+        // }
+
 
         System.out.println("--------------- Named queries -----------------");
-        query = session.createQuery(
-            "select u from User u where name = :name"
-        );
+        // query = session.getNamedQuery("get_user_by_name");
+        // query.setParameter("name", "Robert");
+        // usersWName = query.getResultList();
+        // // System.out.println(usersWName.size());
+        // for (User userWName : usersWName){
+        //     System.out.println("Name is: " + userWName.getName());
+        // }
 
-        query.setParameter("name", "Robert");
-        List<User> usersWName = query.getResultList();
-        // System.out.println(usersWName.size());
-        for (User userWName : usersWName){
-            System.out.println("Name is: " + userWName.getName());
-        }
-
-        query = session.getNamedQuery("get_user_by_name");
-        query.setParameter("name", "Robert");
-        usersWName = query.getResultList();
-        // System.out.println(usersWName.size());
-        for (User userWName : usersWName){
-            System.out.println("Name is: " + userWName.getName());
-        }
-
-        query = session.getNamedQuery("get_user_by_name_fuzzy");
-        query.setParameter("name", "M%");
-        usersWName = query.getResultList();
-        // System.out.println(usersWName.size());
-        for (User userWName : usersWName){
-            System.out.println("Name is: " + userWName.getName());
-        }
+        // query = session.getNamedQuery("get_user_by_name_fuzzy");
+        // query.setParameter("name", "M%");
+        // usersWName = query.getResultList();
+        // // System.out.println(usersWName.size());
+        // for (User userWName : usersWName){
+        //     System.out.println("Name is: " + userWName.getName());
+        // }
 
         // transaction.commit();
         session.close();
@@ -114,14 +116,14 @@ public class HQL {
 
         UserWPhoneObject userWPhoneObject2 = new UserWPhoneObject("Jim", "Carrey");
         Phone cellPhone2 =  new Phone("+111 625 22259", PhoneType.MOBILE);
-        Phone officePhone2 =  new Phone("+22 251 999225", PhoneType.LAND_LINE);
+        Phone officePhone2 =  new Phone("+22 251 999225", PhoneType.MOBILE);
         userWPhoneObject2.getPhones().add(cellPhone2);
         userWPhoneObject2.getPhones().add(officePhone2);
         session.persist(userWPhoneObject2);
 
         transaction.commit();
 
-        int secondsToSleep = 2;
+        int secondsToSleep = 10;
         System.out.println("--------------- Joins: done inserting, check the database, sleeping for " +  secondsToSleep + " seconds -----------------");
         try {
             Thread.sleep(secondsToSleep * 1000);
@@ -131,10 +133,10 @@ public class HQL {
 
         List<UserWPhoneObject> userWPhoneObjectList = session.createQuery(
             "select distinct pwpo " +
-                    "from UserWPhoneObject pwpo " +
-                    "inner join pwpo.phones ph " +
-                    "where ph.type = :phoneType", UserWPhoneObject.class)
-            .setParameter("phoneType", PhoneType.MOBILE)
+                "from UserWPhoneObject pwpo " +
+                "inner join pwpo.phones ph " +
+                "where ph.type = :phoneType", UserWPhoneObject.class)
+            .setParameter("phoneType", PhoneType.LAND_LINE)
             .getResultList();
 
         for (UserWPhoneObject u : userWPhoneObjectList){
@@ -144,7 +146,6 @@ public class HQL {
             }
             System.out.println();
         }
-
 
         session.close();
     }
