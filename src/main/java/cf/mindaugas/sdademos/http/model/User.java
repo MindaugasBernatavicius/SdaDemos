@@ -7,6 +7,7 @@ public class User {
     private String firstName;
     private String lastName;
     private String email;
+    // For HETEOAS
     private List<String> links;
 
     public User(int id, String fn, String ln, String email) {
@@ -20,6 +21,7 @@ public class User {
         return id;
     }
 
+    // For HETEOAS
     public void setLinks(List<String> links) {
         this.links = links;
     }

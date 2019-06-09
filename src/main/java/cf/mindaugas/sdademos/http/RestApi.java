@@ -2,17 +2,29 @@ package cf.mindaugas.sdademos.http;
 
 import cf.mindaugas.sdademos.http.model.User;
 import com.google.gson.Gson;
+import spark.Spark;
 
+import java.net.URLDecoder;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
-import static spark.Spark.*;
+import static spark.Spark.get;
+import static spark.Spark.post;
 
 // Ref: https://www.baeldung.com/spark-framework-rest-api
 // Docs: http://sparkjava.com/documentation#getting-started
 
 public class RestApi {
     public static void main(String[] args) {
+
+        // https://stackoverflow.com/questions/38528305/java-spark-framework-enable-logging
+        Spark.exception(Exception.class, (exception, request, response) -> {
+            exception.printStackTrace();
+        });
 
         List<User> users = new ArrayList();
         users.add(new User(1, "Mindaugas", "B.", "mb@gmail.com"));
@@ -32,7 +44,8 @@ public class RestApi {
         // Hello, миндаугас
         get("/hello/:name", (req, res) -> {
             System.out.println("Called with:" + req.params(":name"));
-            String pattern = "(shit|fuck|cock|Microsoft).+?";
+            // Creating the filter
+            String pattern = "(Microsoft).+?";
             if((req.params(":name")).toLowerCase().matches(pattern))
                 return "Bad boy!";
             return "Hello, "+ req.params(":name");
@@ -66,16 +79,25 @@ public class RestApi {
                 "</html>");
 
         // REST API
+        // get("/users", (request, response) -> new Gson().toJson(users));
 
+        // HETEOAS
         get("/users", (request, response) -> {
-            // response.type("application/json");
-            // List<String> links;
-            // for (User user: users) {
-            //     links = new ArrayList();
-            //     links.add(request.url() + "/" + user.getId());
-            //     user.setLinks(links);
-            // }
+            response.type("application/hal+json");
+            List<String> links;
+            for (User user: users) {
+                links = new ArrayList();
+                links.add(request.url() + "/" + user.getId());
+                user.setLinks(links);
+            }
             return new Gson().toJson(users);
+            // We could potentially add structure like this:
+            // "self": {
+            //     "href": "http://localhost:8080/spring-security-rest/api/customers/10A"
+            // },
+            // "allOrders": {
+            //     "href": "http://localhost:8080/spring-security-rest/api/customers/10A/orders"
+            // }
         });
 
         get("/users/:id", (request, response) -> {
@@ -89,6 +111,7 @@ public class RestApi {
             }
             return new Gson().toJson(userToReturn);
         });
+
         // put("/users/:id", (request, response) -> {
         //     //...
         // });
@@ -100,8 +123,63 @@ public class RestApi {
         // });
 
         // Submitting an HTML form
+        // http://192.168.8.101:4567/submit-form
+        // C:\Users\bernam\Desktop\SdaDemos\target\classes\html\ex1_forms\index.html
+        get("/form", (request, response) -> {
+            String htmlFile = "target\\classes\\html\\ex1_forms\\index.html";
+            String htmlContent = new String(Files.readAllBytes(Paths.get(htmlFile)), StandardCharsets.UTF_8);
+            // System.out.println(htmlContent);
+            return htmlContent;
+        });
+
         post("/submit-form", (request, response) -> {
+            System.out.println(request.body());
             return "Success";
         });
+
+        // Excercise: create a form that would add data into the list above - simple html
+        get("/add-user-form", (request, response) -> {
+            String htmlFile = "target\\classes\\htmlcssjs_excercise\\index-plain.html";
+            String htmlContent = new String(Files.readAllBytes(Paths.get(htmlFile)), StandardCharsets.UTF_8);
+            // System.out.println(htmlContent);
+            return htmlContent;
+        });
+
+        post("/add-user-action", (request, response) -> {
+            String firstname = "";
+            String initial = "";
+            String email = "";
+
+            String[] userInfo = request.body().split("&");
+            System.out.println(Arrays.toString(userInfo));
+            for (String userProp: userInfo) {
+                if((userProp.split("="))[0].equals("firstname")) {
+                    firstname = userProp.split("=")[1];
+                } else if (userProp.split("=")[0].equals("initial")){
+                    initial = userProp.split("=")[1];
+                } else if (userProp.split("=")[0].equals("email")){
+                    email = URLDecoder.decode(userProp.split("=")[1],"UTF-8");
+                } else {
+                    // error
+                }
+            }
+
+            User userToAdd = new User(users.size() + 1, firstname, initial, email);
+            users.add(userToAdd);
+            response.redirect("/users");
+            // return new Gson().toJson(users);
+
+            // https://github.com/perwendel/spark/issues/322
+            return null;
+        });
+        // ... add some simple CSS to the form and the table rendered:
+        get("/add-user-form-css", (request, response) -> {
+            String htmlFile = "target\\classes\\htmlcssjs_excercise\\index.html";
+            String htmlContent = new String(Files.readAllBytes(Paths.get(htmlFile)), StandardCharsets.UTF_8);
+            // System.out.println(htmlContent);
+            return htmlContent;
+        });
+
+        // ... now use bootstrap and jQuery ajax
     }
 }
