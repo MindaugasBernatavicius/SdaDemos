@@ -126,15 +126,41 @@ public class RestApi {
         // http://192.168.8.101:4567/submit-form
         // C:\Users\bernam\Desktop\SdaDemos\target\classes\html\ex1_forms\index.html
         get("/form", (request, response) -> {
+
+            // Reference to the HTML file containing the form
             String htmlFile = "target\\classes\\html\\ex1_forms\\index.html";
+
+            // Converting the contents of the file
             String htmlContent = new String(Files.readAllBytes(Paths.get(htmlFile)), StandardCharsets.UTF_8);
+
             // System.out.println(htmlContent);
             return htmlContent;
         });
 
         post("/submit-form", (request, response) -> {
+            // 0.
             System.out.println(request.body());
-            return "Success";
+            // return "<h4>Success</h4>";
+
+            // 1.
+            // String[] userinfo = request.body().split("&");
+            // for (String pieceOfInfo: userinfo) {
+            //     System.out.println(pieceOfInfo);
+            // }
+            // return "<h4>Success</h4>";
+
+            // 2. Return data as html <UL>
+            // <ul>
+            //     <li>First element</li>
+            //     <li>Second element</li>
+            // </ul>
+            String[] userinfo = request.body().split("&");
+            String ulopen = "<ul>";
+            String ulclose = "</ul>";
+            for (String pieceOfInfo: userinfo) {
+                ulopen += "<li>" + pieceOfInfo.split("=")[1] + "</li>";
+            }
+            return ulopen + ulclose;
         });
 
         // Excercise: create a form that would add data into the list above - simple html

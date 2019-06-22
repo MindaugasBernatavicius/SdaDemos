@@ -1,0 +1,22 @@
+button {
+    color: red;
+    /* background-color: brown; */
+    /* background-color: #722f99; */
+    background-color: rgb(153, 47, 135);
+
+    /* Manipulating size */
+    width: 100px;
+    height: 50px;
+
+    /* Manipulating text */
+    font-family: "Courier-New";
+    font-size: 15px;
+    text-decoration: underline;
+    font-weight: bold;
+    font-style: italic;
+
+    /* */
+    padding: 10px;
+    margin: 20px;
+    border: 3px dashed blue;
+}
