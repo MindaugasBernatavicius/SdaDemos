@@ -16,7 +16,7 @@ public class Oracle {
         MetadataSources sources = new MetadataSources(registry); // Create MetadataSources
         Metadata metadata = sources.getMetadataBuilder().build(); // Create Metadata
 
-        System.out.println("--- SessionService and metadata are set! ---");
+        System.out.println("--- SessionService and _6_metadata are set! ---");
 
         SessionFactory sessionFactory = metadata.getSessionFactoryBuilder().build(); // Create SessionFactory
         Session session = sessionFactory.openSession();

@@ -8,7 +8,7 @@ public class SumOfArray {
         // all elements inside an array
 
         int[] arr = {10,1,2,3,0};
-        System.out.println("Min:" + sumOfArray(arr));
+        System.out.println("Sum: " + sumOfArray(arr));
     }
 
     private static int sumOfArray(int[] arr) {

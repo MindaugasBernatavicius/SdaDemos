@@ -35,14 +35,12 @@ public class ReadingRecord {
         System.out.println(singleDoc.toJson());
         System.out.println("====================");
 
-    //============multiple
+        //============multiple
         FindIterable<Document> iterable2 = collection.find(gt("age", 10));
         for(Document d : iterable2) {
             System.out.println(d.get("name"));
             System.out.println(d.get("age"));
         }
-
-
 
         mongoClient.close();
     }

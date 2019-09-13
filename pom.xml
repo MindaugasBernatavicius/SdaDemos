@@ -59,7 +59,7 @@
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
-            <!-- Never user or at least check the LATEST is stable -->
+            <!-- Never use or at least check the LATEST is stable -->
             <version>LATEST</version>
         </dependency>
         <dependency>
@@ -125,6 +125,5 @@
         </plugin>
         </plugins>
     </build>
-
 
 </project>

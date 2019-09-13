@@ -26,7 +26,7 @@ public class HibernateOperations {
     }
 
     /**
-     * Saves the movie entity into the database. Here we are using Application Managed EntityManager, hence should handle transactions by ourselves.
+     * Saves the movie entity into the database. Here we are using Application Managed EntityManager, hence should handle _4_transactions by ourselves.
      */
     public void saveMovie() {
         EntityManager em = HibernateOperations.getEntityManager();

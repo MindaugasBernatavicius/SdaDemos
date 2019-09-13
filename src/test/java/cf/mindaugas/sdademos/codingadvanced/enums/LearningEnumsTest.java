@@ -88,6 +88,8 @@ public class LearningEnumsTest {
         Assert.assertFalse(testPizza.getStatus().isDelivered());
     }
 
+    // Using advanced Hamecrest FeatureMatcher implementation for checking
+    // that all items inside a collection (List<Pizza>) have appropriate value
     @Test
     public void getAllUndeliveredPizzas_givenAMixOfDeliveredAndUndelivered_returnUndeliveredOnly() {
         // given
