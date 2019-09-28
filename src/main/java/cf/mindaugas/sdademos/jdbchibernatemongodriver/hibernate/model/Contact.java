@@ -46,7 +46,6 @@ public class Contact {
     @Override
     public boolean equals(Object o) {
         Contact contact = (Contact) o;
-
         if (starred != contact.starred) return false;
         return website != null ? website.equals(contact.website) : contact.website == null;
     }

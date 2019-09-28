@@ -43,8 +43,8 @@ public class HQL {
         // Transaction transaction = session.beginTransaction();
 
         // // Select all users
-        String hql = "FROM User";
-        Query query = session.createQuery(hql);
+        // String hql = "FROM User";
+        // Query query = session.createQuery(hql);
         // List<User> users = query.getResultList();
         // // System.out.println(users.size());
         // for (User user : users){
@@ -52,7 +52,7 @@ public class HQL {
         // }
 
 
-        // Select only names from Users for all users
+        // // Select only names from Users for all users
         // hql = "SELECT U.name FROM User U";
         // query = session.createQuery(hql);
         // List<String> names = query.getResultList();
@@ -67,14 +67,14 @@ public class HQL {
         // );
         //
         // query.setParameter("name", "Robert");
-        List<User> usersWName = query.getResultList();
+        // List<User> usersWName = query.getResultList();
         // // System.out.println(usersWName.size());
         // for (User userWName : usersWName){
         //     System.out.println("Name is: " + userWName.getName());
         // }
 
 
-        System.out.println("--------------- Named queries -----------------");
+        // System.out.println("--------------- Named queries -----------------");
         // query = session.getNamedQuery("get_user_by_name");
         // query.setParameter("name", "Robert");
         // usersWName = query.getResultList();
@@ -124,7 +124,7 @@ public class HQL {
         transaction.commit();
 
         int secondsToSleep = 10;
-        System.out.println("--------------- Joins: done inserting, check the database, sleeping for " +  secondsToSleep + " seconds -----------------");
+        System.out.println("----- Joins: done inserting, check the database, while I'm sleeping for " +  secondsToSleep + " seconds -----");
         try {
             Thread.sleep(secondsToSleep * 1000);
         } catch (InterruptedException e) {

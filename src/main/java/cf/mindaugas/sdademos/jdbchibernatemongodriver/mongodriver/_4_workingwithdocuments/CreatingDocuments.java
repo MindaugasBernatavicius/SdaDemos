@@ -29,12 +29,14 @@ public class CreatingDocuments {
                 .getDatabase("customer").getCollection("customer");
 
         // insert one
-        Document document = new Document().append("name", "Mindaugas").append("surname", "Bernatavičius");
+        Document document = new Document()
+                .append("name", "Mindaugas")
+                .append("surname", "Bernatavičius");
         coll.insertOne(document);
 
         // TODO :: insert one with options
 
-        // insert many
+        // TODO :: insert many
 
         mongoClientWithAuth.close();
     }

@@ -26,7 +26,9 @@ public class HibernateOperations {
     }
 
     /**
-     * Saves the movie entity into the database. Here we are using Application Managed EntityManager, hence should handle _4_transactions by ourselves.
+     * Saves the movie entity into the database.
+     * Here we are using Application Managed EntityManager,
+     * hence should handle _4_transactions by ourselves.
      */
     public void saveMovie() {
         EntityManager em = HibernateOperations.getEntityManager();
@@ -44,8 +46,7 @@ public class HibernateOperations {
 
     public long saveMovieGiveId() {
         EntityManager em = HibernateOperations.getEntityManager();
-        em.getTransaction()
-                .begin();
+        em.getTransaction().begin();
         Movie movie = new Movie();
         movie.setId(3L);
         movie.setMovieName("The Godfather");
@@ -70,7 +71,7 @@ public class HibernateOperations {
 
     /**
      * Method to illustrate the querying support in EntityManager when the result is a list.
-     * @return
+     * @return List<?> movies
      */
     public List<?> queryForMovies() {
         EntityManager em = HibernateOperations.getEntityManager();
@@ -99,11 +100,9 @@ public class HibernateOperations {
         Movie movie = getMovie(1L);
         em.detach(movie);
         movie.setLanguage("Italian");
-        em.getTransaction()
-                .begin();
+        em.getTransaction().begin();
         em.merge(movie);
-        em.getTransaction()
-                .commit();
+        em.getTransaction().commit();
     }
 
     /**
@@ -111,12 +110,9 @@ public class HibernateOperations {
      */
     public void removeMovie() {
         EntityManager em = HibernateOperations.getEntityManager();
-        em.getTransaction()
-                .begin();
+        em.getTransaction().begin();
         Movie movie = em.find(Movie.class, new Long(1L));
         em.remove(movie);
-        em.getTransaction()
-                .commit();
+        em.getTransaction().commit();
     }
-
 }

@@ -2,7 +2,7 @@ package cf.mindaugas.sdademos.jdbchibernatemongodriver.hibernate.model;
 
 import javax.persistence.*;
 import java.time.LocalDate;
-
+//
 // CREATE TABLE `user` (
 //     `id` bigint(20) NOT NULL AUTO_INCREMENT,
 //     `birthdate` date DEFAULT NULL,
@@ -30,8 +30,8 @@ import java.time.LocalDate;
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    // @GeneratedValue(strategy = GenerationType.AUTO)      // no support in MySQL
-    // @GeneratedValue(strategy = GenerationType.SEQUENCE)  // no support in MySQL
+    // @GeneratedValue(strategy = GenerationType.AUTO)      // no support in MySQL, faked
+    // @GeneratedValue(strategy = GenerationType.SEQUENCE)  // no support in MySQL, faked
     // @GeneratedValue(strategy = GenerationType.TABLE)
     private Long id;
     private String name;

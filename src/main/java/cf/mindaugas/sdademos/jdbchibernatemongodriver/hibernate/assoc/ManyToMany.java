@@ -26,11 +26,14 @@ public class ManyToMany {
         Session session = sessionFactory.openSession();
         Transaction transaction = session.beginTransaction();
 
+        // Create two authors and persist the book. Take note, this is an inverted relationship between book and author.
+        // ... so if we persist only the author, the book will not be persisted. In this case we need to persist the book
+
         Author author1 = new Author("Jack", "Kerouac");
-        // Author author2 = new Author("Mindaugas", "Bernatavicius");
-        // Set<Author> authors = new HashSet();
-        // authors.add(author1);
-        // authors.add(author2);
+        Author author2 = new Author("Mindaugas", "Bernatavicius");
+        Set<Author> authors = new HashSet();
+        authors.add(author1);
+        authors.add(author2);
 
         Book book1 = new Book("On the Road ");
         Book book2 = new Book("Lonesome Traveler");
@@ -38,11 +41,8 @@ public class ManyToMany {
         books.add(book1);
         books.add(book2);
 
-        author1.setBooks(books);
-        session.persist(author1);
-
-        // book1.setAuthors(authors);
-        // session.persist(book1);
+        book1.setAuthors(authors);
+        session.persist(book1);
 
         transaction.commit();
         session.close();

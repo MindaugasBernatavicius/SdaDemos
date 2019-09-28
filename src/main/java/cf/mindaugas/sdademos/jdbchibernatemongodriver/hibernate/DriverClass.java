@@ -5,14 +5,18 @@ import cf.mindaugas.sdademos.jdbchibernatemongodriver.hibernate.assoc.OneToMany;
 import cf.mindaugas.sdademos.jdbchibernatemongodriver.hibernate.assoc.OneToOne;
 import cf.mindaugas.sdademos.jdbchibernatemongodriver.hibernate.callbacksandentitylisteners.HibernateOperations;
 import cf.mindaugas.sdademos.jdbchibernatemongodriver.hibernate.crud.CreateEntity;
+import cf.mindaugas.sdademos.jdbchibernatemongodriver.hibernate.crud.ReadAndDeleteEntity;
 import cf.mindaugas.sdademos.jdbchibernatemongodriver.hibernate.crud.ReadAndUpdateEntity;
 import cf.mindaugas.sdademos.jdbchibernatemongodriver.hibernate.hql.HQL;
 import cf.mindaugas.sdademos.jdbchibernatemongodriver.hibernate.model.Movie;
+import cf.mindaugas.sdademos.jdbchibernatemongodriver.hibernate.types.valuetypes.ValueTypes;
+import cf.mindaugas.sdademos.jdbchibernatemongodriver.hibernate.xmlbasedconfig.XmlBasedConfig;
 
 import java.net.MalformedURLException;
 
 public class DriverClass {
     public static void main(String[] args) throws MalformedURLException, InterruptedException {
+
 
         // 0. - Creating simple entity: hello world level example for Hibernate
         // CreateEntity.runExample();
@@ -39,7 +43,7 @@ public class DriverClass {
         // 7. - Entity types
         // Covered above w/ Create entity.
 
-        // // 8. - Interceptors / callbacks
+        // 8. - Interceptors / callbacks
         // HibernateOperations hibernateOperations = new HibernateOperations();
         // // hibernateOperations.saveMovie();
         // long id = hibernateOperations.saveMovieGiveId();
@@ -47,8 +51,8 @@ public class DriverClass {
         // System.out.println(movie.getAge());
 
         // 9. - Associations
-        // System.out.println(OneToOne.runExamplePersist());
-        // OneToOne.runExampleQueryAndUpdate(1);
+        // System.out.println(OneToOne.runExamplePersist()); // use create strategy
+        // OneToOne.runExampleQueryAndUpdate(1); // use update strategy
 
         // OneToMany.runExamplePersist();
         // ManyToMany.runExamplePersist();
@@ -58,7 +62,7 @@ public class DriverClass {
         // XmlBasedConfig.runExample();
 
         // 11. - HQL
-        // HQL.runExample();
-        // HQL.runExampleJoins();
+        // HQL.runExample(); // includes named queries
+        HQL.runExampleJoins();
     }
 }
