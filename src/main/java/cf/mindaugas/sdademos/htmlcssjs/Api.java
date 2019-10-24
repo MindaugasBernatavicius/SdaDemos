@@ -27,15 +27,24 @@ public class Api {
         });
 
         // 1. Return HTML from file
-        get("/form", (request, response) -> {
-            System.out.println("We reached the form!");
+        // get("/form", (request, response) -> {
+        //     System.out.println("We reached the form w/ IP:" + request.ip());
+        //     System.out.println("Request body: " + request.body());
+        //     // Reference to the HTML file containing the form
+        //     String htmlFile = "target\\classes\\html\\ex1_forms\\index.html";
+        //     // Converting the contents of the file
+        //     String htmlContent = new String(Files.readAllBytes(Paths.get(htmlFile)), StandardCharsets.UTF_8);
+        //     // System.out.println(htmlContent);
+        //     return htmlContent;
+        // });
 
+        post("/form", (request, response) -> {
+            System.out.println("We reached the form w/ IP:" + request.ip());
+            System.out.println("Request body: " + request.body());
             // Reference to the HTML file containing the form
             String htmlFile = "target\\classes\\html\\ex1_forms\\index.html";
-
             // Converting the contents of the file
             String htmlContent = new String(Files.readAllBytes(Paths.get(htmlFile)), StandardCharsets.UTF_8);
-
             // System.out.println(htmlContent);
             return htmlContent;
         });
@@ -66,6 +75,51 @@ public class Api {
             }
             return ulopen + ulclose;
         });
+
+        // Excercise: create a form that would add data into the list above - simple html
+        List<User> users = new ArrayList();
+        users.add(new User(1, "Mindaugas", "B.", "mb@gmail.com"));
+        users.add(new User(2, "Jonas", "J.", "jonasj@yahoo.com"));
+        users.add(new User(3, "Petras", "P.", "petrasp@yahoo.com"));
+
+
+        get("/add-user-form", (request, response) -> {
+            String htmlFile = "target\\classes\\htmlcssjs_excercise\\index-plain.html";
+            String htmlContent = new String(Files.readAllBytes(Paths.get(htmlFile)), StandardCharsets.UTF_8);
+            // System.out.println(htmlContent);
+            return htmlContent;
+        });
+
+        post("/add-user-action", (request, response) -> {
+            String firstname = "";
+            String initial = "";
+            String email = "";
+
+            String[] userInfo = request.body().split("&");
+            System.out.println(Arrays.toString(userInfo));
+            for (String userProp : userInfo) {
+                if ((userProp.split("="))[0].equals("firstname")) {
+                    firstname = userProp.split("=")[1];
+                } else if (userProp.split("=")[0].equals("initial")) {
+                    initial = userProp.split("=")[1];
+                } else if (userProp.split("=")[0].equals("email")) {
+                    email = URLDecoder.decode(userProp.split("=")[1], "UTF-8");
+                } else {
+                    // error
+                }
+            }
+
+            User userToAdd = new User(users.size() + 1, firstname, initial, email);
+            users.add(userToAdd);
+            response.redirect("/users");
+            // return new Gson().toJson(users);
+
+            // https://github.com/perwendel/spark/issues/322
+            return null;
+        });
+
+
+        // TODO :: add the /users path that will render all the users into an HTML table
     }
 }
 

@@ -4,15 +4,29 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <style>
-        body > div {
+        /* 0. Order of precendence btw/ equivalent rules */
+        /*div {*/
+        /*    background-color: red;*/
+        /*}*/
+        /*div {*/
+        /*    background-color: black; !* black will be displayed *!*/
+        /*}*/
+
+        /* 1. Specificity - even if the rule order is higher, specificity will trump the rule order */
+        div {
             background-color: red;
         }
-        // div {
-        //     background-color: red;
-        // }
-        div {
+        * {
             background-color: black;
         }
+
+        /* 2. */
+        /* 3. */
+
+        /*body > div {*/
+        /*    background-color: red;*/
+        /*}*/
+
         * {
             background-color: green;
         }

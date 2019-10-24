@@ -4,23 +4,29 @@
 /* multiline comments*/
 console.log("__ TOPIC: DECLARING VARIABLES __");
 
-var text1 = "abc";
+var text1 = "abc"; // same as in Java: private string text1 = "abc";
 var text2 = 'abc';
 console.log("Concatenating strings: " + text1 + "-" + text2);
 
+var aggregate = 5 + text1 + "-" + text2 + "-something-else";
+console.log(aggregate);
+
 var number1 = 5;
 var number2 = 5.012;
+var number3 = 5000000000000000000000000000000000000000000.012;
 
 console.log("Adding numbers: " + number1 + " + " + number2 + " = " + number1 + number2); // this will not work
 console.log("Adding numbers: " + number1 + " + " + number2 + " = " + (number1 + number2));
+console.log(number3 + 0.1);
+
 
 var boolean1 = true;
 var boolean2 = false;
 
 
 console.log(""); console.log("__ TOPIC: BASIC OPERATORS __");
-console.log(1 % 2); // prints 1
-console.log(boolean1 && boolean2); // prints what?
+console.log(">>" + 1 % 2); // prints 1
+console.log(">>" + (boolean1 && boolean2)); // prints what?
 
 // some more advanced ways to declaring variables
 var x = 5, y = 6, z = 7;
@@ -43,10 +49,11 @@ var a = 10,
 
 
 // Keyword const
-// Also introduced in ES2015, const, is a variable type (not really, but you’ll find out now) assigned to data whose value cannot and will not be changed throughout the script.
+// Also introduced in ES2015, const, is a variable type
+// assigned to data whose value cannot and will not be changed throughout the script.
 // ATTENTION: uncomment to see error
-//const name = 'chris';
-//name = 'john'; // Uncaught TypeError: Assignment to constant variable.
+// const name = 'chris';
+// name = 'john'; // Uncaught TypeError: Assignment to constant variable.
 
 
 // == VS ===
@@ -66,8 +73,8 @@ var second = 20;
 if(first > second){
     console.log("First is bigger than second!");
 } else {
-    //  let second = 8; // but here we can redeclare because the scope changed
-    //  console.log("First is smaller than second!" + second);
+    // let second = 8; // but here we can redeclare because the scope changed
+    // console.log("Second inside the if/else block: " + second)
     console.log("First is smaller than second!");
 }
 
@@ -84,8 +91,10 @@ while(i < 3) {
 }
 
 console.log(""); console.log("___ TOPIC: Arrays ___");
+
 var myAwesomeArray = [1, 4, 7];
-console.log(myAwesomeArray[2]); // prints 7
+
+console.log(myAwesomeArray[2]); // prints 7, since arrays are 0 based
 console.log(myAwesomeArray.length); // prints 3
 console.log(myAwesomeArray[myAwesomeArray.length - 1]); // gets the last element
 
@@ -125,7 +134,23 @@ var personel = [
         bonus: true,
         gender: "male"
     }
-]
+];
+
+
+// Can we have an array of mixed datatypes?
+var mixedArray = ["A", 1, "Boo", true, ["Array", "Array"], {type: "object"}];
+for(var i = 0; i < mixedArray.length; i++) {
+    console.log("Type of " + mixedArray[i] + " = " + (typeof mixedArray[i]));
+}
+
+// Type of A = string
+// Type of 1 = number
+// Type of Boo = string
+// Type of true = boolean
+// Type of Array,Array = object
+// Type of [object Object] = object
+
+// TODO :: inserting at random position with .splice()
 
 // myArr.filter(func(){});
 var males = personel.filter(function (person) {
@@ -133,10 +158,11 @@ var males = personel.filter(function (person) {
             return person;
     });
 
-console.log("Male personel:")
+console.log("Male personnel:")
 console.log(males);
 
 
+// let's combine them together w/ filter, map reduce
 var avgMaleSalary = personel
     .filter(function (person) {
         if (person.gender === "male")
@@ -156,7 +182,6 @@ var avgMaleSalary = personel
 
 console.log("Avg male salary: " + avgMaleSalary);
 
-
 console.log(""); console.log("___ TOPIC: Functions ___");
 
 // inbuilt functions:
@@ -171,26 +196,41 @@ function myFunction(firstParam, secondParam){
 console.log(myFunction(1, 2))
 console.log(myFunction("a", "b"))
 
-// varargs?
+// TODO :: varargs --> https://stackoverflow.com/questions/1959040/is-it-possible-to-send-a-variable-number-of-arguments-to-a-javascript-function
 
-// default parameters to functions?
+// Default parameters to functions
+function greet_a_person(name = "Mindaugas"){
+    console.log("Hello " + name + "!");
+}
+
+greet_a_person("Bart");
+// greet_a_person();
+
+// Arrow functions
+// ES5
+var multiplyES5 = function(x, y) {
+    return x * y;
+};
+
+// ES6
+const multiplyES6 = (x, y) => { return x * y };
 
 
 console.log(""); console.log("___ TOPIC: Objects ___");
-// 0. object literal
+// Object literal - one way to create objects
 var cat = {
     weight: 12.2,
     name: "Fluffy",
     fur: false
-    // speak: function() { console.log("Meow!") }
-}
+};
 
-// two ways to access the properties
+// Two ways to access the properties
 console.log(cat.weight);
 console.log(cat.name);
 console.log(cat.fur);
 
-// this way is usefull because you can use valid srings
+// Another way to access properties. This
+// way is useful because you can use valid srings
 // that are NOT VALID variable names to give to your objects
 // maybe you received them from user input or some file
 console.log(cat["weight"]);
@@ -198,38 +238,39 @@ console.log(cat["name"]);
 console.log(cat["fur"]);
 
 
-// we can add a property to our object afterwards
-cat.age = 4
+// We can add a property to our object afterwards
+cat.age = 4;
 console.log(cat.age);
 
-// adding functions / behavior to our objects
-cat.speak = function() { console.log("Meow!") }
+// Adding functions / behavior to our objects
+// ... we can also do it after we created them
+// ... this is very hard to do in java, but in
+// ... dynamically typed lanaguages it is easy
+cat.speak = function(){ console.log("Meow!") };
+cat.speak();
 
-// or we can add it to our object literal
-//var cat = {
+// Or we can add it to our object literal
+// var cat = {
 //    weight: 12.2,
 //    name: "Flufy",
-//    fur: false
+//    fur: false,
 //    speak: function(timesToSpeak) {
 //        for(var i = 0; i < timesToSpeak; i++)
 //            console.log("Meow!")
 //    }
-//}
+// };
+// cat.speak(6);
 
-cat.speak()
-//cat.speak(6)
-
-// 1. using constructor functions to create objects
+// Using constructor functions to create objects - the second way
 function Cat(name, color){
-    this.name = name
+    this.name = name;
     this.color = color
 }
 
 var myCat = new Cat("Fluffy", "White");
-
 console.log(myCat);
 
-// 2. Object.create()
+// Object.create() - the 3rd way
 let car = Object.create(Object.prototype,
     {
         name: {
@@ -246,9 +287,9 @@ let car = Object.create(Object.prototype,
         }
     });
 
-console.log(car.name)
+console.log(car.name);
 
-// 3. Ecmascript6 Classes
+// Ecmascript6 Classes - the 4th way
 class Dog {
     constructor(name, color){
         this.name = name
@@ -262,22 +303,21 @@ class Dog {
 
 var dog = new Dog('Floyd', 'Black');
 console.log(dog);
-
 dog.speak();
 
 
 // we can have other objects as properties (composition)
 var person = {
-    name: {first: 'Mindaugas', last: 'Bananas'},
+    fullname: {first: 'Mindaugas', last: 'Orange'},
     age: 28
-}
+};
 
 // we can serialize our objects easily into json
 // we can disable serialization by changing the object fields enumerable property to false
 console.log(JSON.stringify(person))
 
 // one can delete the property
-delete person.age
+delete person.age;
 console.log(JSON.stringify(person))
 
 // getters and setters
@@ -286,76 +326,78 @@ var person = {
     lastName : "Doe",
     language : "",
     get fullName() {
+        console.log("Using getter");
         return this.firstName + " " + this.lastName;
     },
     set lang(lang) {
         // as usual, setters ensure quality of data being set
+        console.log("Using setter");
         this.language = lang.toUpperCase();
     }
 };
 
 // Display data from the object using a getter:
 console.log(person.fullName);
-
+person.lang = "LT";
 
 console.log(""); console.log("___ TOPIC: Inheritence ___");
 
 // Javascript uses what is called PROTOTYPE based inheritence, or prototypical inheritence
 // ... do we use prototypes?
 
-var arr = ['red', 'green', 'blue']
+// How to create a new method that all arrays will have, called "last()"
+var arr = ['red', 'green', 'blue'];
 
 // to get the last element we do:
-console.log(arr[arr.length - 1])
+console.log(arr[arr.length - 1]);
 
 // but what if we wanted to simplify it and use it like this:
-//console.log(arr.last)
+// console.log(arr.last);
 
 // js arrays do not have a .last property, but since JS is dynamic we can add it
-Object.defineProperty(arr, 'last', {get: function(){
-    return this[this.length - 1]
-}})
+// Object.defineProperty(arr, 'last', {get: function(){
+//     return this[this.length - 1]
+// }});
 
-console.log("Last property using assigned property: " + arr.last)
-
+console.log("Last property using assigned property: " + arr.last);
 
 // ... now, in order for all arrays to have this property we can add it to the array prototype
 Object.defineProperty(Array.prototype, 'last', {get: function(){
     return this[this.length - 1]
-}})
+}});
 
-var arr2 = ['red', 'green', 'blue']
-console.log(arr2.last)
+var arr2 = ['red', 'green', 'blue'];
+console.log(arr2.last);
 
 // ... what is a prototype?
 // var arr = [] is just a function and functions prototype is an object that will become a template
 // or prototype for all objects created using the function as a constructor
 
 function Kitty(name, color){
-    this.name = name
-    this.color = color
+    this.name = name;
+    this.color = color;
 }
 
-var myKitty = new Kitty("Jack", "Black")
-console.log(Kitty.prototype)
-console.log(myKitty.__proto__)
-console.log(myKitty.__proto__ === Kitty.prototype)
+var myKitty = new Kitty("Jack", "Black");
+console.log(Kitty.prototype);
+console.log(myKitty.__proto__);
+console.log(myKitty.__proto__ === Kitty.prototype);
 
 // adding properties to a functions from which objects are constructed prototype changes all the objects
 function Doggo(name){
     this.name = name
 }
 
-var dino = new Doggo('dino')
-var maylo = new Doggo('maylo')
+var dino = new Doggo('dino');
+var maylo = new Doggo('maylo');
 
-console.log(dino)
-console.log(maylo)
+console.log(dino);
+console.log(maylo);
 
 Doggo.prototype.age = 5;
 
-console.log(dino.age)
-console.log(maylo.age)
+console.log(dino.age);
+console.log(maylo.age);
 
 // creating our own prototypical inheritence chains
 //function Animal(voice){
@@ -388,7 +430,6 @@ class Animal {
     constructor(voice){
         this.voice = voice || 'grunt'
     }
-
     speak(){
         return this.voice
     }
@@ -396,9 +437,9 @@ class Animal {
 
 class Pooper extends Animal {
     constructor(name, color){
-        super('Woof Woof!')
-        this.name = name
-        this.color = color
+        super('Woof Woof!');
+        this.name = name;
+        this.color = color;
     }
 }
 
@@ -407,7 +448,7 @@ console.log(riky.speak())
 
 console.log(""); console.log("___ TOPIC: Algorithms ___");
 // because we have functions we can write encapsulated, reusable algorithms
-// for example: sort function that would sort objects returned from a backed
+// for example: sort function that would sort objects returned from a backend
 // and render them on screen once they are sorted.
 
 var a = [33, 103, 3, 726, 200, 984, 198, 764, 9];
@@ -434,14 +475,10 @@ bubbleSort(a);
 console.log("After:\t" + a);
 
 // How would we sort an array of objects in JS?
-
 // ... define a JSON string that will contain data we will use to get a some objects
-
 // ... create an array of objects from it
-
 // ... sort that array
-
-// ... populate html table table
+// ... populate html table
 
 console.log(""); console.log("___ TOPIC: Design patterns ___");
 
@@ -470,6 +507,7 @@ var instance2 = Singleton.getInstance();
 //console.log(instance1);
 //console.log(instance2);
 
-//var instance2 = Singleton.createInstance(); // Singleton.createInstance is not a function
+// Singleton.createInstance is not a function, we can't call it directly
+//var instance2 = Singleton.createInstance();
 
 console.log("Same instance? " + (instance1 === instance2));

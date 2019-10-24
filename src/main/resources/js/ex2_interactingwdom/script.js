@@ -16,7 +16,7 @@ console.log(innerHTML);
 for (var i = 0; i < elements.length; i++) {
     console.log("Element " + i + ": " + getComputedStyle(elements[i]).color);
     console.log("Element " + i + ": " + getComputedStyle(elements[i]).textDecoration);
-//    console.log("Element " + i + ": " + JSON.stringify(getComputedStyle(elements[i])));
+    // console.log("Element " + i + ": " + JSON.stringify(getComputedStyle(elements[i])));
 }
 
 // changing the css properties
@@ -41,10 +41,11 @@ function displayDate() {
 // onload	    The browser has finished loading the page
 
 
-// Excercise time: let's use another event and change another property!!!
+// Exercise time: let's use another event and change another property using that event.
 
 // 0. First - select the element w/ Javascript
-var elemementForExcercise = document.getElementById("excercise-paragraph")
+var elemementForExcercise = document
+    .getElementById("excercise-paragraph");
 
 // 1. Attach the event handler (... which will be the changeColor function)
 elemementForExcercise.onmouseover = changeColor;

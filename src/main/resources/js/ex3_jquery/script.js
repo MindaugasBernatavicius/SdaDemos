@@ -13,8 +13,8 @@ var element = $("#some-id");
 element.html("<div>new html</div>");
 
 //Compare: it is simpler than doing this, like we did in prev. examples:
-//var element = document.getElementById("some-id");
-//var innerHTML = element.innerHTML;
+// var element = document.getElementById("some-id");
+// var innerHTML = element.innerHTML;
 
 // sets the inner text
 element.text("new text");
