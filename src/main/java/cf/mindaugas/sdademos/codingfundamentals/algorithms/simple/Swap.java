@@ -37,8 +37,7 @@ public class Swap {
     }
 
     // 2. Obscure code, not recommended to use:
-    public static int getItself(int itself, int dummy)
-    {
+    public static int getItself(int itself, int dummy){
         return itself;
     }
 }

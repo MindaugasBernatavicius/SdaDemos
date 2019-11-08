@@ -230,13 +230,13 @@ public class ControlLoopsArrays {
      * - Find all the places where we can ask the user to enter a value one more time, when he makes a mistake (while loop).
      * - Extract the logic responsible to checking the price against user's entered money value. It should be a separate method.
      */
-    public static double handleCustomerPayment(Scanner sc){
+    public static double handleCustomerPayment(Scanner sc) {
         Matcher matcher;
         do {
             String customersPaidAmountStr = sc.nextLine();
             Pattern pattern = Pattern.compile("\\d{0,3}(\\.\\d{0,2})?");
             matcher = pattern.matcher(customersPaidAmountStr);
-        } while(!matcher.matches());
+        } while (!matcher.matches());
         return Double.parseDouble(matcher.group());
     }
 
@@ -244,7 +244,6 @@ public class ControlLoopsArrays {
         System.out.println(drinkType.substring(0, 1).toUpperCase()
                 + drinkType.substring(1) + " kaina: " + price + ", prašome sumokėti.");
 
-        sc.nextLine();
         double customersPaidAmount = handleCustomerPayment(sc);
 
         while (price > customersPaidAmount) {
@@ -259,7 +258,6 @@ public class ControlLoopsArrays {
     }
 
     public static void drinkShopRefactored() {
-
         double milkPrice = 3.99;
         double winePrice = 6.99;
         int ageOfLegalConsumption = 20;
@@ -279,6 +277,7 @@ public class ControlLoopsArrays {
         } else {
             System.out.println("Koks jūsų amžius?");
             int customersAge = sc.nextInt();
+            sc.nextLine();
             if (ageOfLegalConsumption > customersAge) {
                 System.out.println("Jūs per jaunas, pirkti vyną. Siūlome pirkti pieną!");
             } else {
@@ -293,6 +292,27 @@ public class ControlLoopsArrays {
      * go to the beginning of a loop if user will enter “continue”,
      * break the loop with a “good bye!” message, if user will enter “quit”.
      */
+    public static void echo() {
+        Scanner scanner = new Scanner(System.in);
+
+        while (true) {
+            System.out.println("Parašykite ką norite atspausdinti atvirkščiai:");
+            System.out.println("Tęsti rašykite: continue");
+            System.out.println("Išeiti rašykite: quit");
+            String stringIn = scanner.nextLine();
+
+            if (stringIn.equalsIgnoreCase("continue")) {
+                continue;
+            } else if (stringIn.equalsIgnoreCase("quit")) {
+                System.out.println("good bye!");
+                break;
+            } else {
+                String reverse = new StringBuilder(stringIn).reverse().toString();
+                System.out.println(reverse);
+            }
+        }
+    }
+
 
     /**
      * Write an application that will find biggest value within array of int variables.
@@ -300,19 +320,164 @@ public class ControlLoopsArrays {
      * check your application at least 5 times
      * (generate random array → print array to the console → find biggest value → print biggest value →  manually verify results).
      */
+    // First thing how to use Random class
+    public static void usingRandom(){
+        Random randomNumGen = new Random();
+        System.out.println(randomNumGen.nextInt(40));
+    }
+
+    // Second, let's try to initialize an array of random size
+    public static void randomSizeArray(){
+        Random randomNumGen = new Random();
+        int[] intArr = new int[randomNumGen.nextInt(20) + 1];
+
+        for (int i = 0; i < intArr.length; i++) {
+            intArr[i] = randomNumGen.nextInt(10000);
+        }
+
+        System.out.println(Arrays.toString(intArr));
+    }
+
+    public static void maxFromArray(){
+        // First let's try with hardcoded array
+        // int[] arr = {1, 3, 2, 10, 15, 8};
+
+        // ... then, let's try with random array
+        Random randomNumGen = new Random();
+        int arrSize = randomNumGen.nextInt(10) + 1;
+        int[] arr = new int[arrSize];
+
+        for (int i = 0; i < arr.length; i++) {
+            arr[i] = randomNumGen.nextInt(1000);
+        }
+
+        int currMax = arr[0];
+        for (int i = 1; i < arr.length; i++) {
+            if (currMax < arr[i])
+                currMax = arr[i];
+        }
+
+        System.out.println("Max of array: "
+                + Arrays.toString(arr) + " is: " + currMax);
+    }
+
+
+    /**
+     * sumOfArray()
+     */
+    public static void sumOfArray(){
+
+        Random randomNumberGet = new Random();
+        int[] intArr = new int[randomNumberGet.nextInt(5) + 1];
+        int sumOfArray = 0;
+
+        for (int i = 0; i < intArr.length; i++) {
+            intArr[i] = randomNumberGet.nextInt(10);
+            sumOfArray = sumOfArray + intArr[i];
+        }
+
+        System.out.println("Sum of array: " + Arrays.toString(intArr) + " is: " + sumOfArray);
+    }
+
+    /**
+     * avgOfArray()
+     */
+    public static void avgOfArray(){
+
+        Random randomNumberGet = new Random();
+        int[] intArr = new int[randomNumberGet.nextInt(5) + 1];
+        int sumOfArray = 0;
+
+        for (int i = 0; i < intArr.length; i++) {
+            intArr[i] = randomNumberGet.nextInt(10);
+            sumOfArray = sumOfArray + intArr[i];
+        }
+
+        System.out.println("Avg of array: "
+                + Arrays.toString(intArr) + " is: " + (double)sumOfArray / intArr.length);
+    }
+
+    /**
+     * avarangeOfArr2D();
+     */
+    public static void avarangeOfArr2D(){
+
+        Random randomNumberGet = new Random();
+        int[][] intArr = new int[randomNumberGet.nextInt(5) + 1][randomNumberGet.nextInt(5) + 1];
+        int sumOfArray = 0;
+
+        for (int i = 0; i < intArr.length; i++) {
+            for (int j = 0; j < intArr[i].length; j++) {
+                intArr[i][j] = randomNumberGet.nextInt(10);
+                sumOfArray = sumOfArray + intArr[i][j];
+                System.out.print(intArr[i][j] + " ");
+            }
+            System.out.println();
+        }
+        System.out.println(sumOfArray);
+        System.out.println((double)sumOfArray/intArr.length);
+    }
+
+    /**
+     * averageOfSalary()
+     */
+    public static void averageOfSalary(){
+        String[][] arr2d = {
+                //   0          1          2
+                {"Tomas", "Petraitis", "1600"},    // 0
+                {"Tadas", "Jonaitis", "1500"},     // 1
+                {"Mantas", "Kavarskas", "500"},   // 2
+                {"Petras", "Petrarskas", "180"},  // 3
+                {"Antanas", "Gražulis", "380"},   // 4
+                {"Martynas", "Baisulis", "230"}   // 5
+        };
+
+        // calculate average salary
+        int sum = 0;
+        for (int i = 0; i < arr2d.length; i++) {
+            sum = sum + Integer.parseInt(arr2d[i][2]);
+        }
+
+        System.out.println("Sum of array: " + sum
+                + ", length: " + arr2d.length + ", avg: " + (double)sum / arr2d.length);
+    }
+
+
+    /**
+     * findByName(String name)
+     */
+    public static void findByName(String name){
+        String[][] arr2d = {
+                {"Tomas", "Petraitis", "1600"},
+                {"Antanas", "Baisulis", "2300"},
+                {"Tadas", "Jonaitis", "1500"},
+                {"Mantas", "Kavarskas", "500"},
+                {"Petras", "Petrarskas", "180"},
+                {"Antanas", "Gražulis", "380"},
+                {"Martynas", "Baisulis", "230"}
+        };
+
+        for (int i = 0; i < arr2d.length; i++) {
+            if(name.equalsIgnoreCase(arr2d[i][0])){
+                System.out.println("Name: " + arr2d[i][0]
+                        + ", surname: " + arr2d[i][1]
+                        + ", salary: " + arr2d[i][2]);
+            }
+        }
+    }
 
     /**
      * Write an application that will find the longest char sequence within an array of type String.
      * Test it in the same way as you have done in the previous exercise. How will you generate random char sequences?
      */
-    private static char[] generateRepetitiveCharSequence(){
+    private static char[] generateRepetitiveCharSequence() {
         // generate random number indicating how many sequences will current string have
-        int sequenceLength = (int)(Math.random() * 10) + 1;
+        int sequenceLength = (int) (Math.random() * 10) + 1;
         char[] sequence = new char[sequenceLength];
         for (int j = 0; j < sequenceLength; ) {
             int repeatingLetterCount = (new Random()).nextInt(sequenceLength - j) + 1;
-            char c = (char)((new Random()).nextInt(26) + 'a'); // choose random letter
-            for (int k = 0; k < repeatingLetterCount; k++){ // repeat the random letter
+            char c = (char) ((new Random()).nextInt(26) + 'a'); // choose random letter
+            for (int k = 0; k < repeatingLetterCount; k++) { // repeat the random letter
                 sequence[j] = c;
                 j++;
             }
@@ -320,16 +485,16 @@ public class ControlLoopsArrays {
         return sequence;
     }
 
-    private static String[] generateRandomStringArr(int limitOnSequenceCount){
+    private static String[] generateRandomStringArr(int limitOnSequenceCount) {
         // generate random number indicating how long the array of strings will be
-        int totalStrings = (int)(Math.random() * limitOnSequenceCount) + 1;
+        int totalStrings = (int) (Math.random() * limitOnSequenceCount) + 1;
         String[] stringArr = new String[totalStrings];
         for (int i = 0; i < totalStrings; i++)
             stringArr[i] = new String(generateRepetitiveCharSequence());
         return stringArr;
     }
 
-    public static void findLongestRepeatingSequence(){
+    public static void findLongestRepeatingSequence() {
         // generate an array of sequences composed of repeating characters
         System.out.println(Arrays.toString(generateRandomStringArr(15)));
     }
@@ -342,5 +507,15 @@ public class ControlLoopsArrays {
         // drinkShop();
         // drinkShopRefactored();
         findLongestRepeatingSequence();
+        // echo();
+        // usingRandom();
+        // randomSizeArray();
+        // maxFromArray();
+        // sumOfArray();
+        // avgOfArray();
+        // avarangeOfArr2D();
+        // averageOfSalary();
+        // findByName("Antanas");
+
     }
 }
