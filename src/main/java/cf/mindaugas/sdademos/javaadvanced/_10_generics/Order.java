@@ -1,4 +1,4 @@
-package cf.mindaugas.sdademos.javaadvanced.generics;
+package cf.mindaugas.sdademos.javaadvanced._10_generics;
 
 public class Order {
 

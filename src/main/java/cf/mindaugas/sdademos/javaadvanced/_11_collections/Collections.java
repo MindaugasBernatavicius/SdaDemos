@@ -1,4 +1,4 @@
-package cf.mindaugas.sdademos.javaadvanced.collections;
+package cf.mindaugas.sdademos.javaadvanced._11_collections;
 
 import java.util.*;
 import java.util.Arrays;

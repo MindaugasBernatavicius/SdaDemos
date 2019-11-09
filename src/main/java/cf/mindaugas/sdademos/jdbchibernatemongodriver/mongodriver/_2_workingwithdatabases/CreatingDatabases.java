@@ -30,7 +30,7 @@ public class CreatingDatabases {
         // ... that is because mongo server only creates a database when we create a collection in it!
 
         MongoIterable<String> customerCollections = dbCustomer.listCollectionNames();
-        System.out.println("Current collections: ");
+        System.out.println("Current _10_collections: ");
         for (String collectionName: customerCollections) {
             System.out.print(collectionName + " "); // there are no collections currently
         }

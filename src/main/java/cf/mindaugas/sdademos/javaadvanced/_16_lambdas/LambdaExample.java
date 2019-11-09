@@ -1,4 +1,4 @@
-package cf.mindaugas.sdademos.javaadvanced.lambdas;
+package cf.mindaugas.sdademos.javaadvanced._16_lambdas;
 
 import java.util.function.Function;
 import java.util.function.Predicate;
