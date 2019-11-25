@@ -63,6 +63,7 @@ public class _08_BinarySearch {
 
             int res = targetToFind.compareTo(students[midIdx]);
             if (res == 0) return midIdx; // check in the middle
+            System.out.println("RES:" + res);
 
             // If x greater, ignore left half
             if (res > 0)
@@ -107,7 +108,9 @@ public class _08_BinarySearch {
         // System.out.println(IllustrateStringCompareTo("A", "B"));
         // System.out.println(IllustrateStringCompareTo("A", "A"));
         // System.out.println(IllustrateStringCompareTo("B", "A"));
-        // System.out.println(IllustrateStringCompareTo("AB", "AC"));
+        // System.out.println(IllustrateStringCompareTo("A", "C"));
+        // System.out.println(IllustrateStringCompareTo("AA", "AB"));
+        // System.out.println(IllustrateStringCompareTo("AA", "AC"));
         // System.out.println(IllustrateStringCompareTo("AC", "AB"));
 
         // String[] arr = {};
@@ -121,17 +124,17 @@ public class _08_BinarySearch {
         // };
 
         Student[] arr = {
-                new Student("Mindaugas", 9.1),
+                new Student("Mindaugas", 9.0),
                 new Student("Jonas", 9.1),
-                new Student("Pranas", 9.1)
+                new Student("Pranas", 9.2)
         };
 
-        // System.out.println(
-        //         binarySearchArrStudents(arr, new Student("Pranas", 9.1)));
-
         System.out.println(
-                binarySearchArrStudentsWComparator(
-                        arr, new Student("Pranas", 9.1), new StudentComparator()));
+                binarySearchArrStudents(arr, new Student("Pranas", 9.2)));
+
+        // System.out.println(
+        //         binarySearchArrStudentsWComparator(
+        //                 arr, new Student("Pranas", 9.1), new StudentComparator()));
     }
 }
 
@@ -162,29 +165,29 @@ class Student implements Comparable<Student>{
 
     @Override
     public int compareTo(Student otherStudent) {
-        // // return positive integer, if the current object is greater other.
-        // if(this.getAverageGrade() > otherStudent.getAverageGrade())
-        //     return 1;
-        // // negative integer, if the current object is less than other.
-        // else if(this.getAverageGrade() < otherStudent.getAverageGrade())
-        //     return -1;
-        // // zero, if the current object is equal to other.
-        // else
-        //     return 0;
-
-        // TODO :: implement compareTo method, that compares by name and grade
-        if(this.getAverageGrade() > otherStudent.getAverageGrade())
+        // return positive integer, if the current object is greater other.
+        if(this.getAverageGrade() < otherStudent.getAverageGrade())
             return 1;
-        else if(this.getAverageGrade() < otherStudent.getAverageGrade())
+        // negative integer, if the current object is less than other.
+        else if(this.getAverageGrade() > otherStudent.getAverageGrade())
             return -1;
-        else {
-            if(this.getName().compareTo(otherStudent.getName()) > 0)
-                return 1;
-            else if(this.getName().compareTo(otherStudent.getName()) < 0)
-                return -1;
-            else
-                return 0;
-        }
+        // zero, if the current object is equal to other.
+        else
+            return 0;
+
+//         // TODO :: implement compareTo method, that compares by name and grade
+//         if(this.getAverageGrade() > otherStudent.getAverageGrade())
+//             return 1;
+//         else if(this.getAverageGrade() < otherStudent.getAverageGrade())
+//             return -1;
+//         else {
+//             if(this.getName().compareTo(otherStudent.getName()) > 0)
+//                 return 1;
+//             else if(this.getName().compareTo(otherStudent.getName()) < 0)
+//                 return -1;
+//             else
+//                 return 0;
+//         }
     }
 }
 

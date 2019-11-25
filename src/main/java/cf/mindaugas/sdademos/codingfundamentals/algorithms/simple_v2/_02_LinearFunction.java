@@ -1,7 +1,6 @@
 package cf.mindaugas.sdademos.codingfundamentals.algorithms.simple_v2;
 
 public class _02_LinearFunction {
-
     // Ref: https://alg24.com/en/algorithms/index.php?option=com_content&view=article&id=292:algorithm-for-solving-linear-equation-ax-b-0&catid=87:algorytmy&lang=en-GB&Itemid=1197
     public static void solve(int a, int b){
         // 1. IF a != 0, the zero place is -b/a
@@ -19,6 +18,7 @@ public class _02_LinearFunction {
 
     public static void main(String[] args) {
         // f(x) = ax + b ==> 0 = 5x + 5
-        _02_LinearFunction.solve(5, 5);
+        solve(5, 5);
+        solve(1, 1);
     }
 }

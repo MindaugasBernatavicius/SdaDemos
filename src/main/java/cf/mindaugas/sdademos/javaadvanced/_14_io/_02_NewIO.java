@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class IOExample {
+public class _02_NewIO {
     public static void main(String[] args){
         // Writing in new IO
         Path filePath = Paths.get("data/example.txt");
@@ -19,8 +19,7 @@ public class IOExample {
                 Files.createDirectory(Paths.get("data"));
             }
             Files.write(filePath, Arrays.asList("line1", "line2", "line3"));
-        }
-        catch(IOException ex){
+        } catch(IOException ex){
             ex.printStackTrace();
         }
 
@@ -34,12 +33,9 @@ public class IOExample {
             while((line = br.readLine()) != null){
                 linesRead.add(line);
             }
-
-        }
-        catch (FileNotFoundException ex1){
+        } catch (FileNotFoundException ex1){
             ex1.printStackTrace();
-        }
-        catch (IOException ex2){
+        } catch (IOException ex2){
             ex2.printStackTrace();
         }
 
@@ -49,11 +45,8 @@ public class IOExample {
         try {
             List<String> linesReadNew = Files.readAllLines(Paths.get("data/example.txt"));
             System.out.println(linesReadNew);
-        }
-        catch(IOException ex){
+        } catch(IOException ex){
             ex.printStackTrace();
         }
-
-
     }
 }
