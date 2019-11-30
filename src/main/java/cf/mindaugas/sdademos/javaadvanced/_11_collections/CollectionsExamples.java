@@ -5,71 +5,82 @@ import java.util.Arrays;
 
 public class CollectionsExamples {
 
-    public static void main(String[] args){
-
-        // ... for comparison
-        int[] arrayOfInts = new int[5];
-
-        // 0. Initializing a collection - creating a collection object
+    // 0. Initializing a collection - creating a collection object
+    public static void collectionAddAndIterate() {
         List<Integer> arrayListOfInts = new ArrayList<>();
         List<Integer> linkedListOfInts = new LinkedList<>();
         Set<Integer> setOfInts = new HashSet<>();
 
         Random rnd = new Random();
 
-        // // 1. Adding elements to a collection
-        // System.out.println("Array List");
-        // for(int i = 0; i < 100; i++){
-        //     arrayListOfInts.add(rnd.nextInt(100));
-        //     System.out.println("Size: " + arrayListOfInts.size());
-        // }
-        //
-        // System.out.println("Linked List");
-        // for(int i = 0; i < 100; i++){
-        //     linkedListOfInts.add(rnd.nextInt(100));
-        //     System.out.println("Size: " + linkedListOfInts.size());
-        // }
-        //
-        // System.out.println("Set");
-        // for(int i = 0; i < 100; i++){
-        //     setOfInts.add(rnd.nextInt(100));
-        //     System.out.println("Size: " + setOfInts.size());
-        // }
+        // 1. Adding elements to a collection
+        System.out.println("Array List");
+        for(int i = 0; i < 100; i++){
+            arrayListOfInts.add(rnd.nextInt(100));
+            System.out.println("Size: " + arrayListOfInts.size());
+        }
 
-        // 2. Removing elements from collections one by one
+        System.out.println("Linked List");
+        for(int i = 0; i < 100; i++){
+            linkedListOfInts.add(rnd.nextInt(100));
+            System.out.println("Size: " + linkedListOfInts.size());
+        }
+
+        System.out.println("Set");
+        for(int i = 0; i < 100; i++){
+            setOfInts.add(rnd.nextInt(100));
+            System.out.println("Size: " + setOfInts.size());
+        }
+    }
+
+    // 2. Removing elements from collections one by one
+    public static void removingOneByOne(){
         List<Person> listForRemovalOfElement = new ArrayList<>();
         listForRemovalOfElement.add(new Person(44, "Mindaugas"));
         listForRemovalOfElement.add(new Person(22, "Jonas"));
 
         listForRemovalOfElement.remove(new Person(44, "Mindaugas"));
 
-        // for(Person p : listForRemovalOfElement)
-        //     System.out.println(p);
+        for(Person p : listForRemovalOfElement)
+            System.out.println(p);
+    }
 
+    // 3. Adding many items from one collection to another at once
+    public static void addingInBulk(){
+        List<Person> listForAddingInBulk = new ArrayList<>();
+        listForAddingInBulk.add(new Person(44, "Mindaugas"));
+        listForAddingInBulk.add(new Person(22, "Jonas"));
 
-
-        // 3. Adding in bulk (equality)
         List<Person> listForAddingManyElements = new ArrayList<Person>() {{
             add(new Person(33, "Petras"));
             add(new Person(21, "Pranas"));
             add(new Person(33, "Petras"));
         }};
 
-        listForRemovalOfElement.addAll(listForAddingManyElements);
+        listForAddingInBulk.addAll(listForAddingManyElements);
 
-        for(Person p : listForRemovalOfElement)
+        for(Person p : listForAddingInBulk)
             System.out.println(p);
         System.out.println();
+    }
 
+    // 4. Adding items from List to Set
+    public static void addingFromListToSet(){
+        List<Person> listForAddingInBulk = new ArrayList<>();
+        listForAddingInBulk.add(new Person(44, "Mindaugas"));
+        listForAddingInBulk.add(new Person(22, "Jonas"));
+        listForAddingInBulk.add(new Person(22, "Jonas"));
 
         // ... HashSet requires hashCode() method
         // ... to be implemented by the T inside Set<T>
         Set<Person> setOfPeople = new HashSet<>();
-        setOfPeople.addAll(listForAddingManyElements);
+        setOfPeople.addAll(listForAddingInBulk);
         for(Person p : setOfPeople)
             System.out.println(p);
+    }
 
-        // 4. Removing in bulk (equality)
+    // 5. Removing in bulk (equality)
+    public static void removingInBulk(){
         System.out.println("---- Removing in bulk ----");
         Set<String> arrset1 = new HashSet<String>(){{
             add("Mindaugas");
@@ -93,8 +104,15 @@ public class CollectionsExamples {
 
         // print arrset1
         System.out.println("Set after operation : " + arrset1);
+    }
 
+    public static void main(String[] args){
 
+        collectionAddAndIterate();
+        removingOneByOne();
+        addingInBulk();
+        addingFromListToSet();
+        removingInBulk();
 
         // 5. Multidimensional collections
         System.out.println("---- Multidimensional collections ----");

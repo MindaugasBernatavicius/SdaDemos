@@ -11,9 +11,9 @@ public class IteratorExample {
                 new Passenger[]{ new Passenger("Petras", 223)}
             );
 
-        // FlightIterator fi0 = new FlightIterator(f0.getCrew(), f0.getPassengers());
-        // while(fi0.hasNext())
-        //     System.out.println(fi0.next());
+         FlightIterator fi0 = new FlightIterator(f0.getCrew(), f0.getPassengers());
+         while(fi0.hasNext())
+             System.out.println(fi0.next());
 
         // 1. Iterator as an Inner Class
         Flight1 f1 = new Flight1(
@@ -21,9 +21,9 @@ public class IteratorExample {
                 new Passenger[]{ new Passenger("Petras", 223)}
         );
 
-        // Iterator fi1 = f1.iterator();
-        // while(fi1.hasNext())
-        //     System.out.println(fi1.next());
+         Iterator fi1 = f1.iterator();
+         while(fi1.hasNext())
+             System.out.println(fi1.next());
 
         // 2. Iterator as an Anonymous Inner Class
         Flight1 f2 = new Flight1(
@@ -254,11 +254,11 @@ class CrewMember {
 
 class Passenger {
     private String name;
-    private int searNumber;
+    private int seatNumber;
 
-    public Passenger(String name, int searNumber) {
+    public Passenger(String name, int seatNumber) {
         this.name = name;
-        this.searNumber = searNumber;
+        this.seatNumber = seatNumber;
     }
 
     public String getName() {
@@ -269,19 +269,19 @@ class Passenger {
         this.name = name;
     }
 
-    public int getSearNumber() {
-        return searNumber;
+    public int getSeatNumber() {
+        return seatNumber;
     }
 
-    public void setSearNumber(int searNumber) {
-        this.searNumber = searNumber;
+    public void setSeatNumber(int seatNumber) {
+        this.seatNumber = seatNumber;
     }
 
     @Override
     public String toString() {
         return "Passenger{" +
                 "name='" + name + '\'' +
-                ", searNumber=" + searNumber +
+                ", seatNumber=" + seatNumber +
                 '}';
     }
 }

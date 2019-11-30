@@ -11,11 +11,11 @@ import java.util.List;
 
 public class _02_NIO {
     public static void main(String[] args){
-        // Writing in new IO
+        // Writing in NIO
         Path filePath = Paths.get("data/example.txt");
 
         try {
-            if(!Files.isDirectory(Paths.get("data"))){
+            if( !Files.isDirectory(Paths.get("data")) ){
                 Files.createDirectory(Paths.get("data"));
             }
             Files.write(filePath, Arrays.asList("line1", "line2", "line3"));
@@ -23,7 +23,7 @@ public class _02_NIO {
             ex.printStackTrace();
         }
 
-        // Read in old IO
+        // Read in IO
         File f = new File("data/example.txt");
         List<String> linesRead = new ArrayList<>();
         try {
@@ -41,7 +41,7 @@ public class _02_NIO {
 
         System.out.println(linesRead);
 
-        // Read in new IO
+        // Read in NIO
         try {
             List<String> linesReadNew = Files.readAllLines(Paths.get("data/example.txt"));
             System.out.println(linesReadNew);

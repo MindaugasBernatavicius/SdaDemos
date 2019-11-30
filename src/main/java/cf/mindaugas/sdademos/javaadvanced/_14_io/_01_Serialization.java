@@ -10,7 +10,7 @@ public class _01_Serialization {
 
         // We can create several object in the try clause when using autoclosable interface
         try (FileOutputStream fileOutputStream = new FileOutputStream(new File("object_serialized.ser"));
-             ObjectOutputStream objectOutputStream = new ObjectOutputStream(fileOutputStream)) {
+            ObjectOutputStream objectOutputStream = new ObjectOutputStream(fileOutputStream)) {
             objectOutputStream.writeObject(person);
         } catch (IOException e) {
             e.printStackTrace();
@@ -18,7 +18,7 @@ public class _01_Serialization {
 
         // Deserializing an object
         Person person2;
-        try (FileInputStream fileInputStream= new FileInputStream(new File("object_serialized.ser"));
+        try (FileInputStream fileInputStream = new FileInputStream(new File("object_serialized.ser"));
              ObjectInputStream objectInputStream = new ObjectInputStream(fileInputStream)) {
             person2 = (Person) objectInputStream.readObject();
 
@@ -34,6 +34,8 @@ public class _01_Serialization {
 }
 
 class Person implements Serializable {
+
+
     private String firstName;
     private String lastName;
 
