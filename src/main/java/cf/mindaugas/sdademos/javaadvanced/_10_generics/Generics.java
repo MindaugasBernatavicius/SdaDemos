@@ -1,25 +1,5 @@
 package cf.mindaugas.sdademos.javaadvanced._10_generics;
 
-interface Vehicle{
-    void makeNoise();
-}
-
-class Car implements Vehicle{
-    public void makeNoise(){
-        System.out.println("Wroom wroom");
-    }
-
-    public void startEngine(){
-
-    }
-}
-
-class Bike implements Vehicle {
-    public void makeNoise(){
-        System.out.println("Ding ding");
-    }
-}
-
 class BoxSimple {
     private Object value;
 
@@ -51,7 +31,6 @@ class BoxWithGenerics<T> {
     private T value;
     public BoxWithGenerics(T obj){
         this.value = obj;
-
     }
 
     public T getValue(){
@@ -64,7 +43,6 @@ class BoxWithGenericsWithInterface<T extends Vehicle> {
     public BoxWithGenericsWithInterface(T obj){
         this.value = obj;
         obj.makeNoise();
-
     }
 
     public T getValue(){
@@ -74,7 +52,6 @@ class BoxWithGenericsWithInterface<T extends Vehicle> {
 
 
 class VehicleBox extends BoxWithGenerics<Vehicle>{
-
     public VehicleBox(Vehicle obj) {
         super(obj);
     }
@@ -82,8 +59,6 @@ class VehicleBox extends BoxWithGenerics<Vehicle>{
 
 
 public class Generics {
-
-
     public static void main(String[] args){
         Car car = new Car();
         Bike bike = new Bike();
@@ -111,5 +86,26 @@ public class Generics {
 
         boxWithGenericsWithCar.getValue().startEngine();
         boxWithGenericsWithBike.getValue().makeNoise();
+    }
+
+
+}
+
+// ... Classes that define data
+interface Vehicle{
+    void makeNoise();
+}
+
+class Car implements Vehicle{
+    public void makeNoise(){
+        System.out.println("Wroom wroom");
+    }
+
+    public void startEngine(){ }
+}
+
+class Bike implements Vehicle {
+    public void makeNoise(){
+        System.out.println("Ding ding");
     }
 }

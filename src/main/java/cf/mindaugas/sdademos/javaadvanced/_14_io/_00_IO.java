@@ -2,7 +2,7 @@ package cf.mindaugas.sdademos.javaadvanced._14_io;
 
 import java.io.*;
 
-public class _00_OldIO {
+public class _00_IO {
 
     public static void main(String[] args) {
         File absoluteFile = new File("C:/myDirectory/myFile.txt");

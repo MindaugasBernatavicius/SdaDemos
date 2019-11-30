@@ -1,4 +1,4 @@
-package cf.mindaugas.sdademos.javaadvanced._18_streams;
+package cf.mindaugas.sdademos.javaadvanced.streams;
 
 import java.util.Arrays;
 import java.util.List;
@@ -11,7 +11,8 @@ public class StreamsExample {
         Optional<String> firstNameInList = names.stream().findFirst();
         if(firstNameInList.isPresent()){
             System.out.println("First name in list is: " + firstNameInList.get());
-        } else {
+        }
+        else {
             System.out.println("No one found");
         }
 

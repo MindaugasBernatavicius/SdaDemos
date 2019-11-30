@@ -1,4 +1,4 @@
-package cf.mindaugas.sdademos.javaadvanced._16_lambdas;
+package cf.mindaugas.sdademos.javaadvanced.lambdas;
 
 import java.util.function.Function;
 import java.util.function.Predicate;
@@ -16,7 +16,7 @@ public class LambdaExample {
         }
     }
 
-    static class IsAdult implements Predicate<Person> {
+    static class IsAdult implements Predicate<Person>{
         @Override
         public boolean test(Person person) {
             return person.age >= 18;

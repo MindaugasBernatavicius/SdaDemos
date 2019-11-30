@@ -1,4 +1,4 @@
-package cf.mindaugas.sdademos.javaadvanced._14_io;
+package cf.mindaugas.sdademos.javaadvanced.io;
 
 
 import java.io.*;
@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class _02_NewIO {
+public class IOExample {
     public static void main(String[] args){
         // Writing in new IO
         Path filePath = Paths.get("data/example.txt");
@@ -19,7 +19,8 @@ public class _02_NewIO {
                 Files.createDirectory(Paths.get("data"));
             }
             Files.write(filePath, Arrays.asList("line1", "line2", "line3"));
-        } catch(IOException ex){
+        }
+        catch(IOException ex){
             ex.printStackTrace();
         }
 
@@ -33,9 +34,12 @@ public class _02_NewIO {
             while((line = br.readLine()) != null){
                 linesRead.add(line);
             }
-        } catch (FileNotFoundException ex1){
+
+        }
+        catch (FileNotFoundException ex1){
             ex1.printStackTrace();
-        } catch (IOException ex2){
+        }
+        catch (IOException ex2){
             ex2.printStackTrace();
         }
 
@@ -45,8 +49,11 @@ public class _02_NewIO {
         try {
             List<String> linesReadNew = Files.readAllLines(Paths.get("data/example.txt"));
             System.out.println(linesReadNew);
-        } catch(IOException ex){
+        }
+        catch(IOException ex){
             ex.printStackTrace();
         }
+
+
     }
 }
