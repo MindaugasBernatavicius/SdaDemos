@@ -1,19 +1,12 @@
-package cf.mindaugas.sdademos.javaadvanced._18_streams;
+package cf.mindaugas.sdademos.javaadvanced._18_streamsandcollectors;
 
 import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 
-public class StreamsExample {
-    public static void main(String[] args){
+public class _01_FilterOperation {
+    public static void main(String[] args) {
         List<String> names = Arrays.asList("Jimmy", "Jill", "Joe", "Anna");
-
-        Optional<String> firstNameInList = names.stream().findFirst();
-        if(firstNameInList.isPresent()){
-            System.out.println("First name in list is: " + firstNameInList.get());
-        } else {
-            System.out.println("No one found");
-        }
 
         Optional<String> resultOfFilter = names
                 .stream()
@@ -29,6 +22,5 @@ public class StreamsExample {
         else {
             System.out.println("No one found");
         }
-
     }
 }

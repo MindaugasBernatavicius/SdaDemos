@@ -1,0 +1,18 @@
+import java.util.Optional;
+
+public interface UsersRepository {
+    Optional<User> search(Integer id);
+}
+
+final class UserSearcher {
+    private UsersRepository usersRepository;
+    // ... or any subclass of UsersRepository could be used
+
+    public UserSearcher(UsersRepository usersRepository) {
+        this.usersRepository = usersRepository;
+    }
+
+    public Optional<User> search(Integer id) {
+        return usersRepository.search(id);
+    }
+}

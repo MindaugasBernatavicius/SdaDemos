@@ -5,7 +5,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class AdvancedExample {
+public class _01_AdvancedExampleGrouping {
     private static List<Person> persons = new ArrayList<>();
     private static Map<String, List<Person>> mapByFirstName = new HashMap<>();
     private static Map<String, List<Person>> mapByLastName = new HashMap<>();

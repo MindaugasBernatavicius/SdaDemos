@@ -1,4 +1,4 @@
-package cf.mindaugas.sdademos.javaadvanced._18_streams;
+package cf.mindaugas.sdademos.javaadvanced._18_streamsandcollectors;
 
 import java.io.IOException;
 import java.nio.file.Files;

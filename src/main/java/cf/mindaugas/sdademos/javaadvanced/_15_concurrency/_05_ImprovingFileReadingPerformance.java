@@ -6,13 +6,13 @@ import java.util.concurrent.TimeUnit;
 public class _05_ImprovingFileReadingPerformance {
 
     static String[] inputFiles = {
-            "data/input/1.txt", "data/input/2.txt", "data/input/3.txt", "data/input/4.txt", "data/input/5.txt"};
+            "data/input/1.txt", "data/input/2.txt", "data/input/3.txt", "data/input/4.txt", "data/input/5.txt" };
     static String[] outputFiles = {
-            "data/output/1.txt", "data/output/2.txt", "data/output/3.txt", "data/output/4.txt", "data/output/5.txt"};
+            "data/output/1.txt", "data/output/2.txt", "data/output/3.txt", "data/output/4.txt", "data/output/5.txt" };
 
     public static void main(String[] args) throws IOException, InterruptedException {
 
-        // ... no threads
+//        // ... no threads
 //        long startTime = System.nanoTime();
 //        for (int i = 0; i < inputFiles.length; i++) {
 //            Adder adder = new Adder(inputFiles[i], outputFiles[i]);
@@ -29,6 +29,8 @@ public class _05_ImprovingFileReadingPerformance {
             threads[i] = new Thread(adder);
             threads[i].start();
         }
+
+        // ...
 
         for(Thread t : threads)
             t.join();
@@ -58,8 +60,8 @@ class Adder {
 
         try(BufferedReader br = new BufferedReader(new FileReader(fileIn))){
             while ((line = br.readLine()) != null )
-                total += Integer.parseInt(line);        }
-        catch (IOException e) {
+                total += Integer.parseInt(line);
+        } catch (IOException e) {
             e.printStackTrace();
         }
 
