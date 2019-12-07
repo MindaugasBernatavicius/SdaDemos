@@ -1,9 +1,9 @@
 package cf.mindaugas.sdademos.design.solidprinciples._03_lsp;
 
-public class ExampleWithViolation {
-}
+public class ExampleWithViolation { }
 
 class Shape {
+
     private Integer length;
     private Integer width;
 
@@ -26,6 +26,7 @@ class Shape {
 }
 
 class Square extends Shape {
+
     Square(Integer lengthAndWidth) {
         super(lengthAndWidth, lengthAndWidth);
     }
@@ -43,8 +44,8 @@ class Square extends Shape {
     }
 }
 
-
 class Elipsis extends Shape {
+
     Elipsis(Integer length) {
         super(length, length);
     }

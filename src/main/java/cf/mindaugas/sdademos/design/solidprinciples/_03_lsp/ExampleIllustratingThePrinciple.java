@@ -4,7 +4,6 @@ public class ExampleIllustratingThePrinciple {
 }
 
 // Bad ....
-
 //class Vehicle {
 //    String name;
 //    Double speed;

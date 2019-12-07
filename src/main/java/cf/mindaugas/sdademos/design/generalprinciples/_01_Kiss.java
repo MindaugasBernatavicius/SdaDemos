@@ -2,7 +2,8 @@ package cf.mindaugas.sdademos.design.generalprinciples;
 
 public class _01_Kiss {
     public String getWeekDayComplex(int day) {
-        if ((day < 1) || (day > 7)) throw new IllegalStateException("day must be in range 1 to 7");
+        if ((day < 1) || (day > 7))
+            throw new IllegalStateException("day must be in range 1 to 7");
         String[] days = {
                 "Monday",
                 "Tuesday",
@@ -16,32 +17,6 @@ public class _01_Kiss {
     }
 
     // ... how can we write it simpler?
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
