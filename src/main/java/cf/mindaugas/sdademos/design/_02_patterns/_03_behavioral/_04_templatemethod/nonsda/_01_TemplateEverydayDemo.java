@@ -32,7 +32,7 @@ public class _01_TemplateEverydayDemo {
 	}
 }
 
-class Person implements Comparable<Person>{
+class Person implements Comparable<Person> {
     private String name;
     private String phoneNumber;
     private int age;

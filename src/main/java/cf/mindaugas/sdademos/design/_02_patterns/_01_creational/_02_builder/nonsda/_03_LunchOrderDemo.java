@@ -6,7 +6,9 @@ public class _03_LunchOrderDemo {
         LunchOrder.Builder builder = new LunchOrder.Builder();
 
         // we could populate this from a CSV file, where some properties do not exist
-        builder.bread("Wheat").dressing("Mayo").meat("Turkey");
+        builder.bread("Wheat")
+                .dressing("Mayo")
+                .meat("Turkey");
 
         LunchOrder lunchOrder = builder.build();
 

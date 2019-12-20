@@ -5,6 +5,7 @@ public class _03_LoD {
         Human h1 = new Human(
                 new Name("Mindaugas", "Jonas", "Bernatavičius"), 30);
 
+        // non compliant o.d().x().z()
         System.out.println(h1.getName().getFirstName());
 
         // ... instead do this ... however this introduces tight coupling and dublication

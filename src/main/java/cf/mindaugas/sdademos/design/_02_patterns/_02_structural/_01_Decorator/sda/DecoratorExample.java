@@ -14,6 +14,9 @@ public class DecoratorExample {
         Pizza mushroomsPizza = new MushroomsPizza(pizza);
         pizza.printIngredients();
 
+        Pizza p = new HamPizza(new MushroomsPizza(new BasicPizza()));
+        p.printIngredients();
+
 //        Pizza seafoodPizza = new SeafoodPizza(new BasicPizza());
 //        pizza.printIngredients();
     }

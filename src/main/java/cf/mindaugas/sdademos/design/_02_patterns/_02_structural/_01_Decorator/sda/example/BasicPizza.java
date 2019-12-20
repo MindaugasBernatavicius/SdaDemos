@@ -9,12 +9,13 @@ public final class BasicPizza implements Pizza {
         ingredients = new ArrayList<>();
         addIngredients("Pizza dough");
         addIngredients("Tomato Sauce");
-        addIngredients("Chees");
+        addIngredients("Cheese");
     }
 
     @Override
     public void printIngredients() {
-        System.out.println("Pizza: "+String.join(", ", ingredients));
+        System.out.println("Pizza: "
+                + String.join(", ", ingredients));
     }
 
     @Override

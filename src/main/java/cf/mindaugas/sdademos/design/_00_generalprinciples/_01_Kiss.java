@@ -1,5 +1,7 @@
 package cf.mindaugas.sdademos.design._00_generalprinciples;
 
+import java.util.List;
+
 public class _01_Kiss {
     public String getWeekDayComplex(int day) {
         if ((day < 1) || (day > 7))

@@ -1,7 +1,7 @@
 package cf.mindaugas.sdademos.design._02_patterns._01_creational._02_builder.nonsda;
 
 public class _01_LunchOrderBeanDemo {
-    public static void main(String args[]) {
+    public static void main(String[] args) {
 
         LunchOrderBean lunchOrderBean = new LunchOrderBean();
 

@@ -3,22 +3,22 @@ package cf.mindaugas.sdademos.design._01_solidprinciples._02_ocp;
 public class Example { }
 
 // 0. We have only Rectangle class and AreaCalculator for that Rectangle
-//class Rectangle{
+//class Rectangle {
 //    public double length;
 //    public double width;
 //}
-//
+
 //class AreaCalculator {
 //    public double calculateRectangleArea(Rectangle rectangle){
 //        return rectangle.length * rectangle.width;
 //    }
 //}
-//
-//// 1. Adding another shape, requires adding another method to AreaCalculator
+
+// 1. Adding another shape, requires adding another method to AreaCalculator
 //class Circle{
 //    public double radius;
 //}
-
+//
 //class AreaCalculator {
 //    public double calculateRectangleArea(Rectangle rectangle){
 //        return rectangle.length * rectangle.width;
@@ -36,7 +36,7 @@ interface Shape{
     public double calculateArea();
 }
 
-class Rectangle implements Shape{
+class Rectangle implements Shape {
     double length;
     double width;
     public double calculateArea(){
@@ -44,7 +44,7 @@ class Rectangle implements Shape{
     }
 }
 
-class Circle implements Shape{
+class Circle implements Shape {
     public double radius;
     public double calculateArea(){
         return (22/7) * radius * radius; // pi * r^2

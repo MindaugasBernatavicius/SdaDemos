@@ -15,7 +15,7 @@ public class DecoratorUsage {
 		// File output stream is a decorator for File object
 		OutputStream oStream = new FileOutputStream(file);
 
-		// Data output stream decorates DataOutputStream
+		// Data output stream decorates OutputStream
 		DataOutputStream doStream = new DataOutputStream(oStream);
 		doStream.writeChars("text");
 		

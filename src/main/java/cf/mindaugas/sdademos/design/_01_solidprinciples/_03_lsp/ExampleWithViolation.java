@@ -3,7 +3,6 @@ package cf.mindaugas.sdademos.design._01_solidprinciples._03_lsp;
 public class ExampleWithViolation { }
 
 class Shape {
-
     private Integer length;
     private Integer width;
 
@@ -15,11 +14,9 @@ class Shape {
     void setLength(Integer length) {
         this.length = length;
     }
-
     void setWidth(Integer width) {
         this.width = width;
     }
-
     Integer getArea() {
         return this.length * this.width;
     }

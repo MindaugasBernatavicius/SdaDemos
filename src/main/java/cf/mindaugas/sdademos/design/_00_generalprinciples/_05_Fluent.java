@@ -3,10 +3,7 @@ package cf.mindaugas.sdademos.design._00_generalprinciples;
 public class _05_Fluent {
     public static void main(String[] args) {
         PensionCalculator pc = new PensionCalculator();
-        double pension = pc.with()
-                .personAge(69).and()
-                .workExperience(30)
-                .getPension();
+        double pension = pc.with().personAge(69).and().workExperience(30).getPension();
         System.out.println("Pension is: " + pension);
     }
 }
