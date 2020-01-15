@@ -2,12 +2,6 @@ package cf.mindaugas.sdademos.javaadvanced._15_concurrency;
 
 public class _04_Synchronization {
     public static void main(String[] args) {
-//        Bench bench = new Bench(1); // creating bench with one free seat
-//        SeatTakerThread seatTaker1 = new SeatTakerThread(bench);
-//        SeatTakerThread seatTaker2 = new SeatTakerThread(bench);
-//        seatTaker1.start();
-//        seatTaker2.start();
-
         // ... in this case result are unpredictable. We need synchronization
         Bench bench = new Bench(1); // creating bench with one free seat
         SeatTakerThread seatTaker1 = new SeatTakerThread(bench);

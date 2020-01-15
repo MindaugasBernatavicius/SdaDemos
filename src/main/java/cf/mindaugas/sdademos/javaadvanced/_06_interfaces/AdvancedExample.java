@@ -1,7 +1,5 @@
 package cf.mindaugas.sdademos.javaadvanced._06_interfaces;
 
-import com.sun.istack.internal.Nullable;
-
 import java.util.Comparator;
 
 public class AdvancedExample {
@@ -86,7 +84,7 @@ public class AdvancedExample {
      * @param comparator - optional comparator providing comparison logic
      */
     private static void bubbleSortGeneric(
-            Comparable[] arr, @Nullable Comparator comparator){
+            Comparable[] arr, Comparator comparator){
         int n = arr.length;
         if(comparator != null){
             for (int i = 0; i < n - 1; i++){

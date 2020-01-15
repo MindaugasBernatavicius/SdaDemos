@@ -11,7 +11,6 @@ import org.hibernate.boot.Metadata;
 import org.hibernate.boot.MetadataSources;
 import org.hibernate.boot.registry.StandardServiceRegistry;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
-import sun.awt.windows.ThemeReader;
 
 import javax.persistence.Query;
 import java.util.List;
