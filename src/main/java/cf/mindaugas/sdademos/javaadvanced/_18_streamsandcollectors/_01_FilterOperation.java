@@ -3,11 +3,19 @@ package cf.mindaugas.sdademos.javaadvanced._18_streamsandcollectors;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 public class _01_FilterOperation {
     public static void main(String[] args) {
         List<String> names = Arrays.asList("Joe", "Anna", "Mindaugas");
 
+        // 0. Simple example
+        List<String> namesStartingWithA = names.stream()
+                .filter(name -> name.startsWith("A"))
+                .collect(Collectors.toList());
+        System.out.println(namesStartingWithA);
+
+        // 1. More complex example
         Optional<String> resultOfFilter = names
                 .stream()
                 .parallel()

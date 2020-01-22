@@ -6,6 +6,7 @@ public class _03_MethodReference {
     public static void main(String[] args) {
         Banana banana = new Banana("DarkYellow", 150);
         Predicate<Banana> isBananaRipe = Banana::isRipe;
+        // Predicate<Banana> isBananaRipe = banana::isRipe;
         System.out.println(isBananaRipe.test(banana));
     }
 }
@@ -19,7 +20,7 @@ class Banana {
         this.wightInGramms = wightInGramms;
     }
 
-    static boolean isRipe(Banana b){
+     static boolean isRipe(Banana b){
         return true; // we can have better logic based on objects data
     }
 }

@@ -1,12 +1,16 @@
 package cf.mindaugas.sdademos.javaadvanced._16_lambdas;
 
+import java.util.Random;
+import java.util.function.Consumer;
 import java.util.function.Function;
+import java.util.function.Supplier;
 import java.util.function.UnaryOperator;
 
 public class _02_FunctionInterface {
 
     public static int calcSomething(
-            Integer[] array, Function<Integer[], Integer> summarizer){
+            Integer[] array,
+            Function<Integer[], Integer> summarizer){
         return summarizer.apply(array);
     }
 
@@ -22,10 +26,10 @@ public class _02_FunctionInterface {
         // Lambda is created w/o the keyword new, it it less expensive for the JVM
 
         // Method apply returns Integer and the type of the parameter is String
-        Function<String, Integer> stringLengthFunction = s -> s.length();
-        System.out.println(stringLengthFunction.apply("ABCDE"));
+        Function<String, Integer> stringLengthFunction = s -> s.length(); // int --> Integer (autoboxing)
+        System.out.println(stringLengthFunction.apply("ABCDEF"));
 
-        // Method apply returns String and the type of the parameter is String
+        // // Method apply returns String and the type of the parameter is String
         Function<String, String> replaceCommasWithDotsFunction = s -> s.replace(',', '.');
         System.out.println(replaceCommasWithDotsFunction.apply("a,b,c"));
 
@@ -50,10 +54,26 @@ public class _02_FunctionInterface {
 
         // ... Other function interfaces
         // Supplier and Consumer
+        Supplier<Integer> randomNumberSupplier = () -> new Random().nextInt();
+        int randomNumber = randomNumberSupplier.get();
+
+        Consumer<Double> printWithPrefixConsumer = d -> System.out.println("Value: " + d);
+        printWithPrefixConsumer.accept(10.5);
 
         // Operator
         Function<Integer, Integer> squaring = i -> i * i;
         UnaryOperator<Integer> exactlyTheSameFn = i -> i * i;
+        // UnaryOperator<Integer> exactlyTheSameFn = i -> {
+        //     System.out.println("");
+        //     return i * i;
+        // };
         System.out.println(exactlyTheSameFn.apply(5));
+
+        // Dažnai java pradednatiji prigramuotojai, nori turėti funkciją, kuri
+        // ... priima ne tik kintamuosius, bet ir operaciją, kurią norime, kad ta
+        // ... funkcija atliktų. Lambda išraiškos su funkciniais interface'ais, leidžia
+        // ... tai padaryti!
+        // function calculate(int[] myNumbers, Function<Integer, Integer> myf)
+        // myf.apply()
     }
 }
