@@ -11,6 +11,16 @@ public class _04_AllMatchAnyMatch {
         boolean allNamesLengthIsGtThan3 = names.stream().allMatch(n -> n.length() > 3);
         boolean thereIsANameWhichLengthIsGtThan3 = names.stream().anyMatch(n -> n.length() > 3);
 
+        // names.stream().anyMatch(n -> n.length() > 3);
+        // equivalent in imperative style, procedural programming is this:
+        // boolean nameWithMoreThan3LettersExists = false;
+        // for (String name: names) {
+        //     if(name.length() > 3){
+        //         nameWithMoreThan3LettersExists = true;
+        //         break;
+        //     }
+        // }
+
         if(allNamesLengthIsGtThan3){
             System.out.println("All names are longer than 3 chars!");
         } else if(thereIsANameWhichLengthIsGtThan3){

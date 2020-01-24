@@ -36,10 +36,9 @@ public class _05_SortedMapFilterReduce {
         System.out.println("---- calculating average for Thomas' ----");
         double averageAgeForThomases = people.stream()
                 .filter(person -> person.getName().equals("Thomas"))
-                .mapToInt(p-> p.getAge())
+                .mapToInt(p -> p.getAge())
                 .average().getAsDouble();
         System.out.println("Average age for Thomas' : " + averageAgeForThomases);
-
     }
 }
 
