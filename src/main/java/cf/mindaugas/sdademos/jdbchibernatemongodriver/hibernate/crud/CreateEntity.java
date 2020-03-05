@@ -20,14 +20,14 @@ public class CreateEntity {
         Session session = sessionFactory.openSession();
         Transaction transaction = session.beginTransaction();
 
-        System.out.println("----- Transaciton has begun ----------");
+        System.out.println("----- Transaction has begun ----------");
 
         // CREATE
         User user = new User("Robert", "Martin");
         session.persist(user);
 
         // How can we check whether the entity is persisted
-        // durring the persist() call or durring the commit()?
+        // during the persist() call or during the commit()?
 
         // System.out.println("----- Check now -----");
         // Thread.sleep(15000);

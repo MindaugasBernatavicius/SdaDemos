@@ -1,5 +1,6 @@
 package cf.mindaugas.sdademos.jdbchibernatemongodriver.hibernate.model;
 
+
 public class AppUserParent {
     private Long id;
     private String name;

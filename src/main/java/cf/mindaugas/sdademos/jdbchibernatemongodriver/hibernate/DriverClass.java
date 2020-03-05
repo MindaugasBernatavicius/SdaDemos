@@ -17,6 +17,7 @@ import java.net.MalformedURLException;
 public class DriverClass {
     public static void main(String[] args) throws MalformedURLException, InterruptedException {
 
+        // TODO :: integrate examples from SDA (jdbc and hibernate)
 
         // 0. - Creating simple entity: hello world level example for Hibernate
         // CreateEntity.runExample();
@@ -63,6 +64,11 @@ public class DriverClass {
 
         // 11. - HQL
         // HQL.runExample(); // includes named queries
-        HQL.runExampleJoins();
+        // HQL.runExampleJoins();
+
+        // TODO :: 12. Criteria queries
+
+        // 13. Filters and filterjointable
+        // https://www.concretepage.com/hibernate/hibernate-filter-and-filterjointable-annotation-example
     }
 }

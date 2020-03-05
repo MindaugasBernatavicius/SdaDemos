@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div.sticky {
+            position: -webkit-sticky;
+            position: sticky;
+            top: 0;
+            padding: 5px;
+            width: 100px;
+            background-color: #63c0e8;
+            border: 2px solid #335faf;
+        }
+    </style>
+</head>
+<body>
+    <!-- STATIC -->
+    <div style="border: 1px solid black; width: 100px">STATIC</div>
+    <br> <!-- RELATIVE -->
+    <div style="border: 1px solid black; width: 100px; position: relative; top: 10px; left: 10px">RELATIVE 1</div>
+    <div style="border: 1px solid black; width: 100px; position: relative">RELATIVE 2</div>
+    <br> <!-- ABSOLUTE -->
+    <div style="border: 1px solid black; width: 100px; height: 100px">
+        <div style="border: 1px solid black; width: 50px; height: 50px; position: relative; top: 10px; left: 10px">ABSOLUTE</div>
+    </div>
+    <br> <!-- STICKY -->
+    <div class="sticky">I am sticky!</div>
+    <div style="padding-bottom:2000px"></div>
+</body>
+</html>

@@ -27,16 +27,16 @@ public class Api {
         });
 
         // 1. Return HTML from file
-        // get("/form", (request, response) -> {
-        //     System.out.println("We reached the form w/ IP:" + request.ip());
-        //     System.out.println("Request body: " + request.body());
-        //     // Reference to the HTML file containing the form
-        //     String htmlFile = "target\\classes\\html\\ex1_forms\\index.html";
-        //     // Converting the contents of the file
-        //     String htmlContent = new String(Files.readAllBytes(Paths.get(htmlFile)), StandardCharsets.UTF_8);
-        //     // System.out.println(htmlContent);
-        //     return htmlContent;
-        // });
+        get("/form", (request, response) -> {
+            System.out.println("We reached the form w/ IP:" + request.ip());
+            System.out.println("Request body: " + request.body());
+            // Reference to the HTML file containing the form
+            String htmlFile = "target\\classes\\html\\spark_form\\index.html";
+            // Converting the contents of the file
+            String htmlContent = new String(Files.readAllBytes(Paths.get(htmlFile)), StandardCharsets.UTF_8);
+            // System.out.println(htmlContent);
+            return htmlContent;
+        });
 
         post("/form", (request, response) -> {
             System.out.println("We reached the form w/ IP:" + request.ip());

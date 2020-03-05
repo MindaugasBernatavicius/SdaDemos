@@ -20,7 +20,6 @@ import static spark.Spark.post;
 
 public class RestApi {
     public static void main(String[] args) {
-
         // https://stackoverflow.com/questions/38528305/java-spark-framework-enable-logging
         Spark.exception(Exception.class, (exception, request, response) -> {
             exception.printStackTrace();

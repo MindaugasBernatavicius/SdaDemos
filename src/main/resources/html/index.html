@@ -1,22 +1,21 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
     <head>
-        <!--  This is the page title -->
-        <title>CCCCCC</title>
+        <meta charset="UTF-8">
+        <title>My Awesome Title!</title>
     </head>
-    <body>
-        <h1>The Title of the Article</h1>
-        <p>This text is a paragraph. This text is a paragraph. This text is a paragraph. This text is a paragraph.&nbsp;This text is a paragraph. This text is a paragraph.This text is a paragraph.This text is a paragraph. This text is a paragraph.</p>
-        <p>This text is another paragraph</p>
-        <p>This is a line of text <span>with a span element</span> inside<p>
+    <>
+    <p style="color: blue;">Hello <span style="color: red;">wor</span>ld!</p>
+<!-- ^-tag ^-attribute key="value"                                       ^-closing tag  -->
+    <p style="color: blue;">A<span style="color: red;">B</span><span style="color: gray;">C</span><span style="color: cyan;">D</span></span><span style="color: black;">D</span></p>
+        <h1>This is important</h1>
+        <h2>This is not as important</h2>
+        <h6>This is still a header, but the least important one</h6>
         <div>First block</div>
         <div>Second block</div>
         <div>Third block</div>
-        <a href="http://lrytas.lt">Link to google.com</a><br>
-
-        <!--  Include image from external soruces -->
+        <a href="http://google.com">Link to google</a>
         <img src="https://cdn.pixabay.com/photo/2018/05/07/10/48/husky-3380548__340.jpg">
-
-        <!--  Include image from local server -->
         <div>
             <img src="download.jpg">
         </div>
@@ -24,18 +23,18 @@
         <ul>
             <li>First element</li>
             <li>Second element</li>
-            <li>Third element</li>
         </ul>
         <ol>
             <li>First element</li>
             <li>Second element</li>
-            <li>Third element</li>
         </ol>
         <p>First line<br>Second line</p>
 
         <!-- HTML character / symbol encoding -->
-        <p>Special characters: &lt;p&gt;&lt;/p&gt;</p>
+        <p>Special characters: >> &gt;</p>
 
+        <!-- Non breaking space -->
+        <p>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA&nbsp;&nbsp;BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC</p>
 
         <!-- Simple table w/ simple styling -->
         <style>
@@ -43,29 +42,47 @@
                 border: 1px solid black;
             }
         </style>
-        <!--  Excercise: we have two rows and two collumns initially.
-        Extend the table so it would have 4 rows and 4 oollumns -->
         <table>
             <thead>
-                <tr>
-                    <th>First header</th>
-                    <th>Second header</th>
-                </tr>
+            <tr>
+                <th>First header</th>
+                <th>Second header</th>
+            </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>First cell</td>
-                    <td>Second cell</td>
-                </tr>
-                <tr>
-                    <td colspan="2">First cell</td>
-                </tr>
+            <tr>
+                <td><code>First cell</code></td>
+                <td><em>Second cell</em></td>
+            </tr>
+            <tr>
+                <td colspan="2">Cell 3A</td>
+            </tr>
             </tbody>
         </table>
 
+        <!-- -->
         <em>Em tag contents</em><br>
         <strong>Strong tag contents</strong><br>
         <code>Code tag contents</code><br>
+
+
+        <!-- HTML 5  -->
+        <!--https://www.w3schools.com/html/html5_semantic_elements.asp -->
+        <!--<article>	Defines an article
+            <aside>	    Defines content aside from the page content
+            <details>	Defines additional details that the user can view or hide
+            <figcaption>	Defines a caption for a <figure> element
+            <figure>	Specifies self-contained content, like illustrations, diagrams, photos, code listings, etc.
+            <footer>	Defines a footer for a document or section
+            <header>	Specifies a header for a document or section
+            <main>	    Specifies the main content of a document
+            <mark>	    Defines marked/highlighted text
+            <nav>	    Defines navigation links
+            <section>	Defines a section in a document
+            <summary>	Defines a visible heading for a <details> element
+            <time>	    Defines a date/time -->
+
+        <!-- Canvas: https://codepen.io/eagj/pen/wavwGR -->
 
         <form>
             <!-- single-line text input-->
