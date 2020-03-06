@@ -136,7 +136,6 @@ var personel = [
     }
 ];
 
-
 // Can we have an array of mixed datatypes?
 var mixedArray = ["A", 1, "Boo", true, ["Array", "Array"], {type: "object"}];
 for(var i = 0; i < mixedArray.length; i++) {
@@ -150,7 +149,12 @@ for(var i = 0; i < mixedArray.length; i++) {
 // Type of Array,Array = object
 // Type of [object Object] = object
 
-// TODO :: inserting at random position with .splice()
+// inserting / removing at random position with .splice()
+console.log(""); console.log("___ TOPIC: Arrays.splice() ___");
+mixedArray.splice(1, 5);
+for(var i = 0; i < mixedArray.length; i++) {
+    console.log("Type of " + mixedArray[i] + " = " + (typeof mixedArray[i]));
+}
 
 // myArr.filter(func(){});
 var males = personel.filter(function (person) {
