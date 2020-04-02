@@ -34,7 +34,9 @@ public class RestApi {
         // http://localhost:4567/hello
         // (req, res) -> "Hello, world" - specifies the logic
         // that will be executed when the user issues a GET rew. to /hello
-        get("/hello", (req, res) -> "Hello, world");
+        get("/hello", (req, res) -> {
+            return "Hello, world";
+        });
 
         // http://localhost:4567/hello/mindaugas
         // https://www.urlencoder.org/

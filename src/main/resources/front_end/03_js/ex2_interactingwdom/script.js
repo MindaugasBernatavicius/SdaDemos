@@ -4,9 +4,9 @@ console.log("External JS file is being executed");
 var element = document.getElementById("some-id");
 var elements = document.getElementsByClassName("some-class");
 
-// accesing the HTML
+// accessing the HTML
 var innerHTML = element.innerHTML;
-console.log(innerHTML);
+console.log("=>" + innerHTML);
 
 // changing the HTML itself
 element.innerHTML = "<div><p>New inner HTML</p></div>";
@@ -16,7 +16,7 @@ console.log(innerHTML);
 for (var i = 0; i < elements.length; i++) {
     console.log("Element " + i + ": " + getComputedStyle(elements[i]).color);
     console.log("Element " + i + ": " + getComputedStyle(elements[i]).textDecoration);
-    // console.log("Element " + i + ": " + JSON.stringify(getComputedStyle(elements[i])));
+    console.log("Element " + i + ": " + JSON.stringify(getComputedStyle(elements[i])));
 }
 
 // changing the css properties
@@ -26,11 +26,12 @@ for (var i = 0; i < elements.length; i++) {
 }
 
 // events
-document.getElementById("my-button").onclick = displayDate;
-
 function displayDate() {
     document.getElementById("date-paragraph").innerHTML = '<h1>' + Date() + '</h1>';
 }
+
+document.getElementById("my-button").onclick = displayDate;
+
 
 // common events:
 // onchange	    An HTML element has been changed
@@ -43,14 +44,14 @@ function displayDate() {
 
 // Exercise time: let's use another event and change another property using that event.
 
-// 0. First - select the element w/ Javascript
-var elemementForExcercise = document
-    .getElementById("excercise-paragraph");
-
-// 1. Attach the event handler (... which will be the changeColor function)
-elemementForExcercise.onmouseover = changeColor;
-
+// 0. define the function
 function changeColor(){
     document.getElementById("excercise-paragraph").style.color = "red";
     // elemementForExcercise.style.color = "red"; // possible to use like this, since var was used
 }
+
+// 1. select the element w/ Javascript
+var elemementForExcercise = document.getElementById("excercise-paragraph");
+
+// 2. attach the event handler (... which will be the changeColor function)
+elemementForExcercise.onmouseover = changeColor;

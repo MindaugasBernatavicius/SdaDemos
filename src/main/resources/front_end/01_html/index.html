@@ -4,10 +4,12 @@
         <meta charset="UTF-8">
         <title>My Awesome Title!</title>
     </head>
-    <>
-    <p style="color: blue;">Hello <span style="color: red;">wor</span>ld!</p>
-<!-- ^-tag ^-attribute key="value"                                       ^-closing tag  -->
-    <p style="color: blue;">A<span style="color: red;">B</span><span style="color: gray;">C</span><span style="color: cyan;">D</span></span><span style="color: black;">D</span></p>
+    <body>
+        <header style="border: 5px solid rgba(235,128,107,0.84)">THIS IS MY HEADER</header>
+        <>
+        <p style="color: blue;">Hello <span style="color: red;">wor</span>ld!</p>
+    <!-- ^-tag ^-attribute key="value"                                       ^-closing tag  -->
+        <p style="color: blue;">A<span style="color: red;">B</span><span style="color: gray;">C</span><span style="color: cyan;">D</span></span><span style="color: black;">D</span></p>
         <h1>This is important</h1>
         <h2>This is not as important</h2>
         <h6>This is still a header, but the least important one</h6>
@@ -60,11 +62,14 @@
             </tbody>
         </table>
 
-        <!-- -->
+        <!-- additional tags -->
         <em>Em tag contents</em><br>
         <strong>Strong tag contents</strong><br>
         <code>Code tag contents</code><br>
 
+        <!--  INLINE VS. BLOCK ELEMENTS  --><br>
+        <span style="border: 1px solid black">Hello World</span>
+        <div style="border: 1px solid black">Hello World</div>
 
         <!-- HTML 5  -->
         <!--https://www.w3schools.com/html/html5_semantic_elements.asp -->
@@ -103,7 +108,7 @@
             <input type="button" value="Displayed text">
         </form>
 
-        <form>
+        <form action="/action_page.php" method="post">
             <label for="option-1">Option 1
                 <input type="radio" name="set-of-options" id="option-1">
             </label>
@@ -119,6 +124,8 @@
                 <option selected>Option 2
                 <option disabled>Option 3
             </select>
+            <input type="submit" value="Submit">
         </form>
+        <footer style="border: 5px solid rgba(235,68,82,0.84)">THIS IS MY FOOTER</footer>
     </body>
 </html>

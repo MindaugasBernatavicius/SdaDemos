@@ -6,7 +6,7 @@
     </head>
     <body>
         <!-- Submitting a form -->
-        <form action="http://localhost:4567/submit-form" method="post">
+        <form id="usrform" action="http://localhost:4567/submit-form" method="post">
         <!--<form action="http://192.168.8.101:4567/submit-form" method="post">-->
             First name:<br>
             <input type="text" name="firstname" value="Mickey"><br>
@@ -18,12 +18,14 @@
                 <option value="mercedes">Mercedes SLK</option>
                 <option value="audi">Audi TT</option>
             </select>
-            <!--<label for="some-select">Language</label>-->
-            <!--<select name="lang" id="some-select">-->
-                <!--<option>LT</option>-->
-                <!--<option selected>FR-->
-                <!--<option disabled>EN-->
-            <!--</select>-->
+            <label for="some-select">Language</label>
+            <select name="lang" id="some-select">
+                <option>LT</option>
+                <option selected>FR
+                <option disabled>EN
+            </select>
+            <br>
+            <textarea name="comment" form="usrform" rows="4" cols="50">This is text area!</textarea>
             <br><br>
             <input type="submit" value="Submit">
         </form>

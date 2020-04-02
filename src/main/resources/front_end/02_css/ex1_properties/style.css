@@ -1,8 +1,8 @@
 button {
     /* Color and background-color properties */
     color: red;
-    background-color: brown;
-    /*background-color: #722f99;*/
+    background-color: #d3c349;
+    /*background-color: #434699; !* #ffffff - #000000*!*/
     /*background-color: rgb(47, 141, 38);*/
     /*background-color: rgba(47, 141, 38, 0.5);*/
 
@@ -10,10 +10,10 @@ button {
     width: 100px;
     height: 50px;
     /*width: 10%;*/
-    /*height: 50%;*/ /* can't control plain buttons with percent by default */
+    /*height: 50%;  !* can't control plain buttons with percent by default *!*/
 
     /*!* Manipulating text *!*/
-    font-family: "Roboto";
+    font-family: "Roboto", serif;
     font-size: 15px;
     text-decoration: underline;
     font-weight: bold;

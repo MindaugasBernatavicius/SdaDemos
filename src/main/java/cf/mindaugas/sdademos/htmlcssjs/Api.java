@@ -23,7 +23,7 @@ public class Api {
         // 0. Generating simple HTML
         get("/hw", (request, response) -> {
             System.out.println(">>>>>>>>>>>>>>>>>");
-            return "<p>Hello world!</p>";
+            return "<h1>Hello world!</h1>";
         });
 
         // 1. Return HTML from file
@@ -67,7 +67,14 @@ public class Api {
             //     <li>First element</li>
             //     <li>Second element</li>
             // </ul>
-            String[] userinfo = request.body().split("&");
+
+
+            // String[] userinfo = request.body().split("&");
+            System.out.println(request.body());
+            System.out.println(URLDecoder.decode(request.body(), "UTF-8"));
+
+            String[] userinfo = URLDecoder.decode(request.body(), "UTF-8").split("&");
+
             String ulopen = "<ul>";
             String ulclose = "</ul>";
             for (String pieceOfInfo: userinfo) {

@@ -55,7 +55,7 @@ $("#simple-json-button").click(function(){
 
 $("#table-from-json-button").click(function(){
     $.ajax({
-        url: "http://www.mocky.io/v2/5d026c4b3100002900ab2f7XX",
+        url: "http://www.mocky.io/v2/5d026c4b3100002900ab2f7e",
         success: function(result){
             var table =
                 '<table border="1" style="margin: 10px 0px 10px 0px;">' +
@@ -80,7 +80,7 @@ $("#table-from-json-button").click(function(){
             } else if (resp.status == 404) {
                 msg = 'Requested page not found. [404]';
             } else if (resp.status == 500) {
-                msg = 'Internal Server Error [500].';
+                msg = '<h1>Internal Server Error [500].</h1>';
             } else if (exception === 'parsererror') {
                 msg = 'Requested JSON parse failed.';
             } else if (exception === 'timeout') {

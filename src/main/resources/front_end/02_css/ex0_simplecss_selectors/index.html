@@ -12,14 +12,14 @@
     </style>
 </head>
 <body>
-    <!-- 0. Styled using the external style sheet -->
-    <button id="text-button1">Text</button><br><br>
+    <!-- 0. Styled with inline styling / inline styles -->
+    <button style="color: lightsalmon">Text</button><br><br>
 
-    <!-- 1. Styled with embeded style sheet -->
+    <!-- 1. Styled with embedded style sheet -->
     <button id="text-button2">Text</button><br><br>
 
-    <!-- 2. Styled with embeded styling / embeded styles -->
-    <button style="color: lightsalmon">Text</button><br><br>
+    <!-- 2. Styled using the external style sheet -->
+    <button id="text-button3">Text</button><br><br>
 
     <!-- 3. Class selector -->
     <button class="my-class">Text</button>
@@ -31,7 +31,7 @@
 
     <!-- 5. Descendant selector -->
     <div class="my-class">Text</div>
-    <!-- Will id sleector win, over class selector-->
+    <!-- Will id selector win, over class selector-->
     <div class="my-class" id="my-div2">Text</div>
     <div id="my-div">
         <!-- CSS Specificity -->
@@ -59,6 +59,6 @@
     </table><br>
 
     <!-- 7. Attribute based selector -->
-     <div name="some-name">Selecting using attribute selector [name="some-name"]</div>
+    <div name="some-name">Selecting using attribute selector [name="some-name"]</div>
 </body>
 </html>

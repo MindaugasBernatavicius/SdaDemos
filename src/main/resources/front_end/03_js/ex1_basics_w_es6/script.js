@@ -1,7 +1,7 @@
 'use strict';
 
 // singleline comments
-/* multiline comments*/
+/* multiline comments */
 console.log("__ TOPIC: DECLARING VARIABLES __");
 
 var text1 = "abc"; // same as in Java: private string text1 = "abc";
@@ -13,7 +13,7 @@ console.log(aggregate);
 
 var number1 = 5;
 var number2 = 5.012;
-var number3 = 5000000000000000000000000000000000000000000.012;
+var number3 = 500000000000000000000000000000000000000000.012;
 
 console.log("Adding numbers: " + number1 + " + " + number2 + " = " + number1 + number2); // this will not work
 console.log("Adding numbers: " + number1 + " + " + number2 + " = " + (number1 + number2));
@@ -22,7 +22,6 @@ console.log(number3 + 0.1);
 
 var boolean1 = true;
 var boolean2 = false;
-
 
 console.log(""); console.log("__ TOPIC: BASIC OPERATORS __");
 console.log(">>" + 1 % 2); // prints 1
@@ -64,7 +63,6 @@ console.log(5 == 5); // prints true
 console.log("5" == 5); // prints true
 console.log("5" === 5); // prints false (types differ)
 
-
 console.log(""); console.log("___ TOPIC: Conditionals ___");
 
 var first = 10;
@@ -93,14 +91,13 @@ while(i < 3) {
 console.log(""); console.log("___ TOPIC: Arrays ___");
 
 var myAwesomeArray = [1, 4, 7];
+// var myAwesomeArrayOfObjects = [{}, {}, {}];
 
 console.log(myAwesomeArray[2]); // prints 7, since arrays are 0 based
 console.log(myAwesomeArray.length); // prints 3
 console.log(myAwesomeArray[myAwesomeArray.length - 1]); // gets the last element
 
 myAwesomeArray.push(9); // arrays are dynamic so we can extend them with additional elements
-
-console.log(myAwesomeArray[2]); // prints 7
 console.log(myAwesomeArray.length); // prints 4
 
 // arrays have a lot of functionality associated, see: https://www.w3schools.com/jsref/jsref_obj_array.asp
@@ -156,6 +153,7 @@ for(var i = 0; i < mixedArray.length; i++) {
     console.log("Type of " + mixedArray[i] + " = " + (typeof mixedArray[i]));
 }
 
+console.log("");
 // myArr.filter(func(){});
 var males = personel.filter(function (person) {
         if (person.gender === "male")
@@ -186,6 +184,15 @@ var avgMaleSalary = personel
 
 console.log("Avg male salary: " + avgMaleSalary);
 
+// ES6 array destructuring
+console.log(""); console.log("___ TOPIC: Arrays destructuring ___");
+var introduction = ["Hello", "I" , "am", "Sarah"];
+var [greeting, pronoun, third] = introduction;
+
+console.log(greeting); // "Hello"
+console.log(pronoun); // "I"
+console.log(third); // "am"
+
 console.log(""); console.log("___ TOPIC: Functions ___");
 
 // inbuilt functions:
@@ -206,7 +213,6 @@ console.log(myFunction("a", "b"))
 function greet_a_person(name = "Mindaugas"){
     console.log("Hello " + name + "!");
 }
-
 greet_a_person("Bart");
 // greet_a_person();
 
@@ -218,6 +224,7 @@ var multiplyES5 = function(x, y) {
 
 // ES6
 const multiplyES6 = (x, y) => { return x * y };
+console.log(multiplyES6(4, 2));
 
 
 console.log(""); console.log("___ TOPIC: Objects ___");
@@ -234,7 +241,7 @@ console.log(cat.name);
 console.log(cat.fur);
 
 // Another way to access properties. This
-// way is useful because you can use valid srings
+// way is useful because you can use valid strings
 // that are NOT VALID variable names to give to your objects
 // maybe you received them from user input or some file
 console.log(cat["weight"]);
@@ -249,7 +256,7 @@ console.log(cat.age);
 // Adding functions / behavior to our objects
 // ... we can also do it after we created them
 // ... this is very hard to do in java, but in
-// ... dynamically typed lanaguages it is easy
+// ... dynamically typed languages it is easy
 cat.speak = function(){ console.log("Meow!") };
 cat.speak();
 
@@ -272,7 +279,7 @@ function Cat(name, color){
 }
 
 var myCat = new Cat("Fluffy", "White");
-console.log(myCat);
+console.log("constructor functions -->" + myCat.name);
 
 // Object.create() - the 3rd way
 let car = Object.create(Object.prototype,
@@ -290,7 +297,6 @@ let car = Object.create(Object.prototype,
             enumerable: true
         }
     });
-
 console.log(car.name);
 
 // Ecmascript6 Classes - the 4th way
@@ -344,9 +350,9 @@ var person = {
 console.log(person.fullName);
 person.lang = "LT";
 
-console.log(""); console.log("___ TOPIC: Inheritence ___");
+console.log(""); console.log("___ TOPIC: Inheritance ___");
 
-// Javascript uses what is called PROTOTYPE based inheritence, or prototypical inheritence
+// Javascript uses what is called PROTOTYPE based inheritance, or prototypical inheritance
 // ... do we use prototypes?
 
 // How to create a new method that all arrays will have, called "last()"
@@ -356,12 +362,12 @@ var arr = ['red', 'green', 'blue'];
 console.log(arr[arr.length - 1]);
 
 // but what if we wanted to simplify it and use it like this:
-// console.log(arr.last);
+console.log(arr.last);
 
 // js arrays do not have a .last property, but since JS is dynamic we can add it
-// Object.defineProperty(arr, 'last', {get: function(){
-//     return this[this.length - 1]
-// }});
+Object.defineProperty(arr, 'last', {get: function(){
+    return this[this.length - 1]
+}});
 
 console.log("Last property using assigned property: " + arr.last);
 

@@ -13,5 +13,5 @@ button:hover {
 
 #fourth-button:after {
     content: "!";
-    color: red;
+    color: blue;
 }
