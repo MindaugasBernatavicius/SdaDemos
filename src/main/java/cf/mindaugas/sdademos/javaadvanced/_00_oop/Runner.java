@@ -81,7 +81,6 @@ public class Runner {
 }
 
 class Dog {
-
     private String color;
     private int age;
     private double weight; // ... 0.0

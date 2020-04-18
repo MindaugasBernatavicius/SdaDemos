@@ -2,6 +2,7 @@ package cf.mindaugas.sdademos.http;
 
 import cf.mindaugas.sdademos.http.model.User;
 import com.google.gson.Gson;
+import spark.Filter;
 import spark.Spark;
 
 import java.net.URLDecoder;
@@ -12,8 +13,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import static spark.Spark.get;
-import static spark.Spark.post;
+import static spark.Spark.*;
 
 // Ref: https://www.baeldung.com/spark-framework-rest-api
 // Docs: http://sparkjava.com/documentation#getting-started
@@ -102,6 +102,7 @@ public class RestApi {
         });
 
         get("/users/:id", (request, response) -> {
+            response.type("application/hal+json");
             User userToReturn = null;
             for(User user : users){
                 if(user.getId() == Integer
@@ -113,14 +114,46 @@ public class RestApi {
             return new Gson().toJson(userToReturn);
         });
 
+        // curl -X POST http://localhost:4567/users -d 'fname=f&lname=l&email=e'
+        post("/users", (request, response) -> {
+            String fname = request.queryParams("fname");
+            String lname = request.queryParams("lname");
+            String email = request.queryParams("email");
+            users.add(new User(users.size(), fname, lname, email));
+            response.status(201); // 201 Created
+            response.type("application/hal+json");
+            return "{\"status\": \"success\"}";
+        });
+
         // put("/users/:id", (request, response) -> {
         //     //...
         // });
-        // delete("/users/:id", (request, response) -> {
-        //     //...
-        // });
+
+        // curl -X DELETE http://localhost:4567/users/1
+        delete("/users/:id", (request, response) -> {
+            response.type("application/hal+json");
+            User userToDelete = null;
+            for(User user : users){
+                if(user.getId() == Integer.parseInt(request.params(":id"))) {
+                    userToDelete = user;
+                    break;
+                }
+            }
+            if(userToDelete != null){
+                users.remove(userToDelete);
+                return "{\"status\": \"success\"}";
+            } else {
+                return "{\"status\": \"failure\", reason: \"no such user\"}";
+            }
+        });
+
         // options("/users/:id", (request, response) -> {
         //     //...
         // });
+
+        after((Filter) (request, response) -> {
+            response.header("Access-Control-Allow-Origin", "*");
+            response.header("Access-Control-Allow-Methods", "GET");
+        });
     }
 }

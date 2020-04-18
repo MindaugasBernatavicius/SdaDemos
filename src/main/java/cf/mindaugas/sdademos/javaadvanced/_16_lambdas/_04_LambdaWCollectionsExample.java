@@ -14,6 +14,8 @@ public class _04_LambdaWCollectionsExample {
         }};
 
         // Ex0: .forEach w/ method reference operator
+        // p --> temporary variable, that forEach generates
+        people.forEach(p -> System.out.println(p));
         people.forEach(System.out::println);
 
         // Ex1: .forEach w/ lambda
@@ -28,7 +30,7 @@ public class _04_LambdaWCollectionsExample {
 
         // Ex2: .removeIf w/ a predicate function (a predicate function
         // .. is a special lambda expression that returns true or false)
-//        people.removeIf(person -> person.getAge() > 50); // this could be a predicate
+        people.removeIf(person -> person.getAge() > 50); // this could be a predicate
         System.out.println("After removing people > 50: ");
         people.forEach(System.out::println);
 
@@ -45,9 +47,9 @@ public class _04_LambdaWCollectionsExample {
         // ... the collection can be backed by an array or linked list.
 
         // ... one way
-//        anotherList.sort((Person p1, Person p2) -> {
-//            return p1.compareTo(p2);
-//        });
+        // anotherList.sort((Person p1, Person p2) -> {
+        //     return p1.compareTo(p2);
+        // });
 
         // ... more elegant way
         anotherList.sort(Person::compareTo);

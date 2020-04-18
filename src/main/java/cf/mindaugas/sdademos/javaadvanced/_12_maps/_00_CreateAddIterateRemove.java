@@ -8,6 +8,7 @@ import java.util.Map;
 public class _00_CreateAddIterateRemove {
     public static void main(String[] args) {
         // simple example
+        // Map<K, V> --> Map<String, Integer>
         Map<String, Integer> m = new HashMap<>();
         m.put("one", 1);
         m.put("two", 2);
@@ -22,13 +23,15 @@ public class _00_CreateAddIterateRemove {
 
         // ... iterating
         for(Map.Entry<String, List<String>> pair : synonyms.entrySet()){
-            // default formatting
+            // default formatting (printing the entire pair)
             System.out.println(pair);
-            // if custom formatted is needed
+            // if custom formatted is needed (printing what we need, key, value or both)
             System.out.println(pair.getKey() + " :: " + pair.getValue());
         }
 
         // ... remove
+        System.out.println("\nBefore removal: " + m);
         m.remove("two");
+        System.out.println("After removal: " + m);
     }
 }

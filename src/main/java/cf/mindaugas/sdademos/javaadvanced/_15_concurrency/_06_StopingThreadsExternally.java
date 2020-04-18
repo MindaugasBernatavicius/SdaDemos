@@ -23,7 +23,9 @@ class StopWatchToInterrupt implements Runnable {
                 // A thread can only request the other thread to stop.
                 // The request is made in the form of an interruption,
                 // but we as developers decide how the thread will handle
-                // in interception request. In this case we can just break
+                // interception request. In this case we can just break
+                // in order to honor the intercept ... we could ignore it,
+                // if there was some critical things that we needed to finish
                 break;
             }
         }

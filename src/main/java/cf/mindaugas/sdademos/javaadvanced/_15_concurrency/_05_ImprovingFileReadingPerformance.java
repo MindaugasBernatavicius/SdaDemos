@@ -6,22 +6,42 @@ import java.util.concurrent.TimeUnit;
 public class _05_ImprovingFileReadingPerformance {
 
     static String[] inputFiles = {
-            "data/input/1.txt", "data/input/2.txt", "data/input/3.txt", "data/input/4.txt", "data/input/5.txt" };
+            "data/input/1.txt",
+            "data/input/2.txt",
+            "data/input/3.txt",
+            "data/input/4.txt",
+            "data/input/5.txt",
+            "data/input/6.txt",
+            "data/input/7.txt",
+            "data/input/8.txt",
+            "data/input/9.txt",
+            "data/input/10.txt"
+    };
     static String[] outputFiles = {
-            "data/output/1.txt", "data/output/2.txt", "data/output/3.txt", "data/output/4.txt", "data/output/5.txt" };
+            "data/output/1.txt",
+            "data/output/2.txt",
+            "data/output/3.txt",
+            "data/output/4.txt",
+            "data/output/5.txt",
+            "data/output/6.txt",
+            "data/output/7.txt",
+            "data/output/8.txt",
+            "data/output/9.txt",
+            "data/output/10.txt"
+    };
 
     public static void main(String[] args) throws IOException, InterruptedException {
 
-//        // ... no threads
-//        long startTime = System.nanoTime();
-//        for (int i = 0; i < inputFiles.length; i++) {
-//            Adder adder = new Adder(inputFiles[i], outputFiles[i]);
-//            adder.performAddition();
-//        }
-//        long stopTime = System.nanoTime();
-//        System.out.println(TimeUnit.NANOSECONDS.toMillis(stopTime - startTime) + "ms");
+       // // ... no threads: ~1100ms
+       // long startTime = System.nanoTime();
+       // for (int i = 0; i < inputFiles.length; i++) {
+       //     Adder adder = new Adder(inputFiles[i], outputFiles[i]);
+       //     adder.performAddition();
+       // }
+       // long stopTime = System.nanoTime();
+       // System.out.println(TimeUnit.NANOSECONDS.toMillis(stopTime - startTime) + "ms");
 
-        // ... with threads
+        // ... with threads : ~600ms
         Thread[] threads = new Thread[inputFiles.length];
         long startTime = System.nanoTime();
         for (int i = 0; i < inputFiles.length; i++) {
@@ -31,11 +51,10 @@ public class _05_ImprovingFileReadingPerformance {
         }
 
         // ...
-
         for(Thread t : threads)
             t.join();
-
         long stopTime = System.nanoTime();
+
         System.out.println(TimeUnit.NANOSECONDS.toMillis(stopTime - startTime) + "ms");
     }
 }
@@ -55,12 +74,13 @@ class Adder {
         // ... reading
         File fileIn = new File(inFile);
         if (!fileIn.isFile() && !fileIn.createNewFile()) {
-            throw new IOException("Error creating new file: " + fileIn.getAbsolutePath());
+            throw new IOException("Error reading file: " + fileIn.getAbsolutePath());
         }
 
         try(BufferedReader br = new BufferedReader(new FileReader(fileIn))){
             while ((line = br.readLine()) != null )
-                total += Integer.parseInt(line);
+                total += Double.parseDouble(line);
+                // total += Integer.parseInt(line);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -78,7 +98,6 @@ class Adder {
         }
     }
 }
-
 
 class AdderR implements Runnable {
     private String inFile, outFile;
@@ -104,13 +123,14 @@ class AdderR implements Runnable {
         // ... reading
         File fileIn = new File(inFile);
         if (!fileIn.isFile() && !fileIn.createNewFile()) {
-            throw new IOException("Error creating new file: " + fileIn.getAbsolutePath());
+            throw new IOException("Error reading file: " + fileIn.getAbsolutePath());
         }
 
-        try(BufferedReader br = new BufferedReader(new FileReader(fileIn))){
-            while ((line = br.readLine()) != null )
-                total += Integer.parseInt(line);        }
-        catch (IOException e) {
+        try(BufferedReader br = new BufferedReader(new FileReader(fileIn))) {
+            while ((line = br.readLine()) != null)
+                total += Double.parseDouble(line);
+                // total += Integer.parseInt(line);
+        } catch (IOException e) {
             e.printStackTrace();
         }
 

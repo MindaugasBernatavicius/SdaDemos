@@ -5,15 +5,15 @@ import java.util.ListIterator;
 
 public class IteratorExample {
     public static void main(String[] args) {
-        // 0. Iterator as a separate class
-        Flight f0 = new Flight(
-                new CrewMember[]{ new CrewMember("Mindaugas", "Stiuard") },
-                new Passenger[]{ new Passenger("Petras", 223)}
-            );
-
-         FlightIterator fi0 = new FlightIterator(f0.getCrew(), f0.getPassengers());
-         while(fi0.hasNext())
-             System.out.println(fi0.next());
+        // // 0. Iterator as a separate class
+        // Flight f0 = new Flight(
+        //         new CrewMember[]{ new CrewMember("Mindaugas", "Stiuard") },
+        //         new Passenger[]{ new Passenger("Petras", 223)}
+        //     );
+        //
+        //  FlightIterator fi0 = new FlightIterator(f0.getCrew(), f0.getPassengers());
+        //  while(fi0.hasNext())
+        //      System.out.println(fi0.next());
 
         // 1. Iterator as an Inner Class
         Flight1 f1 = new Flight1(
@@ -25,15 +25,15 @@ public class IteratorExample {
          while(fi1.hasNext())
              System.out.println(fi1.next());
 
-        // 2. Iterator as an Anonymous Inner Class
-        Flight1 f2 = new Flight1(
-                new CrewMember[]{ new CrewMember("Mindaugas", "Stiuard") },
-                new Passenger[]{ new Passenger("Petras", 223)}
-        );
-
-        Iterator fi2 = f2.iterator();
-        while(fi2.hasNext())
-            System.out.println(fi2.next());
+        // // 2. Iterator as an Anonymous Inner Class
+        // Flight1 f2 = new Flight1(
+        //         new CrewMember[]{ new CrewMember("Mindaugas", "Stiuard") },
+        //         new Passenger[]{ new Passenger("Petras", 223)}
+        // );
+        //
+        // Iterator fi2 = f2.iterator();
+        // while(fi2.hasNext())
+        //     System.out.println(fi2.next());
     }
 }
 

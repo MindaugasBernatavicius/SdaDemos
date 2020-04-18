@@ -3,6 +3,7 @@ package cf.mindaugas.sdademos.javaadvanced._01_encapsulation;
 public class Person {
     private String firstName;
     private boolean male;
+    private FullName fullName;
 
     public String getFirstName() {
         return firstName;
@@ -19,4 +20,10 @@ public class Person {
     public void setMale(boolean male) {
         this.male = male;
     }
+}
+
+class FullName {
+    String firstName;
+    String middleName;
+    String lastName;
 }

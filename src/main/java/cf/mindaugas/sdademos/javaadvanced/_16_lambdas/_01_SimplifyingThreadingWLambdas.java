@@ -2,7 +2,6 @@ package cf.mindaugas.sdademos.javaadvanced._16_lambdas;
 
 public class _01_SimplifyingThreadingWLambdas {
     public static void main(String[] args){
-
         // ... the old way
         Thread t0 = new Thread(new Runnable() {
             @Override
@@ -23,8 +22,7 @@ public class _01_SimplifyingThreadingWLambdas {
         Thread t2 = new Thread(() -> {
             int max = 0;
             for(int number : array){
-                if(max < number)
-                    max = number;
+                if(max < number) max = number;
             }
             System.out.println("Max is: " + max);
         });

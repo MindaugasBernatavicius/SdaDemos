@@ -41,7 +41,7 @@ class Animal {
     }
 }
 
-class Lion extends Animal{
+class Lion extends Animal {
     private int id;
     private String name;
 

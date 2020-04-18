@@ -1,7 +1,11 @@
 package cf.mindaugas.sdademos.javaadvanced._15_concurrency;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.Random;
+
 public class ExercisesWithConcurrency {
-    public static void main(String[] args) throws InterruptedException {
+    public static void example1() throws InterruptedException {
         // 2.
         RClass rClassObj = new RClass(1);
         RClass rClassObj2 = new RClass(10);
@@ -25,6 +29,42 @@ public class ExercisesWithConcurrency {
 
         t3.interrupt();
         t3.join();
+    }
+
+
+    // TODO :: this is not finished, just a hint to the students
+    public static void example2() throws InterruptedException {
+
+        Thread[] allEmployess = new Thread[3];
+
+        // Thread te1 = new Thread(new EmployeeR("Jonas"));
+        // Thread te2 = new Thread(new EmployeeR("Petras"));
+        // Thread te3 = new Thread(new EmployeeR("Mindaugas"));
+
+        allEmployess[0] = new Thread(new EmployeeR("Jonas"));
+        allEmployess[1] = new Thread(new EmployeeR("Petras"));
+        allEmployess[2] = new Thread(new EmployeeR("Mindaugas"));
+
+        // start
+        for (int i = 0; i < allEmployess.length; i++) {
+            allEmployess[i].start();
+        }
+
+        // manage
+        int sleepTime = 30000;
+        for (int i = 0; i < allEmployess.length; i++) {
+            Thread.sleep(sleepTime);
+            allEmployess[i].interrupt();
+            allEmployess[i].join();
+            sleepTime -= 2000;
+        }
+
+        System.out.println("Main thread exits!");
+    }
+
+    public static void main(String[] args) throws InterruptedException {
+        // example1();
+        example2();
     }
 }
 
@@ -54,5 +94,32 @@ class RClass implements Runnable {
                 break;
             }
         }
+    }
+}
+
+// 1. *You are the manager. You have 5 employees. Simulate the situation in which each of them comes at a different time to work.
+class EmployeeR implements Runnable {
+
+    private String name;
+
+    // DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
+
+    @Override
+    public void run() {
+        while(true){
+            try {
+                Thread.sleep(10000);
+                System.out.println(this.name + " I'm still working!");
+            } catch (InterruptedException e) {
+                // e.printStackTrace();
+                break;
+            }
+        }
+    }
+
+    public EmployeeR(String name) throws InterruptedException {
+        Thread.sleep((new Random()).nextInt(1000));
+        System.out.println(name + "I came to work at " + LocalDateTime.now());
+        this.name = name;
     }
 }
