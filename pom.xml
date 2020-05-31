@@ -15,7 +15,6 @@
         <maven.compiler.source>1.8</maven.compiler.source>
     </properties>
 
-
     <dependencies>
         <dependency>
             <groupId>org.apache.derby</groupId>
@@ -67,7 +66,7 @@
             <version>4.2.2</version>
         </dependency>
 
-        <!-- https://github.com/jline/jline3-->
+        <!-- https://github.com/jline/jline3 -->
         <dependency>
             <groupId>org.jline</groupId>
             <artifactId>jline</artifactId>
