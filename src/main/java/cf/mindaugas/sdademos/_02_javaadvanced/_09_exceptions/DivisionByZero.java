@@ -14,19 +14,24 @@ public class DivisionByZero {
         //     System.out.println("Finally block executed!");
         // }
 
+        // Calculator.divide(10, 0);
+
         try{
             System.out.println(Calculator.divide(10, 0));
         } catch (Exception e){
             System.err.println("Exception happended!");
         } // ... we can also do nothing
+
+
+        // Note: you should generally throw checked exceptions manually:
+        // https://docs.oracle.com/javase/tutorial/essential/exceptions/runtime.html
     }
 }
 
 class Calculator {
-    static double divide(int first, int second) throws ArithmeticException {
+    static double divide(int first, int second) throws Exception  {
         if(second == 0)
-            throw new ArithmeticException("Please don't divide by zero, m8!");
-
+            throw new Exception("Please don't divide by zero, m8!");
         return first / second;
     }
 }

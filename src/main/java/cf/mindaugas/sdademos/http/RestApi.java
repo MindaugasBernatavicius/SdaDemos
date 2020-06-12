@@ -18,7 +18,7 @@ import static spark.Spark.*;
 // Ref: https://www.baeldung.com/spark-framework-rest-api
 // Docs: http://sparkjava.com/documentation#getting-started
 
-public class    RestApi {
+public class RestApi {
     public static void main(String[] args) {
         // https://stackoverflow.com/questions/38528305/java-spark-framework-enable-logging
         Spark.exception(Exception.class, (exception, request, response) -> {
@@ -153,7 +153,7 @@ public class    RestApi {
 
         after((Filter) (request, response) -> {
             response.header("Access-Control-Allow-Origin", "*");
-            response.header("Access-Control-Allow-Methods", "GET");
+            response.header("Access-Control-Allow-Methods", "GET,POST");
         });
     }
 }
