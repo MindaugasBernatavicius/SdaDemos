@@ -10,6 +10,10 @@ import static spark.Spark.*;
 
 public class ProductsRestEndpoint {
     public static void main(String[] args) {
+        // root is 'src/main/resources', so put files in 'src/main/resources/angular'
+        staticFiles.location("/angular"); // Static files
+        get("/_", (req, res) -> "OK"); // fake route, needed to start Spark
+
         List<Product> products = new ArrayList<>();
         products.add(new Product(1, "Shoes", 550, 2.50, 3.75));
         products.add(new Product(2, "Dress", 1550, 12.50, 2.25));
@@ -30,15 +34,14 @@ public class ProductsRestEndpoint {
         // allowing the pre-flight request
         options("/*", (req, res) -> { res.status(200); return "OK"; });
 
+        // update existing product
         put("/products/:id", (req, res) -> {
             Product updatedProduct = new Gson().fromJson(req.body(), Product.class);
             products.get(Integer.parseInt(req.params(":id")) - 1).title = updatedProduct.title;
             products.get(Integer.parseInt(req.params(":id")) - 1).count = updatedProduct.count;
             products.get(Integer.parseInt(req.params(":id")) - 1).price = updatedProduct.price;
             products.get(Integer.parseInt(req.params(":id")) - 1).rating = updatedProduct.rating;
-
-            res.status(204); // 204 Updated
-            // res.type("application/hal+json");
+            res.status(200);
             return "{\"status\": \"success\"}";
         });
 
