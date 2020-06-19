@@ -9,6 +9,8 @@ public class AnnotationExample {
     }
 }
 
+// 0. Use override when you change the logic of an inherited method (like toString)
+// ... override annotation if not specified does not prevent the method from being called correctly
 class Person {
     private int age;
     private String name;
@@ -40,8 +42,8 @@ class Person {
     }
 }
 
+// 1. When implementing an interface
 class PersonIterator implements Iterator {
-
     @Override
     public boolean hasNext() {
         return false;
@@ -52,3 +54,7 @@ class PersonIterator implements Iterator {
         return null;
     }
 }
+
+// 2. What benefits does @Overrides annotation provide?
+// ... if you change the parents implementation of the method,
+// ... you will need to change the implementation of the child

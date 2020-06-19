@@ -165,6 +165,11 @@ class Flight {
     }
 
 
+    // If initialization requires some logic (for example, error handling or a for loop to fill a complex array),
+    // simple assignment is inadequate. Instance variables can be initialized in constructors,
+    // where error handling or other logic can be used. To provide the same capability for class variables,
+    // the Java programming language includes static initialization blocks.
+
     {
         id = (int)(Math.random() * 100);
         System.out.println("Printing from inside the initialization block: " + id);

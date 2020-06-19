@@ -9,7 +9,6 @@ public class ArrayOfStudents {
         for (int i = 0; i < student.getGrades().length; i++) {
             sum += student.getGrades()[i];
         }
-
         return sum / student.getGrades().length;
     }
 
