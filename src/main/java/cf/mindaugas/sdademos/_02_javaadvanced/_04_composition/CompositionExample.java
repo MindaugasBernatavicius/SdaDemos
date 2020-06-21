@@ -2,8 +2,12 @@ package cf.mindaugas.sdademos._02_javaadvanced._04_composition;
 
 public class CompositionExample {
     public static void main(String[] args) {
-        Person person1 = new Person(
-                new FullName("Mindaugas", "Jonas", ""), 22);
+        // 1.
+        // FullName fn = new FullName("X", "AE A-XII", "MUSK");
+        // Person person1 = new Person(fn, 22);
+
+        // 2.
+        Person person1 = new Person(new FullName("X", "AE A-XII", "MUSK"), 22);
         System.out.println(person1.getFullname() + ", age: " + person1.getAge());
     }
 }
