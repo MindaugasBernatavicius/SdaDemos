@@ -24,6 +24,13 @@ public class _05_SortedMapFilterReduce {
                 .sorted(Comparator.comparing(PersonForStreams::getAge))
                 .forEach(p -> System.out.println(p.getName()));
 
+        // sorting by two fields:
+        System.out.println("==========================");
+        people.stream()
+                .sorted(Comparator.comparing((PersonForStreams p) -> p.getName())
+                        .thenComparing((PersonForStreams p) -> p.getAge()))
+                .forEach(System.out::println);
+
         System.out.println("---- calculating average ----");
         double averageAge = people.stream()
                 .mapToInt(p-> p.getAge())

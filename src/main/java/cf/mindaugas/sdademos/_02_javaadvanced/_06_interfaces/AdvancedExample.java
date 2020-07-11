@@ -3,7 +3,6 @@ package cf.mindaugas.sdademos._02_javaadvanced._06_interfaces;
 import java.util.Comparator;
 
 public class AdvancedExample {
-
     private static void bubbleSort(int[] inputArr){
         int counter = 0;
         boolean swapped;

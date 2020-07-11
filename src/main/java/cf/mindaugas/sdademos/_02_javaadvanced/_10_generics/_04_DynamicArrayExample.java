@@ -178,3 +178,33 @@ class DynamicGenericArray<T> {
     }
 }
 
+// this is an example that only uses the mechanisms used in:
+// https://hg.openjdk.java.net/jdk8/jdk8/jdk/file/tip/src/share/classes/java/util/ArrayList.java
+class DynamicGenericArraySimpler<T> {
+    private int currentIdx;
+    private Object[] array;
+
+    public DynamicGenericArraySimpler(int initialSize){
+        array = new Object[initialSize];
+    }
+
+    public void add(T c){
+        // create a new array and assign to the name of the old one
+        if(currentIdx == array.length){
+            Object[] tmpArray = new Object[array.length * 2];
+            for(int i = 0; i < array.length; i++)
+                tmpArray[i] = array[i];
+            array = tmpArray;
+            tmpArray = null;
+        }
+        array[currentIdx++] = c; // ... then add an element
+    }
+
+    public Object getAt(int idx){
+        return array[idx];
+    }
+
+    public int length(){
+        return currentIdx;
+    }
+}

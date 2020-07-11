@@ -60,16 +60,18 @@ class Student {
         this.lastName = lastName;
     }
 
+    // Java SE defines a contract that our implementation of the equals() method must fulfill.
+    // - reflexive: an object must equal itself
+    // - symmetric: x.equals(y) must return the same result as y.equals(x)
+    // - transitive: if x.equals(y) and y.equals(z) then also x.equals(z)
+    // - consistent: value of equals() should change only if a property that is contained in equals() changes (no randomness)
     @Override
     public boolean equals(Object o) {
         // tikriname ar o yra tas pat objektas
         if (this == o) return true;
-
         // tikriname ar priklauso objektai taip pačiai klasei, jei nei - tai automatiškai false
         if (o == null || getClass() != o.getClass()) return false;
-
         Student student = (Student) o;
-
         if (ssn != student.ssn){
             return false;
         } else {

@@ -10,6 +10,10 @@ public class AbstractClassExample {
     }
 }
 
+// We use abstract class when we want to delegate the
+// method creation / logic to each specific class.
+// We retain the benefits of inheritance, but delegate the
+// decision of how the method should act to specific class.
 abstract class Shape {
 
     protected int width;
