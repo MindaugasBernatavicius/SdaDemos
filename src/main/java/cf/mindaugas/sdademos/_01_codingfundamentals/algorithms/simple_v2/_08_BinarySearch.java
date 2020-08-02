@@ -24,7 +24,6 @@ public class _08_BinarySearch {
             else // If x is smaller, ignore right half
                 rightIdx = midIdx - 1;
         }
-
         return null; // if we reach here, then element was not present
     }
 

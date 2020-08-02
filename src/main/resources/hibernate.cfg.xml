@@ -38,30 +38,30 @@
 
         <!-- Mappings or classes (annotation based) -->
         <!-- CRUD EXAMPLES -->
-        <!--<mapping class="cf.mindaugas.sdademos.jdbchibernatemongodriver.hibernate.model.User"/>-->
-        <!--<mapping class="cf.mindaugas.sdademos.jdbchibernatemongodriver.hibernate.model.Contact"/>-->
-        <!--<mapping class="cf.mindaugas.sdademos.jdbchibernatemongodriver.hibernate.model.UserWPhone"/>-->
-        <!--<mapping class="cf.mindaugas.sdademos.jdbchibernatemongodriver.hibernate.model.LibraryUser"/>-->
-        <!--<mapping class="cf.mindaugas.sdademos.jdbchibernatemongodriver.hibernate.model.Book"/>-->
+        <!--<mapping class="cf.mindaugas.sdademos._05_jdbchibernatemongodriveriver.hibernate.model.User"/>-->
+        <!--<mapping class="cf.mindaugas.sdademos._05_jdbchibernatemongodriveriver.hibernate.model.Contact"/>-->
+        <!--<mapping class="cf.mindaugas.sdademos._05_jdbchibernatemongodriveriver.hibernate.model.UserWPhone"/>-->
+        <!--<mapping class="cf.mindaugas.sdademos._05_jdbchibernatemongodriveriver.hibernate.model.LibraryUser"/>-->
+        <!--<mapping class="cf.mindaugas.sdademos._05_jdbchibernatemongodriveriver.hibernate.model.Book"/>-->
 
-        <!--<mapping class="cf.mindaugas.sdademos.jdbchibernatemongodriver.hibernate.model.onetoone.UserOneToOne"/>-->
-        <!--<mapping class="cf.mindaugas.sdademos.jdbchibernatemongodriver.hibernate.model.onetoone.AddressOneToOne"/>-->
+        <!--<mapping class="cf.mindaugas.sdademos._05_jdbchibernatemongodriveriver.hibernate.model.onetoone.UserOneToOne"/>-->
+        <!--<mapping class="cf.mindaugas.sdademos._05_jdbchibernatemongodriveriver.hibernate.model.onetoone.AddressOneToOne"/>-->
 
-        <!--<mapping class="cf.mindaugas.sdademos.jdbchibernatemongodriver.hibernate.model.onetomany.UserOneToMany"/>-->
-        <!--<mapping class="cf.mindaugas.sdademos.jdbchibernatemongodriver.hibernate.model.onetomany.BookOneToMany"/>-->
+        <!--<mapping class="cf.mindaugas.sdademos._05_jdbchibernatemongodriveriver.hibernate.model.onetomany.UserOneToMany"/>-->
+        <!--<mapping class="cf.mindaugas.sdademos._05_jdbchibernatemongodriveriver.hibernate.model.onetomany.BookOneToMany"/>-->
 
-        <!--<mapping class="cf.mindaugas.sdademos.jdbchibernatemongodriver.hibernate.model.manytomany.Book"/>-->
-        <!--<mapping class="cf.mindaugas.sdademos.jdbchibernatemongodriver.hibernate.model.manytomany.Author"/>-->
-        <!--<mapping class="cf.mindaugas.sdademos.jdbchibernatemongodriver.hibernate.model.manytomany.Employee"/>-->
-        <!--<mapping class="cf.mindaugas.sdademos.jdbchibernatemongodriver.hibernate.model.manytomany.Project"/>-->
+        <!--<mapping class="cf.mindaugas.sdademos._05_jdbchibernatemongodriveriver.hibernate.model.manytomany.Book"/>-->
+        <!--<mapping class="cf.mindaugas.sdademos._05_jdbchibernatemongodriveriver.hibernate.model.manytomany.Author"/>-->
+        <!--<mapping class="cf.mindaugas.sdademos._05_jdbchibernatemongodriveriver.hibernate.model.manytomany.Employee"/>-->
+        <!--<mapping class="cf.mindaugas.sdademos._05_jdbchibernatemongodriveriver.hibernate.model.manytomany.Project"/>-->
 
 
-        <!--<mapping class="cf.mindaugas.sdademos.jdbchibernatemongodriver.hibernate.model.hql.UserWPhoneObject"/>-->
-        <!--<mapping class="cf.mindaugas.sdademos.jdbchibernatemongodriver.hibernate.model.hql.Phone"/>-->
+        <!--<mapping class="cf.mindaugas.sdademos._05_jdbchibernatemongodriveriver.hibernate.model.hql.UserWPhoneObject"/>-->
+        <!--<mapping class="cf.mindaugas.sdademos._05_jdbchibernatemongodriveriver.hibernate.model.hql.Phone"/>-->
 
-        <!--<mapping class="cf.mindaugas.sdademos.jdbchibernatemongodriver.hibernate.model.UserCloneable"/>-->
+        <!--<mapping class="cf.mindaugas.sdademos._05_jdbchibernatemongodriveriver.hibernate.model.UserCloneable"/>-->
 
         <!-- Mappings or files (XML based)  -->
-        <!--<mapping resource = "cf/mindaugas/sdademos/jdbchibernatemongodriver/hibernate/model/AppUserParent.hbm.xml"/>-->
+        <!--<mapping resource = "cf/mindaugas/sdademos/_05_jdbchibernatemongodriver/hibernate/model/AppUserParent.hbm.xml"/>-->
     </session-factory>
 </hibernate-configuration>
