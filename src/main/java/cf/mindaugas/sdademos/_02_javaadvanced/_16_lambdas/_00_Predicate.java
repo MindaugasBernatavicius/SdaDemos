@@ -2,6 +2,10 @@ package cf.mindaugas.sdademos._02_javaadvanced._16_lambdas;
 
 import java.util.function.Predicate;
 
+
+//  lambda expressions, which are used to define anonymous methods that can then be treated as instances
+//  of a functional interface. Sometimes, a lambda expression does nothing more than call an existing method.
+
 public class _00_Predicate {
     public static void main(String[] args) {
         // 0. Simple use case of lambdaPred expressions, using external class
