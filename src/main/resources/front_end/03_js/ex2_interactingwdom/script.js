@@ -22,7 +22,10 @@ for (var i = 0; i < elements.length; i++) {
 // changing the css properties
 for (var i = 0; i < elements.length; i++) {
     elements[i].style.color = "blue";
-//    getComputedStyle(elements[i]).color = "blue"; // These styles are computed, and therefore the 'color' property is read-only.
+    if(i % 2 == 0){
+        elements[i].style = "color: red; transform: rotate(180deg)";
+    }
+    getComputedStyle(elements[i]).color = "blue"; // These styles are computed, and therefore the 'color' property is read-only.
 }
 
 // events

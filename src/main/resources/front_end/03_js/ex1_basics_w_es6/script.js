@@ -20,10 +20,9 @@ console.log("Adding numbers: " + number1 + " + " + number2 + " = " + (number1 + 
 console.log(number3 + 0.1);
 
 
+console.log(""); console.log("__ TOPIC: BASIC OPERATORS __");
 var boolean1 = true;
 var boolean2 = false;
-
-console.log(""); console.log("__ TOPIC: BASIC OPERATORS __");
 console.log(">>" + 1 % 2); // prints 1
 console.log(">>" + (boolean1 && boolean2)); // prints what?
 
@@ -44,7 +43,7 @@ var a = 10,
 // let x = 50; // SyntaxError: identifier "x" has already been declared.
 // compare with:
 // var x = 20;
-// var x = 50; // SyntaxError: identifier "x" has already been declared.
+// var x = 50; // SyntaxError: identifier "x" has already been declared --- NOT THERE
 
 
 // Keyword const
@@ -53,6 +52,15 @@ var a = 10,
 // ATTENTION: uncomment to see error
 // const name = 'chris';
 // name = 'john'; // Uncaught TypeError: Assignment to constant variable.
+
+
+// Most convincing let vs. var explanation
+if(10 > 5){
+    let x = 10; // will not be able to use outside of if
+    // var x = 10; // will be able reach outside of if
+}
+
+console.log(x);
 
 
 // == VS ===
@@ -189,6 +197,21 @@ console.log(""); console.log("___ TOPIC: Arrays destructuring ___");
 var introduction = ["Hello", "I" , "am", "Sarah"];
 var [greeting, pronoun, third] = introduction;
 
+// ... array spread
+const myArray = [`🤪`,`🐻`,`🎌`]
+const yourArray = [`🙂`,`🤗`,`🤩`]
+const ourArray = [...myArray,...yourArray]
+console.log(...ourArray);
+
+
+[a, b, ...rest] = [10, 20, 30, 40, 50];
+// [a, b, rest] = [10, 20, 30, 40, 50]; // compare this
+// [a, ...b, rest]; // SyntaxError: Rest element must be last element
+console.log(a);
+console.log(b);
+console.log(rest);
+
+
 console.log(greeting); // "Hello"
 console.log(pronoun); // "I"
 console.log(third); // "am"
@@ -252,6 +275,10 @@ console.log(cat["fur"]);
 // We can add a property to our object afterwards
 cat.age = 4;
 console.log(cat.age);
+console.log(cat); // cat property is now part of the object itself!
+console.log(Object.keys(cat));
+
+
 
 // Adding functions / behavior to our objects
 // ... we can also do it after we created them
