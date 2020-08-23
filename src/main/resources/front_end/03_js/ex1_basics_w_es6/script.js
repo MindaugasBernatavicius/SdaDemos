@@ -105,8 +105,14 @@ console.log(myAwesomeArray[2]); // prints 7, since arrays are 0 based
 console.log(myAwesomeArray.length); // prints 3
 console.log(myAwesomeArray[myAwesomeArray.length - 1]); // gets the last element
 
-myAwesomeArray.push(9); // arrays are dynamic so we can extend them with additional elements
-console.log(myAwesomeArray.length); // prints 4
+console.log(""); console.log("___ TOPIC: Array push() and pop() ___");
+myAwesomeArray.push(155); // arrays are dynamic so we can extend them with additional elements
+console.log(myAwesomeArray.length); // prints 5
+console.log(myAwesomeArray[myAwesomeArray.length - 1]); // gets the last element
+console.log(myAwesomeArray.pop())
+console.log(myAwesomeArray)
+console.log(myAwesomeArray.pop())
+console.log(myAwesomeArray)
 
 // arrays have a lot of functionality associated, see: https://www.w3schools.com/jsref/jsref_obj_array.asp
 // ... like map, filter, reduce (what JAVA's streams provide as well)
@@ -121,28 +127,28 @@ var personel = [
     {
         id: 2,
         name: "Jonas",
-        salary: 600,
+        baseSalary: 600,
         bonus: false,
         gender: "male"
     },
     {
         id: 432,
         name: "Marta",
-        salary: 1005,
+        baseSalary: 1005,
         bonus: true,
         gender: "female"
     },
     {
         id: 44,
         name: "Petras",
-        salary: 450,
+        baseSalary: 450,
         bonus: true,
         gender: "male"
     }
 ];
 
 // Can we have an array of mixed datatypes?
-var mixedArray = ["A", 1, "Boo", true, ["Array", "Array"], {type: "object"}];
+var mixedArray = ["A", 1, "Boo", true, ["Array", "Array"], {x: "y"}];
 for(var i = 0; i < mixedArray.length; i++) {
     console.log("Type of " + mixedArray[i] + " = " + (typeof mixedArray[i]));
 }
@@ -161,7 +167,9 @@ for(var i = 0; i < mixedArray.length; i++) {
     console.log("Type of " + mixedArray[i] + " = " + (typeof mixedArray[i]));
 }
 
-console.log("");
+console.log([0,1,2,3,4,5,6].splice(2,3));
+
+console.log(""); console.log("___ TOPIC: Array.filter() ___");
 // myArr.filter(func(){});
 var males = personel.filter(function (person) {
         if (person.gender === "male")
@@ -273,11 +281,11 @@ console.log(cat["fur"]);
 
 
 // We can add a property to our object afterwards
+console.log(cat);
 cat.age = 4;
 console.log(cat.age);
 console.log(cat); // cat property is now part of the object itself!
 console.log(Object.keys(cat));
-
 
 
 // Adding functions / behavior to our objects

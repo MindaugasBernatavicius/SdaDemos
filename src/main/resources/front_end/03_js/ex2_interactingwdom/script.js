@@ -58,3 +58,13 @@ var elemementForExcercise = document.getElementById("excercise-paragraph");
 
 // 2. attach the event handler (... which will be the changeColor function)
 elemementForExcercise.onmouseover = changeColor;
+
+// ... with anonymous function
+// document.getElementById("my-button").onclick = function(){
+//     document.getElementById("date-paragraph").innerHTML = '<h1>' + Date() + '</h1>';
+// };
+
+// ... with arrow functions
+document.getElementById("my-button").onclick = () => {
+    document.getElementById("date-paragraph").innerHTML = '<h1>' + Date() + '</h1>';
+};
