@@ -22,7 +22,7 @@ for (var i = 0; i < elements.length; i++) {
 // changing the css properties
 for (var i = 0; i < elements.length; i++) {
     elements[i].style.color = "blue";
-    if(i % 2 == 0){
+    if (i % 2 == 0) {
         elements[i].style = "color: red; transform: rotate(180deg)";
     }
     getComputedStyle(elements[i]).color = "blue"; // These styles are computed, and therefore the 'color' property is read-only.
@@ -48,7 +48,7 @@ document.getElementById("my-button").onclick = displayDate;
 // Exercise time: let's use another event and change another property using that event.
 
 // 0. define the function
-function changeColor(){
+function changeColor() {
     document.getElementById("excercise-paragraph").style.color = "red";
     // elemementForExcercise.style.color = "red"; // possible to use like this, since var was used
 }

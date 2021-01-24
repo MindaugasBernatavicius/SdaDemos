@@ -24,10 +24,12 @@ class Pizza {
             public boolean isOrdered() {
                 return true;
             }
+
             @Override
             public boolean isReady() {
                 return false;
             }
+
             @Override
             public boolean isDelivered() {
                 return false;
@@ -38,10 +40,12 @@ class Pizza {
             public boolean isOrdered() {
                 return true;
             }
+
             @Override
             public boolean isReady() {
                 return true;
             }
+
             @Override
             public boolean isDelivered() {
                 return false;
@@ -52,10 +56,12 @@ class Pizza {
             public boolean isOrdered() {
                 return true;
             }
+
             @Override
             public boolean isReady() {
                 return true;
             }
+
             @Override
             public boolean isDelivered() {
                 return true;
@@ -80,7 +86,7 @@ class Pizza {
             return timeToDelivery;
         }
 
-        PizzaStatus (int timeToDelivery) {
+        PizzaStatus(int timeToDelivery) {
             this.timeToDelivery = timeToDelivery;
         }
     }
@@ -94,9 +100,12 @@ class Pizza {
 
     public int getDeliveryTimeInMinutes() {
         switch (status) {
-            case ORDERED: return 30;
-            case READY: return 10;
-            case DELIVERED: return 0;
+            case ORDERED:
+                return 30;
+            case READY:
+                return 10;
+            case DELIVERED:
+                return 0;
         }
         return 0;
     }
@@ -147,5 +156,6 @@ class Pizza {
     }
 }
 
-public class LearningEnums { }
+public class LearningEnums {
+}
 

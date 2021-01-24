@@ -21,9 +21,9 @@ public class _04_AllMatchAnyMatch {
         //     }
         // }
 
-        if(allNamesLengthIsGtThan3){
+        if (allNamesLengthIsGtThan3) {
             System.out.println("All names are longer than 3 chars!");
-        } else if(thereIsANameWhichLengthIsGtThan3){
+        } else if (thereIsANameWhichLengthIsGtThan3) {
             List<String> nl = names
                     .stream()
                     .filter(n -> n.length() > 3)

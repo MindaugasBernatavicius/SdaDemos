@@ -57,7 +57,7 @@ class Student {
     }
 
     // ... or setter injection
-    void setAddress(Address address){
+    void setAddress(Address address) {
         address = address;
     }
 }
@@ -72,6 +72,7 @@ class Address {
         this.city = city;
     }
 }
+
 class ShippingAddress extends Address {
     private int flatNumber;
 

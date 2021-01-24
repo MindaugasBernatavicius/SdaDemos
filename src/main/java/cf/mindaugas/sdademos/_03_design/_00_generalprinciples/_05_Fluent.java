@@ -11,10 +11,10 @@ public class _05_Fluent {
         // 2. Custom implementation
         PensionCalculator pc = new PensionCalculator();
         double pension = pc.with()
-                            .personAge(79)
-                            .and()
-                            .workExperience(30)
-                            .getPension();
+                .personAge(79)
+                .and()
+                .workExperience(30)
+                .getPension();
 
         System.out.println("Pension is: " + pension);
 
@@ -27,27 +27,27 @@ class PensionCalculator {
     private static final double BASE_PENSION_RATE = 150.0;
     private double ageCoeff;
 
-    public PensionCalculator and(){
+    public PensionCalculator and() {
         return this;
     } // x.and() --> this will be x
 
-    public PensionCalculator with(){
+    public PensionCalculator with() {
         return this;
     }
 
-    public PensionCalculator personAge(int age){
+    public PensionCalculator personAge(int age) {
         this.age = age;
         return this;
     }
 
-    public PensionCalculator workExperience(int exp){
+    public PensionCalculator workExperience(int exp) {
         workExperience = exp;
         return this;
     }
 
     // exercise - make the age multiplier dynamically
     // changeable with fluent interface;
-    public double getPension(){
+    public double getPension() {
         return BASE_PENSION_RATE
                 + (age * 0.95) + workExperience;
     }

@@ -24,7 +24,8 @@ class LunchOrder {
         private String dressing;
         private String meat;
 
-        public Builder() {}
+        public Builder() {
+        }
 
         public LunchOrder build() {
             return new LunchOrder(this);
@@ -66,12 +67,15 @@ class LunchOrder {
     public String getBread() {
         return bread;
     }
+
     public String getCondiments() {
         return condiments;
     }
+
     public String getDressing() {
         return dressing;
     }
+
     public String getMeat() {
         return meat;
     }

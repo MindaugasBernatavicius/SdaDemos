@@ -23,22 +23,22 @@ public class PrintInPlaceJLine {
         terminal.enterRawMode();
         NonBlockingReader reader = terminal.reader();
 
-        while (true){
+        while (true) {
             int randomInt = r.nextInt(10);
             System.out.print("\rIs number: " + randomInt + " divisible by 3?: ");
 
             // https://github.ncom/jline/jline3
-            answer = (char)reader.read();
-            if(answer == '\n')
-                answer = (char)reader.read();
+            answer = (char) reader.read();
+            if (answer == '\n')
+                answer = (char) reader.read();
 
 
-            if(randomInt % 3 == 0 && answer == 'y')
+            if (randomInt % 3 == 0 && answer == 'y')
                 continue;
-            else if(randomInt % 3 != 0 && answer == 'n')
+            else if (randomInt % 3 != 0 && answer == 'n')
                 continue;
             else {
-                if(answer != 'q')
+                if (answer != 'q')
                     System.out.println("You lost");
                 break;
             }

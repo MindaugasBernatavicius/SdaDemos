@@ -12,7 +12,7 @@ public class UserOneToMany {
     private String name;
     private String email;
 
-    @OneToMany(mappedBy="owner")
+    @OneToMany(mappedBy = "owner")
     private List<BookOneToMany> books;
 
     public UserOneToMany() {

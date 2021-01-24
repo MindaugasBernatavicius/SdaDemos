@@ -2,7 +2,7 @@ package cf.mindaugas.sdademos._01_codingfundamentals.algorithms.simple_v2;
 
 public class BinarySearchDemo {
 
-    private static Integer binarySearchArrInts(int[] arr, int targetToFind){
+    private static Integer binarySearchArrInts(int[] arr, int targetToFind) {
         int leftIdx = 0, rightIdx = arr.length - 1;
         while (leftIdx <= rightIdx) {
             int midIdx = leftIdx + (rightIdx - leftIdx) / 2;
@@ -20,7 +20,7 @@ public class BinarySearchDemo {
         return null; // if we reach here, then element was not present
     }
 
-    private static int IllustrateStringCompareTo(String a, String b){
+    private static int IllustrateStringCompareTo(String a, String b) {
         return a.compareTo(b);
     }
 
@@ -61,7 +61,7 @@ public class BinarySearchDemo {
         // System.out.println(IllustrateStringCompareTo("AC", "AB"));
 
         // String[] arr = {};
-        String[] arr = { "Albert", "Berto", "Cinnamon", "Dino", "Eric" };
+        String[] arr = {"Albert", "Berto", "Cinnamon", "Dino", "Eric"};
         System.out.println(binarySearchArrStrings(arr, "Dino"));
     }
 }

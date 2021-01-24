@@ -29,10 +29,10 @@ element.attr("id", "new-id");
 element.addClass("class-name");
 
 // events
-$('#doggo').mouseover(function(){
+$('#doggo').mouseover(function () {
     $('#doggo').attr("src", "img-flipped.jpg")
 });
 
-$('#doggo').mouseout(function(){
+$('#doggo').mouseout(function () {
     $('#doggo').attr("src", "img.jpg")
 });

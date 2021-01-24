@@ -15,14 +15,15 @@ public class UserCloneable implements Cloneable {
     private int height;
     private int age;
 
-    public UserCloneable() {}
+    public UserCloneable() {
+    }
 
-    public UserCloneable(String name, String surname){
+    public UserCloneable(String name, String surname) {
         this.name = name;
         this.surname = surname;
     }
 
-    public long getId(){
+    public long getId() {
         return this.id;
     }
 

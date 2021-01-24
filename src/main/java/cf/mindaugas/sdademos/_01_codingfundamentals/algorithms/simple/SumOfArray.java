@@ -7,7 +7,7 @@ public class SumOfArray {
         // create a function that sums (adds)
         // all elements inside an array
 
-        int[] arr = {10,1,2,3,0};
+        int[] arr = {10, 1, 2, 3, 0};
         System.out.println("Sum: " + sumOfArray(arr));
     }
 
@@ -22,7 +22,7 @@ public class SumOfArray {
 
         // Recall that these are equivalent:
         // i = i + 1; i++; ++i; i += 1
-        for(int i = 1; i < arr.length; i++){
+        for (int i = 1; i < arr.length; i++) {
             sum += arr[i]; // equivalent to this expression: sum = sum + arr[i];
         }
         return sum;

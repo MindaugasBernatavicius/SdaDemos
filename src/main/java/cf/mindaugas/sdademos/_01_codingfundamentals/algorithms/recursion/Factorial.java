@@ -6,20 +6,20 @@ public class Factorial {
         System.out.println(factorialRecursive(6));
     }
 
-    static int factorialIterative(int in){
+    static int factorialIterative(int in) {
         int fact = 1;
-        for(int i = 1; i <= in; i++){
+        for (int i = 1; i <= in; i++) {
             // fact = fact * i;
             fact *= i;
         }
         return fact;
     }
 
-    static int factorialRecursive(int in){
+    static int factorialRecursive(int in) {
         int fact = in;
 
         // 1 - stopping condition
-        if(in == 1)
+        if (in == 1)
             return in;
 
         // 2 - logic part

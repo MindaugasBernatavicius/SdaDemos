@@ -11,7 +11,7 @@ public class _00_AbstractFactoryUsage {
         Locale[] locales = NumberFormat.getAvailableLocales();
         double myNumber = -1234.56;
         NumberFormat form;
-        for (int j = 0; j <4 ; ++j) {
+        for (int j = 0; j < 4; ++j) {
             System.out.println("FORMAT");
             for (int i = 0; i < locales.length; ++i) {
                 if (locales[i].getCountry().length() == 0) {
@@ -20,13 +20,17 @@ public class _00_AbstractFactoryUsage {
                 System.out.print(locales[i].getDisplayName());
                 switch (j) {
                     case 0:
-                        form = NumberFormat.getInstance(locales[i]); break;
+                        form = NumberFormat.getInstance(locales[i]);
+                        break;
                     case 1:
-                        form = NumberFormat.getIntegerInstance(locales[i]); break;
+                        form = NumberFormat.getIntegerInstance(locales[i]);
+                        break;
                     case 2:
-                        form = NumberFormat.getCurrencyInstance(locales[i]); break;
+                        form = NumberFormat.getCurrencyInstance(locales[i]);
+                        break;
                     default:
-                        form = NumberFormat.getPercentInstance(locales[i]); break;
+                        form = NumberFormat.getPercentInstance(locales[i]);
+                        break;
                 }
                 if (form instanceof DecimalFormat) {
                     System.out.print(": " + ((DecimalFormat) form).toPattern());
@@ -34,7 +38,8 @@ public class _00_AbstractFactoryUsage {
                 System.out.print(" -> " + form.format(myNumber));
                 try {
                     System.out.println(" -> " + form.parse(form.format(myNumber)));
-                } catch (ParseException e) {}
+                } catch (ParseException e) {
+                }
             }
         }
     }

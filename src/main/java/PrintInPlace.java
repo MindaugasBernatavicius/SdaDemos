@@ -21,7 +21,7 @@ public class PrintInPlace {
 
         System.out.println("Press q at any time to quit the game");
 
-        while (true){
+        while (true) {
             int randomInt = r.nextInt(10);
             // 1.
             System.out.print("Is number: " + randomInt + " divisible by 3?: ");
@@ -31,21 +31,21 @@ public class PrintInPlace {
             // answer = console.readLine("\r\b\b\b\bIs number: " + randomInt + " divisible by 3? ==> ");
 
             // 3.
-            answer = (char)RawConsoleInput.read(true);
-            while (answer != 'y' || answer != 'n' || answer != 'q'){
+            answer = (char) RawConsoleInput.read(true);
+            while (answer != 'y' || answer != 'n' || answer != 'q') {
                 // System.out.print((int)answer);
-                answer = (char)RawConsoleInput.read(false);
+                answer = (char) RawConsoleInput.read(false);
             }
             // System.out.print(answer);
 
 
             // answer.equalsIgnoreCase("n")
-            if(randomInt % 3 == 0 && answer == 'y')
+            if (randomInt % 3 == 0 && answer == 'y')
                 continue;
-            else if(randomInt % 3 != 0 && answer == 'n')
+            else if (randomInt % 3 != 0 && answer == 'n')
                 continue;
             else {
-                if(answer != 'q')
+                if (answer != 'q')
                     System.out.println("You lost");
                 break;
             }

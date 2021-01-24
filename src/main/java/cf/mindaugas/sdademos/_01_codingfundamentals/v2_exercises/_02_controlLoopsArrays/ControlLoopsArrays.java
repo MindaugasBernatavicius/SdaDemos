@@ -321,13 +321,13 @@ public class ControlLoopsArrays {
      * (generate random array → print array to the console → find biggest value → print biggest value →  manually verify results).
      */
     // First thing how to use Random class
-    public static void usingRandom(){
+    public static void usingRandom() {
         Random randomNumGen = new Random();
         System.out.println(randomNumGen.nextInt(40));
     }
 
     // Second, let's try to initialize an array of random size
-    public static void randomSizeArray(){
+    public static void randomSizeArray() {
         Random randomNumGen = new Random();
         int[] intArr = new int[randomNumGen.nextInt(20) + 1];
 
@@ -338,7 +338,7 @@ public class ControlLoopsArrays {
         System.out.println(Arrays.toString(intArr));
     }
 
-    public static void maxFromArray(){
+    public static void maxFromArray() {
         // First let's try with hardcoded array
         // int[] arr = {1, 3, 2, 10, 15, 8};
 
@@ -365,7 +365,7 @@ public class ControlLoopsArrays {
     /**
      * sumOfArray()
      */
-    public static void sumOfArray(){
+    public static void sumOfArray() {
 
         Random randomNumberGet = new Random();
         int[] intArr = new int[randomNumberGet.nextInt(5) + 1];
@@ -382,7 +382,7 @@ public class ControlLoopsArrays {
     /**
      * avgOfArray()
      */
-    public static void avgOfArray(){
+    public static void avgOfArray() {
 
         Random randomNumberGet = new Random();
         int[] intArr = new int[randomNumberGet.nextInt(5) + 1];
@@ -394,13 +394,13 @@ public class ControlLoopsArrays {
         }
 
         System.out.println("Avg of array: "
-                + Arrays.toString(intArr) + " is: " + (double)sumOfArray / intArr.length);
+                + Arrays.toString(intArr) + " is: " + (double) sumOfArray / intArr.length);
     }
 
     /**
      * avarangeOfArr2D();
      */
-    public static void avarangeOfArr2D(){
+    public static void avarangeOfArr2D() {
 
         Random randomNumberGet = new Random();
         int[][] intArr = new int[randomNumberGet.nextInt(5) + 1][randomNumberGet.nextInt(5) + 1];
@@ -415,13 +415,13 @@ public class ControlLoopsArrays {
             System.out.println();
         }
         System.out.println(sumOfArray);
-        System.out.println((double)sumOfArray/intArr.length);
+        System.out.println((double) sumOfArray / intArr.length);
     }
 
     /**
      * averageOfSalary()
      */
-    public static void averageOfSalary(){
+    public static void averageOfSalary() {
         String[][] arr2d = {
                 //   0          1          2
                 {"Tomas", "Petraitis", "1600"},    // 0
@@ -439,14 +439,14 @@ public class ControlLoopsArrays {
         }
 
         System.out.println("Sum of array: " + sum
-                + ", length: " + arr2d.length + ", avg: " + (double)sum / arr2d.length);
+                + ", length: " + arr2d.length + ", avg: " + (double) sum / arr2d.length);
     }
 
 
     /**
      * findByName(String name)
      */
-    public static void findByName(String name){
+    public static void findByName(String name) {
         String[][] arr2d = {
                 {"Tomas", "Petraitis", "1600"},
                 {"Antanas", "Baisulis", "2300"},
@@ -458,7 +458,7 @@ public class ControlLoopsArrays {
         };
 
         for (int i = 0; i < arr2d.length; i++) {
-            if(name.equalsIgnoreCase(arr2d[i][0])){
+            if (name.equalsIgnoreCase(arr2d[i][0])) {
                 System.out.println("Name: " + arr2d[i][0]
                         + ", surname: " + arr2d[i][1]
                         + ", salary: " + arr2d[i][2]);

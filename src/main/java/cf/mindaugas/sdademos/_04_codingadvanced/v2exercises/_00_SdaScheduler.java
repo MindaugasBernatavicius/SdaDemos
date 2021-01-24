@@ -202,18 +202,23 @@ class Group {
     public Group(String group) {
         this.groupName = group;
     }
+
     public String getGroup() {
         return groupName;
     }
+
     public void setGroup(String group) {
         this.groupName = group;
     }
+
     public Trainer getTrainer() {
         return trainer;
     }
+
     public void setTrainer(Trainer trainer) {
         this.trainer = trainer;
     }
+
     public List<Student> getStudentList() {
         return studentList;
     }
@@ -236,6 +241,7 @@ class Group {
     public void setStudentList(List<Student> studentList) {
         this.studentList = studentList;
     }
+
     @Override
     public String toString() {
         return "Group: " + groupName + ";\nTrainer: " + trainer + ";\n" + "Students list: " + studentList + "\n";
@@ -252,17 +258,21 @@ class Person {
     private final String firstName;
     private final String lastName;
     private final LocalDate dateOfBirth;
+
     public Person(String firstName, String lastName, LocalDate dateOfBirth) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.dateOfBirth = dateOfBirth;
     }
+
     public String getFirstName() {
         return firstName;
     }
+
     public String getLastName() {
         return lastName;
     }
+
     public LocalDate getDateOfBirth() {
         return dateOfBirth;
     }
@@ -279,16 +289,20 @@ class Person {
 
 class Student extends Person {
     private boolean hasPreviousJavaKnowledge;
+
     public Student(String firstName, String lastName, LocalDate dateOfBirth, boolean hasPreviousJavaKnowledge) {
         super(firstName, lastName, dateOfBirth);
         this.hasPreviousJavaKnowledge = hasPreviousJavaKnowledge;
     }
+
     public boolean hasPreviousJavaKnowledge() {
         return hasPreviousJavaKnowledge;
     }
+
     public void setHasPreviousJavaKnowledge(boolean hasPreviousJavaKnowledge) {
         this.hasPreviousJavaKnowledge = hasPreviousJavaKnowledge;
     }
+
     @Override
     public String toString() {
         return getFirstName() + " " + getLastName() + " " + getDateOfBirth() + " Previous Java knowledge: " + hasPreviousJavaKnowledge();
@@ -297,16 +311,20 @@ class Student extends Person {
 
 class Trainer extends Person {
     private boolean isAuthorized;
+
     public Trainer(String firstName, String secondName, LocalDate dataOfBirth, boolean isAuthorized) {
         super(firstName, secondName, dataOfBirth);
         this.isAuthorized = isAuthorized;
     }
+
     public void setIsAuthorized(boolean isAuthorized) {
         this.isAuthorized = isAuthorized;
     }
+
     public boolean getIsAuthorized() {
         return this.isAuthorized;
     }
+
     @Override
     public String toString() {
         return "Trainer{" +

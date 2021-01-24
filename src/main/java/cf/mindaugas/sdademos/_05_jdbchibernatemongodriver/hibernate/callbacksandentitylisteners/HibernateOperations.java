@@ -1,6 +1,7 @@
 package cf.mindaugas.sdademos._05_jdbchibernatemongodriver.hibernate.callbacksandentitylisteners;
 
 import cf.mindaugas.sdademos._05_jdbchibernatemongodriver.hibernate.model.Movie;
+
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -19,6 +20,7 @@ public class HibernateOperations {
 
     /**
      * Static method returning EntityManager.
+     *
      * @return EntityManager
      */
     public static EntityManager getEntityManager() {
@@ -59,6 +61,7 @@ public class HibernateOperations {
 
     /**
      * Method to illustrate the querying support in EntityManager when the result is a single object.
+     *
      * @return Movie
      */
     public Movie queryForMovieById() {
@@ -71,6 +74,7 @@ public class HibernateOperations {
 
     /**
      * Method to illustrate the querying support in EntityManager when the result is a list.
+     *
      * @return List<?> movies
      */
     public List<?> queryForMovies() {
@@ -83,6 +87,7 @@ public class HibernateOperations {
 
     /**
      * Method to illustrate the usage of find() method.
+     *
      * @param movieId
      * @return Movie
      */

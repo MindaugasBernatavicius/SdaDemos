@@ -7,6 +7,7 @@ public class _01_Kiss {
     public static void main(String[] args) {
         // _01_Kiss k = new _01_Kiss();
     }
+
     public String getWeekDayComplex(int day) {
         if ((day < 1) || (day > 7))
             throw new IllegalStateException("day must be in range 1 to 7");
@@ -23,7 +24,6 @@ public class _01_Kiss {
     }
 
     // ... how can we write it simpler?
-
 
 
     public String getWeekDaySimple(int day) {

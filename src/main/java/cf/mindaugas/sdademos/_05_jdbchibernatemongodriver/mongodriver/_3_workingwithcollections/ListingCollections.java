@@ -23,12 +23,12 @@ public class ListingCollections {
 
         // listing collection names
         MongoDatabase dbCustomer = mongoClientWithAuth.getDatabase("customer");
-        for (String collectionName: dbCustomer.listCollectionNames()) {
+        for (String collectionName : dbCustomer.listCollectionNames()) {
             System.out.println(collectionName + " ");
         }
 
         // listing collections with their information
-        for (Document collectionInfo: dbCustomer.listCollections()) {
+        for (Document collectionInfo : dbCustomer.listCollections()) {
             System.out.println("-------------");
             System.out.println(collectionInfo.toJson());
             System.out.println("-------------");

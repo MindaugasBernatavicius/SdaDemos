@@ -2,8 +2,8 @@ package cf.mindaugas.sdademos._02_javaadvanced._03_polymorphism;
 
 public class PolymorphismShapeCircleRectangle {
 
-    public static double calculatePerimeter(Shape shape){
-        if(shape instanceof Circle)
+    public static double calculatePerimeter(Shape shape) {
+        if (shape instanceof Circle)
             return 2 * Math.PI * shape.getHeight();
         else
             return 2 * shape.getHeight() + 2 * shape.getWidth();
@@ -79,7 +79,7 @@ class Shape2 {
         return height;
     }
 
-    public double calculatePerimeter(){
+    public double calculatePerimeter() {
         return 2 * 3.14 * (height / 2);
     }
 }

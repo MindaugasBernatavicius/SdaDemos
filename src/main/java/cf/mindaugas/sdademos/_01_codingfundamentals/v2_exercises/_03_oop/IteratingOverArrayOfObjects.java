@@ -6,10 +6,10 @@ public class IteratingOverArrayOfObjects {
         // ... the code below can be understood using
         // ... int[] intArr = {1, 2, 4}; as an analogy
         Product[] products = {
-            new Product(1, "Shoes", 2.2),
-            new Product(2, "Boxes", 2.1),
-            new Product(3, "Plates", 0.1),
-            new Product(4, "Pants", 22.1)
+                new Product(1, "Shoes", 2.2),
+                new Product(2, "Boxes", 2.1),
+                new Product(3, "Plates", 0.1),
+                new Product(4, "Pants", 22.1)
         };
 
         // another way

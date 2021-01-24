@@ -16,7 +16,7 @@ public class UserWPhoneObject {
     private int height;
     private int age;
     @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name="userwphone_id")
+    @JoinColumn(name = "userwphone_id")
     private List<Phone> phones = new ArrayList<>();
 
     public UserWPhoneObject() {

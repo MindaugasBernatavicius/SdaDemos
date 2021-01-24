@@ -31,7 +31,7 @@ enum Size {
         this.time = time;
     }
 
-    int getDeliverTime(){
+    int getDeliverTime() {
         return this.time;
     }
 }

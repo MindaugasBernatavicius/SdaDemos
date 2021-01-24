@@ -1,7 +1,7 @@
 package cf.mindaugas.sdademos._03_design._01_solidprinciples._03_lsp;
 
 public class ExampleIllustratingThePrinciple {
-    public static void f1(Vehicle v){
+    public static void f1(Vehicle v) {
         // v.startEngine();
     }
 
@@ -49,39 +49,45 @@ public class ExampleIllustratingThePrinciple {
 // Better ...
 // --------------------------
 abstract class Vehicle {
-   String name;
-   Double speed;
+    String name;
+    Double speed;
 }
 
 abstract class MotorisedVehicle extends Vehicle {
-   Engine engine;
-   abstract void startEngine();
+    Engine engine;
 
-   public Engine getEngine() {
-       return engine;
-   }
+    abstract void startEngine();
 
-   public void setEngine(Engine engine) {
-       this.engine = engine;
-   }
+    public Engine getEngine() {
+        return engine;
+    }
+
+    public void setEngine(Engine engine) {
+        this.engine = engine;
+    }
 }
 
 class Car extends MotorisedVehicle {
-   @Override
-   void startEngine() {}
+    @Override
+    void startEngine() {
+    }
 }
 
-class Bicycle extends Vehicle  { }
+class Bicycle extends Vehicle {
+}
 
 class Engine {
-   State state;
-   enum State { ON, OFF }
-   public State getState() {
-       return state;
-   }
-   public void setState(State state) {
-       this.state = state;
-   }
+    State state;
+
+    enum State {ON, OFF}
+
+    public State getState() {
+        return state;
+    }
+
+    public void setState(State state) {
+        this.state = state;
+    }
 }
 
 // ... how would you solve the case where we would have Vehicles w/o wheels?

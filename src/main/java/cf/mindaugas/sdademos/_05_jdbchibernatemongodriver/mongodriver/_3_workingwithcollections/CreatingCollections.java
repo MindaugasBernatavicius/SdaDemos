@@ -26,11 +26,11 @@ public class CreatingCollections {
 
         // If you are not specifying these options, you do not need to explicitly create the collection
         // since MongoDB creates new collections when you first store data for the collections.
-        if( !CreatingDatabases.collectionExists(dbCustomer, "cappedCustColl") )
+        if (!CreatingDatabases.collectionExists(dbCustomer, "cappedCustColl"))
             dbCustomer.createCollection("cappedCustColl",
                     new CreateCollectionOptions().capped(true).sizeInBytes(1000L));
 
-        for (String collectionName: dbCustomer.listCollectionNames()) {
+        for (String collectionName : dbCustomer.listCollectionNames()) {
             System.out.print(collectionName + " "); // there are no collections currently
         }
 

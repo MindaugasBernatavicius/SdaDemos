@@ -77,7 +77,7 @@ public class Api {
 
             String ulopen = "<ul>";
             String ulclose = "</ul>";
-            for (String pieceOfInfo: userinfo) {
+            for (String pieceOfInfo : userinfo) {
                 ulopen += "<li>" + pieceOfInfo.split("=")[1] + "</li>";
             }
             return ulopen + ulclose;

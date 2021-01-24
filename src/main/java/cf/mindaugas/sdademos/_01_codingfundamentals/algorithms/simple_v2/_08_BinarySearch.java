@@ -6,11 +6,12 @@ public class _08_BinarySearch {
 
     /**
      * binarySearchArrInts - search for a given element of interest in array of ints
+     *
      * @param arr
      * @param targetToFind
      * @return the index at which the element was found, or null - if it was not
      */
-    private static Integer binarySearchArrInts(int[] arr, int targetToFind){
+    private static Integer binarySearchArrInts(int[] arr, int targetToFind) {
         int leftIdx = 0, rightIdx = arr.length - 1;
         while (leftIdx <= rightIdx) {
             int midIdx = leftIdx + (rightIdx - leftIdx) / 2;
@@ -27,12 +28,13 @@ public class _08_BinarySearch {
         return null; // if we reach here, then element was not present
     }
 
-    private static int IllustrateStringCompareTo(String a, String b){
+    private static int IllustrateStringCompareTo(String a, String b) {
         return a.compareTo(b);
     }
 
     /**
      * binarySearchArrStrings - search for a given element of interest in array of Strings
+     *
      * @param arr
      * @param targetToFind
      * @return the index at which the element was found, or null - if it was not
@@ -55,7 +57,7 @@ public class _08_BinarySearch {
         return null; // if we reach here, then element was not present
     }
 
-    private static Integer binarySearchArrStudents(Student[] students, Student targetToFind){
+    private static Integer binarySearchArrStudents(Student[] students, Student targetToFind) {
         int leftIdx = 0, rightIdx = students.length - 1;
         while (leftIdx <= rightIdx) {
             int midIdx = leftIdx + (rightIdx - leftIdx) / 2;
@@ -75,8 +77,7 @@ public class _08_BinarySearch {
     }
 
     private static Integer binarySearchArrStudentsWComparator(
-            Student[] students, Student targetToFind, StudentComparator comparator)
-    {
+            Student[] students, Student targetToFind, StudentComparator comparator) {
         int leftIdx = 0, rightIdx = students.length - 1;
         while (leftIdx <= rightIdx) {
             int midIdx = leftIdx + (rightIdx - leftIdx) / 2;
@@ -137,7 +138,7 @@ public class _08_BinarySearch {
     }
 }
 
-class Student implements Comparable<Student>{
+class Student implements Comparable<Student> {
     private String name;
     private double averageGrade;
 
@@ -165,12 +166,12 @@ class Student implements Comparable<Student>{
     @Override
     public int compareTo(Student otherStudent) {
         // return positive integer, if the current object is greater other.
-        if(this.getAverageGrade() < otherStudent.getAverageGrade())
+        if (this.getAverageGrade() < otherStudent.getAverageGrade())
             return 1;
-        // negative integer, if the current object is less than other.
-        else if(this.getAverageGrade() > otherStudent.getAverageGrade())
+            // negative integer, if the current object is less than other.
+        else if (this.getAverageGrade() > otherStudent.getAverageGrade())
             return -1;
-        // zero, if the current object is equal to other.
+            // zero, if the current object is equal to other.
         else
             return 0;
 
@@ -195,12 +196,12 @@ class StudentGradeComparator implements Comparator<Student> {
     @Override
     public int compare(Student o1, Student o2) {
         // return positive integer, if the current object is greater other.
-        if(o1.getAverageGrade() > o2.getAverageGrade())
+        if (o1.getAverageGrade() > o2.getAverageGrade())
             return 1;
-        // negative integer, if the current object is less than other.
-        else if(o1.getAverageGrade() < o2.getAverageGrade())
+            // negative integer, if the current object is less than other.
+        else if (o1.getAverageGrade() < o2.getAverageGrade())
             return -1;
-        // zero, if the current object is equal to other.
+            // zero, if the current object is equal to other.
         else
             return 0;
     }
@@ -210,14 +211,14 @@ class StudentComparator implements Comparator<Student> {
 
     @Override
     public int compare(Student o1, Student o2) {
-        if(o1.getAverageGrade() > o2.getAverageGrade())
+        if (o1.getAverageGrade() > o2.getAverageGrade())
             return 1;
-        else if(o1.getAverageGrade() < o2.getAverageGrade())
+        else if (o1.getAverageGrade() < o2.getAverageGrade())
             return -1;
         else {
-            if(o1.getName().compareTo(o2.getName()) > 0)
+            if (o1.getName().compareTo(o2.getName()) > 0)
                 return 1;
-            else if(o1.getName().compareTo(o2.getName()) < 0)
+            else if (o1.getName().compareTo(o2.getName()) < 0)
                 return -1;
             else
                 return 0;

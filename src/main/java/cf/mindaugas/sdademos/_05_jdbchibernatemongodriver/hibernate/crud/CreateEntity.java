@@ -49,7 +49,7 @@ public class CreateEntity {
         sessionFactory.close();
     }
 
-    public static long runExampleReturningId(){
+    public static long runExampleReturningId() {
         StandardServiceRegistry registry = new StandardServiceRegistryBuilder().configure().build(); // Create registry
         MetadataSources sources = new MetadataSources(registry); // Create MetadataSources
         Metadata metadata = sources.getMetadataBuilder().build(); // Create Metadata

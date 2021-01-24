@@ -2,10 +2,10 @@ package cf.mindaugas.sdademos._02_javaadvanced._02_inheritence._03_equality;
 
 public class EqualityExample {
 
-    private static boolean contains(Student[] students, Student student){
+    private static boolean contains(Student[] students, Student student) {
         boolean contains = false;
         for (int i = 0; i < students.length; i++) {
-            if(students[i].equals(student)){
+            if (students[i].equals(student)) {
                 contains = true;
                 break;
             }
@@ -72,7 +72,7 @@ class Student {
         // tikriname ar priklauso objektai taip pačiai klasei, jei nei - tai automatiškai false
         if (o == null || getClass() != o.getClass()) return false;
         Student student = (Student) o;
-        if (ssn != student.ssn){
+        if (ssn != student.ssn) {
             return false;
         } else {
             return true;

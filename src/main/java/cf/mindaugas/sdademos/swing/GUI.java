@@ -6,7 +6,7 @@ import java.awt.BorderLayout;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
-public class GUI{
+public class GUI {
 
     private JButton button;
     private JLabel label;
@@ -25,7 +25,7 @@ public class GUI{
         System.out.println("GUI started!");
     }
 
-    public void setLabel(String s){
+    public void setLabel(String s) {
         label.setText(s);
     }
 
@@ -40,20 +40,21 @@ public class GUI{
     }
 }
 
-class ButtonCounter implements ActionListener
-{
+class ButtonCounter implements ActionListener {
     private GUI gui;
     private int count;
+
     public ButtonCounter(GUI view) {
         gui = view;
         count = 0;
     }
+
     public void actionPerformed(ActionEvent e) {
         System.out.println("button pressed");
         count = count + 1;
     }
 
-    public void reset(){
+    public void reset() {
         count = 0;
     }
 }

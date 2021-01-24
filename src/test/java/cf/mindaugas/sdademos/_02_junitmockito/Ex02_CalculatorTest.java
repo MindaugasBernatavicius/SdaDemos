@@ -11,7 +11,7 @@ public class Ex02_CalculatorTest {
 
     @Test
     // [the name of the tested method]_[expected input / tested state]_[expected behavior]
-    public void add_givenTwoPositiveIntegers_correctPositiveSum(){
+    public void add_givenTwoPositiveIntegers_correctPositiveSum() {
         // given / arrange
         int firstNum = 1;
         int secondNum = 2;
@@ -30,7 +30,7 @@ public class Ex02_CalculatorTest {
 
     @Test
     // [the name of the tested method]_[expected input / tested state]_[expected behavior]
-    public void add_givenTwoNegativeIntegers_correctNegativeSum(){
+    public void add_givenTwoNegativeIntegers_correctNegativeSum() {
         // given, when
         int result = calc.add(-1, -2);
 

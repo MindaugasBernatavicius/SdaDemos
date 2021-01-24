@@ -57,8 +57,8 @@ public class ManyToMany {
         Session session = sessionFactory.openSession();
         Transaction transaction = session.beginTransaction();
 
-        String[] employeeData = { "Peter Oven", "Allan Norman" };
-        String[] projectData = { "IT Project", "Networking Project" };
+        String[] employeeData = {"Peter Oven", "Allan Norman"};
+        String[] projectData = {"IT Project", "Networking Project"};
         Set<Project> projects = new HashSet<>();
 
         for (String proj : projectData) {

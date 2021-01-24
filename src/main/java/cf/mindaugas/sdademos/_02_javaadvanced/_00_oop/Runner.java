@@ -5,7 +5,7 @@ public class Runner {
     // can we access static data from an object (using an object)
     private static String data = "Mindaugas";
 
-    public int add(int i, int j){
+    public int add(int i, int j) {
         return i + j;
     }
 
@@ -118,7 +118,7 @@ class Dog {
     }
 
     public void setWeight(double weight) {
-        if(weight <= 0){
+        if (weight <= 0) {
             System.out.println("Weight passed was below zero!");
         } else {
             this.weight = weight;
@@ -136,7 +136,8 @@ class Flight {
     int age = (int) (Math.random() * 100);
 
     // default constructor
-    public Flight() { }
+    public Flight() {
+    }
 
     public Flight(int id) {
         this.id = id;
@@ -171,13 +172,13 @@ class Flight {
     // the Java programming language includes static initialization blocks.
 
     {
-        id = (int)(Math.random() * 100);
+        id = (int) (Math.random() * 100);
         System.out.println("Printing from inside the initialization block: " + id);
     }
 
     // initialization blocks are executed in order of declaration
     {
-        id = (int)(Math.random() * 100);
+        id = (int) (Math.random() * 100);
     }
 }
 
@@ -189,14 +190,15 @@ class Plane {
     public void addPassenger() throws Exception {
         // passengerCount = passengerCount + 1;
         // passengerCount += passengerCount;
-        if(passengerCount < maxCapacity) {
+        if (passengerCount < maxCapacity) {
             passengerCount++;
         } else {
             throw new Exception("Too many passengers!");
         }
     }
 
-    public Plane() { }
+    public Plane() {
+    }
 
     public Plane(int maxCapacity, String color) {
         this.maxCapacity = maxCapacity;

@@ -9,7 +9,7 @@ public class Loops {
         // Loops alphabet
         char c = 'a';//97
 
-        while(c <= 'z'){
+        while (c <= 'z') {
             System.out.print(c);
             c++;
         }
@@ -19,34 +19,38 @@ public class Loops {
         do {
             System.out.print(c);
             c++;
-        } while(c <= 'z');
+        } while (c <= 'z');
 
         System.out.println("\n---------------------");
-        for(c = 'a'; c <= 'z'; c++){
+        for (c = 'a'; c <= 'z'; c++) {
             System.out.print(c);
         }
 
-       // for loop - break and continue
-        for(int i=0; i <= 10; i++){
-            if(i == 6){ break; }
+        // for loop - break and continue
+        for (int i = 0; i <= 10; i++) {
+            if (i == 6) {
+                break;
+            }
             System.out.println("i: " + i);
         }
 
         System.out.println("==================");
 
-        for(int i = 0; i <= 10; i++){
-            if(i % 3 == 0){ continue; }
+        for (int i = 0; i <= 10; i++) {
+            if (i % 3 == 0) {
+                continue;
+            }
             System.out.println("i: " + i);
         }
 
         // nested loops - all combinations printing is a common usage
-        for(int j = 1; j<=10; j++) {
+        for (int j = 1; j <= 10; j++) {
             for (int i = 1; i <= 10; i++) {
-                if((i==1) || (i==10)){
+                if ((i == 1) || (i == 10)) {
                     System.out.print("# ");
-                } else if((j==1) || (j==10)){
+                } else if ((j == 1) || (j == 10)) {
                     System.out.printf("# ");
-                } else{
+                } else {
                     System.out.print("* ");
                 }
             }
@@ -54,19 +58,19 @@ public class Loops {
         }
 
         // enhanced for loop
-        int[] arrayInt = {10,20,30,40,50};
-        String[] arrayStr = {"first", "second", "third", "fourth", "fifth" };
+        int[] arrayInt = {10, 20, 30, 40, 50};
+        String[] arrayStr = {"first", "second", "third", "fourth", "fifth"};
 
         int len = arrayInt.length;
 
-        for(int i =0; i<len; i++){
+        for (int i = 0; i < len; i++) {
 
             System.out.println(arrayInt[i] + " ... " + arrayStr[i]);
         }
 
         System.out.println("======================================");
 
-        for ( int i : arrayInt) {
+        for (int i : arrayInt) {
             System.out.println(i);
         }
 
@@ -82,7 +86,7 @@ public class Loops {
 
         String[] arrayline = line.split(",");
 
-        for ( String i : arrayline) {
+        for (String i : arrayline) {
             System.out.println(i);
         }
     }

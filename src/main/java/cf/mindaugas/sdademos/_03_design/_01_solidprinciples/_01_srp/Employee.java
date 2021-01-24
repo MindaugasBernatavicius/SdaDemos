@@ -16,7 +16,7 @@ public class Employee {
     // ... from Employee class b/c it is not a property of of Employee
     // ... so in the next example, lets move this to another class:
     // ... PromotionCalculator class
-    public boolean isPromotionDueThisYear(){
+    public boolean isPromotionDueThisYear() {
         LocalDate currentDate = new Date().toInstant()
                 .atZone(ZoneId.systemDefault()).toLocalDate();
         LocalDate startDate = startTime.toInstant()

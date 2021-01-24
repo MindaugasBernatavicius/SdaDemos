@@ -2,11 +2,11 @@ package cf.mindaugas.sdademos._01_codingfundamentals.algorithms.simple_v2;
 
 public class _07_LinearSearch {
 
-    public static int contains(int[] arr, int targetWeAreSearchingFor){
+    public static int contains(int[] arr, int targetWeAreSearchingFor) {
         int idx = -1;
 
         for (int i = 0; i < arr.length; i++) {
-            if(arr[i] == targetWeAreSearchingFor){
+            if (arr[i] == targetWeAreSearchingFor) {
                 idx = i;
             }
         }

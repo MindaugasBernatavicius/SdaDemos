@@ -2,13 +2,13 @@ package cf.mindaugas.sdademos._03_design._02_patterns._02_structural._06_Flyweig
 
 //Instances of Item will be the Flyweights
 class Item {
-	private final String name;
+    private final String name;
 
-	public Item(String name) {
-		this.name = name;
-	}
+    public Item(String name) {
+        this.name = name;
+    }
 
-	public String toString() {
-		return name;
-	}
+    public String toString() {
+        return name;
+    }
 }

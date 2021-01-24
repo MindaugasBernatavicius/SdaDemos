@@ -2,7 +2,7 @@ package cf.mindaugas.sdademos._01_codingfundamentals.algorithms.simple;
 
 public class DublicateFinder {
 
-    public static void main(String[] args){
+    public static void main(String[] args) {
         int i; // declaration
         i = 0; // initialization
         int j = 0; // combined
@@ -18,7 +18,7 @@ public class DublicateFinder {
         System.out.println("Number of dublicates: " + dubNum);
 
         int[] dubs = df.getAllDubs(testArr);
-        for (int k = 0; k < dubs.length; k++){
+        for (int k = 0; k < dubs.length; k++) {
             System.out.print(dubs[k] + " ");
         }
     }
@@ -54,7 +54,7 @@ public class DublicateFinder {
         return count;
     }
 
-    public int[] getAllDubs(int[] arr){
+    public int[] getAllDubs(int[] arr) {
         // Initialize tracker for already counted values
         int[] counted = new int[arr.length];
 
@@ -79,8 +79,8 @@ public class DublicateFinder {
 
         int[] dubs = new int[count];
         int x = 0;
-        for(int z = 0; z < arr.length; z++) {
-            if(counted[z] == 1){
+        for (int z = 0; z < arr.length; z++) {
+            if (counted[z] == 1) {
                 dubs[x] = arr[z];
                 x++;
             }

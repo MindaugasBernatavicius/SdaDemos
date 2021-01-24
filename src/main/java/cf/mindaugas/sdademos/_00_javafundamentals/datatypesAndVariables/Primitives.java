@@ -4,7 +4,7 @@ public class Primitives {
 
     // Double <<  Float << Long <<Int <<Short <<Byte
     public static void main(String[] args) {
-        int x,y;
+        int x, y;
         x = 10;
         y = 20;
         int z = x + y;
@@ -35,7 +35,6 @@ public class Primitives {
         // //int bb = l;//error
 
 
-
         // long l3 = 999888777666L;//... put l or L
         // float f = 12345.5555f;//..... put f
         // double d = 999888777666.5555;
@@ -47,7 +46,6 @@ public class Primitives {
         // System.out.println("from Long: " + i_long3);
         // System.out.println("from Float: " + i_float);
         // System.out.println("from Double: " + i_double);
-
 
 
         // int x = 22;

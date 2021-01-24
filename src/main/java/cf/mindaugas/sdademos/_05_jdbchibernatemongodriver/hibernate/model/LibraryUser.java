@@ -14,7 +14,7 @@ public class LibraryUser {
     private String name;
     private String email;
 
-    @OneToMany(mappedBy="owner")
+    @OneToMany(mappedBy = "owner")
     private List<Book> books;
 
     public long getId() {

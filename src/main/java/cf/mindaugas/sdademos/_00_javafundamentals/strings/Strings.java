@@ -8,12 +8,12 @@ public class Strings {
         String c = new String("abcd");
         //String d = a;
 
-        System.out.println(a==b);
+        System.out.println(a == b);
         System.out.println(a.equals(b));
 
         System.out.println("==================");
 
-        System.out.println(a==c);
+        System.out.println(a == c);
         System.out.println(a.equals(c));
 
         System.out.println("==================");
@@ -24,17 +24,15 @@ public class Strings {
         //System.out.println(System.identityHashCode(d));
 
 
-
-
         int int_a = 100;
         int int_b = 200;
-        System.out.println( int_a + int_b );
+        System.out.println(int_a + int_b);
 
         String str_a = "100";
         String str_b = "200";
-        System.out.println( str_a + str_b );
+        System.out.println(str_a + str_b);
 
-        System.out.println( "=====================\n" );
+        System.out.println("=====================\n");
 
         String name = "Mindaugas";
         String surname = "Bernatavičius";
@@ -44,11 +42,7 @@ public class Strings {
         System.out.println(name.concat(" X ").concat(surname));
         System.out.println(name);
 
-        System.out.println( "=======================\n" );
-
-
-
-
+        System.out.println("=======================\n");
 
 
         //Return Values
@@ -60,15 +54,11 @@ public class Strings {
         System.out.println(str3);
 
 
-
         System.out.println("****************");
 
         //ONLY on not null... otherwise error
         int len = str3.length();
         System.out.println(len);
-
-
-
 
 
         // String str = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
@@ -130,26 +120,24 @@ public class Strings {
         // }
 
 
-
         String s = "abcdefghij abcd defg";
 
 
         // char c = s.charAt(9);
         System.out.println(c);
 
-        System.out.println(s.indexOf( 'j' ));
-        System.out.println(s.indexOf( 'X' ));//doesnt exist
+        System.out.println(s.indexOf('j'));
+        System.out.println(s.indexOf('X'));//doesnt exist
 
-        System.out.println( "===============" );
+        System.out.println("===============");
 
-        System.out.println(s.indexOf( 'd' )); //1st occurence
-        System.out.println(s.lastIndexOf( 'd' )); //last occurence
+        System.out.println(s.indexOf('d')); //1st occurence
+        System.out.println(s.lastIndexOf('d')); //last occurence
 
         //2nd occurence ???
         /*
         code comes here...
         */
-
 
 
         //how many times did it occur
@@ -163,10 +151,7 @@ public class Strings {
         */
 
 
-
-
-
-        System.out.println("===============" );
+        System.out.println("===============");
 
         String Str = "JAVA is a Language, is a Coffee, is an Island. ";
         String find_str = "is";
@@ -178,10 +163,6 @@ public class Strings {
 
 
         //count number of times word appears in string java
-
-
-
-
 
 
     }

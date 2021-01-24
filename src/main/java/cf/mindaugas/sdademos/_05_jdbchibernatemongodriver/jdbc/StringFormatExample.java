@@ -5,7 +5,7 @@ public class StringFormatExample {
         String[] names = {"Jonas", "Valentinovieninikas", "Besikiskiakopusteliaudamasis", "Petras"};
 
         // 0. - simple format of simple table - bad example
-        for(int i = 0; i < names.length; i++){
+        for (int i = 0; i < names.length; i++) {
             System.out.println("|" + names[i] + "|");
         }
 
@@ -15,7 +15,7 @@ public class StringFormatExample {
         // }
 
         // 2. - expose a parameter that would dictate which side we want to justify the text with
-        for(int i = 0; i < names.length; i++){
+        for (int i = 0; i < names.length; i++) {
             String justification = "-";
             System.out.format("|%" + justification + "30s|\n", names[i]);
         }

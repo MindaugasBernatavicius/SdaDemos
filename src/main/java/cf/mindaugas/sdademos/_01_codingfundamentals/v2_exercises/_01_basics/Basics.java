@@ -13,7 +13,7 @@ public class Basics {
      * Hello world.
      * Hello world.
      */
-    public static void printHelloWorld(){
+    public static void printHelloWorld() {
         String lines[];
 
         // 0. Using escape sequence \n
@@ -47,14 +47,14 @@ public class Basics {
 
         // 3 - do while
         int i = 0;
-        do  {
+        do {
             System.out.println("4 Hello world");
             i++;
-        } while ( i > 1 );
+        } while (i > 1);
 
         // 4
         i = 0;
-        while ( i <= 1) {
+        while (i <= 1) {
             System.out.println("5 Hello world");
             i++;
         }
@@ -64,8 +64,8 @@ public class Basics {
         lines[0] = "Hello world";
         lines[1] = lines[0];
 
-        for ( i = 0; i <= 1; i++ ) {
-            if ( i == 1 ) {
+        for (i = 0; i <= 1; i++) {
+            if (i == 1) {
                 System.out.println(lines[i] + "\n");
             } else
                 System.out.println(lines[i]);
@@ -77,7 +77,7 @@ public class Basics {
      * 2. and assign it to variable of type double.
      * 3. Display the given value rounded to two decimal places.
      */
-    public static void roundDouble(){
+    public static void roundDouble() {
         // 1.
         Scanner scanner = new Scanner(System.in);
         System.out.println("Įveskite skaičių formatu: X.XXXX");
@@ -104,11 +104,11 @@ public class Basics {
      * so that they are aligned to the right edge of the 15-character blocks.
      * How to align strings to the left edge?
      */
-    public static void allignTextToRight(){
+    public static void allignTextToRight() {
         String[] stringArr = {"AAA", "BBBBB", "C"};
 
         System.out.print("|");
-        for (int i = 0; i < stringArr.length; i++){
+        for (int i = 0; i < stringArr.length; i++) {
             // System.out.printf("-------|%15s|-------\n", stringArr[i]);
             System.out.printf("%15s|", stringArr[i]);
         }
@@ -120,7 +120,7 @@ public class Basics {
      * Each column has to be 20 characters wide.
      * Use the data provided
      */
-    public static void printTable(){
+    public static void printTable() {
         String[] data = {
                 "Mindaugas", "Bernatavičius", "100",
                 "Ramūnas", "Karbauskis", "99"};
@@ -136,7 +136,7 @@ public class Basics {
         System.out.println(marker);
 
         // your logic
-        for (int i = 0; i < data.length; i = i + 3){
+        for (int i = 0; i < data.length; i = i + 3) {
             // ... simpler solution
             // System.out.print("|");
             // System.out.printf("|%20s|", data[i]);
@@ -145,7 +145,7 @@ public class Basics {
             // System.out.println();
 
             // ... all in one line
-            System.out.printf("|%20s|%20s|%20s|\n", data[i], data[i+1], data[i+2]);
+            System.out.printf("|%20s|%20s|%20s|\n", data[i], data[i + 1], data[i + 2]);
         }
     }
 
@@ -163,11 +163,11 @@ public class Basics {
     /**
      * Simpler version
      */
-    public static void myPrintf(String formatSpecifier, String varToPrint){
+    public static void myPrintf(String formatSpecifier, String varToPrint) {
         Pattern pattern = Pattern.compile("%\\d+[sd]");
         Matcher m = pattern.matcher(formatSpecifier);
         System.out.println(m.matches());
-        if(!m.matches()){
+        if (!m.matches()) {
             System.out.println("Error in pattern!");
         }
 
@@ -175,7 +175,7 @@ public class Basics {
         int blockSize = Integer.parseInt(
                 m.group().substring(1, m.group().length() - 1));
 
-        for(int i = 0; i < blockSize - varToPrint.length(); i++){
+        for (int i = 0; i < blockSize - varToPrint.length(); i++) {
             System.out.print(" ");
         }
         System.out.println(varToPrint);
@@ -207,7 +207,7 @@ public class Basics {
     /**
      * Sum two integer variables initialized with maximal values for that type (correctly).
      */
-    public static void intMaxAddition(){
+    public static void intMaxAddition() {
         // int first = Integer.MAX_VALUE;
         // int second = Integer.MAX_VALUE;
         // long result = (long)first + second;

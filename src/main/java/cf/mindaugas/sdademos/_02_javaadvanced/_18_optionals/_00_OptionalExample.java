@@ -11,7 +11,7 @@ public class _00_OptionalExample {
         // returns true if value is present
         stringOptional.isPresent();
 
-        if(stringOptional.isPresent()) { // value != null
+        if (stringOptional.isPresent()) { // value != null
             String value = stringOptional.get();
             System.out.println(value);
         }
@@ -25,7 +25,7 @@ public class _00_OptionalExample {
         Integer year = 2016;
         Optional<Integer> yearOptional = Optional.of(year);
         boolean is2016 = yearOptional.filter(y -> y == 2016).isPresent();
-        if(is2016)
+        if (is2016)
             System.out.println(yearOptional.get());
 
         // ... passing optional to a function

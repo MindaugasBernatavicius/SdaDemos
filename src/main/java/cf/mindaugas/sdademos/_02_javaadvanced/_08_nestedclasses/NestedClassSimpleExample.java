@@ -3,12 +3,12 @@ package cf.mindaugas.sdademos._02_javaadvanced._08_nestedclasses;
 public class NestedClassSimpleExample {
     public static void main(String[] args) {
         // 0. Instance inner class (non-static)
-       // Bicycle bicycle = new Bicycle();
-       // System.out.println(bicycle.getMaxSpeed()); // Prints 40
-       //
-       // Bicycle.Wheel wheel = bicycle.new Wheel();
-       // wheel.damage();
-       // System.out.println(bicycle.getMaxSpeed()); // Prints 20
+        // Bicycle bicycle = new Bicycle();
+        // System.out.println(bicycle.getMaxSpeed()); // Prints 40
+        //
+        // Bicycle.Wheel wheel = bicycle.new Wheel();
+        // wheel.damage();
+        // System.out.println(bicycle.getMaxSpeed()); // Prints 20
 
         // 1. Static inner class
         BicycleWStaticMechanic bicycleWStaticMechanic = new BicycleWStaticMechanic();
@@ -21,6 +21,7 @@ public class NestedClassSimpleExample {
 
 class Bicycle {
     private int maxSpeed = 40;
+
     public int getMaxSpeed() {
         return maxSpeed;
     }
@@ -37,6 +38,7 @@ class Bicycle {
 
 class BicycleWStaticMechanic {
     private int maxSpeed = 25;
+
     public int getMaxSpeed() {
         return maxSpeed;
     }

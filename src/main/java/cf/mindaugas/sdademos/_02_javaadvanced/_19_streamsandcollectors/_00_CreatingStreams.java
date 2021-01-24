@@ -6,7 +6,7 @@ import java.util.Optional;
 import java.util.stream.Stream;
 
 public class _00_CreatingStreams {
-    public static void main(String[] args){
+    public static void main(String[] args) {
 
         // 0. Creating from collections
         List<String> names = Arrays.asList("Jimmy", "Jill", "Joe", "Anna");
@@ -21,7 +21,7 @@ public class _00_CreatingStreams {
 
         // 1. FindFirst() example
         Optional<String> firstNameInList = names.stream().findFirst();
-        if(firstNameInList.isPresent()){
+        if (firstNameInList.isPresent()) {
             System.out.println("First name in list is: " + firstNameInList.get());
         } else {
             System.out.println("No one found");

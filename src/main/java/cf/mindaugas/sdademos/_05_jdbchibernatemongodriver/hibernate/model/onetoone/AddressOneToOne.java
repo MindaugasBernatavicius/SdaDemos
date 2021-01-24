@@ -12,7 +12,7 @@ public class AddressOneToOne {
     private String city;
     private String street;
 
-    @OneToOne(mappedBy="address") // slave
+    @OneToOne(mappedBy = "address") // slave
     private UserOneToOne user;
 
     public AddressOneToOne() {

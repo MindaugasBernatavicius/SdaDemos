@@ -20,7 +20,7 @@ class Banana {
         this.wightInGramms = wightInGramms;
     }
 
-     static boolean isRipe(Banana b){
+    static boolean isRipe(Banana b) {
         return true; // we can have better logic based on objects data
     }
 }

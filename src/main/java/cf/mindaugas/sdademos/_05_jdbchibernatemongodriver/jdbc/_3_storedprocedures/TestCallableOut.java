@@ -8,24 +8,23 @@ import java.util.Scanner;
 
 public class TestCallableOut {
 
-	// TODO :: SQL
+    // TODO :: SQL
 
-	public static void main(String[] args) {
-		try(
-            Connection conn = DBUtil.getConnection(DBType.ORADB);
-            CallableStatement callableStatement = conn.prepareCall("{ call GetTotalEmployeesByDepartment(?,?) }");
-            Scanner scanner = new Scanner(System.in)
-		){
-			System.out.print("Enter Department ID : ");
-			int deptno = Integer.parseInt(scanner.nextLine());
-			callableStatement.setInt(1, deptno);
-			callableStatement.registerOutParameter(2, Types.INTEGER);
-			callableStatement.execute();
-			int totalEmployees  = callableStatement.getInt(2);
-			System.out.println("Total Employees Working : " + totalEmployees);
-		}
-		catch(SQLException ex){
-			DBUtil.showErrorMessage(ex);
-		}
-	}
+    public static void main(String[] args) {
+        try (
+                Connection conn = DBUtil.getConnection(DBType.ORADB);
+                CallableStatement callableStatement = conn.prepareCall("{ call GetTotalEmployeesByDepartment(?,?) }");
+                Scanner scanner = new Scanner(System.in)
+        ) {
+            System.out.print("Enter Department ID : ");
+            int deptno = Integer.parseInt(scanner.nextLine());
+            callableStatement.setInt(1, deptno);
+            callableStatement.registerOutParameter(2, Types.INTEGER);
+            callableStatement.execute();
+            int totalEmployees = callableStatement.getInt(2);
+            System.out.println("Total Employees Working : " + totalEmployees);
+        } catch (SQLException ex) {
+            DBUtil.showErrorMessage(ex);
+        }
+    }
 }

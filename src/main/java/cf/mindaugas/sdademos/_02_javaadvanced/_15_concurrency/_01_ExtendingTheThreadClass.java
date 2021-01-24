@@ -10,9 +10,11 @@ public class _01_ExtendingTheThreadClass {
         // Thread.sleep(5000);
         // System.out.println("Main thread ends");
 
-        // // ... can we have multiple threads and pass parameters to them? Yes
+        // ... can we have multiple threads and pass parameters to them? Yes
         StopWatchThreadWPrefix stopWatchThread1 = new StopWatchThreadWPrefix("SW1");
         StopWatchThreadWPrefix stopWatchThread2 = new StopWatchThreadWPrefix("SW2");
+        // stopWatchThread1.setPriority(Thread.MAX_PRIORITY); // this will normalize the execution order a bit
+        // stopWatchThread2.setPriority(Thread.MIN_PRIORITY);
         stopWatchThread1.start();
         stopWatchThread2.start();
 
@@ -31,6 +33,7 @@ class StopWatchThread extends Thread {
             System.out.println("Stop watch: " + i);
             try {
                 Thread.sleep(1000);
+
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
@@ -40,6 +43,7 @@ class StopWatchThread extends Thread {
 
 class StopWatchThreadWPrefix extends Thread {
     private String prefix;
+
     StopWatchThreadWPrefix(String prefix) {
         this.prefix = prefix;
     }

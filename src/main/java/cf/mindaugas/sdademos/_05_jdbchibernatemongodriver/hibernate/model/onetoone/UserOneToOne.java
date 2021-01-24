@@ -14,7 +14,7 @@ public class UserOneToOne {
     @OneToOne(cascade = CascadeType.ALL)
     // whoever owns the foreign key column gets the @JoinColumn annotation.
     // so the owner in our case is the User class.
-    @JoinColumn(name="address_id")
+    @JoinColumn(name = "address_id")
     private AddressOneToOne address;
 
     public UserOneToOne() {

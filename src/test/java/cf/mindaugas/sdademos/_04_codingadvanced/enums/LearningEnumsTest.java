@@ -21,17 +21,17 @@ public class LearningEnumsTest {
     Pizza testPizza;
 
     @Before
-    public void setUp(){
+    public void setUp() {
         testPizza = new Pizza();
     }
 
     @After
-    public void teardown(){
+    public void teardown() {
         testPizza = null;
     }
 
     @Test
-    public void equalsEquals_givenStatusDelivered_printsStatusConditionally(){
+    public void equalsEquals_givenStatusDelivered_printsStatusConditionally() {
         // given
         testPizza.setStatus(Pizza.PizzaStatus.DELIVERED);
 
@@ -55,16 +55,17 @@ public class LearningEnumsTest {
 
     // then
     @Test(expected = NullPointerException.class)
-    public void dotEquals_givenPizzaStatusNotSet_throwsNPE(){
+    public void dotEquals_givenPizzaStatusNotSet_throwsNPE() {
         // given
 
         // when
-        if(testPizza.getStatus().equals(Pizza.PizzaStatus.READY)){}
+        if (testPizza.getStatus().equals(Pizza.PizzaStatus.READY)) {
+        }
     }
 
     @Test
     // EnumUsingSwitch
-    public void getDeliveryTimeInMinutes_givenOrderedStatus_returns30minutes(){
+    public void getDeliveryTimeInMinutes_givenOrderedStatus_returns30minutes() {
         // given
         testPizza.setStatus(Pizza.PizzaStatus.ORDERED);
 
@@ -114,14 +115,14 @@ public class LearningEnumsTest {
 //        }
 
         Pizza somePizza;
-        for(int i = 0; i < 20; i++){
+        for (int i = 0; i < 20; i++) {
             somePizza = new Pizza();
 
             // TASK :: decide of how to init a random status
             // #2nd implementation
-            if(i % 3 == 0)
+            if (i % 3 == 0)
                 somePizza.setStatus(Pizza.PizzaStatus.ORDERED);
-            else if(i % 3 == 1)
+            else if (i % 3 == 1)
                 somePizza.setStatus(Pizza.PizzaStatus.READY);
             else
                 somePizza.setStatus(Pizza.PizzaStatus.DELIVERED);
@@ -135,7 +136,7 @@ public class LearningEnumsTest {
 
         // then
         Assert.assertThat(filteredPizzas,
-                everyItem(status(anyOf(is(Pizza.PizzaStatus.ORDERED),is(Pizza.PizzaStatus.READY)))));
+                everyItem(status(anyOf(is(Pizza.PizzaStatus.ORDERED), is(Pizza.PizzaStatus.READY)))));
     }
 
     private FeatureMatcher<Pizza, Enum> status(Matcher<Enum> matcher) {
@@ -168,7 +169,7 @@ public class LearningEnumsTest {
         pzList.add(pz3);
         pzList.add(pz4);
 
-        EnumMap<Pizza.PizzaStatus,List<Pizza>> emap = Pizza.groupPizzaByStatus(pzList);
+        EnumMap<Pizza.PizzaStatus, List<Pizza>> emap = Pizza.groupPizzaByStatus(pzList);
         Assert.assertTrue(emap.get(Pizza.PizzaStatus.DELIVERED).size() == 1);
         Assert.assertTrue(emap.get(Pizza.PizzaStatus.ORDERED).size() == 2);
         Assert.assertTrue(emap.get(Pizza.PizzaStatus.READY).size() == 1);

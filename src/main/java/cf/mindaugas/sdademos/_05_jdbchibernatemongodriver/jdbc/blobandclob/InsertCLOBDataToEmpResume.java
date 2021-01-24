@@ -39,31 +39,31 @@ public class InsertCLOBDataToEmpResume {
     //             DELIMITER ;
     //     drop procedure AddNewEmployee;
 
-	public static void main(String[] args) throws SQLException, IOException {
+    public static void main(String[] args) throws SQLException, IOException {
 
-		Connection conn = DBUtil.getConnection(DBType.MYSQLDB);
-		PreparedStatement pstmt = null;
-		
-		String sql = "Update Employee set cv = ? where id = 4";
-		pstmt = conn.prepareStatement(sql);
-		
-		String resumeFile = ".\\target\\classes\\cv.txt";
+        Connection conn = DBUtil.getConnection(DBType.MYSQLDB);
+        PreparedStatement pstmt = null;
 
-		File file = new File(resumeFile);
-		FileReader reader = new FileReader(file);
+        String sql = "Update Employee set cv = ? where id = 4";
+        pstmt = conn.prepareStatement(sql);
 
-		pstmt.setCharacterStream(1, reader, (int)file.length());
-	
-		int rslt = pstmt.executeUpdate();
+        String resumeFile = ".\\target\\classes\\cv.txt";
 
-		// Remember .executeUpdate() returns an integer representing how many rows were updated
+        File file = new File(resumeFile);
+        FileReader reader = new FileReader(file);
+
+        pstmt.setCharacterStream(1, reader, (int) file.length());
+
+        int rslt = pstmt.executeUpdate();
+
+        // Remember .executeUpdate() returns an integer representing how many rows were updated
         // if you know there should always be at least one row that is being updated - inspect return val!
-		if(rslt > 0)
+        if (rslt > 0)
             System.out.println("Resume Updated Successfully...");
         else
             System.out.println("Nothing was updated");
 
-		pstmt.close();
-		conn.close();
-	}
+        pstmt.close();
+        conn.close();
+    }
 }

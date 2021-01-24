@@ -11,7 +11,7 @@ public class BookOneToMany {
     private String title;
 
     @ManyToOne
-    @JoinColumn(name="owner_id")
+    @JoinColumn(name = "owner_id")
     private UserOneToMany owner;
 
     public BookOneToMany(String title, UserOneToMany owner) {

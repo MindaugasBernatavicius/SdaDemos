@@ -54,9 +54,9 @@ class Lion extends Animal {
     @Override
     public String toString() {
         return '{' +
-                    "name=" + name +
-                    ", id=" + id +
-                    ", info=" + super.toString() +
+                "name=" + name +
+                ", id=" + id +
+                ", info=" + super.toString() +
                 '}';
     }
 }

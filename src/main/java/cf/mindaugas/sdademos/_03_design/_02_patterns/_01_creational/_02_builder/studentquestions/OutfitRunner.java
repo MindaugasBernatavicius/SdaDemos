@@ -10,8 +10,8 @@ public class OutfitRunner {
 
     public static void main(String[] args) {
         Outfit outfit = new Outfit
-                    .OutfitBuilder("", Outfit.Size.SMALL)
-                    .build();
+                .OutfitBuilder("", Outfit.Size.SMALL)
+                .build();
 
         System.out.println(outfit);
 

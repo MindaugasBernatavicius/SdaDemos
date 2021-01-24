@@ -21,7 +21,7 @@ public class _01_Iterator {
         names.add("Antanas");
 
         Iterator<String> namesItr = names.iterator();
-        while(namesItr.hasNext()) {
+        while (namesItr.hasNext()) {
             String name = namesItr.next();
             System.out.println(name);
             // namesItr.remove();

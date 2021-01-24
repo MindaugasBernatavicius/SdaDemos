@@ -2,5 +2,5 @@ package cf.mindaugas.sdademos._03_design._02_patterns._01_creational._01_abstrac
 
 public class AmexPlatinumCreditCard extends CreditCard {
 
-	
+
 }

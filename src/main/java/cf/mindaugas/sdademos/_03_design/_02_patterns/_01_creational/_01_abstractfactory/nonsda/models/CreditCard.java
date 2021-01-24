@@ -3,24 +3,24 @@ package cf.mindaugas.sdademos._03_design._02_patterns._01_creational._01_abstrac
 //AbstractProduct
 public abstract class CreditCard {
 
-	protected int cardNumberLength;
-	
-	protected int cscNumber;
+    protected int cardNumberLength;
 
-	public int getCardNumberLength() {
-		return cardNumberLength;
-	}
+    protected int cscNumber;
 
-	public void setCardNumberLength(int cardNumberLength) {
-		this.cardNumberLength = cardNumberLength;
-	}
+    public int getCardNumberLength() {
+        return cardNumberLength;
+    }
 
-	public int getCscNumber() {
-		return cscNumber;
-	}
+    public void setCardNumberLength(int cardNumberLength) {
+        this.cardNumberLength = cardNumberLength;
+    }
 
-	public void setCscNumber(int cscNumber) {
-		this.cscNumber = cscNumber;
-	}
-	
+    public int getCscNumber() {
+        return cscNumber;
+    }
+
+    public void setCscNumber(int cscNumber) {
+        this.cscNumber = cscNumber;
+    }
+
 }

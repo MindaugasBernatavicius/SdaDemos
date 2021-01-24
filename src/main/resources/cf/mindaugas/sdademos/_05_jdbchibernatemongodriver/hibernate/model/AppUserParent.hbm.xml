@@ -3,13 +3,14 @@
         "-//Hibernate/Hibernate Mapping DTD//EN"
         "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
-    <class name = "cf.mindaugas.sdademos._05_jdbchibernatemongodriver.hibernate.model.AppUserParent" table = "AppUserParent">
-        <meta attribute = "class-description">This class contains the AppUserParent detail.</meta>
-        <id name = "id" type = "long" column = "id">
+    <class name="cf.mindaugas.sdademos._05_jdbchibernatemongodriver.hibernate.model.AppUserParent"
+           table="AppUserParent">
+        <meta attribute="class-description">This class contains the AppUserParent detail.</meta>
+        <id name="id" type="long" column="id">
             <!-- GenerationType.IDENTITY -->
             <generator class="native"/>
         </id>
-        <property name = "name" column = "first_name" type = "string"/>
-        <property name = "surname" column = "last_name" type = "string"/>
+        <property name="name" column="first_name" type="string"/>
+        <property name="surname" column="last_name" type="string"/>
     </class>
 </hibernate-mapping>

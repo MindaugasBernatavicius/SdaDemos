@@ -8,7 +8,7 @@ import org.bson.Document;
 public class CreateRecord {
 
     public static void main(String[] args) {
-        MongoClient mongoClient = new MongoClient( "localhost" , 27017 );
+        MongoClient mongoClient = new MongoClient("localhost", 27017);
         System.out.println("OK!");
 
         MongoDatabase db = mongoClient.getDatabase("customer");
@@ -22,7 +22,7 @@ public class CreateRecord {
         document.append("dsf", new_cust.getName());
         document.append("surname", new_cust.getSurname());
 
-        try{
+        try {
             collection.insertOne(document);
         } catch (Exception ex) {
             System.out.println(ex);
@@ -39,7 +39,7 @@ public class CreateRecord {
         collection.insertMany(documentsList);*/
 
 
-       mongoClient.close();
+        mongoClient.close();
     }
 
 }

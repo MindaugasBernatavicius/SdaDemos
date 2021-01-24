@@ -39,13 +39,22 @@ public class ConnectionPoolingDemoMySQL {
 
 interface ConnectionPool {
     Connection getConnection() throws SQLException;
+
     boolean releaseConnection(Connection connection);
+
     List<Connection> getConnectionPool();
+
     int getSize();
+
     String getUrl();
+
     String getUser();
+
     String getPassword();
-    void shutdown() throws SQLException;;
+
+    void shutdown() throws SQLException;
+
+    ;
 }
 
 class BasicConnectionPool implements ConnectionPool {

@@ -2,11 +2,11 @@ package cf.mindaugas.sdademos._01_codingfundamentals.algorithms.simple_v2;
 
 public class _06_SecondSmallestInArray {
 
-    private static int getSecondSmallestNaive(int[] arr){
+    private static int getSecondSmallestNaive(int[] arr) {
         int min = arr[0];
         int secondMin = arr[0];
         for (int i = 0; i < arr.length; i++) {
-            if(arr[i] < min){
+            if (arr[i] < min) {
                 secondMin = min;
                 min = arr[i];
             }
@@ -14,11 +14,11 @@ public class _06_SecondSmallestInArray {
         return secondMin;
     }
 
-    private static int getSecondSmallest(int[] arr){
+    private static int getSecondSmallest(int[] arr) {
         int min = arr[0];
         int secondMin = arr[0];
         for (int i = 0; i < arr.length; i++) {
-            if(arr[i] < min){
+            if (arr[i] < min) {
                 secondMin = min;
                 min = arr[i];
             } else if (arr[i] < secondMin && arr[i] != min) {

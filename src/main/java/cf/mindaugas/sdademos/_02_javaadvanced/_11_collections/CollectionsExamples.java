@@ -15,26 +15,26 @@ public class CollectionsExamples {
 
         // 1. Adding elements to a collection
         System.out.println("Array List");
-        for(int i = 0; i < 100; i++){
+        for (int i = 0; i < 100; i++) {
             arrayListOfInts.add(rnd.nextInt(100));
         }
         System.out.println("Size: " + arrayListOfInts.size());
 
         System.out.println("Linked List");
-        for(int i = 0; i < 100; i++){
+        for (int i = 0; i < 100; i++) {
             linkedListOfInts.add(rnd.nextInt(100));
         }
         System.out.println("Size: " + linkedListOfInts.size());
 
         System.out.println("Set");
-        for(int i = 0; i < 100; i++){
+        for (int i = 0; i < 100; i++) {
             setOfInts.add(rnd.nextInt(100));
         }
         System.out.println("Size: " + setOfInts.size());
     }
 
     // 2. Removing elements from collections one by one
-    public static void removingOneByOne(){
+    public static void removingOneByOne() {
         List<Person> listForRemovalOfElement = new ArrayList<>();
         listForRemovalOfElement.add(new Person(44, "Mindaugas"));
         listForRemovalOfElement.add(new Person(22, "Jonas"));
@@ -43,12 +43,12 @@ public class CollectionsExamples {
         // listForRemovalOfElement.remove(0); // removing by index
 
         // enhanced for loop (foreach)
-        for(Person p : listForRemovalOfElement)
+        for (Person p : listForRemovalOfElement)
             System.out.println(p);
     }
 
     // 3. Adding many items from one collection to another at once
-    public static void addingInBulk(){
+    public static void addingInBulk() {
         List<Person> listForAddingInBulk = new ArrayList<>();
         listForAddingInBulk.add(new Person(44, "Mindaugas"));
         listForAddingInBulk.add(new Person(22, "Jonas"));
@@ -62,13 +62,13 @@ public class CollectionsExamples {
 
         listForAddingInBulk.addAll(listForAddingManyElements);
 
-        for(Person p : listForAddingInBulk)
+        for (Person p : listForAddingInBulk)
             System.out.println(p);
         System.out.println();
     }
 
     // 4. Adding items from List to Set
-    public static void addingFromListToSet(){
+    public static void addingFromListToSet() {
         List<Person> listForAddingInBulk = new ArrayList<>();
         listForAddingInBulk.add(new Person(44, "Mindaugas"));
         listForAddingInBulk.add(new Person(22, "Jonas")); // @62511
@@ -78,14 +78,14 @@ public class CollectionsExamples {
         // ... to be implemented by the T inside Set<T>
         Set<Person> setOfPeople = new HashSet<>();
         setOfPeople.addAll(listForAddingInBulk);
-        for(Person p : setOfPeople)
+        for (Person p : setOfPeople)
             System.out.println(p);
     }
 
     // 5. Removing in bulk (equality)
-    public static void removingInBulk(){
+    public static void removingInBulk() {
         System.out.println("---- Removing in bulk ----");
-        Set<String> arrset1 = new HashSet<String>(){{
+        Set<String> arrset1 = new HashSet<String>() {{
             add("Mindaugas");
             add("Pranas");
         }};
@@ -93,7 +93,7 @@ public class CollectionsExamples {
         System.out.println("Set before retainAll() operation : " + arrset1);
 
         // Creating another object of  Set
-        Set<String> arrset2 = new HashSet<String>(){{
+        Set<String> arrset2 = new HashSet<String>() {{
             add("Mindaugas");
         }};
 
@@ -110,20 +110,20 @@ public class CollectionsExamples {
     }
 
     // 6. Multidimensional collections
-    public static void multidimensionalLists(){
+    public static void multidimensionalLists() {
         System.out.println("---- Multidimensional collections ----");
 
-        List<Person> students = new ArrayList<Person>(){{
+        List<Person> students = new ArrayList<Person>() {{
             add(new Person(22, "Mindaugas"));
         }};
 
-        List<Person> teachers = new ArrayList<Person>(){{
+        List<Person> teachers = new ArrayList<Person>() {{
             add(new Person(44, "Petras"));
             add(new Person(42, "Antanas"));
         }};
 
         // Similar to 2D Array (2D List)
-        List<List<Person>> school = new ArrayList<List<Person>>(){{
+        List<List<Person>> school = new ArrayList<List<Person>>() {{
             add(students);
             add(teachers);
         }};
@@ -134,13 +134,13 @@ public class CollectionsExamples {
         // school.add(teachers);
 
         // ... using a simple enhanced for to iterate over a list
-        for(Person p : teachers){
+        for (Person p : teachers) {
             System.out.println(p);
         }
 
         // ... and we can iterate over 2D List
-        for (List<Person> people: school) {
-            for (Person person: people) {
+        for (List<Person> people : school) {
+            for (Person person : people) {
                 System.out.println(person);
             }
         }
@@ -157,28 +157,28 @@ public class CollectionsExamples {
         while (si.hasNext()) {
             // System.out.println(si.next() + " ");
             Iterator<Person> pi2 = si.next().iterator();
-            while(pi2.hasNext()){
-               System.out.println(pi2.next() + " ");
+            while (pi2.hasNext()) {
+                System.out.println(pi2.next() + " ");
             }
         }
     }
 
     // 7. Jagged Multidimensional Lists
-    public static void jaggedLists(){
+    public static void jaggedLists() {
         // ... we can also store unequal size arrays in the List (jagged lists)
         System.out.println("---- Unequal (jagged) arrays inside List ----");
-        List<String[]> listOfStringArrays = new ArrayList<String[]>(){{
+        List<String[]> listOfStringArrays = new ArrayList<String[]>() {{
             add(new String[]{"Mindaugas", "Jonas"});
             add(new String[]{"Petras", "Vaidas", "Sonata"});
         }};
 
-        for(String[] arr: listOfStringArrays){
+        for (String[] arr : listOfStringArrays) {
             System.out.println(Arrays.toString(arr));
         }
     }
 
     // 8. From lists to Arrays
-    public static void fromListsToArrays(){
+    public static void fromListsToArrays() {
         // 8. Converting collections to arrays (typed) : List-to-array
         System.out.println("---- Converting collections to arrays ----");
         // ... simple example
@@ -190,33 +190,33 @@ public class CollectionsExamples {
         String[] itemsArray = new String[itemList.size()];
         itemsArray = itemList.toArray(itemsArray);
 
-        for(String s : itemsArray)
+        for (String s : itemsArray)
             System.out.println(s);
 
         // ... more advanced example
-        List<String[]> listOfStringArrays = new ArrayList<String[]>(){{
+        List<String[]> listOfStringArrays = new ArrayList<String[]>() {{
             add(new String[]{"Mindaugas", "Jonas"});
             add(new String[]{"Petras", "Vaidas", "Sonata"});
         }};
         String[][] itemsArray2 = listOfStringArrays.toArray(new String[][]{});
 
-        for(String[] a: itemsArray2){
-            for(String s: a){
+        for (String[] a : itemsArray2) {
+            for (String s : a) {
                 System.out.println(s);
             }
         }
     }
 
     // 9. From arrays to lists
-    public static void fromArraysToLists(){
+    public static void fromArraysToLists() {
         System.out.println("---- Converting arrays to collections ----");
-        Integer[] spam = new Integer[]{ 1, 2, 3 };
+        Integer[] spam = new Integer[]{1, 2, 3};
         List<Integer> list = Arrays.asList(spam);
         System.out.println(list);
     }
 
     // 10. Sorting a collection of Strings
-    public static void sortingCollectionOfStrings(){
+    public static void sortingCollectionOfStrings() {
         // Sorting a collection
         List<String> al = new ArrayList<>();
         al.add("Geeks");
@@ -238,7 +238,7 @@ public class CollectionsExamples {
     }
 
     // 11. Searching a collection of String using inbuilt methods
-    public static void searchingACollectionOfStrings(){
+    public static void searchingACollectionOfStrings() {
         List<String> al = new ArrayList<>();
         al.add("Geeks");
         al.add("Friends");
@@ -250,7 +250,7 @@ public class CollectionsExamples {
     }
 
     // 12. Sorting a List of Strings in reverse order
-    public static void sortingStringsInReverse(){
+    public static void sortingStringsInReverse() {
         List<String> al = new ArrayList<>();
         al.add("Geeks");
         al.add("Friends");
@@ -267,7 +267,7 @@ public class CollectionsExamples {
 
     // 13. Sorting a List of custom objects (difference btw/
     // ... Collection.sort() and List.sort()
-    public static void sortingListofCustomObjects(){
+    public static void sortingListofCustomObjects() {
         List<Person> listForAddingInBulk = new ArrayList<>();
         listForAddingInBulk.add(new Person(44, "Mindaugas"));
         listForAddingInBulk.add(new Person(22, "Jonas"));
@@ -314,15 +314,15 @@ public class CollectionsExamples {
 
                 // return p1.getName().compareTo(p2.getName());
 
-                if(p1.getName().compareTo(p2.getName()) > 0) return 1;
-                else if(p1.getName().compareTo(p2.getName()) < 0) return -1;
+                if (p1.getName().compareTo(p2.getName()) > 0) return 1;
+                else if (p1.getName().compareTo(p2.getName()) < 0) return -1;
                 else return p1.getAge() - p2.getAge();
             }
         });
         System.out.println("After sorting: " + peopleImplementingComparator);
     }
 
-    public static void main(String[] args){
+    public static void main(String[] args) {
         // collectionAddAndIterate();
         // removingOneByOne();
         // addingInBulk();
@@ -334,7 +334,7 @@ public class CollectionsExamples {
         // fromArraysToLists();
         // sortingCollectionOfStrings();
         // searchingACollectionOfStrings();
-       // sortingStringsInReverse();
+        // sortingStringsInReverse();
         sortingListofCustomObjects();
     }
 }

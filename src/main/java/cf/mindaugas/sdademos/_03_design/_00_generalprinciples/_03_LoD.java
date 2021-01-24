@@ -36,19 +36,22 @@ class Human {
         this.age = age;
     }
 
-    public String getFirstName(){
+    public String getFirstName() {
         return this.name.getFirstName();
     }
 
     public Name getName() {
         return name;
     }
+
     public void setName(Name name) {
         name = name;
     }
+
     public int getAge() {
         return age;
     }
+
     public void setAge(int age) {
         this.age = age;
     }
@@ -75,6 +78,7 @@ class Name {
     public String getFirstName() {
         return firstName;
     }
+
     public void setFirstName(String firstName) {
         this.firstName = firstName;
     }
@@ -82,6 +86,7 @@ class Name {
     public String getMiddleName() {
         return middleName;
     }
+
     public void setMiddleName(String middleName) {
         this.middleName = middleName;
     }
@@ -89,6 +94,7 @@ class Name {
     public String getLastName() {
         return lastName;
     }
+
     public void setLastName(String lastName) {
         this.lastName = lastName;
     }

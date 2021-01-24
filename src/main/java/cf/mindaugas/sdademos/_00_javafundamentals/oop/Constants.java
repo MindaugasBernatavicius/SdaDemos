@@ -10,7 +10,7 @@ public class Constants {
 
 
     //Recommended way... declare and initialize together
-    static final String SECRET= "k^h$b{f@n%$#jlk098^%$#";
+    static final String SECRET = "k^h$b{f@n%$#jlk098^%$#";
     static final double PI = 3.141592653589793;
 
 

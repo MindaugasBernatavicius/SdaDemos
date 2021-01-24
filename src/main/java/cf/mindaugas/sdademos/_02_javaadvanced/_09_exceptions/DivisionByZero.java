@@ -16,9 +16,9 @@ public class DivisionByZero {
 
         // Calculator.divide(10, 0);
 
-        try{
+        try {
             System.out.println(Calculator.divide(10, 0));
-        } catch (Exception e){
+        } catch (Exception e) {
             System.err.println("Exception happended!");
         } // ... we can also do nothing
 
@@ -29,8 +29,8 @@ public class DivisionByZero {
 }
 
 class Calculator {
-    static double divide(int first, int second) throws Exception  {
-        if(second == 0)
+    static double divide(int first, int second) throws Exception {
+        if (second == 0)
             throw new Exception("Please don't divide by zero, m8!");
         return first / second;
     }

@@ -82,9 +82,11 @@ public class _03_GenericMethods {
 }
 
 class Customer {
-    Customer(String s, String ss) { }
+    Customer(String s, String ss) {
+    }
 }
 
 class Order {
-    Order(String s, Double d) { }
+    Order(String s, Double d) {
+    }
 }

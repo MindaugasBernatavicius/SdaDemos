@@ -23,7 +23,7 @@ public class _01_Serialization {
         try (
                 FileInputStream fileInputStream = new FileInputStream(new File("object_serialized.ser"));
                 ObjectInputStream objectInputStream = new ObjectInputStream(fileInputStream)
-            ) {
+        ) {
             person2 = (Person) objectInputStream.readObject();
             System.out.println(person2);
         } catch (FileNotFoundException e) {

@@ -2,7 +2,7 @@ package cf.mindaugas.sdademos._02_javaadvanced._03_polymorphism;
 
 public class PolymorphismVehicleTruckCar {
 
-    private static void printSpeedLimit(Vehicle vehicle){
+    private static void printSpeedLimit(Vehicle vehicle) {
         System.out.println(vehicle.getSpeedLimit());
     }
 
@@ -12,6 +12,7 @@ public class PolymorphismVehicleTruckCar {
 
         // Creating a polymorphic array
         Vehicle[] garage = {
+                new Vehicle(50),
                 new Truck(200),
                 new Car(250),
                 new Truck(180),
@@ -43,7 +44,7 @@ class Vehicle {
     }
 
     public void setSpeedLimit(int speedLimit) {
-        if(speedLimit < 0){
+        if (speedLimit < 0) {
             System.out.println("Speedlimit can not be below to zero");
         } else {
             this.speedLimit = speedLimit;

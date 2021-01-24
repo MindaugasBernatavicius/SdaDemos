@@ -20,11 +20,11 @@ public class _02_VehicleIO {
             FileReader reader = new FileReader(f);
             BufferedReader br = new BufferedReader(reader);
             String line;
-            while((line = br.readLine()) != null){
+            while ((line = br.readLine()) != null) {
                 // System.out.println(line);
                 cars.add(new Car(line.split(", ")[1]));
             }
-        } catch (IOException ex1){
+        } catch (IOException ex1) {
             ex1.printStackTrace();
         }
 

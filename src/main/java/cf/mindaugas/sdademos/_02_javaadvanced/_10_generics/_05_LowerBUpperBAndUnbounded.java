@@ -3,11 +3,12 @@ package cf.mindaugas.sdademos._02_javaadvanced._10_generics;
 import java.util.List;
 
 public class _05_LowerBUpperBAndUnbounded {
-    public static void main(String[] args) { }
+    public static void main(String[] args) {
+    }
 
     // Upper bounded wildcard
     // Read: everything that is a HumanBeing and below it
-    public <T extends HumanBeing> void doSomething(T param){
+    public <T extends HumanBeing> void doSomething(T param) {
         param.sayName("Mindaugas");
     }
 
@@ -24,10 +25,13 @@ public class _05_LowerBUpperBAndUnbounded {
 }
 
 class HumanBeing {
-    protected void sayName(String name){
+    protected void sayName(String name) {
         System.out.println(name);
     }
 }
 
-class Employee extends HumanBeing { }
-class Teacher extends Employee {}
+class Employee extends HumanBeing {
+}
+
+class Teacher extends Employee {
+}

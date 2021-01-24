@@ -4,9 +4,9 @@ public class _04_Synchronization {
     public static void main(String[] args) {
         // ... in this case result are unpredictable. We need synchronization
         Bench bench = new Bench(2); // creating bench with one free seat
-        SeatTakerThread seatTaker1 = new SeatTakerThread(bench);
-        SeatTakerThread seatTaker2 = new SeatTakerThread(bench);
-        SeatTakerThread seatTaker3 = new SeatTakerThread(bench);
+        SeatTakerThread seatTaker1 = new SeatTakerThread(bench); seatTaker1.setPriority(Thread.MAX_PRIORITY);
+        SeatTakerThread seatTaker2 = new SeatTakerThread(bench); seatTaker1.setPriority(Thread.NORM_PRIORITY);
+        SeatTakerThread seatTaker3 = new SeatTakerThread(bench); seatTaker1.setPriority(Thread.MIN_PRIORITY);
         seatTaker1.start();
         seatTaker2.start();
         seatTaker3.start();
@@ -15,16 +15,18 @@ public class _04_Synchronization {
 
 class SeatTakerThread extends Thread {
     private Bench bench;
+
     public SeatTakerThread(Bench bench) {
         this.bench = bench;
     }
+
     @Override
     public void run() {
         bench.takeASeat();
     }
 }
 
-// ... no sync
+// // ... no sync
 // class Bench {
 //    private int availableSeats;
 //    public Bench(int availableSeats) {
@@ -44,6 +46,7 @@ class SeatTakerThread extends Thread {
 // ... sync
 class Bench {
     private int availableSeats;
+
     public Bench(int availableSeats) {
         this.availableSeats = availableSeats;
     }
@@ -60,14 +63,14 @@ class Bench {
 
     public void takeASeat() {
         // sync only the critical part / critical execution block
-        // ... System.out.println("Unsynced part");
-        synchronized (this){
+        System.out.println("Unsynced part " + Thread.currentThread().getName());
+        synchronized (this) {
             if (availableSeats > 0) {
-                System.out.println("Taking a seat.");
+                System.out.println("Taking a seat." + Thread.currentThread().getName());
                 availableSeats--;
-                System.out.println("Free seats left " + availableSeats);
+                // System.out.println("Free seats left " + availableSeats);
             } else {
-                System.out.println("There are no available seats. :^(");
+                System.out.println("There are no available seats. :^( " + Thread.currentThread().getName());
             }
         }
     }

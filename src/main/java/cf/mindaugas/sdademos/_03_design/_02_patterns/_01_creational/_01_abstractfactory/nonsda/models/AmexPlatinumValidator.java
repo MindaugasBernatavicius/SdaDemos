@@ -2,10 +2,10 @@ package cf.mindaugas.sdademos._03_design._02_patterns._01_creational._01_abstrac
 
 public class AmexPlatinumValidator implements Validator {
 
-	@Override
-	public boolean isValid(CreditCard creditCard) {
-		
-		return false;
-	}
+    @Override
+    public boolean isValid(CreditCard creditCard) {
+
+        return false;
+    }
 
 }

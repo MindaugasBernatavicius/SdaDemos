@@ -6,15 +6,15 @@ import cf.mindaugas.sdademos._03_design._02_patterns._01_creational._01_abstract
 
 public class _02_AbstractFactoryDemo {
 
-	public static void main(String[] args) {
+    public static void main(String[] args) {
 
-	    // credit score being passed to the .getCreditCardFactory() method
-		CreditCardFactory abstractFactory = CreditCardFactory.getCreditCardFactory(775);
-		CreditCard card = abstractFactory.getCreditCard(CardType.PLATINUM);
-		System.out.println(card.getClass());
-		
-		abstractFactory = CreditCardFactory.getCreditCardFactory(600);
-		CreditCard card2 = abstractFactory.getCreditCard(CardType.GOLD);
-		System.out.println(card2.getClass());
-	}
+        // credit score being passed to the .getCreditCardFactory() method
+        CreditCardFactory abstractFactory = CreditCardFactory.getCreditCardFactory(775);
+        CreditCard card = abstractFactory.getCreditCard(CardType.PLATINUM);
+        System.out.println(card.getClass());
+
+        abstractFactory = CreditCardFactory.getCreditCardFactory(600);
+        CreditCard card2 = abstractFactory.getCreditCard(CardType.GOLD);
+        System.out.println(card2.getClass());
+    }
 }

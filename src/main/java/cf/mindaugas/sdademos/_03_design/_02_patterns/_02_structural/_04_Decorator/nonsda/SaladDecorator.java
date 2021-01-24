@@ -2,15 +2,15 @@ package cf.mindaugas.sdademos._03_design._02_patterns._02_structural._04_Decorat
 
 public class SaladDecorator extends SandwichDecorator {
 
-	public SaladDecorator(Sandwich customSandwich) {
-		super(customSandwich);
-	}
+    public SaladDecorator(Sandwich customSandwich) {
+        super(customSandwich);
+    }
 
-	public String make() {
-		return customSandwich.make() + addSalad();
-	}
+    public String make() {
+        return customSandwich.make() + addSalad();
+    }
 
-	private String addSalad() {
-		return " + salad";
-	}
+    private String addSalad() {
+        return " + salad";
+    }
 }

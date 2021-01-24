@@ -24,7 +24,7 @@ public class Contact {
     private Name name;
     private String notes;
     private URL website;
-    @Type(type="boolean")
+    @Type(type = "boolean")
     private boolean starred;
 
     public Contact(Integer id, Name name, String notes, URL website, boolean starred) {

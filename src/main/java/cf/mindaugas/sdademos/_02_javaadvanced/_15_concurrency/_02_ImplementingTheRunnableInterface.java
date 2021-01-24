@@ -11,6 +11,7 @@ public class _02_ImplementingTheRunnableInterface {
         System.out.println("Main thread ends");
     }
 }
+
 class StopWatchThreadWRunnable implements Runnable {
     @Override
     public void run() {

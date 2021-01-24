@@ -5,7 +5,7 @@ import java.util.List;
 
 public class Excercises {
 
-    public static void multiplicationTable(){
+    public static void multiplicationTable() {
 
         // ... initialize
         List<List<Integer>> multiplicationTable = new ArrayList<>();

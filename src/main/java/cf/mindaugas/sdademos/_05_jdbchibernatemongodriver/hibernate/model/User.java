@@ -17,14 +17,14 @@ import java.time.LocalDate;
 // <![CDATA[from Employee e where e.name = :name]]>
 // </query>
 @NamedQueries({
-    @NamedQuery(
-        name = "get_user_by_name",
-        query = "select u from User u where name = :name"
-    ),
-    @NamedQuery(
-            name = "get_user_by_name_fuzzy",
-            query = "select u from User u where name like :name"
-    )
+        @NamedQuery(
+                name = "get_user_by_name",
+                query = "select u from User u where name = :name"
+        ),
+        @NamedQuery(
+                name = "get_user_by_name_fuzzy",
+                query = "select u from User u where name like :name"
+        )
 })
 @Entity
 public class User {
@@ -40,14 +40,15 @@ public class User {
     private int height;
     private int age;
 
-    public User() {}
+    public User() {
+    }
 
-    public User(String name, String surname){
+    public User(String name, String surname) {
         this.name = name;
         this.surname = surname;
     }
 
-    public long getId(){
+    public long getId() {
         return this.id;
     }
 

@@ -2,10 +2,10 @@ console.log("External JS file is being executed");
 
 // https://www.mocky.io/ ... we can create custom responses
 // [{"name": "Mindaugas", "surname": "Smolinskas"}, {"name": "Jonas", "surname": "Jonaitis"}]
-$("#simple-json-button").click(function(){
+$("#simple-json-button").click(function () {
     $.ajax({
         url: "http://www.mocky.io/v2/5d026c4b3100002900ab2f7e",
-        success: function(result){
+        success: function (result) {
             console.log(result);
             console.log(JSON.stringify(result));
             $("#div1").html(JSON.stringify(result));
@@ -53,15 +53,15 @@ $("#simple-json-button").click(function(){
 // TODO :: let's break the second ajax call, so it would fail. And handle that failure gracefully (print error to the user).
 // ... what you will need for this is (1) know how to break the ajax and (2) how to handle ajax errors
 
-$("#table-from-json-button").click(function(){
+$("#table-from-json-button").click(function () {
     $.ajax({
         url: "http://www.mocky.io/v2/5d026c4b3100002900ab2f7e",
-        success: function(result){
+        success: function (result) {
             var table =
                 '<table border="1" style="margin: 10px 0px 10px 0px;">' +
                 '<thead><tr><th>No.</th><th>Name</th><th>Surname</th></tr></thead>' +
                 '<tbody>';
-            $.each(result, function(i, item) {
+            $.each(result, function (i, item) {
                 table += '<tr><td>' + ++i + '</td><td>' + item.name + '</td><td>' + item.surname + '</td></tr>';
             });
             table += '</tbody></table>';

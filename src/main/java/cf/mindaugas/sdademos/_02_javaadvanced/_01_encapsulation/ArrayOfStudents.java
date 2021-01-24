@@ -4,7 +4,7 @@ import java.text.DecimalFormat;
 
 public class ArrayOfStudents {
 
-    private static double calculateGradeAvg(Student student){
+    private static double calculateGradeAvg(Student student) {
         double sum = 0.0;
         for (int i = 0; i < student.getGrades().length; i++) {
             sum += student.getGrades()[i];

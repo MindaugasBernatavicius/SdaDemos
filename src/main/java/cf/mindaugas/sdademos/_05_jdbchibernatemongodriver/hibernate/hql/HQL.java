@@ -30,7 +30,7 @@ public class HQL {
     // 10. Aggregate methods
     // 11. Pagination
 
-    public static void runExample(){
+    public static void runExample() {
         StandardServiceRegistry registry = new StandardServiceRegistryBuilder().configure().build(); // Create registry
         MetadataSources sources = new MetadataSources(registry); // Create MetadataSources
         Metadata metadata = sources.getMetadataBuilder().build(); // Create Metadata
@@ -93,7 +93,7 @@ public class HQL {
     }
 
 
-    public static void runExampleJoins(){
+    public static void runExampleJoins() {
         StandardServiceRegistry registry = new StandardServiceRegistryBuilder().configure().build(); // Create registry
         MetadataSources sources = new MetadataSources(registry); // Create MetadataSources
         Metadata metadata = sources.getMetadataBuilder().build(); // Create Metadata
@@ -105,15 +105,15 @@ public class HQL {
         System.out.println("--------------- Joins: inserting data -----------------");
 
         UserWPhoneObject userWPhoneObject1 = new UserWPhoneObject("Mindaugas w/ Phone Obect", "Brazilka");
-        Phone cellPhone1 =  new Phone("+370 625 22259", PhoneType.MOBILE);
-        Phone officePhone1 =  new Phone("+37 251 999225", PhoneType.LAND_LINE);
+        Phone cellPhone1 = new Phone("+370 625 22259", PhoneType.MOBILE);
+        Phone officePhone1 = new Phone("+37 251 999225", PhoneType.LAND_LINE);
         userWPhoneObject1.getPhones().add(cellPhone1);
         userWPhoneObject1.getPhones().add(officePhone1);
         session.persist(userWPhoneObject1);
 
         UserWPhoneObject userWPhoneObject2 = new UserWPhoneObject("Jim", "Carrey");
-        Phone cellPhone2 =  new Phone("+111 625 22259", PhoneType.MOBILE);
-        Phone officePhone2 =  new Phone("+22 251 999225", PhoneType.MOBILE);
+        Phone cellPhone2 = new Phone("+111 625 22259", PhoneType.MOBILE);
+        Phone officePhone2 = new Phone("+22 251 999225", PhoneType.MOBILE);
         userWPhoneObject2.getPhones().add(cellPhone2);
         userWPhoneObject2.getPhones().add(officePhone2);
         session.persist(userWPhoneObject2);
@@ -121,7 +121,7 @@ public class HQL {
         transaction.commit();
 
         int secondsToSleep = 10;
-        System.out.println("----- Joins: done inserting, check the database, while I'm sleeping for " +  secondsToSleep + " seconds -----");
+        System.out.println("----- Joins: done inserting, check the database, while I'm sleeping for " + secondsToSleep + " seconds -----");
         try {
             Thread.sleep(secondsToSleep * 1000);
         } catch (InterruptedException e) {
@@ -129,16 +129,16 @@ public class HQL {
         }
 
         List<UserWPhoneObject> userWPhoneObjectList = session.createQuery(
-            "select distinct pwpo " +
-                "from UserWPhoneObject pwpo " +
-                "inner join pwpo.phones ph " +
-                "where ph.type = :phoneType", UserWPhoneObject.class)
-            .setParameter("phoneType", PhoneType.LAND_LINE)
-            .getResultList();
+                "select distinct pwpo " +
+                        "from UserWPhoneObject pwpo " +
+                        "inner join pwpo.phones ph " +
+                        "where ph.type = :phoneType", UserWPhoneObject.class)
+                .setParameter("phoneType", PhoneType.LAND_LINE)
+                .getResultList();
 
-        for (UserWPhoneObject u : userWPhoneObjectList){
+        for (UserWPhoneObject u : userWPhoneObjectList) {
             System.out.print("Name is: " + u.getName() + " ... and the phones are: ");
-            for(Phone p : u.getPhones()){
+            for (Phone p : u.getPhones()) {
                 System.out.print(p.getValue() + " ");
             }
             System.out.println();

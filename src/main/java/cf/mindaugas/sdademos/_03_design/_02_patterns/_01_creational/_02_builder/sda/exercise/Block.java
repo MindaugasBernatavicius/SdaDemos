@@ -71,4 +71,4 @@ public class Block {
     }
 }
 
-enum Color { WHITE }
+enum Color {WHITE}

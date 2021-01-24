@@ -19,14 +19,15 @@ public class UserWPhone {
     @ElementCollection
     private List<String> phones = new ArrayList<>();
 
-    public UserWPhone() {}
+    public UserWPhone() {
+    }
 
-    public UserWPhone(String name, String surname){
+    public UserWPhone(String name, String surname) {
         this.name = name;
         this.surname = surname;
     }
 
-    public long getId(){
+    public long getId() {
         return this.id;
     }
 

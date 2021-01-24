@@ -8,9 +8,10 @@ public class NaiveEagerSingleton {
     private String property;
 
     //private constructor to avoid client applications to use constructor
-    private NaiveEagerSingleton(){}
+    private NaiveEagerSingleton() {
+    }
 
-    public static NaiveEagerSingleton getInstance(){
+    public static NaiveEagerSingleton getInstance() {
         return instance;
     }
 

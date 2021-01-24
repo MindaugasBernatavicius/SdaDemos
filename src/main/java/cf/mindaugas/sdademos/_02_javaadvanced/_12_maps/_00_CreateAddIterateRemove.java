@@ -22,7 +22,7 @@ public class _00_CreateAddIterateRemove {
         System.out.println(synonyms.getOrDefault("grass", Arrays.asList("blah")));
 
         // ... iterating
-        for(Map.Entry<String, List<String>> pair : synonyms.entrySet()){
+        for (Map.Entry<String, List<String>> pair : synonyms.entrySet()) {
             // default formatting (printing the entire pair)
             System.out.println(pair);
             // if custom formatted is needed (printing what we need, key, value or both)

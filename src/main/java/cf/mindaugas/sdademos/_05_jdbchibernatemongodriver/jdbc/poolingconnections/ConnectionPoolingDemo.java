@@ -4,6 +4,7 @@ package cf.mindaugas.sdademos._05_jdbchibernatemongodriver.jdbc.poolingconnectio
 import oracle.jdbc.pool.OracleConnectionCache;
 import oracle.jdbc.pool.OracleDataSource;
 import oracle.jdbc.pool.OracleConnectionPoolDataSource;
+
 import javax.sql.PooledConnection;
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -12,7 +13,7 @@ import java.sql.Statement;
 
 public class ConnectionPoolingDemo {
 
-	public static void main(String[] args) throws SQLException, InterruptedException {
+    public static void main(String[] args) throws SQLException, InterruptedException {
 
         // Oracle
         // CREATE TABLE Employees (
@@ -29,15 +30,15 @@ public class ConnectionPoolingDemo {
         // https://www.oracle.com/technetwork/vasiliev-oracle-jdbc-090470.html
 
         // https://docs.oracle.com/cd/A91202_01/901_doc/java.901/a90211/connpoca.htm
-		OracleConnectionPoolDataSource ds = new OracleConnectionPoolDataSource();
+        OracleConnectionPoolDataSource ds = new OracleConnectionPoolDataSource();
 
 
-		ds.setDriverType("thin");
-		ds.setServerName("192.168.56.14");
-		ds.setPortNumber(1521);
-		ds.setServiceName("XE");
-		ds.setUser("SYSTEM");
-		ds.setPassword("root");
+        ds.setDriverType("thin");
+        ds.setServerName("192.168.56.14");
+        ds.setPortNumber(1521);
+        ds.setServiceName("XE");
+        ds.setUser("SYSTEM");
+        ds.setPassword("root");
 
 
         System.out.println("Cache props:" + ds.getConnectionCacheProperties());
@@ -63,7 +64,7 @@ public class ConnectionPoolingDemo {
         Statement stmt = null;
         ResultSet rs = null;
 
-		for(int i = 0; i < 5; i++) {
+        for (int i = 0; i < 5; i++) {
 
             Connection conn = pconn.getConnection();
             stmt = conn.createStatement();
@@ -77,9 +78,9 @@ public class ConnectionPoolingDemo {
 
             while (rs.next()) {
                 System.out.format(format,
-                    rs.getString("First_Name"),
-                    rs.getString("Last_Name"),
-                    rs.getString("Salary")
+                        rs.getString("First_Name"),
+                        rs.getString("Last_Name"),
+                        rs.getString("Salary")
                 );
             }
 
@@ -89,12 +90,12 @@ public class ConnectionPoolingDemo {
         // System.out.println("----- Check connection count now -----");
         // Thread.sleep(10000);
 
-        if(rs != null)
+        if (rs != null)
             rs.close();
         stmt.close();
-		// conn.close();
-		pconn.close();
-	}
+        // conn.close();
+        pconn.close();
+    }
 
 
 }

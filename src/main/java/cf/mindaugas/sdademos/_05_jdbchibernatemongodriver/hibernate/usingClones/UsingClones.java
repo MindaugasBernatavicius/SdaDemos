@@ -25,7 +25,7 @@ public class UsingClones {
 
         UserCloneable userCloneable2 = userCloneable.clone();
         System.out.println(userCloneable2.getName());
-        session.persist((UserCloneable)userCloneable2);
+        session.persist((UserCloneable) userCloneable2);
 
         transaction.commit();
         session.close();

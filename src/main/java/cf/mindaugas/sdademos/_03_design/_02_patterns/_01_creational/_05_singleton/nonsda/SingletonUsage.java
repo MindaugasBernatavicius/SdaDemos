@@ -50,7 +50,7 @@ public class SingletonUsage {
 //        System.out.println(naiveEagerSingleton2.getProperty());
     }
 
-    private void getSomething(){
+    private void getSomething() {
         System.out.println("aaa");
     }
 }

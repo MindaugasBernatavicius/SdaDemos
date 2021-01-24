@@ -3,6 +3,7 @@ package cf.mindaugas.sdademos._00_javafundamentals.regex;
 import java.util.regex.MatchResult;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+
 import static java.util.regex.Pattern.compile;
 
 public class PatternAndMatcher {
@@ -47,7 +48,7 @@ public class PatternAndMatcher {
         // get a matcher object
         Matcher matcher = pattern.matcher(INPUT);
 
-        if(matcher.find()) {
+        if (matcher.find()) {
             //get the MatchResult Object
             MatchResult result = matcher.toMatchResult();
 

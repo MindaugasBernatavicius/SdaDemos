@@ -43,7 +43,7 @@ public class _04_DynamicArrayExample {
 
         // ... need toString() in the DynamicGenericArray class for this to work
         // System.out.println(Arrays.toString(dGArr));
-        for(int i = 0; i < dGArr.length(); i++)
+        for (int i = 0; i < dGArr.length(); i++)
             System.out.print("{" + dGArr.getAt(i).getInitials() + "} ");
         System.out.println();
     }
@@ -74,9 +74,9 @@ class Person {
         this.surname = surname;
     }
 
-    public String getInitials(){
-        return (this.name.substring(0,1)
-                + this.surname.substring(0,1)).toUpperCase();
+    public String getInitials() {
+        return (this.name.substring(0, 1)
+                + this.surname.substring(0, 1)).toUpperCase();
     }
 }
 
@@ -87,15 +87,15 @@ class DynamicPersonArray {
     private int currentIdx;
     private Person[] array;
 
-    public DynamicPersonArray(int initialSize){
+    public DynamicPersonArray(int initialSize) {
         array = new Person[initialSize];
     }
 
-    public void add(Person p){
+    public void add(Person p) {
         // create a new array and assign to the name of the old one
-        if(currentIdx == array.length){
+        if (currentIdx == array.length) {
             Person[] tmpArray = new Person[array.length * 5];
-            for(int i = 0; i < array.length; i++)
+            for (int i = 0; i < array.length; i++)
                 tmpArray[i] = array[i];
             array = tmpArray;
             tmpArray = null;
@@ -105,29 +105,29 @@ class DynamicPersonArray {
         currentIdx++;
     }
 
-    public Person getAt(int idx){
+    public Person getAt(int idx) {
         return array[idx];
     }
 
-    public int length(){
+    public int length() {
         return currentIdx;
     }
 }
 
 // ... no type safety, but more DRY code
-class DynamicGenericArrayWithObject{
+class DynamicGenericArrayWithObject {
     private int currentIdx;
     private Object[] array;
 
-    public DynamicGenericArrayWithObject(int initialSize){
+    public DynamicGenericArrayWithObject(int initialSize) {
         array = new Object[initialSize];
     }
 
-    public void add(Object c){
+    public void add(Object c) {
         // create a new array and assign to the name of the old one
-        if(currentIdx == array.length){
+        if (currentIdx == array.length) {
             Object[] tmpArray = new Object[array.length * 2];
-            for(int i = 0; i < array.length; i++)
+            for (int i = 0; i < array.length; i++)
                 tmpArray[i] = array[i];
             array = tmpArray;
             tmpArray = null;
@@ -136,11 +136,11 @@ class DynamicGenericArrayWithObject{
         array[currentIdx++] = c; // ... then add an element
     }
 
-    public Object getAt(int idx){
+    public Object getAt(int idx) {
         return array[idx];
     }
 
-    public int length(){
+    public int length() {
         return currentIdx;
     }
 }
@@ -151,16 +151,16 @@ class DynamicGenericArray<T> {
     private T[] array;
 
     @SuppressWarnings("unchecked")
-    public DynamicGenericArray(int initialSize){
+    public DynamicGenericArray(int initialSize) {
         array = (T[]) new Object[initialSize];
     }
 
     @SuppressWarnings("unchecked")
-    public void add(T c){
+    public void add(T c) {
         // create a new array and assign to the name of the old one
-        if(currentIdx == array.length){
+        if (currentIdx == array.length) {
             T[] tmpArray = (T[]) new Object[array.length * 2];
-            for(int i = 0; i < array.length; i++)
+            for (int i = 0; i < array.length; i++)
                 tmpArray[i] = array[i];
             array = tmpArray;
             tmpArray = null;
@@ -169,11 +169,11 @@ class DynamicGenericArray<T> {
         array[currentIdx++] = c; // ... then add an element
     }
 
-    public T getAt(int idx){
+    public T getAt(int idx) {
         return array[idx];
     }
 
-    public int length(){
+    public int length() {
         return currentIdx;
     }
 }
@@ -184,15 +184,15 @@ class DynamicGenericArraySimpler<T> {
     private int currentIdx;
     private Object[] array;
 
-    public DynamicGenericArraySimpler(int initialSize){
+    public DynamicGenericArraySimpler(int initialSize) {
         array = new Object[initialSize];
     }
 
-    public void add(T c){
+    public void add(T c) {
         // create a new array and assign to the name of the old one
-        if(currentIdx == array.length){
+        if (currentIdx == array.length) {
             Object[] tmpArray = new Object[array.length * 2];
-            for(int i = 0; i < array.length; i++)
+            for (int i = 0; i < array.length; i++)
                 tmpArray[i] = array[i];
             array = tmpArray;
             tmpArray = null;
@@ -200,11 +200,11 @@ class DynamicGenericArraySimpler<T> {
         array[currentIdx++] = c; // ... then add an element
     }
 
-    public Object getAt(int idx){
+    public Object getAt(int idx) {
         return array[idx];
     }
 
-    public int length(){
+    public int length() {
         return currentIdx;
     }
 }

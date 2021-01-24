@@ -71,19 +71,20 @@ public class ExercisesWithConcurrency {
 class RClass implements Runnable {
     // 6
     private int i;
+
     // 5.
     public RClass(int i) {
         this.i = i;
     }
 
-    void modifyInt(){
+    void modifyInt() {
         this.i++;
     }
 
     @Override
     public void run() {
         // 7.
-        while (true){
+        while (true) {
             try {
                 // 1.
                 System.out.println("Hello " + i);
@@ -105,7 +106,7 @@ class EmployeeR implements Runnable {
 
     @Override
     public void run() {
-        while(true){
+        while (true) {
             try {
                 Thread.sleep(10000);
                 System.out.println(this.name + " I'm still working!");

@@ -24,7 +24,7 @@ public class StaticDemo {
     }
 }
 
-class CredentialManager{
+class CredentialManager {
     public static String username;
     public static String password;
 }

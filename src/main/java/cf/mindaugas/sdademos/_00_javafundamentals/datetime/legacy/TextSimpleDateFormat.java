@@ -13,7 +13,7 @@ public class TextSimpleDateFormat {
 
         formatter = new SimpleDateFormat("dd-M-yyyy hh:mm:ss");
         strDate = formatter.format(date);
-        System.out.println("Date Format with dd-M-yyyy hh:mm:ss : "+strDate);
+        System.out.println("Date Format with dd-M-yyyy hh:mm:ss : " + strDate);
 
         // formatter = new SimpleDateFormat("dd MMMM yyyy");
         // strDate = formatter.format(date);

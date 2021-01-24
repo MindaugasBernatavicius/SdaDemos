@@ -8,12 +8,13 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
-class BabyName{
+class BabyName {
     public int year;
     public String name;
     public float perc;
     public String sex;
-    public BabyName(int year, String name, float perc, String sex){
+
+    public BabyName(int year, String name, float perc, String sex) {
         this.year = year;
         this.name = name;
         this.perc = perc;

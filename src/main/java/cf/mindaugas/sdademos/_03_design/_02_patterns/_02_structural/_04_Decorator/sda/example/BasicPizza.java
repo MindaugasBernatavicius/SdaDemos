@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public final class BasicPizza implements Pizza {
     ArrayList<String> ingredients;
 
-    public BasicPizza(){
+    public BasicPizza() {
         ingredients = new ArrayList<>();
         addIngredients("Pizza dough");
         addIngredients("Tomato Sauce");

@@ -2,15 +2,15 @@ package cf.mindaugas.sdademos._03_design._02_patterns._02_structural._04_Decorat
 
 public class MeatDecorator extends SandwichDecorator {
 
-	public MeatDecorator(Sandwich customSandwich) {
-		super(customSandwich);
-	}
+    public MeatDecorator(Sandwich customSandwich) {
+        super(customSandwich);
+    }
 
-	public String make() {
-		return customSandwich.make() + addMeat();
-	}
+    public String make() {
+        return customSandwich.make() + addMeat();
+    }
 
-	private String addMeat() {
-		return " + turkey";
-	}
+    private String addMeat() {
+        return " + turkey";
+    }
 }

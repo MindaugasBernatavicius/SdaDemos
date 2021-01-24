@@ -54,7 +54,7 @@ public class _00_IO {
         try (BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(absoluteFile, true))) {
             String fileLine = "\nappended file line";
             bufferedWriter.write(fileLine);
-        } catch(IOException e) {
+        } catch (IOException e) {
             e.printStackTrace();
         }
 
@@ -89,18 +89,18 @@ public class _00_IO {
             while ((fileLine = bufferedReader2.readLine()) != null) {
                 String[] stringParts = fileLine.split(",");
                 for (int i = 0; i < stringParts.length; i++) {
-                    if(fileLine.split(",")[i] != null){
-                        if(i == 0){
+                    if (fileLine.split(",")[i] != null) {
+                        if (i == 0) {
                             id = fileLine.split(",")[i];
-                        } else if(i == 1){
+                        } else if (i == 1) {
                             name = fileLine.split(",")[i];
-                        } else if(i == 2) {
+                        } else if (i == 2) {
                             age = fileLine.split(",")[i];
                         }
                     }
                 }
 
-                if(!id.isEmpty() && !age.isEmpty()){
+                if (!id.isEmpty() && !age.isEmpty()) {
                     Human p = new Human(Integer.parseInt(id), name, Integer.parseInt(age));
                     people.add(p);
                 }
@@ -128,7 +128,7 @@ public class _00_IO {
     }
 }
 
-class Human implements Comparable<Human>{
+class Human implements Comparable<Human> {
     int id;
     String name;
     int age;

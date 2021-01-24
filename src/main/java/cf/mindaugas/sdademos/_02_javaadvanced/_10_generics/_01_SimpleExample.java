@@ -18,12 +18,15 @@ public class _01_SimpleExample {
 
 class GenericBox<T> {
     private T item;
+
     public GenericBox(T item) {
         this.item = item;
     }
+
     public void setItem(T item) {
         this.item = item;
     }
+
     public T getItem() {
         return item;
     }
@@ -32,12 +35,16 @@ class GenericBox<T> {
 
 class Truck {
     private String explosionSound = "BOOOOM!";
-    public Truck() { }
-    public void crash(){
+
+    public Truck() {
+    }
+
+    public void crash() {
         System.out.println(explosionSound);
     }
 }
 
-class Moped { }
+class Moped {
+}
 
 

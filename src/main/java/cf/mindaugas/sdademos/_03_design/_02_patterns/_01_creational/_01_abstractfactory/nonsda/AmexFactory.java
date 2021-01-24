@@ -4,30 +4,30 @@ import cf.mindaugas.sdademos._03_design._02_patterns._01_creational._01_abstract
 
 public class AmexFactory extends CreditCardFactory {
 
-	@Override
-	public CreditCard getCreditCard(CardType cardType) {
-		
-		switch (cardType) {
-			case GOLD:
-				return new AmexGoldCreditCard();
-			case PLATINUM:
-				return new AmexPlatinumCreditCard();
-			default:
-				break;
-		}
-		
-		return null;
-	}
+    @Override
+    public CreditCard getCreditCard(CardType cardType) {
 
-	@Override
-	public Validator getValidator(CardType cardType) {
-		
-		switch (cardType) {
-			case GOLD:
-				return new AmexGoldValidator();
-			case PLATINUM:
-				return new AmexPlatinumValidator();
-		}
-		return null;
-	}
+        switch (cardType) {
+            case GOLD:
+                return new AmexGoldCreditCard();
+            case PLATINUM:
+                return new AmexPlatinumCreditCard();
+            default:
+                break;
+        }
+
+        return null;
+    }
+
+    @Override
+    public Validator getValidator(CardType cardType) {
+
+        switch (cardType) {
+            case GOLD:
+                return new AmexGoldValidator();
+            case PLATINUM:
+                return new AmexPlatinumValidator();
+        }
+        return null;
+    }
 }

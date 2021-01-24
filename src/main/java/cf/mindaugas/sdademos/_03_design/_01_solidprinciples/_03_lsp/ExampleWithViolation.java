@@ -1,6 +1,7 @@
 package cf.mindaugas.sdademos._03_design._01_solidprinciples._03_lsp;
 
-public class ExampleWithViolation { }
+public class ExampleWithViolation {
+}
 
 class Shape {
     private Integer length;
@@ -14,6 +15,7 @@ class Shape {
     void setLength(Integer length) {
         this.length = length;
     }
+
     void setWidth(Integer width) {
         this.width = width;
     }

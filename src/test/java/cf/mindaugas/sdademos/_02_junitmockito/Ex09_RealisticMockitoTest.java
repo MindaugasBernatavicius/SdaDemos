@@ -15,10 +15,10 @@ public class Ex09_RealisticMockitoTest {
     public Service s;
 
     @Test
-    public void getNamesStartingWith__givenLetterMAndOneNameWithM__returnOneDoctor(){
+    public void getNamesStartingWith__givenLetterMAndOneNameWithM__returnOneDoctor() {
         // given
         Repository r = mock(Repository.class);
-        when(r.getAll()).thenReturn(new ArrayList<Person>(){{
+        when(r.getAll()).thenReturn(new ArrayList<Person>() {{
             add(new Person(55L, "Marius"));
             add(new Person(77L, "Peruvijus"));
         }});
@@ -67,9 +67,9 @@ class Person {
 }
 
 class Repository {
-    public List<Person> getAll(){
+    public List<Person> getAll() {
         // getting data from database
-        return new ArrayList<Person>(){{
+        return new ArrayList<Person>() {{
             add(new Person(1L, "Mindaugas"));
             add(new Person(3L, "Jonas"));
             add(new Person(4L, "Antanas"));
@@ -79,11 +79,12 @@ class Repository {
 
 class Service {
     private Repository r;
+
     public Service(Repository r) {
         this.r = r;
     }
 
-    public List<Person> getNamesStartingWith(String letter){
+    public List<Person> getNamesStartingWith(String letter) {
         return r.getAll().stream()
                 .filter(p -> p.getName().startsWith(letter))
                 .collect(Collectors.toList());

@@ -5,7 +5,8 @@ public class Swap {
     public static void main(String[] args) {
         // 0. - Creating a sequence of steps to swap a variable
         Integer first, second;
-        first = 1; second = 2;
+        first = 1;
+        second = 2;
 
 
         System.out.println("Before swaping first was: " + first + " second was: " + second);
@@ -30,14 +31,14 @@ public class Swap {
     // This is because in JAVA we pass by copy (that means we have a distinct copy of first and second
     // that is different from the first and second we had in the main() function. So the swap will
     // produce not results
-    public static void swap(Integer first, Integer second){
+    public static void swap(Integer first, Integer second) {
         Integer temp = second;
         second = first;
         first = temp;
     }
 
     // 2. Obscure code, not recommended to use:
-    public static int getItself(int itself, int dummy){
+    public static int getItself(int itself, int dummy) {
         return itself;
     }
 }

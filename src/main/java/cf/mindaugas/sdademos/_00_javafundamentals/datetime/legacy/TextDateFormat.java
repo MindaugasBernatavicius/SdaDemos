@@ -16,11 +16,11 @@ public class TextDateFormat {
         // 2)	Date parse(String source)throws ParseException	converts string into Date object.
         // 3)	static final DateFormat getTimeInstance()	returns time formatter with default formatting style for the default locale.
         dateToStr = DateFormat.getTimeInstance().format(currentDate);
-        System.out.println("Date Format using getTimeInstance(): "+ dateToStr);
+        System.out.println("Date Format using getTimeInstance(): " + dateToStr);
 
         // 4)	static final DateFormat getTimeInstance(int style)	returns time formatter with the given formatting style for the default locale.
         dateToStr = DateFormat.getTimeInstance(DateFormat.SHORT).format(currentDate);
-        System.out.println("Date Format using getTimeInstance(DateFormat.SHORT): "+ dateToStr);
+        System.out.println("Date Format using getTimeInstance(DateFormat.SHORT): " + dateToStr);
 
         // 5)	static final DateFormat getTimeInstance(int style, Locale locale)	returns time formatter with the given formatting style for the given locale.
         // 6)	static final DateFormat getDateInstance()	returns date formatter with default formatting style for the default locale.

@@ -1,63 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <title>Title</title>
-        <style>
-            input[type=text] {
-                min-width: 9%;
-                margin: 8px 0;
-                border: none;
-                <!--border-radius: 4px;-->
-                cursor: pointer;
-                border-bottom: solid;
-                border-color: #4CAF50;
-            }
-            input[type=submit] {
-                min-width: 9%;
-                background-color: #4CAF50;
-                color: white;
-                padding: 14px 20px;
-                margin: 8px 0;
-                border: none;
-                border: solid;
-                border-radius: 4px;
-                cursor: pointer;
-            }
-            .container {
-                position: absolute;
-                top: 40%;
-                margin-top: -50px;
-                left: 0;
-                width: 100%;
-            }
-            form {
-                text-align: center;
-                vertical-align: middle;
-                margin-left: auto;
-                margin-right: auto;
-                height: 100px;
-            }
-            /*// TODO :: abstract away the common elements from the top and bottom that apply to all emements (like the inputs above);*/
-            /*// TODO :: eliminate highlighting of selected form field;*/
-            /*// TODO :: push the labels to the left of the div;*/
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        input[type=text] {
+            min-width: 9%;
+            margin: 8px 0;
+            border: none;
+        <!-- border-radius: 4 px;
+        --> cursor: pointer;
+            border-bottom: solid;
+            border-color: #4CAF50;
+        }
 
-            /*// DONE :: center the form in the middle of the page;*/
-            /*// DONE :: make the elements not shrink when they smaller screens are used :: used min-width 9%, instread of width 9%;*/
-        </style>
-    </head>
-    <body>
-        <div class="container">
-            <!-- Submitting a form -->
-            <form action="http://localhost:4567/add-user-action" method="post">
-                <label>First name:</label><br>
-                <input type="text" name="firstname"><br>
-                <label>Initial:</label><br>
-                <input type="text" name="initial"><br>
-                <label>Email:</label><br>
-                <input type="text" name="email"><br>
-                <input type="submit" value="Submit">
-            </form>
-        </div>
-    </body>
+        input[type=submit] {
+            min-width: 9%;
+            background-color: #4CAF50;
+            color: white;
+            padding: 14px 20px;
+            margin: 8px 0;
+            border: none;
+            border: solid;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .container {
+            position: absolute;
+            top: 40%;
+            margin-top: -50px;
+            left: 0;
+            width: 100%;
+        }
+
+        form {
+            text-align: center;
+            vertical-align: middle;
+            margin-left: auto;
+            margin-right: auto;
+            height: 100px;
+        }
+
+        /*// TODO :: abstract away the common elements from the top and bottom that apply to all emements (like the inputs above);*/
+        /*// TODO :: eliminate highlighting of selected form field;*/
+        /*// TODO :: push the labels to the left of the div;*/
+
+        /*// DONE :: center the form in the middle of the page;*/
+        /*// DONE :: make the elements not shrink when they smaller screens are used :: used min-width 9%, instread of width 9%;*/
+    </style>
+</head>
+<body>
+<div class="container">
+    <!-- Submitting a form -->
+    <form action="http://localhost:4567/add-user-action" method="post">
+        <label>First name:</label><br>
+        <input type="text" name="firstname"><br>
+        <label>Initial:</label><br>
+        <input type="text" name="initial"><br>
+        <label>Email:</label><br>
+        <input type="text" name="email"><br>
+        <input type="submit" value="Submit">
+    </form>
+</div>
+</body>
 </html>

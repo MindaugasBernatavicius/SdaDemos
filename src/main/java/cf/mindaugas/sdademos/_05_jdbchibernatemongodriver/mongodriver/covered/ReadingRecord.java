@@ -13,7 +13,7 @@ public class ReadingRecord {
 
     public static void main(String[] args) {
 
-        MongoClient mongoClient = new MongoClient( "localhost" , 27017 );
+        MongoClient mongoClient = new MongoClient("localhost", 27017);
         System.out.println("OK!");
 
         MongoDatabase db = mongoClient.getDatabase("customer");
@@ -21,7 +21,7 @@ public class ReadingRecord {
         MongoCollection<Document> collection = db.getCollection("customerInfo");
 
         FindIterable<Document> iterable = collection.find();
-        for(Document d : iterable) {
+        for (Document d : iterable) {
             System.out.println(d);
             System.out.println(d.toJson());
             System.out.println(d.get("name"));
@@ -35,13 +35,12 @@ public class ReadingRecord {
         System.out.println(singleDoc.toJson());
         System.out.println("====================");
 
-    //============multiple
+        //============multiple
         FindIterable<Document> iterable2 = collection.find(gt("age", 10));
-        for(Document d : iterable2) {
+        for (Document d : iterable2) {
             System.out.println(d.get("name"));
             System.out.println(d.get("age"));
         }
-
 
 
         mongoClient.close();

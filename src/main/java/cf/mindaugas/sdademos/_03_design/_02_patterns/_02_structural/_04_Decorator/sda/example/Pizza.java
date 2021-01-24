@@ -2,5 +2,6 @@ package cf.mindaugas.sdademos._03_design._02_patterns._02_structural._04_Decorat
 
 public interface Pizza {
     public void addIngredients(String ingredient);
+
     public void printIngredients();
 }

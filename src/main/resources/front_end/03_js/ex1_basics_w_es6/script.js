@@ -20,7 +20,8 @@ console.log("Adding numbers: " + number1 + " + " + number2 + " = " + (number1 + 
 console.log(number3 + 0.1);
 
 
-console.log(""); console.log("__ TOPIC: BASIC OPERATORS __");
+console.log("");
+console.log("__ TOPIC: BASIC OPERATORS __");
 var boolean1 = true;
 var boolean2 = false;
 console.log(">>" + 1 % 2); // prints 1
@@ -30,8 +31,8 @@ console.log(">>" + (boolean1 && boolean2)); // prints what?
 var x = 5, y = 6, z = 7;
 
 var a = 10,
-  b   = 30,
-  c   = 90;
+    b = 30,
+    c = 90;
 
 
 // Keyword let
@@ -55,7 +56,7 @@ var a = 10,
 
 
 // Most convincing let vs. var explanation
-if(10 > 5){
+if (10 > 5) {
     let x = 10; // will not be able to use outside of if
     // var x = 10; // will be able reach outside of if
 }
@@ -71,12 +72,13 @@ console.log(5 == 5); // prints true
 console.log("5" == 5); // prints true
 console.log("5" === 5); // prints false (types differ)
 
-console.log(""); console.log("___ TOPIC: Conditionals ___");
+console.log("");
+console.log("___ TOPIC: Conditionals ___");
 
 var first = 10;
 var second = 20;
 //let second = 21; // error
-if(first > second){
+if (first > second) {
     console.log("First is bigger than second!");
 } else {
     // let second = 8; // but here we can redeclare because the scope changed
@@ -85,18 +87,20 @@ if(first > second){
 }
 
 
-console.log(""); console.log("___ TOPIC: Loops ___");
-for(var i = 0; i < 3; i++) {
+console.log("");
+console.log("___ TOPIC: Loops ___");
+for (var i = 0; i < 3; i++) {
     console.log("Inside for() loop, i is now:" + i);
 }
 
 var i = 0;
-while(i < 3) {
+while (i < 3) {
     console.log("Inside while() loop, i is now:" + i);
     i++;
 }
 
-console.log(""); console.log("___ TOPIC: Arrays ___");
+console.log("");
+console.log("___ TOPIC: Arrays ___");
 
 var myAwesomeArray = [1, 4, 7];
 // var myAwesomeArrayOfObjects = [{}, {}, {}];
@@ -105,7 +109,8 @@ console.log(myAwesomeArray[2]); // prints 7, since arrays are 0 based
 console.log(myAwesomeArray.length); // prints 3
 console.log(myAwesomeArray[myAwesomeArray.length - 1]); // gets the last element
 
-console.log(""); console.log("___ TOPIC: Array push() and pop() ___");
+console.log("");
+console.log("___ TOPIC: Array push() and pop() ___");
 myAwesomeArray.push(155); // arrays are dynamic so we can extend them with additional elements
 console.log(myAwesomeArray.length); // prints 5
 console.log(myAwesomeArray[myAwesomeArray.length - 1]); // gets the last element
@@ -149,7 +154,7 @@ var personel = [
 
 // Can we have an array of mixed datatypes?
 var mixedArray = ["A", 1, "Boo", true, ["Array", "Array"], {x: "y"}];
-for(var i = 0; i < mixedArray.length; i++) {
+for (var i = 0; i < mixedArray.length; i++) {
     console.log("Type of " + mixedArray[i] + " = " + (typeof mixedArray[i]));
 }
 
@@ -161,20 +166,22 @@ for(var i = 0; i < mixedArray.length; i++) {
 // Type of [object Object] = object
 
 // inserting / removing at random position with .splice()
-console.log(""); console.log("___ TOPIC: Arrays.splice() ___");
+console.log("");
+console.log("___ TOPIC: Arrays.splice() ___");
 mixedArray.splice(1, 5);
-for(var i = 0; i < mixedArray.length; i++) {
+for (var i = 0; i < mixedArray.length; i++) {
     console.log("Type of " + mixedArray[i] + " = " + (typeof mixedArray[i]));
 }
 
-console.log([0,1,2,3,4,5,6].splice(2,3));
+console.log([0, 1, 2, 3, 4, 5, 6].splice(2, 3));
 
-console.log(""); console.log("___ TOPIC: Array.filter() ___");
+console.log("");
+console.log("___ TOPIC: Array.filter() ___");
 // myArr.filter(func(){});
 var males = personel.filter(function (person) {
-        if (person.gender === "male")
-            return person;
-    });
+    if (person.gender === "male")
+        return person;
+});
 
 console.log("Male personnel:")
 console.log(males);
@@ -190,8 +197,8 @@ var avgMaleSalary = personel
             male.salary += 105;
         return male.salary;
         // reduce(function(total, amount, index, array){});
-    }).reduce(function(sum, salary, i, male){
-        if(i === male.length - 1){
+    }).reduce(function (sum, salary, i, male) {
+        if (i === male.length - 1) {
             sum += salary;
             return sum / male.length;
         }
@@ -201,14 +208,15 @@ var avgMaleSalary = personel
 console.log("Avg male salary: " + avgMaleSalary);
 
 // ES6 array destructuring
-console.log(""); console.log("___ TOPIC: Arrays destructuring ___");
-var introduction = ["Hello", "I" , "am", "Sarah"];
+console.log("");
+console.log("___ TOPIC: Arrays destructuring ___");
+var introduction = ["Hello", "I", "am", "Sarah"];
 var [greeting, pronoun, third] = introduction;
 
 // ... array spread
-const myArray = [`🤪`,`🐻`,`🎌`]
-const yourArray = [`🙂`,`🤗`,`🤩`]
-const ourArray = [...myArray,...yourArray]
+const myArray = [`🤪`, `🐻`, `🎌`]
+const yourArray = [`🙂`, `🤗`, `🤩`]
+const ourArray = [...myArray, ...yourArray]
 console.log(...ourArray);
 
 
@@ -224,13 +232,14 @@ console.log(greeting); // "Hello"
 console.log(pronoun); // "I"
 console.log(third); // "am"
 
-console.log(""); console.log("___ TOPIC: Functions ___");
+console.log("");
+console.log("___ TOPIC: Functions ___");
 
 // inbuilt functions:
 // https://www.w3schools.com/jsref/jsref_obj_global.asp
 
 // function declaration
-function myFunction(firstParam, secondParam){
+function myFunction(firstParam, secondParam) {
     return firstParam + secondParam;
 }
 
@@ -241,24 +250,28 @@ console.log(myFunction("a", "b"))
 // TODO :: varargs --> https://stackoverflow.com/questions/1959040/is-it-possible-to-send-a-variable-number-of-arguments-to-a-javascript-function
 
 // Default parameters to functions
-function greet_a_person(name = "Mindaugas"){
+function greet_a_person(name = "Mindaugas") {
     console.log("Hello " + name + "!");
 }
+
 greet_a_person("Bart");
 // greet_a_person();
 
 // Arrow functions
 // ES5
-var multiplyES5 = function(x, y) {
+var multiplyES5 = function (x, y) {
     return x * y;
 };
 
 // ES6
-const multiplyES6 = (x, y) => { return x * y };
+const multiplyES6 = (x, y) => {
+    return x * y
+};
 console.log(multiplyES6(4, 2));
 
 
-console.log(""); console.log("___ TOPIC: Objects ___");
+console.log("");
+console.log("___ TOPIC: Objects ___");
 // Object literal - one way to create objects
 var cat = {
     weight: 12.2,
@@ -292,7 +305,9 @@ console.log(Object.keys(cat));
 // ... we can also do it after we created them
 // ... this is very hard to do in java, but in
 // ... dynamically typed languages it is easy
-cat.speak = function(){ console.log("Meow!") };
+cat.speak = function () {
+    console.log("Meow!")
+};
 cat.speak();
 
 // Or we can add it to our object literal
@@ -308,7 +323,7 @@ cat.speak();
 // cat.speak(6);
 
 // Using constructor functions to create objects - the second way
-function Cat(name, color){
+function Cat(name, color) {
     this.name = name;
     this.color = color
 }
@@ -336,7 +351,7 @@ console.log(car.name);
 
 // Ecmascript6 Classes - the 4th way
 class Dog {
-    constructor(name, color){
+    constructor(name, color) {
         this.name = name
         this.color = color
     }
@@ -368,8 +383,8 @@ console.log(JSON.stringify(person))
 // getters and setters
 var person = {
     firstName: "John",
-    lastName : "Doe",
-    language : "",
+    lastName: "Doe",
+    language: "",
     get fullName() {
         console.log("Using getter");
         return this.firstName + " " + this.lastName;
@@ -385,7 +400,8 @@ var person = {
 console.log(person.fullName);
 person.lang = "LT";
 
-console.log(""); console.log("___ TOPIC: Inheritance ___");
+console.log("");
+console.log("___ TOPIC: Inheritance ___");
 
 // Javascript uses what is called PROTOTYPE based inheritance, or prototypical inheritance
 // ... do we use prototypes?
@@ -400,16 +416,20 @@ console.log(arr[arr.length - 1]);
 console.log(arr.last);
 
 // js arrays do not have a .last property, but since JS is dynamic we can add it
-Object.defineProperty(arr, 'last', {get: function(){
-    return this[this.length - 1]
-}});
+Object.defineProperty(arr, 'last', {
+    get: function () {
+        return this[this.length - 1]
+    }
+});
 
 console.log("Last property using assigned property: " + arr.last);
 
 // ... now, in order for all arrays to have this property we can add it to the array prototype
-Object.defineProperty(Array.prototype, 'last', {get: function(){
-    return this[this.length - 1]
-}});
+Object.defineProperty(Array.prototype, 'last', {
+    get: function () {
+        return this[this.length - 1]
+    }
+});
 
 var arr2 = ['red', 'green', 'blue'];
 console.log(arr2.last);
@@ -418,7 +438,7 @@ console.log(arr2.last);
 // var arr = [] is just a function and functions prototype is an object that will become a template
 // or prototype for all objects created using the function as a constructor
 
-function Kitty(name, color){
+function Kitty(name, color) {
     this.name = name;
     this.color = color;
 }
@@ -429,7 +449,7 @@ console.log(myKitty.__proto__);
 console.log(myKitty.__proto__ === Kitty.prototype);
 
 // adding properties to a functions from which objects are constructed prototype changes all the objects
-function Doggo(name){
+function Doggo(name) {
     this.name = name
 }
 
@@ -472,16 +492,17 @@ console.log(maylo.age);
 
 // we can acomplish the same using classes
 class Animal {
-    constructor(voice){
+    constructor(voice) {
         this.voice = voice || 'grunt'
     }
-    speak(){
+
+    speak() {
         return this.voice
     }
 }
 
 class Pooper extends Animal {
-    constructor(name, color){
+    constructor(name, color) {
         super('Woof Woof!');
         this.name = name;
         this.color = color;
@@ -491,7 +512,8 @@ class Pooper extends Animal {
 var riky = new Pooper('riky')
 console.log(riky.speak())
 
-console.log(""); console.log("___ TOPIC: Algorithms ___");
+console.log("");
+console.log("___ TOPIC: Algorithms ___");
 // because we have functions we can write encapsulated, reusable algorithms
 // for example: sort function that would sort objects returned from a backend
 // and render them on screen once they are sorted.
@@ -503,14 +525,14 @@ function bubbleSort(items) {
     var swapped = false;
     for (var i = 0; i < length; i++) {
         for (var j = 0; j < (length - i - 1); j++) {
-            if(items[j] > items[j+1]) {
+            if (items[j] > items[j + 1]) {
                 var tmp = items[j];
-                items[j] = items[j+1];
-                items[j+1] = tmp;
+                items[j] = items[j + 1];
+                items[j + 1] = tmp;
                 swapped = true;
             }
         }
-        if(!swapped)
+        if (!swapped)
             break;
     }
 }
@@ -525,7 +547,8 @@ console.log("After:\t" + a);
 // ... sort that array
 // ... populate html table
 
-console.log(""); console.log("___ TOPIC: Design patterns ___");
+console.log("");
+console.log("___ TOPIC: Design patterns ___");
 
 var Singleton = (function () {
     var instance;

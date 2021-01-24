@@ -2,7 +2,7 @@ package cf.mindaugas.sdademos._02_javaadvanced._05_enums;
 
 public class PlanetsExercise {
     public static void main(String[] args) {
-        for(Planets planet : Planets.values())
+        for (Planets planet : Planets.values())
             System.out.println(planet);
     }
 }
@@ -41,7 +41,7 @@ enum Planets {
 
     @Override
     public String toString() {
-        if(this.diameter < Sizes.Normal.size)
+        if (this.diameter < Sizes.Normal.size)
             return Sizes.Small + " " + this.name();
         else if (diameter < Sizes.Large.size)
             return Sizes.Normal + " " + this.name();
@@ -60,8 +60,8 @@ enum Planets2 {
     Mars("Small", 227.9),
     Jupiter("Huge", 778.3),
     Saturn("Huge", 1427.0),
-    Uranus("Huge",2871.0),
-    Neptune("Huge",4497.1);
+    Uranus("Huge", 2871.0),
+    Neptune("Huge", 4497.1);
 
     private String size;
     private double distInMillionsKm;
@@ -71,7 +71,7 @@ enum Planets2 {
         this.distInMillionsKm = distInMillionsKm;
     }
 
-    public double distanceToEarth(){
+    public double distanceToEarth() {
         return this.distInMillionsKm;
     }
 

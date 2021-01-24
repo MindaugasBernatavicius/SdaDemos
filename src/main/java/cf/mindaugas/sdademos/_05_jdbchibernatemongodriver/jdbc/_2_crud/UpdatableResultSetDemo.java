@@ -24,30 +24,30 @@ public class UpdatableResultSetDemo {
 // 	INSERT INTO jdbcdemo.department (Department_Id, Department_Name, Manager_Id, Location_Id) VALUES (2, 'Dep2', 1, 1);
 // 	INSERT INTO jdbcdemo.department (Department_Id, Department_Name, Manager_Id, Location_Id) VALUES (3, 'Dep3', 9, 1);
 
-	public static void main(String[] args) throws SQLException{
+    public static void main(String[] args) throws SQLException {
 
-		try(
-            Connection conn = DBUtil.getConnection(DBType.MYSQLDB);
-            // CONCUR_UPDATABLE: The ResultSet object can be updated using the ResultSet interface. The default ResultSet concurrency is CONCUR_READ_ONLY.
-            Statement stmt = conn.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_UPDATABLE);
-            ResultSet rs = stmt.executeQuery("Select Department_Id, Department_Name, Manager_Id, Location_Id from Department");
-		){
-			// UPDATE
-			rs.absolute(3);
-			rs.updateString("Department_Name", "Information Technology");
-			rs.updateRow();
-			System.out.println("Record Updated Successfully");
+        try (
+                Connection conn = DBUtil.getConnection(DBType.MYSQLDB);
+                // CONCUR_UPDATABLE: The ResultSet object can be updated using the ResultSet interface. The default ResultSet concurrency is CONCUR_READ_ONLY.
+                Statement stmt = conn.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_UPDATABLE);
+                ResultSet rs = stmt.executeQuery("Select Department_Id, Department_Name, Manager_Id, Location_Id from Department");
+        ) {
+            // UPDATE
+            rs.absolute(3);
+            rs.updateString("Department_Name", "Information Technology");
+            rs.updateRow();
+            System.out.println("Record Updated Successfully");
 
-			// INSERT NEW
-			rs.moveToInsertRow();
-			rs.updateInt("Department_Id", 999);
-			rs.updateString("Department_Name", "Training");
-			rs.updateInt("Manager_Id", 200);
-			rs.updateInt("Location_Id", 1800);
-			rs.insertRow();
-			System.out.println("Record Inserted Successfully");
-		} catch(SQLException ex){
-			DBUtil.showErrorMessage(ex);
-		}
-	}
+            // INSERT NEW
+            rs.moveToInsertRow();
+            rs.updateInt("Department_Id", 999);
+            rs.updateString("Department_Name", "Training");
+            rs.updateInt("Manager_Id", 200);
+            rs.updateInt("Location_Id", 1800);
+            rs.insertRow();
+            System.out.println("Record Inserted Successfully");
+        } catch (SQLException ex) {
+            DBUtil.showErrorMessage(ex);
+        }
+    }
 }

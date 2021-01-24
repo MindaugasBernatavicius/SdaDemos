@@ -7,31 +7,31 @@ import java.util.logging.Logger;
 
 public class _01_ChainOfResponsibilityEverydayDemo {
 
-	private static final Logger logger = Logger
-			.getLogger(_01_ChainOfResponsibilityEverydayDemo.class.getName());
-	
-	public static void main(String[] args) {
-		//level to log at
-		logger.setLevel(Level.FINER);
-		
-		ConsoleHandler handler = new ConsoleHandler();
-		//level to publish at
-		handler.setLevel(Level.FINER);
-		logger.addHandler(handler);
+    private static final Logger logger = Logger
+            .getLogger(_01_ChainOfResponsibilityEverydayDemo.class.getName());
 
-		ConsoleHandler handler2 = new ConsoleHandler();
-		handler2.setLevel(Level.FINEST);
-		logger.addHandler(handler2);
+    public static void main(String[] args) {
+        //level to log at
+        logger.setLevel(Level.FINER);
 
-		// TODO :: http://tutorials.jenkov.com/java-logging/handlers.html
+        ConsoleHandler handler = new ConsoleHandler();
+        //level to publish at
+        handler.setLevel(Level.FINER);
+        logger.addHandler(handler);
 
-		//this one won't print since we don't have handler for this level of logging
-		// logger.finest("Finest level of logging"); // this will not print
-		logger.finer("Finer level, but not as fine as finest");
-		// logger.fine("Fine, but not as fine as finer or finest");
+        ConsoleHandler handler2 = new ConsoleHandler();
+        handler2.setLevel(Level.FINEST);
+        logger.addHandler(handler2);
 
-		// Fine message will be handled by all handlers
-		// Finer - by finer and finest handlers
-		// Finest - by only finest
-	}
+        // TODO :: http://tutorials.jenkov.com/java-logging/handlers.html
+
+        //this one won't print since we don't have handler for this level of logging
+        // logger.finest("Finest level of logging"); // this will not print
+        logger.finer("Finer level, but not as fine as finest");
+        // logger.fine("Fine, but not as fine as finer or finest");
+
+        // Fine message will be handled by all handlers
+        // Finer - by finer and finest handlers
+        // Finest - by only finest
+    }
 }

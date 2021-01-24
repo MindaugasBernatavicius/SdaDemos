@@ -2,7 +2,8 @@ package cf.mindaugas.sdademos._03_design._01_solidprinciples._02_ocp;
 
 
 // This example does not execute any code, it's just structure
-public class Example { }
+public class Example {
+}
 
 // 0. We have only Rectangle class and AreaCalculator for that Rectangle
 // class Rectangle {
@@ -22,12 +23,12 @@ public class Example { }
 // }
 
 class AreaCalculator {
-   public double calculateRectangleArea(Rectangle rectangle){
-       return rectangle.length * rectangle.width;
-   }
-   // public double calculateCircleArea(Circle circle){
-   //     return (22/7) * circle.radius * circle.radius;
-   // }
+    public double calculateRectangleArea(Rectangle rectangle) {
+        return rectangle.length * rectangle.width;
+    }
+    // public double calculateCircleArea(Circle circle){
+    //     return (22/7) * circle.radius * circle.radius;
+    // }
 }
 
 ///////////////////////////////////////////////
@@ -43,7 +44,8 @@ interface Shape {
 class Rectangle implements Shape {
     double length;
     double width;
-    public double calculateArea(){
+
+    public double calculateArea() {
         return length * width;
     }
 }
@@ -51,9 +53,10 @@ class Rectangle implements Shape {
 class Circle implements Shape {
     // private static final double PI = 22/7;
     public double radius;
-    public double calculateArea(){
+
+    public double calculateArea() {
         // DON'T USE MAGIC CONSTANTS, use a named constant (see above)
-        return (22/7) * radius * radius; // pi * r^2
+        return (22 / 7) * radius * radius; // pi * r^2
     }
 }
 
@@ -72,9 +75,9 @@ class Circle implements Shape {
 ///////////////////////////////////////////////
 
 class AreaCalculatorWithCircle extends AreaCalculator {
-   public double calculateCircleArea(Circle circle){
-       return (22/7) * circle.radius * circle.radius;
-   }
+    public double calculateCircleArea(Circle circle) {
+        return (22 / 7) * circle.radius * circle.radius;
+    }
 }
 
 

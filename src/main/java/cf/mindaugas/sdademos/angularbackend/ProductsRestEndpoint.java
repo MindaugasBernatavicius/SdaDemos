@@ -32,7 +32,10 @@ public class ProductsRestEndpoint {
         ));
 
         // allowing the pre-flight request
-        options("/*", (req, res) -> { res.status(200); return "OK"; });
+        options("/*", (req, res) -> {
+            res.status(200);
+            return "OK";
+        });
 
         // update existing product
         put("/products/:id", (req, res) -> {

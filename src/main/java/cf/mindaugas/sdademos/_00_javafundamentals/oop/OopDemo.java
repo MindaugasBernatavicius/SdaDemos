@@ -20,7 +20,7 @@ class Engine {
     int horsepower;
     double displacement;
 
-    public Engine(int hp, double displ){
+    public Engine(int hp, double displ) {
         this.horsepower = hp;
         this.displacement = displ;
     }

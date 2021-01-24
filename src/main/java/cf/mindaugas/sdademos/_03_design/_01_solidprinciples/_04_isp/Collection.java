@@ -2,10 +2,15 @@ package cf.mindaugas.sdademos._03_design._01_solidprinciples._04_isp;
 
 public interface Collection {
     void init();
+
     void get();
+
     void add();
+
     void addSeveral();
+
     void remove();
+
     void removeAll();
 }
 
@@ -15,17 +20,21 @@ public interface Collection {
 
 interface ImmutableCollection {
     void init();
+
     void get();
 }
 
 interface MutableCollection extends ImmutableCollection {
     void add();
+
     void addSeveral();
+
     void remove(); // remove(); does not fit for immutable collections this interface might be too broad
+
     void removeAll(); // removeAll(); does not fit for immutable collections this interface might be too broad
 }
 
-class ImmutableArrayList implements ImmutableCollection{
+class ImmutableArrayList implements ImmutableCollection {
     @Override
     public void init() {
 

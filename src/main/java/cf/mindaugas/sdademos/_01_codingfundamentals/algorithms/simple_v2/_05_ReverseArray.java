@@ -5,16 +5,16 @@ import java.util.Arrays;
 public class _05_ReverseArray {
 
     // naive / simple way
-    private static int[] reverseBruteForce(int[] originalArr){
+    private static int[] reverseBruteForce(int[] originalArr) {
         int[] reversedArr = new int[originalArr.length];
-        for(int i = 0; i < originalArr.length; i++)
+        for (int i = 0; i < originalArr.length; i++)
             reversedArr[i] = originalArr[originalArr.length - 1 - i];
         return reversedArr;
     }
 
     // faster and requires less memory, but harder to read
-    private static int[] reverseMoreEfficient(int[] originalArr){
-        for(int i = 0; i < originalArr.length / 2; i++){
+    private static int[] reverseMoreEfficient(int[] originalArr) {
+        for (int i = 0; i < originalArr.length / 2; i++) {
             int temp = originalArr[originalArr.length - 1 - i];
             originalArr[originalArr.length - 1 - i] = originalArr[i];
             originalArr[i] = temp;

@@ -7,7 +7,7 @@ import java.util.List;
 public class _05_SortedMapFilterReduce {
     public static void main(String[] args) {
 
-        List<PersonForStreams> people = new ArrayList<PersonForStreams>(){{
+        List<PersonForStreams> people = new ArrayList<PersonForStreams>() {{
             add(new PersonForStreams(15, "Thomas"));
             add(new PersonForStreams(22, "Mindaugas"));
             add(new PersonForStreams(5, "Thomas"));
@@ -33,7 +33,7 @@ public class _05_SortedMapFilterReduce {
 
         System.out.println("---- calculating average ----");
         double averageAge = people.stream()
-                .mapToInt(p-> p.getAge())
+                .mapToInt(p -> p.getAge())
                 .average()
                 .getAsDouble();
 
@@ -63,12 +63,15 @@ class PersonForStreams {
     public int getAge() {
         return age;
     }
+
     public void setAge(int age) {
         this.age = age;
     }
+
     public String getName() {
         return name;
     }
+
     public void setName(String name) {
         this.name = name;
     }

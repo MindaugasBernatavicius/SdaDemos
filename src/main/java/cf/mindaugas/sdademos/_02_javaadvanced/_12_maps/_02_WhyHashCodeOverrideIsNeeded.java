@@ -24,7 +24,7 @@ public class _02_WhyHashCodeOverrideIsNeeded {
         // System.out.println("HashSet contains Alex = " + studentsSet.contains(new Student(1, "Alex")));
 
         // 2. Map example
-        Map<Student,Student> studentToBestFriendMap = new HashMap<>();
+        Map<Student, Student> studentToBestFriendMap = new HashMap<>();
         studentToBestFriendMap.put(new Student(1, "Alex"), new Student(2, "Jonas"));
         studentToBestFriendMap.put(new Student(3, "Pranas"), new Student(4, "Mindaugas"));
 

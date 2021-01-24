@@ -13,7 +13,7 @@ public class Book {
     private String title;
 
     @ManyToOne
-    @JoinColumn(name="owner_id")
+    @JoinColumn(name = "owner_id")
     private LibraryUser owner;
 
     public Book(long id, String title) {

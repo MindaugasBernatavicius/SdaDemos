@@ -4,7 +4,7 @@ import java.util.function.Function;
 
 public class _02_FunctionInterface {
 
-    public static int calcSomething(Integer[] array, Function<Integer[], Integer> summarizer){
+    public static int calcSomething(Integer[] array, Function<Integer[], Integer> summarizer) {
         // ... more logic
         return summarizer.apply(array);
     }

@@ -47,9 +47,9 @@ public class RestApi {
             System.out.println("Called with:" + req.params(":name"));
             // Creating the filter
             String pattern = "(Microsoft).+?";
-            if((req.params(":name")).toLowerCase().matches(pattern))
+            if ((req.params(":name")).toLowerCase().matches(pattern))
                 return "Bad boy!";
-            return "Hello, "+ req.params(":name");
+            return "Hello, " + req.params(":name");
         });
 
         post("/hello-content-type", (request, response) -> {
@@ -63,7 +63,7 @@ public class RestApi {
             //     return "Failure";
 
             // 2.
-            if(!request.headers("content-type").equals("application/json"))
+            if (!request.headers("content-type").equals("application/json"))
                 return "Failure";
             return "Success";
         });
@@ -86,7 +86,7 @@ public class RestApi {
         get("/users", (request, response) -> {
             response.type("application/hal+json");
             List<String> links;
-            for (User user: users) {
+            for (User user : users) {
                 links = new ArrayList();
                 links.add(request.url() + "/" + user.getId());
                 user.setLinks(links);
@@ -104,8 +104,8 @@ public class RestApi {
         get("/users/:id", (request, response) -> {
             response.type("application/hal+json");
             User userToReturn = null;
-            for(User user : users){
-                if(user.getId() == Integer
+            for (User user : users) {
+                if (user.getId() == Integer
                         .parseInt(request.params(":id"))) {
                     userToReturn = user;
                     break;
@@ -133,13 +133,13 @@ public class RestApi {
         delete("/users/:id", (request, response) -> {
             response.type("application/hal+json");
             User userToDelete = null;
-            for(User user : users){
-                if(user.getId() == Integer.parseInt(request.params(":id"))) {
+            for (User user : users) {
+                if (user.getId() == Integer.parseInt(request.params(":id"))) {
                     userToDelete = user;
                     break;
                 }
             }
-            if(userToDelete != null){
+            if (userToDelete != null) {
                 users.remove(userToDelete);
                 return "{\"status\": \"success\"}";
             } else {

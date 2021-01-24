@@ -25,11 +25,11 @@ class HumanBeing {
         this.name = name;
     }
 
-    public void changeLegCount(int legC){
+    public void changeLegCount(int legC) {
         legCount = legC;
     }
 
-    static int getStaticLegCount(){
+    static int getStaticLegCount() {
         return legCount;
     }
 }

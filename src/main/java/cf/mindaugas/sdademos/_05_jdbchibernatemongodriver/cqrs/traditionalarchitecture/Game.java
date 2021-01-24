@@ -11,7 +11,7 @@ public class Game {
     private Duration timeLeft;
     private List<Goal> goals = new ArrayList();
 
-    public Game(int initialGameDuration){
+    public Game(int initialGameDuration) {
         this.initGameDurationMinutes = initialGameDuration;
     }
 
@@ -19,12 +19,15 @@ public class Game {
         timeLeft = Duration.ofMinutes(initGameDurationMinutes);
         return this;
     }
+
     public Game finish() {
         return this;
     }
+
     public Game period() {
         return this;
     }
+
     public Game extendTime(int minutes, int seconds) {
         timeLeft.plusMinutes(minutes);
         timeLeft.plusSeconds(seconds);

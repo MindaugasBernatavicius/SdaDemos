@@ -28,7 +28,7 @@ class Vehicle {
     }
 
     public void setSpeedLimit(int speedLimit) {
-        if(speedLimit < 0){
+        if (speedLimit < 0) {
             System.out.println("Speedlimit can not be below to zero");
         } else {
             this.speedLimit = speedLimit;

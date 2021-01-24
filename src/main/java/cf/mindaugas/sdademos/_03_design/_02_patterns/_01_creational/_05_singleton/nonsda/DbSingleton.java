@@ -16,19 +16,19 @@ public class DbSingleton {
             e.printStackTrace();
         }
 
-        if(conn != null) {
+        if (conn != null) {
             throw new RuntimeException("Use getConnection() method to create");
         }
 
-        if(instance != null) {
+        if (instance != null) {
             throw new RuntimeException("Use getInstance() method to create");
         }
     }
 
     public static DbSingleton getInstance() {
-        if(instance == null) {
-            synchronized(DbSingleton.class) {
-                if(instance == null) {
+        if (instance == null) {
+            synchronized (DbSingleton.class) {
+                if (instance == null) {
                     instance = new DbSingleton();
                 }
             }
@@ -38,9 +38,9 @@ public class DbSingleton {
     }
 
     public Connection getConnection() {
-        if(conn == null) {
+        if (conn == null) {
             synchronized (DbSingleton.class) {
-                if(conn == null) {
+                if (conn == null) {
                     try {
                         String dbUrl = "jdbc:derby:memory:codejava/webdb;create=true";
                         conn = DriverManager.getConnection(dbUrl);

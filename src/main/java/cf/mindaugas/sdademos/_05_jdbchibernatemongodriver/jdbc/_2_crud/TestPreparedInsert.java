@@ -23,54 +23,53 @@ public class TestPreparedInsert {
 //
 // 	SELECT * FROM Employee;
 
-	public static void main(String[] args) throws SQLException  {
-		 Connection conn = DBUtil.getConnection(DBType.MYSQLDB);
-		 
-		 int empno;
-		 String ename,email;
-		 Date hiredate;
-		 double salary;
-		 
-		 Scanner scanner = new Scanner(System.in);
-		 
-		 System.out.print("Enter Employee ID :");
-		 empno = Integer.parseInt(scanner.nextLine());
-		 
-		 System.out.print("Enter Employee Name :");
-		 ename = scanner.nextLine();
-		 
-		 System.out.print("Ente Email : ");
-		 email = scanner.nextLine();
-		 
-		 System.out.print("Enter Date of Joining : ");
-		 hiredate = Date.valueOf(scanner.nextLine());
-		 
-		 System.out.print("Enter Salary : ");
-		 salary = scanner.nextDouble();
-		 
-		 String sql = "insert into Employee values ( ?,?,?,?,?,null,null )";
-		 
-		 PreparedStatement pstmt  = conn.prepareStatement(sql);
-		 
-		 pstmt.setInt(1, empno);
-		 pstmt.setString(2, ename);
-		 pstmt.setString(3, email);
-		 pstmt.setDate(4, hiredate);
-		 pstmt.setDouble(5, salary);
-		 
-		 int result = pstmt.executeUpdate();
-		 
-		 if( result == 1 ) {
-			 System.out.println("Record Inserted Successfully.");
-		 } else{
-			 System.err.println("Error while adding the record.");
-		 }
+    public static void main(String[] args) throws SQLException {
+        Connection conn = DBUtil.getConnection(DBType.MYSQLDB);
 
-		 scanner.close();
-		 pstmt.close();
-		 conn.close();
-	}
+        int empno;
+        String ename, email;
+        Date hiredate;
+        double salary;
 
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Enter Employee ID :");
+        empno = Integer.parseInt(scanner.nextLine());
+
+        System.out.print("Enter Employee Name :");
+        ename = scanner.nextLine();
+
+        System.out.print("Ente Email : ");
+        email = scanner.nextLine();
+
+        System.out.print("Enter Date of Joining : ");
+        hiredate = Date.valueOf(scanner.nextLine());
+
+        System.out.print("Enter Salary : ");
+        salary = scanner.nextDouble();
+
+        String sql = "insert into Employee values ( ?,?,?,?,?,null,null )";
+
+        PreparedStatement pstmt = conn.prepareStatement(sql);
+
+        pstmt.setInt(1, empno);
+        pstmt.setString(2, ename);
+        pstmt.setString(3, email);
+        pstmt.setDate(4, hiredate);
+        pstmt.setDouble(5, salary);
+
+        int result = pstmt.executeUpdate();
+
+        if (result == 1) {
+            System.out.println("Record Inserted Successfully.");
+        } else {
+            System.err.println("Error while adding the record.");
+        }
+
+        scanner.close();
+        pstmt.close();
+        conn.close();
+    }
 
 
 }

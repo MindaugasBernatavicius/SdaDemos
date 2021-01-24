@@ -41,7 +41,7 @@ public class ConnectingWithAuth {
                 MongoClientSettings.builder()
                         .applyToClusterSettings(
                                 builder -> builder.hosts(Arrays.asList(new ServerAddress("localhost", 27017))))
-                    .credential(credential).build());
+                        .credential(credential).build());
 
         MongoDatabase dbAdmin = mongoClientWithAuth.getDatabase("admin");
 

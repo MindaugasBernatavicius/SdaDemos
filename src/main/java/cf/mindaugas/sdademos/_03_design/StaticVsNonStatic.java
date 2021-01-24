@@ -29,13 +29,15 @@ class Employee {
 }
 
 class EmployeeStatisticsCalculator {
-    public static double getAverageAge(List<Employee> employeeList){
+    public static double getAverageAge(List<Employee> employeeList) {
         return 0.0;
     }
-    public static double getAverageSalary(){
+
+    public static double getAverageSalary() {
         return 0.0;
     }
-    public static double getAverageSalaryForSpecificAge(int age){
+
+    public static double getAverageSalaryForSpecificAge(int age) {
         return 0.0;
     }
 }

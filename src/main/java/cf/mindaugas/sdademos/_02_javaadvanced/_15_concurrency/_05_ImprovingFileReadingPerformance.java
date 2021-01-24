@@ -6,6 +6,7 @@ import java.util.concurrent.TimeUnit;
 public class _05_ImprovingFileReadingPerformance {
 
     static String[] inputFiles = {
+            "data/input/0.txt",
             "data/input/1.txt",
             "data/input/2.txt",
             "data/input/3.txt",
@@ -18,6 +19,7 @@ public class _05_ImprovingFileReadingPerformance {
             "data/input/10.txt"
     };
     static String[] outputFiles = {
+            "data/output/0.txt",
             "data/output/1.txt",
             "data/output/2.txt",
             "data/output/3.txt",
@@ -31,15 +33,14 @@ public class _05_ImprovingFileReadingPerformance {
     };
 
     public static void main(String[] args) throws IOException, InterruptedException {
-
-       // // ... no threads: ~1100ms
-       // long startTime = System.nanoTime();
-       // for (int i = 0; i < inputFiles.length; i++) {
-       //     Adder adder = new Adder(inputFiles[i], outputFiles[i]);
-       //     adder.performAddition();
-       // }
-       // long stopTime = System.nanoTime();
-       // System.out.println(TimeUnit.NANOSECONDS.toMillis(stopTime - startTime) + "ms");
+        // // ... no threads: ~1100ms / 2063ms
+        // long startTime = System.nanoTime();
+        // for (int i = 0; i < inputFiles.length; i++) {
+        //     Adder adder = new Adder(inputFiles[i], outputFiles[i]);
+        //     adder.performAddition();
+        // }
+        // long stopTime = System.nanoTime();
+        // System.out.println(TimeUnit.NANOSECONDS.toMillis(stopTime - startTime) + "ms");
 
         // ... with threads : ~600ms
         Thread[] threads = new Thread[inputFiles.length];
@@ -51,8 +52,7 @@ public class _05_ImprovingFileReadingPerformance {
         }
 
         // ...
-        for(Thread t : threads)
-            t.join();
+        for (Thread t : threads) t.join();
         long stopTime = System.nanoTime();
 
         System.out.println(TimeUnit.NANOSECONDS.toMillis(stopTime - startTime) + "ms");
@@ -77,10 +77,10 @@ class Adder {
             throw new IOException("Error reading file: " + fileIn.getAbsolutePath());
         }
 
-        try(BufferedReader br = new BufferedReader(new FileReader(fileIn))){
-            while ((line = br.readLine()) != null )
+        try (BufferedReader br = new BufferedReader(new FileReader(fileIn))) {
+            while ((line = br.readLine()) != null)
                 total += Double.parseDouble(line);
-                // total += Integer.parseInt(line);
+            // total += Integer.parseInt(line);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -91,7 +91,7 @@ class Adder {
             throw new IOException("Error creating new file: " + fileOut.getAbsolutePath());
         }
 
-        try(BufferedWriter bw = new BufferedWriter(new FileWriter(fileOut))){
+        try (BufferedWriter bw = new BufferedWriter(new FileWriter(fileOut))) {
             bw.write("Total: " + total);
         } catch (IOException e) {
             e.printStackTrace();
@@ -126,10 +126,10 @@ class AdderR implements Runnable {
             throw new IOException("Error reading file: " + fileIn.getAbsolutePath());
         }
 
-        try(BufferedReader br = new BufferedReader(new FileReader(fileIn))) {
+        try (BufferedReader br = new BufferedReader(new FileReader(fileIn))) {
             while ((line = br.readLine()) != null)
                 total += Double.parseDouble(line);
-                // total += Integer.parseInt(line);
+            // total += Integer.parseInt(line);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -140,7 +140,7 @@ class AdderR implements Runnable {
             throw new IOException("Error creating new file: " + fileOut.getAbsolutePath());
         }
 
-        try(BufferedWriter bw = new BufferedWriter(new FileWriter(fileOut))){
+        try (BufferedWriter bw = new BufferedWriter(new FileWriter(fileOut))) {
             bw.write("Total: " + total);
         } catch (IOException e) {
             e.printStackTrace();

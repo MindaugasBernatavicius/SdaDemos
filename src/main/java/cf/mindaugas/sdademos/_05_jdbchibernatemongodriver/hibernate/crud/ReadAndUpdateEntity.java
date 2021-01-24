@@ -11,7 +11,7 @@ import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 
 public class ReadAndUpdateEntity {
 
-    public static void runExample(){
+    public static void runExample() {
         StandardServiceRegistry registry = new StandardServiceRegistryBuilder().configure().build(); // Create registry
         MetadataSources sources = new MetadataSources(registry); // Create MetadataSources
         Metadata metadata = sources.getMetadataBuilder().build(); // Create Metadata

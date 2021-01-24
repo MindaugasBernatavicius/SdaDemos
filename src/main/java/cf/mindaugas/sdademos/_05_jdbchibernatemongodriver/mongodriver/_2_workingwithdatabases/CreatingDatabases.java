@@ -31,19 +31,19 @@ public class CreatingDatabases {
 
         MongoIterable<String> customerCollections = dbCustomer.listCollectionNames();
         System.out.println("Current _10_collections: ");
-        for (String collectionName: customerCollections) {
+        for (String collectionName : customerCollections) {
             System.out.print(collectionName + " "); // there are no collections currently
         }
 
         // 5. Create a collection after checking if it already exists
-        if( !collectionExists(dbCustomer, "customers") )
+        if (!collectionExists(dbCustomer, "customers"))
             dbCustomer.createCollection("customers");
 
-        if( !dbCustomer.listCollectionNames().into(new ArrayList<>()).contains("customers") )
+        if (!dbCustomer.listCollectionNames().into(new ArrayList<>()).contains("customers"))
             dbCustomer.createCollection("customers");
 
         System.out.print("Collections created: " + "\n\t");
-        for (String collectionName: dbCustomer.listCollectionNames()) {
+        for (String collectionName : dbCustomer.listCollectionNames()) {
             System.out.print(collectionName + " "); // there are no collections currently
         }
 

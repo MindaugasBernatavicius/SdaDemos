@@ -24,8 +24,9 @@ public class Movie {
     public void calculateAge() {
         age = ChronoUnit.YEARS.between(LocalDate.of(releaseYear, 1, 1), LocalDate.now());
     }
+
     @PrePersist
-    public void prepersist(){
+    public void prepersist() {
         System.out.println("prepersist called from Movie");
     }
     // @PostPersist

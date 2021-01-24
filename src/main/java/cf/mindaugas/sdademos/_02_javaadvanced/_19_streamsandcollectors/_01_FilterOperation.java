@@ -23,7 +23,7 @@ public class _01_FilterOperation {
                 .map(x -> x.replace("O", "M"))
                 .findAny();
 
-        if(resultOfFilter.isPresent())
+        if (resultOfFilter.isPresent())
             System.out.println("Filtered result: "
                     + resultOfFilter.get());
         else

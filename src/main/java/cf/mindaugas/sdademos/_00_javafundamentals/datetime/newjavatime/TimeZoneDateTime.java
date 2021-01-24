@@ -25,7 +25,7 @@ public class TimeZoneDateTime {
 
         System.out.println("ZoneId for Paris: " + zoneId);
         System.out.println(allZoneIds.size());
-        for (String zone : allZoneIds){
+        for (String zone : allZoneIds) {
             // System.out.println(zone);
         }
     }

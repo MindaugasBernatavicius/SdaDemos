@@ -26,7 +26,7 @@ public class TimeDuration {
         LocalDateTime date = LocalDateTime.now();
         System.out.println(date);
 
-        date = (LocalDateTime)duration.addTo(date);
+        date = (LocalDateTime) duration.addTo(date);
         System.out.println(date);
 
 

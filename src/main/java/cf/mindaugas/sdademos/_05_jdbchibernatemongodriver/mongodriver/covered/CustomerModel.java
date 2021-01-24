@@ -4,7 +4,7 @@ package cf.mindaugas.sdademos._05_jdbchibernatemongodriver.mongodriver.covered;
 public class CustomerModel {
     private String name, surname;
 
-    public CustomerModel(String name,String surname){
+    public CustomerModel(String name, String surname) {
         this.name = name;
         this.surname = surname;
     }

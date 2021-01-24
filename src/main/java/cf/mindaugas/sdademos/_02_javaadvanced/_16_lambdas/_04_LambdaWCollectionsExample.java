@@ -57,7 +57,7 @@ public class _04_LambdaWCollectionsExample {
     }
 }
 
-class Person implements Comparable<Person>{
+class Person implements Comparable<Person> {
     private int age;
     private String name;
 

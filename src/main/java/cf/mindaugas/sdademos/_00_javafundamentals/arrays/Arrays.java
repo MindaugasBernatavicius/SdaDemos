@@ -36,8 +36,8 @@ public class Arrays {
         System.out.println("======================================");
 
         //Declare & initialise
-        int[] arrayInt1 = {10,20,30,40,50};
-        String[] arrayStr1 = {"first", "second", "third", "fourth", "fifth" };
+        int[] arrayInt1 = {10, 20, 30, 40, 50};
+        String[] arrayStr1 = {"first", "second", "third", "fourth", "fifth"};
 
         System.out.println("arrayInt1[3] : " + arrayInt1[3]);
         System.out.println("arrayStr1[3] : " + arrayStr1[3]);
@@ -47,14 +47,7 @@ public class Arrays {
         //System.out.println("arrayInt1[3] : " + arrayInt1[5]);//error
 
 
-
-
-
     }
-
-
-
-
 
 
 }

@@ -12,7 +12,7 @@ class Animal {
 }
 
 class Dog extends Animal {
-    void setLegCountTo7(){
+    void setLegCountTo7() {
         legCount = 7;
     }
 }

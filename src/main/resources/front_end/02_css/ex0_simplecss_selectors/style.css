@@ -31,6 +31,7 @@ div {
 [name="some-name"] {
     color: blue;
 }
+
 /* Select all html elements whose name attribute starts with "some-" */
 /*[name^="some-"] {*/
 /*    color: blue;*/

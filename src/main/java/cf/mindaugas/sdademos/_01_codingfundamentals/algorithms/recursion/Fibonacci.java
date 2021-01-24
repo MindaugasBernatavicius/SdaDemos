@@ -26,13 +26,14 @@ public class Fibonacci {
         // 2nd. micro-benching
         long startTime, endTime;
         int fibRes;
-        for(int input = 1; input < 15; input++){
+        for (int input = 1; input < 15; input++) {
             startTime = System.nanoTime();
             fibRes = fibRecursive(input);
             endTime = System.nanoTime();
             System.out.println("The fibRecursive(" + input + ") call took: " + (endTime - startTime) + "ns");
         }
     }
+
     /**
      * Iterative implementation for nth fibonacci number
      * Time complexity - O(n)
@@ -42,15 +43,15 @@ public class Fibonacci {
      * @return
      */
     static int fibIterative(int n) {
-        if(n <= 1) {
+        if (n <= 1) {
             return n;
         }
         int fib = 1;
         int prevFib = 1;
 
-        for(int i=2; i<n; i++) {
+        for (int i = 2; i < n; i++) {
             int temp = fib;
-            fib+= prevFib;
+            fib += prevFib;
             prevFib = temp;
         }
         return fib;
@@ -64,14 +65,14 @@ public class Fibonacci {
      * @param n
      * @return
      */
-    static int fibRecursive(int in){
+    static int fibRecursive(int in) {
         int fib = in;
 
         // stoping condition
-        if(in == 0)
+        if (in == 0)
             return 0;
 
-        if(in <= 1)
+        if (in <= 1)
             return 1;
 
         // logic

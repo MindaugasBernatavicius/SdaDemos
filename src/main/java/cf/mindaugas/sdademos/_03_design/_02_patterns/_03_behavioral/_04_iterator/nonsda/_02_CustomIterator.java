@@ -16,7 +16,7 @@ public class _02_CustomIterator {
         // }
 
         for (String bike : repo) {
-        	System.out.println(bike);
+            System.out.println(bike);
         }
 
         // int i = 1;
@@ -38,7 +38,7 @@ class BikeRepository implements Iterable<String> {
 
     public void addBike(String bike) {
         // resize operation
-        if(index == bikes.length) {
+        if (index == bikes.length) {
             String[] largerBikes = new String[bikes.length + 5];
             System.arraycopy(bikes, 0, largerBikes, 0, bikes.length);
             bikes = largerBikes;
@@ -52,10 +52,12 @@ class BikeRepository implements Iterable<String> {
     public Iterator<String> iterator() {
         Iterator<String> it = new Iterator<String>() {
             private int currentIndex = 0;
+
             @Override
             public boolean hasNext() {
                 return currentIndex < bikes.length && bikes[currentIndex] != null;
             }
+
             @Override
             public String next() {
                 // String bike = bikes[currentIndex];
@@ -64,6 +66,7 @@ class BikeRepository implements Iterable<String> {
                 // ... instead of this, we can do this:
                 return bikes[currentIndex++]; // ++currentIndex
             }
+
             @Override
             public void remove() {
                 // implement as a homework - resize the array, shrink it

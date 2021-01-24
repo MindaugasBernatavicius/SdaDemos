@@ -17,13 +17,13 @@ public class IteratorExample {
 
         // 1. Iterator as an Inner Class
         Flight1 f1 = new Flight1(
-                new CrewMember[]{ new CrewMember("Mindaugas", "Stiuard") },
-                new Passenger[]{ new Passenger("Petras", 223)}
+                new CrewMember[]{new CrewMember("Mindaugas", "Stiuard")},
+                new Passenger[]{new Passenger("Petras", 223)}
         );
 
-         Iterator fi1 = f1.iterator();
-         while(fi1.hasNext())
-             System.out.println(fi1.next());
+        Iterator fi1 = f1.iterator();
+        while (fi1.hasNext())
+            System.out.println(fi1.next());
 
         // // 2. Iterator as an Anonymous Inner Class
         // Flight1 f2 = new Flight1(
@@ -118,7 +118,7 @@ class Flight1 {
     private CrewMember[] crew;
     private Passenger[] passengers;
 
-    public Iterator iterator(){
+    public Iterator iterator() {
         return new FlightIterator(this.crew, this.passengers);
     }
 

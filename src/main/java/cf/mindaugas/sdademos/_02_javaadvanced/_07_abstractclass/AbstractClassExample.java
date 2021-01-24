@@ -19,6 +19,7 @@ abstract class Shape {
     protected int width;
 
     abstract double getArea();
+
     abstract double getPerimeter();
 }
 
@@ -58,7 +59,7 @@ class Circle extends Shape {
 
     @Override
     double getArea() {
-        return 3.14 * (this.width / 2) * (this.width / 2) ;
+        return 3.14 * (this.width / 2) * (this.width / 2);
     }
 
     @Override

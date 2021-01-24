@@ -9,18 +9,18 @@ import java.util.Arrays;
 import java.util.List;
 
 public class _02_NIO {
-    public static void main(String[] args){
+    public static void main(String[] args) {
         // Writing in NIO
         Path filePath = Paths.get("data2/example.txt");
         Path dir = Paths.get("data2");
 
         try {
-            if(!Files.isDirectory(dir)){
+            if (!Files.isDirectory(dir)) {
                 Files.createDirectory(Paths.get("data2"));
             }
             Files.write(filePath, Arrays.asList("line1", "line2", "line3"));
             // Files.write(filePath, Arrays.asList("line1", "line2", "line3"), StandardOpenOption.APPEND);
-        } catch(IOException ex){
+        } catch (IOException ex) {
             ex.printStackTrace();
         }
 
@@ -31,12 +31,12 @@ public class _02_NIO {
             FileReader reader = new FileReader(f);
             BufferedReader br = new BufferedReader(reader);
             String line;
-            while((line = br.readLine()) != null){
+            while ((line = br.readLine()) != null) {
                 linesRead.add(line);
             }
-        } catch (FileNotFoundException ex1){
+        } catch (FileNotFoundException ex1) {
             ex1.printStackTrace();
-        } catch (IOException ex2){
+        } catch (IOException ex2) {
             ex2.printStackTrace();
         }
         System.out.println(linesRead);
@@ -45,7 +45,7 @@ public class _02_NIO {
         try {
             List<String> linesReadNew = Files.readAllLines(filePath);
             System.out.println(linesReadNew);
-        } catch(IOException ex){
+        } catch (IOException ex) {
             ex.printStackTrace();
         }
     }

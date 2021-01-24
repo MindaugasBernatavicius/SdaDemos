@@ -23,7 +23,7 @@ public class DeletingCollections {
 
         MongoDatabase dbCustomer = mongoClientWithAuth.getDatabase("customer");
 
-        for (String collectionName: dbCustomer.listCollectionNames()) {
+        for (String collectionName : dbCustomer.listCollectionNames()) {
             System.out.print(collectionName + " ");
         }
         System.out.println("-----------------");
@@ -31,7 +31,7 @@ public class DeletingCollections {
         // Delete collection
         dbCustomer.getCollection("cappedCustColl").drop();
 
-        for (String collectionName: dbCustomer.listCollectionNames()) {
+        for (String collectionName : dbCustomer.listCollectionNames()) {
             System.out.print(collectionName + " ");
         }
         System.out.println("-----------------");

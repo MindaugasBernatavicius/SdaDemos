@@ -5,7 +5,7 @@ import java.time.ZoneId;
 import java.util.Date;
 
 public class PromotionCalculator {
-    public boolean isPromotionDueThisYear(Employee2 e){
+    public boolean isPromotionDueThisYear(Employee2 e) {
         LocalDate currentDate = new Date().toInstant()
                 .atZone(ZoneId.systemDefault()).toLocalDate();
         LocalDate startDate = e.getStartTime().toInstant()
@@ -20,6 +20,7 @@ class Employee2 {
     private String name;
     private String address;
     private Date startTime;
+
     //Getters & Setters
     public Date getStartTime() {
         return startTime;
