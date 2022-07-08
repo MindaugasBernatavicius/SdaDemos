@@ -55,6 +55,13 @@ public class _01_BenchingWithProbablePrime {
     }
 
     @Benchmark
+    public List<BigInteger> generate_N_primes () {
+        return IntStream.range(0, N)
+                .mapToObj(i -> probablePrime())
+                .collect(toList());
+    }
+
+    @Benchmark
     public List<BigInteger> generate_N_primes_parallel() {
         return IntStream.range(0, N)
                 .parallel()
@@ -67,13 +74,6 @@ public class _01_BenchingWithProbablePrime {
         return IntStream.range(0, N)
                 .unordered()
                 .parallel()
-                .mapToObj(i -> probablePrime())
-                .collect(toList());
-    }
-
-    @Benchmark
-    public List<BigInteger> generate_N_primes () {
-        return IntStream.range(0, N)
                 .mapToObj(i -> probablePrime())
                 .collect(toList());
     }

@@ -1,7 +1,6 @@
 package cf.mindaugas.sdademos._02_javaadvanced._02_inheritence._03_equality;
 
 public class EqualityExample {
-
     private static boolean contains(Student[] students, Student student) {
         boolean contains = false;
         for (int i = 0; i < students.length; i++) {
@@ -18,8 +17,6 @@ public class EqualityExample {
                 new Student(34546474808L, "Mindaugas", "Pranaitis"),
                 new Student(36546474444L, "Saulius", "Prūsaitis"),
         };
-
-
         Student studentToSearchFor = new Student(34546474808L, "Benas", "Pranaitis");
         System.out.println(contains(students, studentToSearchFor));
     }

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>External requests</title>
+</head>
+<body>
+<h1>Show the HTML code!</h1>
+<div>
+    <input id="url" type="url" placeholder="Enter website adress"/>
+    <button id="getURL" onclick="preview();">Show the code!</button>
+</div>
+<p>
+    <pre id="preview"></pre>
+</p>
+<script>
+    function preview() {
+        const url = document.getElementById("url")["value"];
+        loadHTML(url);
+    }
+
+    function loadHTML(url) {
+        const xhttp = new XMLHttpRequest();
+
+        // evento pribindinimas (priskyrimas)
+        xhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                const preview = document.getElementById("preview");
+                const parser = new DOMParser();
+                const urlDocument = parser.parseFromString(this.responseText, "text/html");
+                preview.innerText = urlDocument.body.innerHTML;
+            }
+        };
+
+        xhttp.open("GET", url, true);
+        xhttp.send();
+    }
+</script>
+</body>
+</html>

@@ -14,9 +14,9 @@ import java.util.concurrent.TimeUnit;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
-@Warmup(iterations = 10, time = 5, timeUnit = TimeUnit.SECONDS)
-@Measurement(iterations = 5, time = 5, timeUnit = TimeUnit.SECONDS)
-@Fork(value = 3)
+@Warmup(iterations = 2, time = 5, timeUnit = TimeUnit.SECONDS)
+@Measurement(iterations = 2, time = 5, timeUnit = TimeUnit.SECONDS)
+@Fork(value = 1)
 @BenchmarkMode(Mode.AverageTime)
 @OutputTimeUnit(TimeUnit.MILLISECONDS)
 @State(Scope.Benchmark)
@@ -58,6 +58,8 @@ public class _02_BoxingAndPointerChasing {
     }
 
     @Setup
+    // adding zeros when generating numbers
+    // .. and then removing them to increase cache misses
     public void createScatteredLinkedList() {
         scatteredLinkedList = new LinkedList<>();
         for (int i = 1 ; i < N + 1 ; i++) {
@@ -154,7 +156,11 @@ public class _02_BoxingAndPointerChasing {
 
     public static void main(String[] args) throws RunnerException {
         Options opt = new OptionsBuilder()
-                .include(_02_BoxingAndPointerChasing.class.getName())
+                // .include(_02_BoxingAndPointerChasing.class.getName())
+                .include(_02_BoxingAndPointerChasing.class.getName() + ".calculate_sum_of_array_list()")
+                .include(_02_BoxingAndPointerChasing.class.getName() + ".calculate_sum_of_linked_list()")
+                .include(_02_BoxingAndPointerChasing.class.getName() + ".calculate_sum_of_linked_list_shuffled()")
+                .include(_02_BoxingAndPointerChasing.class.getName() + ".calculate_sum_of_linked_list_scattered()")
                 .build();
         new Runner(opt).run();
     }

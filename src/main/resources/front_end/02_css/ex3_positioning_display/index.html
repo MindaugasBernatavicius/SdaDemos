@@ -13,25 +13,25 @@
         /*    border: 2px solid #335faf;*/
         /*}*/
 
-        .container {
-            display: block;
-            padding: 25px;
-            margin: 60px
-        }
+        /*.container {*/
+        /*    display: block;*/
+        /*    padding: 25px;*/
+        /*    margin: 60px*/
+        /*}*/
     </style>
 </head>
 <body>
 <!-- EXAMPLE -->
 
-<!-- STATIC: default positioning according to element type (incline vs. block )-->
-<!--<div style="border: 1px solid black; width: 100px">STATIC</div-->
+<!--STATIC: default positioning according to element type (incline vs. block )-->
+<!--<div style="border: 1px solid black; width: 100px">STATIC</div>-->
 <!--<div style="border: 1px solid black; width: 100px">STATIC</div>-->
 <!--<br><br>-->
 
 <!-- RELATIVE: positioning an element relative to where it was supposed to be displayed -->
-<!--<div style="border: 1px solid black; width: 100px; position: relative; top: 10px; left: 10px">RELATIVE 1</div>-->
-<!--<div style="border: 1px solid black; width: 100px; position: relative">RELATIVE 2</div>-->
-<!--<br><br>-->
+<div style="border: 1px solid black; width: 100px; position: relative; top: 10px; left: 10px">RELATIVE 1</div>
+<div style="border: 1px solid black; width: 100px; position: relative">RELATIVE 2</div>
+<br><br>
 
 <!-- ABSOLUTE: positioning relative to parents 0,0 coordinate -->
 <!--<div style="border: 1px solid black; width: 50px; height: 50px; position: absolute; top: 110px; left: 30px">-->
@@ -59,6 +59,10 @@
 <!--<div style="color: red; border: 1px solid; text-align: center; display: inline-block"><h3>Header</h3></div>-->
 <!--<div style="color: red; border: 1px solid; text-align: center; display: inline-block"><h3>Header</h3></div>-->
 
+<!-- NOTE:: 3 divs that have the display property set as incline-block will have a space between them -->
+<!-- To solve the space issue you can set the font size to 0 and there are more ways: https://css-tricks.com/fighting-the-space-between-inline-block-elements/ -->
+
+
 <!-- EXERCISE -->
 <!-- 1 -->
 <!--<div class="container">-->
@@ -67,19 +71,19 @@
 <!--</div>-->
 
 <!-- 2 -->
-<style>
-    .content {
-        border: 1px solid;
-        display: inline-block;
-        /*padding-right: 5px;*/
-        /*padding-left: 5px;*/
-        padding: 0 5px 0 5px;
-    }
-</style>
-<nav>
-    <div class="content"><a href="http://www.milliondollarhomepage.com/">1M HP</a></div>
-    <div class="content">Contact</div>
-    <div class="content">About</div>
-</nav>
+<!--<style>-->
+<!--    .content {-->
+<!--        border: 1px solid;-->
+<!--        display: inline-block;-->
+<!--        /*padding-right: 5px;*/-->
+<!--        /*padding-left: 5px;*/-->
+<!--        padding: 0 5px 0 5px;-->
+<!--    }-->
+<!--</style>-->
+<!--<nav>-->
+<!--    <div class="content"><a href="http://www.milliondollarhomepage.com/">1M HP</a></div>-->
+<!--    <div class="content">Contact</div>-->
+<!--    <div class="content">About</div>-->
+<!--</nav>-->
 </body>
 </html>

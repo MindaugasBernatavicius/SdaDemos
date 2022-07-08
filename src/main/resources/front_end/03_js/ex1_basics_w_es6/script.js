@@ -9,7 +9,9 @@ var text2 = 'abc';
 console.log("Concatenating strings: " + text1 + "-" + text2);
 
 var aggregate = 5 + text1 + "-" + text2 + "-something-else";
+var aggregate2 = 5 + 1 + "-" + text2 + "-something-else";
 console.log(aggregate);
+console.log(aggregate2);
 
 var number1 = 5;
 var number2 = 5.012;
@@ -19,13 +21,21 @@ console.log("Adding numbers: " + number1 + " + " + number2 + " = " + number1 + n
 console.log("Adding numbers: " + number1 + " + " + number2 + " = " + (number1 + number2));
 console.log(number3 + 0.1);
 
+var large = 999999999999999;   // x will be 999999999999999
+var larger = 9999999999999999;  // y will be 10000000000000000
+
 
 console.log("");
 console.log("__ TOPIC: BASIC OPERATORS __");
 var boolean1 = true;
 var boolean2 = false;
-console.log(">>" + 1 % 2); // prints 1
-console.log(">>" + (boolean1 && boolean2)); // prints what?
+
+// +, -, /, *, %
+console.log(">>" + 5 % 2); // prints 1, we see that % has higher precedence than +
+console.log(">>" + (5 % 2)); // prints 1
+console.log(">>" + 5 / 2); // prints 2.5, we see that % has higher precedence than +
+console.log(">>" + (5 / 2)); // prints 2.5
+
 
 // some more advanced ways to declaring variables
 var x = 5, y = 6, z = 7;
@@ -35,42 +45,15 @@ var a = 10,
     c = 90;
 
 
-// Keyword let
-// Introduced in ES2015 (aka ES6), the variable type let shares a lot of similarities with var but unlike var has scope constraints.
-// let is constrained to whichever scope it is declared in. Its declaration and assignment are similar to var
-// ATTENTION: uncomment to see error
-
-// let x = 20;
-// let x = 50; // SyntaxError: identifier "x" has already been declared.
-// compare with:
-// var x = 20;
-// var x = 50; // SyntaxError: identifier "x" has already been declared --- NOT THERE
-
-
-// Keyword const
-// Also introduced in ES2015, const, is a variable type
-// assigned to data whose value cannot and will not be changed throughout the script.
-// ATTENTION: uncomment to see error
-// const name = 'chris';
-// name = 'john'; // Uncaught TypeError: Assignment to constant variable.
-
-
-// Most convincing let vs. var explanation
-if (10 > 5) {
-    let x = 10; // will not be able to use outside of if
-    // var x = 10; // will be able reach outside of if
-}
-
-console.log(x);
-
-
 // == VS ===
-// In JavaScript there are two comparison operators. If
-//  we want to compare values we use == operator. If we
-//  want to compare values and types we use ===.
-console.log(5 == 5); // prints true
-console.log("5" == 5); // prints true
-console.log("5" === 5); // prints false (types differ)
+// In JavaScript there are two comparison operators.
+// ... If we want to compare values we use ==.
+// ... If we want to compare values and types we use ===.
+// ... In general - it is safer to use === always
+console.log("5 == 5 : " + (5 == 5)); // prints true
+console.log("\"5\" == 5 : " + ("5" == 5)); // prints true
+console.log("\"5\" === 5 : " + ("5" === 5)); // prints false (types differ)
+
 
 console.log("");
 console.log("___ TOPIC: Conditionals ___");
@@ -86,6 +69,20 @@ if (first > second) {
     console.log("First is smaller than second!");
 }
 
+if (first > second)
+    console.log("First is bigger than second!");
+else
+    console.log("First is smaller than second!");
+
+// Ternary operator
+(first > second)
+    ? console.log("First is bigger than second!")
+    : console.log("First is smaller than second!");
+
+console.log((first > second)
+    ? "First is bigger than second!"
+    : "First is smaller than second!")
+
 
 console.log("");
 console.log("___ TOPIC: Loops ___");
@@ -99,12 +96,50 @@ while (i < 3) {
     i++;
 }
 
+// Keyword let
+// Introduced in ES2015 (aka ES6), the variable type let shares a lot of similarities with var but unlike var has scope constraints.
+// let is constrained to whichever scope it is declared in. Its declaration and assignment are similar to var
+// ATTENTION: uncomment to see error
+
+// let x = 20;
+// let x = 50; // SyntaxError: identifier "x" has already been declared.
+// compare with:
+// var x = 20;
+// var x = 50; // SyntaxError: identifier "x" has already been declared --- NOT THERE
+
+// Most convincing let vs. var explanation
+var x = 999;
+if (10 > 5) {
+    let x = 10; // will not be able to use outside of if
+    // var x = 10; // will be able reach outside of if
+}
+
+console.log(x);
+
+
+// Keyword const
+// Also introduced in ES2015, const, is a variable type
+// assigned to data whose value cannot and will not be changed throughout the script.
+// ATTENTION: uncomment to see error
+// const name = 'chris';
+// name = 'john'; // Uncaught TypeError: Assignment to constant variable.
+
+
+// Question: is const global or like let - locally scoped?
+// if (10 > 5) {
+//     const constx = 10; // will not be able to use outside of if
+//     // var x = 10; // will be able reach outside of if
+// }
+//
+// console.log(constx);
+
 console.log("");
 console.log("___ TOPIC: Arrays ___");
 
 var myAwesomeArray = [1, 4, 7];
 // var myAwesomeArrayOfObjects = [{}, {}, {}];
 
+console.log(myAwesomeArray);
 console.log(myAwesomeArray[2]); // prints 7, since arrays are 0 based
 console.log(myAwesomeArray.length); // prints 3
 console.log(myAwesomeArray[myAwesomeArray.length - 1]); // gets the last element
@@ -112,12 +147,33 @@ console.log(myAwesomeArray[myAwesomeArray.length - 1]); // gets the last element
 console.log("");
 console.log("___ TOPIC: Array push() and pop() ___");
 myAwesomeArray.push(155); // arrays are dynamic so we can extend them with additional elements
-console.log(myAwesomeArray.length); // prints 5
+console.log(myAwesomeArray.length); // prints 4
 console.log(myAwesomeArray[myAwesomeArray.length - 1]); // gets the last element
-console.log(myAwesomeArray.pop())
-console.log(myAwesomeArray)
-console.log(myAwesomeArray.pop())
-console.log(myAwesomeArray)
+
+console.log(myAwesomeArray);
+console.log(myAwesomeArray.pop());
+console.log(myAwesomeArray);
+console.log(myAwesomeArray.pop());
+console.log(myAwesomeArray);
+console.log(myAwesomeArray.pop());
+console.log(myAwesomeArray);
+console.log(myAwesomeArray.pop());
+console.log(myAwesomeArray);
+console.log(myAwesomeArray.pop());
+console.log(myAwesomeArray);
+
+console.log("Type of array : "+ typeof myAwesomeArray);
+
+// digression : creating object literals
+console.log({ name: "Jonas", age: 15 });
+console.log(typeof { name: "Jonas", age: 15 });
+
+var testArray = [
+    { name: "Jonas1", age: 15 },
+    { name: "Jonas2", age: 15 },
+    { name: "Jonas3", age: 15 }
+];
+console.log(testArray);
 
 // arrays have a lot of functionality associated, see: https://www.w3schools.com/jsref/jsref_obj_array.asp
 // ... like map, filter, reduce (what JAVA's streams provide as well)
@@ -158,6 +214,16 @@ for (var i = 0; i < mixedArray.length; i++) {
     console.log("Type of " + mixedArray[i] + " = " + (typeof mixedArray[i]));
 }
 
+// Anonymous functions
+mixedArray.forEach( function( element, index ) {
+    console.log("Element with Index: " + index + " has a value " + element);
+});
+
+// Arrow function (element, index) => {}
+mixedArray.forEach((e, i) => {
+    console.log("Element with Index: " + i + " has a value " + e)
+});
+
 // Type of A = string
 // Type of 1 = number
 // Type of Boo = string
@@ -165,7 +231,26 @@ for (var i = 0; i < mixedArray.length; i++) {
 // Type of Array,Array = object
 // Type of [object Object] = object
 
+
+// Exercise
+let names = ["Jonas", "Zita", "Mindaugas", "Petras"];
+// sort it and tell me the default sorting order
+// ... then sort it in reverse
+
+
+
+
+
+
+// Solution
+// var names = ["Jonas", "Zita", "Mindaugas", "Petras"];
+// console.log(names.sort());
+// console.log(names.reverse());
+
+
 // inserting / removing at random position with .splice()
+// ... the function has the effect to deleting the members specified
+// ... but it returns them after the deletion
 console.log("");
 console.log("___ TOPIC: Arrays.splice() ___");
 mixedArray.splice(1, 5);
@@ -173,21 +258,32 @@ for (var i = 0; i < mixedArray.length; i++) {
     console.log("Type of " + mixedArray[i] + " = " + (typeof mixedArray[i]));
 }
 
-console.log([0, 1, 2, 3, 4, 5, 6].splice(2, 3));
+let arrayToSplice = [0, 1, 2, 3, 4, 5, 6];
+console.log(arrayToSplice);
+console.log(arrayToSplice.splice(2, 3));
+console.log(arrayToSplice);
+
+
+console.log("___ TOPIC: Arrays.slice() ___");
+const arrayToSlice = [1, 2, 3, 4, 5, 6];
+console.log(arrayToSlice);
+console.log(arrayToSlice.slice(2, 3));
+console.log(arrayToSlice);
+
 
 console.log("");
 console.log("___ TOPIC: Array.filter() ___");
 // myArr.filter(func(){});
-var males = personel.filter(function (person) {
+let males = personel.filter(function (person) {
     if (person.gender === "male")
         return person;
 });
-
-console.log("Male personnel:")
-console.log(males);
+console.log("Male personnel: " + males)
 
 
-// let's combine them together w/ filter, map reduce
+// Let's combine them together w/ filter, map reduce
+// ... by calculating the average salary for
+// ... males after the bonus is applied
 var avgMaleSalary = personel
     .filter(function (person) {
         if (person.gender === "male")
@@ -196,41 +292,107 @@ var avgMaleSalary = personel
         if (male.bonus === true)
             male.salary += 105;
         return male.salary;
-        // reduce(function(total, amount, index, array){});
+        // reduce(function(total, amount, index, array){}, );
     }).reduce(function (sum, salary, i, male) {
         if (i === male.length - 1) {
             sum += salary;
             return sum / male.length;
         }
         return sum += salary;
-    }, 0);
+    }, 0); // avg reduction
 
-console.log("Avg male salary: " + avgMaleSalary);
+// TODO ::
+// var avgMaleSalary = personel
+//     .filter(function (person) {
+//         if (person.gender === "male")
+//             return person;
+//     }).map(function (male) {
+//         return male.salary;
+//     }).reduce(function (sum, salary, i, male) {
+//         if (i === male.length - 1) {
+//             sum += salary;
+//             return sum / male.length;
+//         }
+//         return sum += salary;
+//     }, 0); // avg reduction
 
-// ES6 array destructuring
+console.log("Average male salary:  " + avgMaleSalary);
+
+console.log("Filter : " + [1, 2].filter((n) => !(n % 2)));
+console.log("Map : " + [1, 2].map((n) => n + 1));
+console.log("Reduce : " + [1, 2, 10].reduce((prev, cur) => prev += cur)); // avg sum
+
+
+
 console.log("");
-console.log("___ TOPIC: Arrays destructuring ___");
+console.log("___ TOPIC: ES6 Array destructuring ___");
 var introduction = ["Hello", "I", "am", "Sarah"];
 var [greeting, pronoun, third] = introduction;
-
-// ... array spread
-const myArray = [`🤪`, `🐻`, `🎌`]
-const yourArray = [`🙂`, `🤗`, `🤩`]
-const ourArray = [...myArray, ...yourArray]
-console.log(...ourArray);
-
-
-[a, b, ...rest] = [10, 20, 30, 40, 50];
-// [a, b, rest] = [10, 20, 30, 40, 50]; // compare this
-// [a, ...b, rest]; // SyntaxError: Rest element must be last element
-console.log(a);
-console.log(b);
-console.log(rest);
-
 
 console.log(greeting); // "Hello"
 console.log(pronoun); // "I"
 console.log(third); // "am"
+
+console.log("");
+console.log("___ TOPIC: ES6 Array spead ___");
+const myArray = [`🤪`, `🐻`, `🎌`]
+const yourArray = [`🙂`, `🤗`, `🤩`]
+const ourArray = [...myArray, ...yourArray]
+console.log(...ourArray);
+console.log(ourArray);
+
+let [ax, bx, ...rest] = [10, 20, 30, 40, 50];
+// [ax, bx, rest] = [10, 20, 30, 40, 50]; // compare this
+// [ax, ...bx, rest]; // SyntaxError: Rest element must be last element
+console.log(ax);
+console.log(bx);
+console.log("Rest: " + rest);
+
+
+// // array shift - removing the first item from the array and then returning it
+// const array = [1, 2, 3, 4];
+// let foo = array.shift();
+// console.log(array);
+// console.log(foo);
+
+
+// // unshift - Adds an element at the beginning of an array
+// const array = [1, 2, 3, 4];
+// array.unshift(0);
+// console.log(array);
+
+
+// // join - combining subsequent elements into one text
+// const array = [1, 2, 3, 4];
+// let foo = array.join();
+// console.log(foo);
+
+
+// // reverse - reversal of elements in array
+// const array = [1, 2, 3, 4];
+// array.reverse();
+// console.log(array);
+
+
+// // sort - sorting array elements
+// const array = [11, 2, 13, 4];
+// array.sort();
+// console.log(array);
+
+
+// // concat – merges the arrays and returns the new combined array
+// const array = [1, 2, 3, 4];
+// const array2 = [5, 6, 7, 8];
+// let foo = array.concat(array2);
+// console.log(foo);
+
+
+// // includes – checks whether the array contains the element
+// const array = [1, 2, 3, 4];
+// let foo = array.includes(3);
+// console.log(foo);
+
+
 
 console.log("");
 console.log("___ TOPIC: Functions ___");
@@ -250,15 +412,20 @@ console.log(myFunction("a", "b"))
 // TODO :: varargs --> https://stackoverflow.com/questions/1959040/is-it-possible-to-send-a-variable-number-of-arguments-to-a-javascript-function
 
 // Default parameters to functions
-function greet_a_person(name = "Mindaugas") {
+function greetAPerson(name = "Mindaugas") {
     console.log("Hello " + name + "!");
 }
 
-greet_a_person("Bart");
-// greet_a_person();
+greetAPerson("Bart");
+// greetAPerson();
+
+// self executing anonymous funciton
+(function(a, b) {
+    return "Self executing: " + a + b;
+})(10,20);
 
 // Arrow functions
-// ES5
+// ES5, function expression
 var multiplyES5 = function (x, y) {
     return x * y;
 };
@@ -267,6 +434,7 @@ var multiplyES5 = function (x, y) {
 const multiplyES6 = (x, y) => {
     return x * y
 };
+
 console.log(multiplyES6(4, 2));
 
 
@@ -464,14 +632,14 @@ Doggo.prototype.age = 5;
 console.log(dino.age);
 console.log(maylo.age);
 
-// creating our own prototypical inheritence chains
-//function Animal(voice){
+// // creating our own prototypical inheritence chains
+// function Animal(voice){
 //    this.voice = voice || 'grunt'
-//}
+// }
 //
-//Animal.prototype.speak = function(){
+// Animal.prototype.speak = function(){
 //    return this.voice
-//}
+// }
 //
 //// assign Animal as a property of Doggo class
 //// Object.create()does not call the Animal constructor, so that is why we use it
@@ -568,14 +736,72 @@ var Singleton = (function () {
     };
 })();
 
-
 var instance1 = Singleton.getInstance();
 var instance2 = Singleton.getInstance();
 
-//console.log(instance1);
-//console.log(instance2);
+console.log(instance1);
+console.log(instance2);
 
 // Singleton.createInstance is not a function, we can't call it directly
 //var instance2 = Singleton.createInstance();
 
 console.log("Same instance? " + (instance1 === instance2));
+
+console.log("");
+console.log("___ EXERCISE: Design patterns ___");
+// ... create a class Person { age , name }
+// ... create an array of objects of class Person
+// ... sort that array by age
+
+
+// ... create a class Person { age , name }
+class Person {
+    constructor(age, name){
+        this.age = age;
+        this.name = name;
+    }
+}
+
+// ... create an array of objects of class Person
+let people = [
+    new Person(24, "Jonas"),
+    new Person(34, "Markas"),
+    new Person(18, "Benas")
+];
+console.log("Unsorted : " + JSON.stringify(people));
+
+// ... sort that array by age
+// ... comparator function -
+// ... - return negative number - when the order is correct (first smaller than second)
+// ... - return 0               - when they are equal
+// ... - return positive number - when the order needs to change (first bigger than second)
+// people.sort(function(a, b) {return b.age - a.age });
+
+// console.log("Sorted : " + JSON.stringify(people));
+console.log("Reversed : " + JSON.stringify(people.reverse()));
+
+
+
+// Question: in JS we don't need classes to define objects, is that true? YES
+console.log("")
+console.log("___ Quetion: ___");
+console.log(typeof { name: "Jonas" }); // object literal
+console.log(typeof [{}, {}]);
+
+class LogParser {}
+console.log(typeof new LogParser()); // class keyword
+
+function AbstractLogParser() {}
+console.log(typeof new AbstractLogParser()) // constructor functions
+
+// 4th way - using object create
+console.log(typeof Object.create(Object.prototype, { name: { value: "Jonas" } }));
+let jonas = Object.create(Object.prototype, { name: { value: "Jonas", enumerable: true } });
+console.log(JSON.stringify(jonas));
+
+
+// Prototypes
+class BigCat {}
+class Kitten extends BigCat {}
+let myKitten = new Kitten();
+console.log(Kitten.prototype);

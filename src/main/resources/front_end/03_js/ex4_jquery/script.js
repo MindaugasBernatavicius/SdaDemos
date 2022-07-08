@@ -36,3 +36,49 @@ $('#doggo').mouseover(function () {
 $('#doggo').mouseout(function () {
     $('#doggo').attr("src", "img.jpg")
 });
+
+
+$("#doggo2").click(function() {
+    $(this).hide("fast");
+});
+
+// $("#doggo").click( function() {
+//     $("p").show("fast");
+// });
+
+// $("#hide").click(function() {
+//     $("p").fadeOut("slow");
+// });
+//
+// $("#show").click(function() {
+//     $("p").fadeIn("fast");
+// });
+
+
+// SLIDEUP() AND SLIDEDOWN() METHODS
+// $("#hide").click(function() {
+//     $("p").slideDown("slow");
+// });
+//
+// $("#show").click(function() {
+//     $("p").slideUp("fast");
+// });
+
+
+// Custom animations --> $(selector).animate({params}, speed, callback);
+$("button").click(function() {
+    $("div").animate({left: '250px'});
+});
+
+$("button").click(function() {
+    $("div").animate({
+        left: '250px',
+        opacity: '0.5',
+        height: '150px'
+    });
+});
+
+$("button").click(function() {
+    $("div").animate({left: '100px'}, "slow");
+    $("div").animate({fontSize: '3em'}, "slow");
+});

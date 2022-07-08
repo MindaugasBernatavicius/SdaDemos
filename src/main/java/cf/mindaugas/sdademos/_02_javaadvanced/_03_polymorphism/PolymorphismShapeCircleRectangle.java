@@ -67,7 +67,6 @@ class Rectangle extends Shape {
 }
 
 // ... Second approach to design the classes to solve this problem
-
 class Shape2 {
     private int height;
 
