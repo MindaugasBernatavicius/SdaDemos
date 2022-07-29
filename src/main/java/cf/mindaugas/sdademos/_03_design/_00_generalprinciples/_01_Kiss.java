@@ -1,7 +1,5 @@
 package cf.mindaugas.sdademos._03_design._00_generalprinciples;
 
-import java.nio.file.FileSystemAlreadyExistsException;
-
 public class _01_Kiss {
 
     public static void main(String[] args) {

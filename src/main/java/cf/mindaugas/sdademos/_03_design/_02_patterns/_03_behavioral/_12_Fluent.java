@@ -1,6 +1,6 @@
-package cf.mindaugas.sdademos._03_design._00_generalprinciples;
+package cf.mindaugas.sdademos._03_design._02_patterns._03_behavioral;
 
-public class _05_Fluent {
+public class _12_Fluent {
     public static void main(String[] args) {
         // 1. Fluent assertions with AssertJ (not a functioning example)
         // assertThat(frodo.getName())
