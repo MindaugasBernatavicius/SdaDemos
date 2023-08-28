@@ -24,8 +24,7 @@ public class _01_FilterOperation {
                 .findAny();
 
         if (resultOfFilter.isPresent())
-            System.out.println("Filtered result: "
-                    + resultOfFilter.get());
+            System.out.println("Filtered result: " + resultOfFilter.get());
         else
             System.out.println("No one found");
 

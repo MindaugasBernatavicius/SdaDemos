@@ -1,7 +1,6 @@
 package cf.mindaugas.sdademos._02_javaadvanced._15_concurrency;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
@@ -46,10 +45,11 @@ public class _11_CowSyncConcurrCollections {
                 for (String s : list) System.out.println(s);
             }
         };
-        Runnable r2 = () -> { for (int i = 0; i < 10; i++)
-            synchronized (list){
-                list.add(Integer.toString(1));
-            }
+        Runnable r2 = () -> {
+            for (int i = 0; i < 10; i++)
+                synchronized (list){
+                    list.add(Integer.toString(1));
+                }
         };
 
         Thread t1 = new Thread(r1);

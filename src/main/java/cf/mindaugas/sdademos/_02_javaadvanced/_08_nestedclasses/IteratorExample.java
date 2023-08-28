@@ -98,17 +98,14 @@ class FlightListIterator implements ListIterator {
 
     @Override
     public void remove() {
-
     }
 
     @Override
     public void set(Object o) {
-
     }
 
     @Override
     public void add(Object o) {
-
     }
 }
 

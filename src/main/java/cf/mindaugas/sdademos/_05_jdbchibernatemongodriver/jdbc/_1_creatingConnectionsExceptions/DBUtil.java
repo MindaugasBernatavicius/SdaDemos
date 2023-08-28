@@ -10,7 +10,7 @@ public class DBUtil {
     private static final String mySqlUser = "root";
     private static final String mySqlPwd = "root";
     private static final String oraCS = "jdbc:oracle:thin:@192.168.56.14:1521:xe";
-    private static final String mySQLCS = "jdbc:mysql://localhost:3306/jdbcdemo";
+    private static final String mySQLCS = "jdbc:mysql://localhost:3306/jdbcdemo"; // ?profileSQL=true FOR LOGGING
 
     public static Connection getConnection(DBType dbType) throws SQLException {
         switch (dbType) {

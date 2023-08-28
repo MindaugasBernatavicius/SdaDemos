@@ -15,9 +15,10 @@ public class _03_Reduction {
         // Creating list of integers
         List<Integer> array = Arrays.asList(-2, 0, 4, 6, 8);
         // Finding sum of all elements
-        // - initial value --> 0
+        // - initial value for the accumulator --> 0
         // - partialResult --> represents the result of all the previous operations
         // - currentElement --> just the next element from the stream
+        // - whatever gets returned from reduction will be passed to the accumulator untill all items in stream are processed
         int sum = array.stream().reduce(0,
                 (partialResult, currentElement) -> partialResult + currentElement);
 
@@ -53,11 +54,36 @@ public class _03_Reduction {
         // 1. currValue -> "" + "Andrew" ... returned "" + "Andrew" + ", " + "Bu"
         // 2. currValue -> "" + "Andrew" + ", " + "Bu" ... returned "" + "Andrew" + ", " + "Bu" + ", " + "Michael"
         System.out.println(namesConcatenation);
+
+
+
+
+        // var vals = new int[]{ 2, 4, 6, 8, 10, 12, 14, 16 };
+        // var sum = Arrays.stream(vals).sum();
+        // System.out.println(sum);
+
+        List<Integer> numbers = Arrays.asList(-2, 0, 4, 6, 8);
+        var res = numbers.stream().reduce(0, (partialResult, nextValInList) ->  partialResult + nextValInList);
+        System.out.println(res);
+
+        // Finding sum of all elements
+        // - initial value for the accumulator --> 0
+        // - partialResult --> represents the result of all the previous operations
+        // - nextValInList --> just the next element from the stream
+        // - whatever gets returned from reduction will be passed to the accumulator untill all items in stream are processed
+        // (0 (-2, 0, 4, 6, 8) -> (0 +-2 (0, 4, 6, 8) -> (-2 + 0 (, 6, 8) ...
+
+        System.out.println(numbers.stream().reduce(0, Integer::sum));
+
+        List<String> names2 = Arrays.asList("Andrew", "Bu", "ThisIsLonger", "Michael");
+        System.out.println(names2.stream().reduce((s1, s2) -> s1 + " " + s2).get());
+
+        // determine the longest string (max reduction)
+        System.out.println(names2.stream().reduce((s1, s2) -> s1.length() > s2.length() ? s1 : s2).get());
     }
 }
 
 class Car {
-
     private final String name;
     private final int price;
 

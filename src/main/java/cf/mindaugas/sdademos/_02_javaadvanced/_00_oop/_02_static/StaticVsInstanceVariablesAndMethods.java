@@ -20,15 +20,12 @@ public class StaticVsInstanceVariablesAndMethods {
 class HumanBeing {
     static int legCount = 2;
     String name;
-
     public HumanBeing(String name) {
         this.name = name;
     }
-
     public void changeLegCount(int legC) {
         legCount = legC;
     }
-
     static int getStaticLegCount() {
         return legCount;
     }

@@ -42,20 +42,20 @@ public class _05_ImprovingFileReadingPerformance {
         // long stopTime = System.nanoTime();
         // System.out.println(TimeUnit.NANOSECONDS.toMillis(stopTime - startTime) + "ms");
 
-        // ... with threads : ~600ms
-        Thread[] threads = new Thread[inputFiles.length];
-        long startTime = System.nanoTime();
-        for (int i = 0; i < inputFiles.length; i++) {
-            AdderR adder = new AdderR(inputFiles[i], outputFiles[i]);
-            threads[i] = new Thread(adder);
-            threads[i].start();
-        }
-
-        // ...
-        for (Thread t : threads) t.join();
-        long stopTime = System.nanoTime();
-
-        System.out.println(TimeUnit.NANOSECONDS.toMillis(stopTime - startTime) + "ms");
+        // // ... with threads : ~600ms
+        // Thread[] threads = new Thread[inputFiles.length];
+        // long startTime = System.nanoTime();
+        // for (int i = 0; i < inputFiles.length; i++) {
+        //     AdderR adder = new AdderR(inputFiles[i], outputFiles[i]);
+        //     threads[i] = new Thread(adder);
+        //     threads[i].start();
+        // }
+        //
+        // // ...
+        // for (Thread t : threads) t.join();
+        // long stopTime = System.nanoTime();
+        //
+        // System.out.println(TimeUnit.NANOSECONDS.toMillis(stopTime - startTime) + "ms");
     }
 }
 

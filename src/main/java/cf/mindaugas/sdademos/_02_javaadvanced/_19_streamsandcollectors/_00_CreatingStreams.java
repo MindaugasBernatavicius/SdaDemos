@@ -10,6 +10,7 @@ public class _00_CreatingStreams {
 
         // 0. Creating from collections
         List<String> names = Arrays.asList("Jimmy", "Jill", "Joe", "Anna");
+        // List<String> names = List.of("Jimmy", "Jill", "Joe", "Anna");
         Stream<String> s = names.stream();
         s.forEach(System.out::println);
 

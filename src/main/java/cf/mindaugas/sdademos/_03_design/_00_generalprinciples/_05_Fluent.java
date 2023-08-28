@@ -1,14 +1,34 @@
 package cf.mindaugas.sdademos._03_design._00_generalprinciples;
 
+import java.util.ArrayList;
+import java.util.List;
+// import static org.assertj.core.api.Assertions.assertThat;
+//
+// class Person {
+//     public String getName(){
+//         return "Frod";
+//     }
+// }
+
 public class _05_Fluent {
     public static void main(String[] args) {
-        // 1. Fluent assertions with AssertJ (not a functioning example)
-        // assertThat(frodo.getName())
+        // // 1. Fluent assertions with AssertJ and JOOQ library uses Fluent Interface DP
+        // ATTENTION: when installing AssertJ do not constrain the scope to only "test"
+        // assertThat(new Person().getName())
         //         .startsWith("Fro")
         //         .endsWith("do")
         //         .isEqualToIgnoringCase("frodo");
 
-        // 2. Custom implementation
+
+        // // 2. Simple Fluent Interface example
+        // new Printer()
+        //         .print("Hello")
+        //         .and()
+        //         .print(" ")
+        //         .and()
+        //         .print("world!");
+
+        // 3. Custom implementation
         PensionCalculator pc = new PensionCalculator();
         double pension = pc.with()
                 .personAge(79)
@@ -17,7 +37,17 @@ public class _05_Fluent {
                 .getPension();
 
         System.out.println("Pension is: " + pension);
+    }
+}
 
+class Printer {
+    public Printer print(String in){
+        System.out.print(in);
+        return this;
+    }
+
+    public Printer and(){
+        return this;
     }
 }
 

@@ -1,5 +1,9 @@
 package cf.mindaugas.sdademos._02_javaadvanced._11_collections;
 
+import lombok.AllArgsConstructor;
+import lombok.EqualsAndHashCode;
+import lombok.ToString;
+
 import java.util.*;
 import java.util.Arrays;
 
@@ -322,6 +326,122 @@ public class CollectionsExamples {
         System.out.println("After sorting: " + peopleImplementingComparator);
     }
 
+    public static void sortingLists(){
+        List<Exercise> trainingSchedule = new ArrayList<>();
+        trainingSchedule.add(new Exercise("Jogging", 1500));
+        trainingSchedule.add(new Exercise("Weight Training", 4500));
+        trainingSchedule.add(new Exercise("Stretches", 1200));
+        trainingSchedule.add(new Exercise("Ab Crunches", 1200));
+
+        System.out.println("Before sorting: " + trainingSchedule);
+
+        // 0. Provide custom algorithm (not recommended in production)
+
+        // 1. Collections.sort()
+        // ERROR:: no instance(s) of type variable(s) T exist so that Exercise conforms to Comparable<? super T>
+        // ... this means we don't have Comparable interface implemented.
+        // ... 2 ways to solve it: Implement Comparable on Exercise or provide a custom Comparator
+        // Collections.sort(trainingSchedule, (o1, o2) -> o1.durationSeconds - o2.durationSeconds);
+        // Collections.sort(trainingSchedule, new Comparator<Exercise>() {
+        //     @Override
+        //     public int compare(Exercise o1, Exercise o2) {
+        //         return o1.durationSeconds - o2.durationSeconds;
+        //     }
+        // });
+        // class ExerciseComparator implements Comparator<Exercise> {
+        //     @Override
+        //     public int compare(Exercise o1, Exercise o2) {
+        //         return o1.durationSeconds - o2.durationSeconds;
+        //     }
+        // }
+        // Collections.sort(trainingSchedule, new ExerciseComparator());
+        // Collections.sort(trainingSchedule, (o1, o2) -> {
+        //     if(o1.durationSeconds > o2.durationSeconds) return 1;
+        //     else if (o1.durationSeconds == o2.durationSeconds) return o1.getName().compareTo(o2.name);
+        //     else return -1;
+        // });
+
+        // Collections.sort(trainingSchedule);
+
+        // 2. list.sort() - the best practice
+        // trainingSchedule.sort(Exercise::compareTo); // method reference - use for default way of comparing
+        // trainingSchedule.sort((o1, o2) -> o1.durationSeconds - o2.durationSeconds);
+        // trainingSchedule.sort(Comparator.comparingInt(o -> o.getDurationSeconds()));
+        // trainingSchedule.sort(Comparator.comparingInt(o -> o.getDurationSeconds()).reversed());
+        // trainingSchedule.sort(Comparator.comparingInt(o -> ((Exercise)o).getDurationSeconds()).reversed());
+        // trainingSchedule.sort(Comparator.comparingInt(Exercise::getDurationSeconds)); // best practice
+        // trainingSchedule.sort(Comparator.comparing(Exercise::getName));
+        // trainingSchedule.sort(Comparator.comparingInt(Exercise::getDurationSeconds).reversed());
+        trainingSchedule.sort(Comparator
+                .comparingInt(Exercise::getDurationSeconds)
+                .thenComparing(Exercise::getName));
+        // trainingSchedule.sort(Comparator
+        //         .comparingInt(Exercise::getDurationSeconds)
+        //         .thenComparing(Exercise::getName)
+        //         .reversed());
+
+        System.out.println("After sorting: " + trainingSchedule);
+    }
+
+    public static void sets() {
+        // Set<String> strings = new HashSet<>();
+        // strings.add("ABC");
+        // strings.add("DFE");
+        // strings.add("ABC");
+        // System.out.println(strings);
+        // System.out.println(strings.size());
+        //
+        // for(String s : strings)
+        //     System.out.println(s);
+
+        // // ... simple thus far - where are they useful?
+        // // ... 1. removing duplicates from other collections
+        // List<Person> people = new ArrayList<>();
+        // people.add(new Person("Jammie"));
+        // people.add(new Person("Jax"));
+        // people.add(new Person("Jammie"));
+        // System.out.println(people);
+        // Set<Person> uniqueMembers = new HashSet<>(people);
+        // System.out.println(uniqueMembers);
+
+        // ... 2. mathematical set operations (check if two groups of people contain same members - group membership)
+        Set<PersonSimple> goodStudents = new HashSet<>();
+        goodStudents.add(new PersonSimple("Jammie"));
+        goodStudents.add(new PersonSimple("Jax"));
+        goodStudents.add(new PersonSimple("Dick"));
+
+        Set<PersonSimple> studentsWithCriminalRecord = new HashSet<>();
+        studentsWithCriminalRecord.add(new PersonSimple("Ammie"));
+        studentsWithCriminalRecord.add(new PersonSimple("Dick"));
+        studentsWithCriminalRecord.add(new PersonSimple("Ax"));
+
+        // ... intersection of two sets
+        Set<PersonSimple> intersectionSet = new HashSet<>(goodStudents);
+        intersectionSet.retainAll(studentsWithCriminalRecord);
+        System.out.println(intersectionSet);
+
+        // ... additional mathematical operations: https://www.baeldung.com/java-set-operations
+    }
+
+    public static void queues() {
+        // Person cannot be cast to class java.lang.Comparable
+        Queue<Exercise> exerciseQueue = new PriorityQueue<> ();
+        // Queue<Exercise> exerciseQueue = new PriorityQueue<>((o1, o2) -> /* custom comparator order */);
+        exerciseQueue.add(new Exercise("Jogging", 1500));
+        exerciseQueue.add(new Exercise("Weight Training", 4500));
+        exerciseQueue.add(new Exercise("Ab Crunches", 1200));
+
+        System.out.println(exerciseQueue);
+        System.out.println(exerciseQueue.remove());
+        System.out.println(exerciseQueue);
+        System.out.println(exerciseQueue.remove());
+        System.out.println(exerciseQueue);
+
+        // ... as you will see, there is no method to get an item from the middle
+        // exerciseQueue.element();
+        // exerciseQueue.peek();
+    }
+
     public static void main(String[] args) {
         // collectionAddAndIterate();
         // removingOneByOne();
@@ -335,7 +455,10 @@ public class CollectionsExamples {
         // sortingCollectionOfStrings();
         // searchingACollectionOfStrings();
         // sortingStringsInReverse();
-        sortingListofCustomObjects();
+        // sortingListofCustomObjects();
+        // sortingLists();
+        // sets();
+        queues();
     }
 }
 
@@ -358,6 +481,13 @@ class FullName {
     private String firstName;
     private String midName;
     private String lastName;
+}
+
+@AllArgsConstructor
+@ToString
+@EqualsAndHashCode
+class PersonSimple {
+    private String name;
 }
 
 class Person {
@@ -477,3 +607,34 @@ class PersonComp implements Comparable<PersonComp> {
 }
 
 
+class Exercise implements Comparable<Exercise> {
+    String name;
+    int durationSeconds;
+
+    public Exercise(String name, int durationSeconds) {
+        this.name = name;
+        this.durationSeconds = durationSeconds;
+    }
+
+    @Override
+    public String toString() {
+        return "Exercise{" +
+                "name='" + name + '\'' +
+                ", durationSeconds=" + durationSeconds +
+                '}';
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public int getDurationSeconds() {
+        return durationSeconds;
+    }
+
+    @Override
+    public int compareTo(Exercise o) {
+        // return this.name.compareTo(o.name);
+        return this.getDurationSeconds() - o.getDurationSeconds();
+    }
+}

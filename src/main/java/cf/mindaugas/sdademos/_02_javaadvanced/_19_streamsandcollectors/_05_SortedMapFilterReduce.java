@@ -48,6 +48,35 @@ public class _05_SortedMapFilterReduce {
                 .average()
                 .getAsDouble();
         System.out.println("Average age for Thomas' : " + averageAgeForThomases);
+
+
+
+        // average
+        // get the averate lenght of a persons name for all names that are > 4 letters long
+        var averageLengthOfLongerNames = List.of("John Johnaton", "Max Maximilian", "Alikosa Frisko", "Zoro Zoroani", "Mango Kiwi")
+                .stream()
+                .map(s -> s.split(" ")[0])
+                .filter(s -> s.length() > 4)
+                .mapToInt(s -> s.length())
+                .average();
+        System.out.println(averageLengthOfLongerNames.getAsDouble());
+
+        // var il = List.of("John Johnaton", "Max Maximilian", "Alikosa Frisko", "Zoro Zoroani", "Mango Kiwi");
+        // var counter = new AtomicInteger();
+        // var averageLengthOfLongerNames = il
+        //         .stream()
+        //         .map(s -> s.split(" ")[0])
+        //         // .filter(s -> s.length() > 4)
+        //         .mapToDouble(String::length)
+        //         .reduce(0.0, (acc, next) -> {
+        //             if(il.size()-1 == counter.get()) {
+        //                 return (acc + next) / il.size();
+        //             } else {
+        //                 counter.getAndIncrement();
+        //                 return acc + next;
+        //             }
+        //         });
+        // System.out.println(averageLengthOfLongerNames);
     }
 }
 

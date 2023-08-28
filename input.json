@@ -1,0 +1,8 @@
+{
+  "name": "JavaEERemote27",
+  "trainer": "Mindaugas",
+  "students": [
+    { "name" : "John", "age": 25 },
+    { "name" : "Peter" }
+  ]
+}

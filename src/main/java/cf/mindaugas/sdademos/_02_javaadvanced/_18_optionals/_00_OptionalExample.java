@@ -1,5 +1,6 @@
 package cf.mindaugas.sdademos._02_javaadvanced._18_optionals;
 
+import java.util.List;
 import java.util.Optional;
 
 public class _00_OptionalExample {
@@ -31,6 +32,26 @@ public class _00_OptionalExample {
         // ... passing optional to a function
         int sum = sum(Optional.of(1), Optional.of(2));
         System.out.println("Sum:" + sum);
+
+
+
+
+        Optional<String> res = List.of("AB", "BB", "BD", "BC").stream()
+                .filter(s -> s.startsWith("B")).findAny();
+
+        // 0.
+        // res.ifPresentOrElse(System.out::println, () -> System.out.println("No value found"));
+
+        // 1.
+        // res.ifPresent(System.out::println);
+        // res.orElse("No one found");
+
+        // 2.
+        if(res.isEmpty())
+            System.out.println("No one found");
+        else
+            System.out.println(res.get());
+
     }
 
     public static Integer sum(Optional<Integer> a, Optional<Integer> b) {

@@ -1,0 +1,2 @@
+- need to reimplement examples with EntityManager, as it is JPA compliant
+- need to show the link to JPA, so students would understand what an official java specification / standard is

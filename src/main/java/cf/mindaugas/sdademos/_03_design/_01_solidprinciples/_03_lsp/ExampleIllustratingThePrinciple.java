@@ -55,13 +55,10 @@ abstract class Vehicle {
 
 abstract class MotorisedVehicle extends Vehicle {
     Engine engine;
-
     abstract void startEngine();
-
     public Engine getEngine() {
         return engine;
     }
-
     public void setEngine(Engine engine) {
         this.engine = engine;
     }
@@ -69,26 +66,21 @@ abstract class MotorisedVehicle extends Vehicle {
 
 class Car extends MotorisedVehicle {
     @Override
-    void startEngine() {
-    }
+    void startEngine() {}
 }
 
-class Bicycle extends Vehicle {
-}
+class Bicycle extends Vehicle { }
 
 class Engine {
     State state;
-
     enum State {ON, OFF}
-
     public State getState() {
         return state;
     }
-
     public void setState(State state) {
         this.state = state;
     }
 }
 
 // ... how would you solve the case where we would have Vehicles w/o wheels?
-// ... would you create Wheeled Vehicle  abstract class or an interface?
+// ... would you create Wheeled Vehicle abstract class or an interface?

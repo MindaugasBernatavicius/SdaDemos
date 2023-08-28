@@ -10,7 +10,6 @@ import org.hibernate.boot.registry.StandardServiceRegistry;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 
 public class CreateEntity {
-
     public static void runExample() {
         StandardServiceRegistry registry = new StandardServiceRegistryBuilder().configure().build(); // Create registry
         MetadataSources sources = new MetadataSources(registry); // Create MetadataSources

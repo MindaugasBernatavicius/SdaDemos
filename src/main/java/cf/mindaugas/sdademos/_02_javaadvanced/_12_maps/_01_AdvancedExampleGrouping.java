@@ -6,14 +6,13 @@ import java.util.List;
 import java.util.Map;
 
 public class _01_AdvancedExampleGrouping {
-    private static List<Person> persons = new ArrayList<>();
-
-    private static Map<String, List<Person>> mapByFirstName = new HashMap<>();
-    private static Map<String, List<Person>> mapByLastName = new HashMap<>();
-    private static Map<Integer, List<Person>> mapByAge = new HashMap<>();
+    private static final List<Person> people = new ArrayList<>();
+    private static final Map<String, List<Person>> firstNameToPeople = new HashMap<>();
+    private static final Map<String, List<Person>> mapByLastName = new HashMap<>();
+    private static final Map<Integer, List<Person>> ageToPeople = new HashMap<>();
 
     public static List<Person> searchByFirstName(String firstName) {
-        return mapByFirstName.getOrDefault(firstName, new ArrayList<>());
+        return firstNameToPeople.getOrDefault(firstName, new ArrayList<>());
     }
 
     public static List<Person> searchByLastName(String lastName) {
@@ -21,36 +20,36 @@ public class _01_AdvancedExampleGrouping {
     }
 
     public static List<Person> searchByAge(int age) {
-        return mapByAge.getOrDefault(age, new ArrayList<>());
+        return ageToPeople.getOrDefault(age, new ArrayList<>());
     }
 
 
     public static void main(String[] args) {
-        persons.add(new Person("John", "Jones", 31));
-        persons.add(new Person("Merlin", "More", 41));
-        persons.add(new Person("Berry", "More", 31));
+        people.add(new Person("John", "Jones", 31));
+        people.add(new Person("Merlin", "More", 41));
+        people.add(new Person("Berry", "More", 31));
 
-        for (Person p : persons) {
+        for (Person p : people) {
             // create the key associated List when it does not exist at first
-            if (!mapByFirstName.containsKey(p.getFirstName()))
-                mapByFirstName.put(p.getFirstName(), new ArrayList<>());
+            if (!firstNameToPeople.containsKey(p.getFirstName()))
+                firstNameToPeople.put(p.getFirstName(), new ArrayList<>());
 
             // if we already have the key inside the map, we just
             // ... add a Person to the ArrayList associated with that key.
-            List<Person> tmpList = mapByFirstName.get(p.getFirstName());
+            List<Person> tmpList = firstNameToPeople.get(p.getFirstName());
             tmpList.add(p);
         }
 
-        for (Person p : persons) {
+        for (Person p : people) {
             if (!mapByLastName.containsKey(p.getLastName()))
                 mapByLastName.put(p.getLastName(), new ArrayList<>());
             mapByLastName.get(p.getLastName()).add(p);
         }
 
-        for (Person p : persons) {
-            if (!mapByAge.containsKey(p.getAge()))
-                mapByAge.put(p.getAge(), new ArrayList<>());
-            mapByAge.get(p.getAge()).add(p);
+        for (Person p : people) {
+            if (!ageToPeople.containsKey(p.getAge()))
+                ageToPeople.put(p.getAge(), new ArrayList<>());
+            ageToPeople.get(p.getAge()).add(p);
         }
 
         System.out.println(searchByAge(31));

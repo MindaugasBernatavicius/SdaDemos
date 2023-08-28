@@ -21,11 +21,9 @@ public class NestedClassSimpleExample {
 
 class Bicycle {
     private int maxSpeed = 40;
-
     public int getMaxSpeed() {
         return maxSpeed;
     }
-
     public class Wheel {
         public void damage() {
             // we can refer to outer class's field
@@ -38,11 +36,9 @@ class Bicycle {
 
 class BicycleWStaticMechanic {
     private int maxSpeed = 25;
-
     public int getMaxSpeed() {
         return maxSpeed;
     }
-
     public static class Mechanic {
         public void repair(BicycleWStaticMechanic bicycle) {
             // nested static class can refer

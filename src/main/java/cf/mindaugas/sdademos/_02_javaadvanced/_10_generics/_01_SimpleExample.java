@@ -44,7 +44,6 @@ class Truck {
     }
 }
 
-class Moped {
-}
+class Moped { }
 
 

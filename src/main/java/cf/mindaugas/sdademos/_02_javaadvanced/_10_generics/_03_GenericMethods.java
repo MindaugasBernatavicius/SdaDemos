@@ -42,42 +42,61 @@ public class _03_GenericMethods {
         }
     }
 
-    // ... implementing a minimum method for custom objects
+    // ... implementing a minimum method that can work with list of any type
     public static <T> T min(List<T> values, Comparator<T> comparator) {
-        if (values.isEmpty()) {
-            throw new IllegalArgumentException("Unable to find the minimum of an empty list");
-        }
+        if (values.isEmpty()) throw new IllegalArgumentException("Unable to find the minimum of an empty list");
 
         T lowestFound = values.get(0);
-
         for (int i = 1; i < values.size(); i++) {
             final T element = values.get(i);
-            if (comparator.compare(element, lowestFound) < 0) {
+            if (comparator.compare(element, lowestFound) < 0)
                 lowestFound = element;
-            }
         }
         return lowestFound;
     }
 
+    private static <T extends Comparable<T>> void bubbleSort(T[] arr){
+        int n = arr.length;
+        for (int i = 0; i < n - 1; i++){
+            for (int j = 0; j < n - i - 1; j++){
+                if (arr[j].compareTo(arr[j+1]) > 0){
+                    T temp = arr[j];
+                    arr[j] = arr[j+1];
+                    arr[j+1] = temp;
+                }
+            }
+        }
+    }
+
+
     public static void main(String[] args) {
 
-        List<Customer> customers = new ArrayList<>();
-        List<Order> orders = new ArrayList<>();
-
-        System.out.println("Working Directory = " +
-                System.getProperty("user.dir"));
-
-        String filePathCustomers = ".\\target\\classes\\Customers.txt";
-        String filePathOrders = ".\\target\\classes\\Orders.txt";
-
-        populateList(filePathCustomers, customers, Customer.class);
-        populateList(filePathOrders, orders, Order.class);
-
-        System.out.println(customers.size() + " " + orders.size());
+        // List<Customer> customers = new ArrayList<>();
+        // List<Order> orders = new ArrayList<>();
+        //
+        // System.out.println("Working Directory = " +
+        //         System.getProperty("user.dir"));
+        //
+        // String filePathCustomers = ".\\target\\classes\\Customers.txt";
+        // String filePathOrders = ".\\target\\classes\\Orders.txt";
+        //
+        // populateList(filePathCustomers, customers, Customer.class);
+        // populateList(filePathOrders, orders, Order.class);
+        //
+        // System.out.println(customers.size() + " " + orders.size());
 
         // ... minimizer
 
         // ... generic bubbleSort
+        bubbleSort(new Invoice[]{new Invoice(), new Invoice()});
+    }
+}
+
+class Invoice implements Comparable<Invoice> {
+
+    @Override
+    public int compareTo(Invoice o) {
+        return 0;
     }
 }
 

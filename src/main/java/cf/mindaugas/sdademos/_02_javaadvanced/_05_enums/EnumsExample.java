@@ -25,8 +25,9 @@ public class EnumsExample {
         }
 
         // Why use enums at all
-        // - autocomplete
-        // - compile time safety (with string you can make mistake in a switch statement)
+        // - autocompletion benefits
+        // - compile time safety (with string you can make mistakes in a switch/if statements - not with enums)
+        // - intentionality - when you see an enum you know there is a finite set of states/options - not with raw values
         String s = "ABC";
         switch (s) {
             case "FOOT":

@@ -86,7 +86,9 @@ public class _02_Generics {
         BoxWithGenerics<Car> boxWithGenericsWithCar = new BoxWithGenerics(car);
         BoxWithGenerics<Bike> boxWithGenericsWithBike = new BoxWithGenerics(bike);
 
-        //System.out.println(boxWithCar.getValue().equals(otherBoxWithCar.getValue()));
+        boxWithGenericsWithBike.getValue();
+
+        //System.out.println(boxWithCar.getValue().equals(otherBoxWithCar.getValue()))
         ((Car) boxWithCar.getValue()).makeNoise();
         ((Bike) boxWithBike.getValue()).makeNoise();
 
@@ -101,12 +103,16 @@ public class _02_Generics {
 
         boxWithGenericsWithCar.getValue().startEngine();
         boxWithGenericsWithBike.getValue().makeNoise();
+
+
+        BoxWithGenericsUpperMultiBound<Car> boxWGenericsUpperMultiBoundWCar
+                = new BoxWithGenericsUpperMultiBound<>(car);
+        boxWGenericsUpperMultiBoundWCar.getValue().makeNoise();
     }
 }
 
 // ... Classes that define data
-class Thing {
-}
+class Thing { }
 
 interface Vehicle {
     void makeNoise();
