@@ -1,12 +1,13 @@
 package cf.mindaugas.sdademos._03_design._00_generalprinciples;
 
 public class _01_Kiss {
-
     public static void main(String[] args) {
-        // _01_Kiss k = new _01_Kiss();
+        // System.out.println(getWeekDayComplex(5));
+        // System.out.println(getWeekDaySimple(5));
+        System.out.println(getWeekDaySimpleSwExpr(5));
     }
 
-    public String getWeekDayComplex(int day) {
+    public static String getWeekDayComplex(int day) {
         if ((day < 1) || (day > 7))
             throw new IllegalStateException("day must be in range 1 to 7");
         String[] days = {
@@ -21,10 +22,7 @@ public class _01_Kiss {
         return days[day - 1]; // 7
     }
 
-    // ... how can we write it simpler?
-
-
-    public String getWeekDaySimple(int day) {
+    public static String getWeekDaySimple(int day) {
         switch (day) {
             case 1:
                 return "Monday";
@@ -43,5 +41,20 @@ public class _01_Kiss {
             default:
                 throw new IllegalStateException("day must be in range 1 to 7");
         }
+    }
+
+    public static String getWeekDaySimpleSwExpr(int day) {
+        return switch(day) {
+            case 1 -> "Monday";
+            case 2 -> "Tuesday";
+            case 3 -> "Wednesday";
+            case 4 -> "Thursday";
+            case 5 -> "Friday";
+            case 6 -> "Saturday";
+            case 7 -> "Sunday";
+            default -> throw new IllegalStateException(
+                "day must be in range 1 to 7"
+            );
+        };
     }
 }

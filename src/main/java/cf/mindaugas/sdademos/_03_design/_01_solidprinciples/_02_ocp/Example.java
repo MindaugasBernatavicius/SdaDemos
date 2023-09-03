@@ -64,7 +64,7 @@ class Circle implements Shape {
 ///////////////////////////////////////////////
 // ..... WHY DOES THIS NOT VIOLATE SRP?
 // ..... Because we can say, that simple objects like mathematical shapes
-// ..... have area as a inherent property (a derived property from length and width).
+// ..... have area as an inherent property (derived inherent property from length and width).
 // ..... unlike employee calculating his own promotion
 ///////////////////////////////////////////////
 

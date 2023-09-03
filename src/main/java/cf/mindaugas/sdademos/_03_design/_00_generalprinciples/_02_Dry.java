@@ -1,7 +1,6 @@
 package cf.mindaugas.sdademos._03_design._00_generalprinciples;
 
 public class _02_Dry {
-
     // DRY with functions
     public static void bubbleSortAsc(Person arr[]) {
         int n = arr.length;
@@ -29,8 +28,6 @@ public class _02_Dry {
         }
     }
 
-    // ... vs.
-
     public static void bubbleSortDry(Person arr[], boolean reverse) {
         int n = arr.length;
         for (int i = 0; i < n - 1; i++) {
@@ -51,6 +48,8 @@ public class _02_Dry {
             }
         }
     }
+
+    // ... w/ even DRY'er with comparator
 }
 
 class Person {
@@ -76,7 +75,7 @@ class Person {
 // }
 
 
-// 2. DRY with inheritance
+// 2. w/ inheritance
 class WildCat {
     int age;
     String name;

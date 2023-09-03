@@ -2,8 +2,8 @@ package cf.mindaugas.sdademos._03_design._01_solidprinciples._05_dip;
 
 public class DipExample {
     public static void main(String[] args) {
-        // Student s1 =  new Student(new ShippingAddress("USA", "Los angeles", "Venice Beatch", 15));
-        // Student s2 =  new Student(new Address("USA", "Los angeles", "Venice Beatch"));
+        // var s1 =  new Student(new ShippingAddress("USA", "Los angeles", "Venice Beatch", 15));
+        // var s2 =  new Student(new Address("USA", "Los angeles", "Venice Beatch"));
     }
 }
 
@@ -11,9 +11,9 @@ public class DipExample {
 // ... when a class needs another class to be instantiated and work correctly
 
 // 0.
-// this Student depends on ShippingAddress class.
-// dependency for the Student class is the ShippingAddress class.
-// b/c ShippingAddress is a concrete class we depend on a concretion
+// Student depends on ShippingAddress class.
+// ... dependency for the Student class is the ShippingAddress class.
+// ... b/c ShippingAddress is a concrete class we depend on a concretion
 // ... so we violate Dep. Inv. Princip.
 // class Student {
 //    private String name;

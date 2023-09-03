@@ -13,7 +13,7 @@ public class Employee {
 
     // ... can an employee know about his promotion eligibility
     // ... some would say, that promotion logic should be separate
-    // ... from Employee class b/c it is not a property of of Employee
+    // ... from Employee class b/c it is not a property of Employee
     // ... so in the next example, lets move this to another class:
     // ... PromotionCalculator class
     public boolean isPromotionDueThisYear() {
